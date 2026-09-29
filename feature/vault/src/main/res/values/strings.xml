@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="vault_title">Vault</string>
+    <string name="vault_status">Unlocked</string>
+    <string name="vault_encrypted">Encrypted</string>
+    <string name="vault_session_label">VAULT SESSION</string>
+    <string name="vault_session_title">Auto-locks in %s</string>
+    <string name="vault_session_caption">Unlocked with your vault passphrase</string>
+    <string name="vault_lock">Lock</string>
+    <string name="vault_storage">Storage</string>
+    <string name="vault_storage_used">%1$s GB</string>
+    <string name="vault_storage_total"> / %1$s GB</string>
+    <string name="vault_section_areas">Secure containers</string>
+    <plurals name="vault_section_areas_count">
+        <item quantity="one">%d AREA</item>
+        <item quantity="other">%d AREAS</item>
+    </plurals>
+    <string name="vault_locked">Locked</string>
+    <string name="vault_section_tools">Tools</string>
+    <string name="vault_shamir_title">Shamir secret splitting</string>
+    <string name="vault_shamir_subtitle">Split a secret so any 3 of 5 friends can restore it</string>
+    <string name="vault_shamir_action">Split</string>
+    <string name="vault_backup_title">Backup to a friend</string>
+    <string name="vault_backup_subtitle">Last encrypted backup: %s</string>
+    <string name="vault_backup_tag">MESH</string>
+    <string name="vault_lock_now">Lock vault now</string>
+</resources>

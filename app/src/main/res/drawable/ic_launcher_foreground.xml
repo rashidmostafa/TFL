@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Adaptive icon foreground: the shield mark from design/assets/tfl_logo.svg (100-unit viewBox),
+    scaled 0.8 and centred on the 108dp canvas. Its farthest point sits ~28dp from the centre,
+    inside the 33dp safe zone. Also used as the splash screen icon.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:translateX="14"
+        android:translateY="14">
+        <path
+            android:fillColor="#0B0F14"
+            android:pathData="M50,18L74,27V48C74,63.5 63.8,77.8 50,82C36.2,77.8 26,63.5 26,48V27L50,18Z"
+            android:strokeWidth="4"
+            android:strokeColor="#22D3B6"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+        <path
+            android:fillAlpha="0.2"
+            android:fillColor="#22D3B6"
+            android:pathData="M42,46A8,8 0,1 0,58,46A8,8 0,1 0,42,46Z"
+            android:strokeWidth="3"
+            android:strokeColor="#22D3B6" />
+        <path
+            android:pathData="M50,54V64M42,42L35,37M58,42L65,37M44,51L36,58M56,51L64,58"
+            android:strokeWidth="2.5"
+            android:strokeColor="#22D3B6"
+            android:strokeLineCap="round" />
+    </group>
+</vector>

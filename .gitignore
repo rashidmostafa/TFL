@@ -1,0 +1,25 @@
+# Gradle / Kotlin
+.gradle/
+.kotlin/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Machine-local config
+/local.properties
+/keystore.properties
+*.jks
+*.keystore
+
+# IDE
+.idea/
+*.iml
+.vscode/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Font pipeline download cache
+/tools/fonts/.cache/
+
+# OS
+.DS_Store

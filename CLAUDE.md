@@ -70,3 +70,11 @@ Envelope is versioned so a Double Ratchet (forward secrecy) can be added later; 
 - Keep the app building and runnable after every step. Tests alongside code.
 - After each phase: summarize what was built, what is stubbed, and how to test on real devices.
 - BLE / Wi-Fi Direct features need real phones — say when manual device testing is required.
+
+## Build & test commands
+- JDK 21 + Android SDK (platform 37, build-tools 37.0.0); `local.properties` holds `sdk.dir`.
+- `./gradlew assembleDebug` · `./gradlew assembleRelease` (R8) · `./gradlew test` (JVM + Robolectric, incl. release-variant tests) · `./gradlew lint`
+- Screenshots: `./gradlew recordRoborazziDebug` writes goldens to `src/test/screenshots`; `verifyRoborazziDebug` checks them. Compare screen goldens against `design/screens/**/screen.png`.
+- New icon: add its name to `core/designsystem/material-symbols.txt`, run `python3 tools/fonts/build_fonts.py`.
+- New dependency (after approval): regenerate `gradle/verification-metadata.xml` (command in README.md).
+- All fake UI data lives in `feature/*/fake/Fake*Data.kt`; replace it with repositories, never hardcode elsewhere.

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="map_title">Map</string>
+    <plurals name="map_status_peers">
+        <item quantity="one">Mesh · %d peer</item>
+        <item quantity="other">Mesh · %d peers</item>
+    </plurals>
+    <string name="map_radar">Proximity radar</string>
+    <string name="map_layers">Map layers</string>
+    <string name="map_center">Center on me</string>
+    <string name="map_offline_preview">MAP PREVIEW</string>
+    <string name="map_drop_pin">Drop meetup pin</string>
+    <string name="map_you">You</string>
+
+    <string name="map_active_friends">Active friends</string>
+    <plurals name="map_sharing">
+        <item quantity="one">%d sharing with you</item>
+        <item quantity="other">%d sharing with you</item>
+    </plurals>
+    <string name="map_sort_nearest">Nearest</string>
+    <string name="map_search_placeholder">Search friends or places…</string>
+    <string name="map_verified">VERIFIED</string>
+    <string name="map_battery">Battery %d%%</string>
+    <string name="map_navigate">Navigate to %s</string>
+    <string name="map_share_location">Share my live location</string>
+    <string name="map_share_caption">Only the friends you choose can see it</string>
+    <string name="map_empty_title">No friends match</string>
+    <string name="map_empty_message">Try another name or place.</string>
+</resources>

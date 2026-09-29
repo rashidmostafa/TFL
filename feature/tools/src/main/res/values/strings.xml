@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tools_title">Tools</string>
+    <string name="tools_status">Mesh · %1$s · %2$s</string>
+    <plurals name="tools_status_peers">
+        <item quantity="one">%d peer</item>
+        <item quantity="other">%d peers</item>
+    </plurals>
+    <plurals name="tools_status_docs">
+        <item quantity="one">%d doc synced</item>
+        <item quantity="other">%d docs synced</item>
+    </plurals>
+    <string name="tools_tag_local">LOCAL-FIRST</string>
+    <string name="tools_tag_servers">NO SERVERS</string>
+    <string name="tools_hero_title">Shared workspace</string>
+    <string name="tools_hero_body">Notes, lists, plans and expenses live on your phones and sync straight between friends: nearby, relayed through the mesh, or over Tor.</string>
+    <plurals name="tools_hero_ready">
+        <item quantity="one">Ready to sync with %d friend</item>
+        <item quantity="other">Ready to sync with %d friends</item>
+    </plurals>
+    <string name="tools_section_tools">Collaborative tools</string>
+    <plurals name="tools_section_tools_count">
+        <item quantity="one">%d TOOL</item>
+        <item quantity="other">%d TOOLS</item>
+    </plurals>
+    <plurals name="tools_syncing">
+        <item quantity="one">Syncing %d document</item>
+        <item quantity="other">Syncing %d documents</item>
+    </plurals>
+    <string name="tools_syncing_route">Relayed over the mesh as friends come in range</string>
+    <string name="tools_section_activity">Recent activity</string>
+    <string name="tools_view_all">View all</string>
+    <string name="tools_new_item">New shared item</string>
+</resources>

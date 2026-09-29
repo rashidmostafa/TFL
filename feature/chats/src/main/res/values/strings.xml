@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chats_title">Chats</string>
+    <plurals name="chats_status_peers">
+        <item quantity="one">%d peer active</item>
+        <item quantity="other">%d peers active</item>
+    </plurals>
+    <string name="chats_status_tor_on">Tor on</string>
+    <string name="chats_status_tor_off">Tor off</string>
+    <string name="chats_status_line">%1$s · %2$s</string>
+    <string name="chats_scan">SCAN</string>
+    <string name="chats_search_placeholder">Search peers, channels, messages…</string>
+
+    <string name="chats_filter_all">All</string>
+    <string name="chats_filter_direct">Direct</string>
+    <string name="chats_filter_groups">Groups</string>
+    <string name="chats_filter_broadcasts">Broadcasts</string>
+
+    <string name="chats_section_pinned">Pinned &amp; broadcasts</string>
+    <string name="chats_section_pinned_trailing">PRIORITY</string>
+    <string name="chats_section_threads">Active threads</string>
+    <string name="chats_section_threads_trailing">E2EE</string>
+    <string name="chats_encrypted">E2EE</string>
+
+    <string name="chats_alert">ALERT</string>
+    <string name="chats_resolve_key">Resolve key</string>
+    <string name="chats_new_chat">New chat</string>
+    <string name="chats_trust_verified">Verified</string>
+    <string name="chats_trust_unverified">Not verified</string>
+    <string name="chats_trust_key_changed">Key changed</string>
+    <plurals name="chats_unread">
+        <item quantity="one">%d unread message</item>
+        <item quantity="other">%d unread messages</item>
+    </plurals>
+
+    <string name="chats_empty_search_title">No matches</string>
+    <string name="chats_empty_search_message">Nothing in your chats matches that search.</string>
+    <string name="chats_empty_filter_title">Nothing here yet</string>
+    <string name="chats_empty_filter_message">Conversations of this kind will show up here.</string>
+</resources>

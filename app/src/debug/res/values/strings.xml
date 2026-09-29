@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">TFL Debug</string>
+
+    <string name="debug_section" translatable="false">Developer · debug build</string>
+    <string name="debug_catalog_title" translatable="false">Design system catalog</string>
+    <string name="debug_catalog_subtitle" translatable="false">Every shared component in its states</string>
+    <string name="debug_screenshots_title" translatable="false">Allow screenshots</string>
+    <string name="debug_screenshots_subtitle" translatable="false">Turns FLAG_SECURE off until the app restarts</string>
+    <string name="debug_catalog_screen_title" translatable="false">Design system</string>
+    <string name="debug_catalog_sheet_demo" translatable="false">Open the bottom sheet demo</string>
+    <string name="debug_catalog_sheet_body" translatable="false" formatted="false">A TflModalBottomSheet: 24dp top corners, drag handle, 60% scrim.</string>
+</resources>

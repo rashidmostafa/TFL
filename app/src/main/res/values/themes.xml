@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Dark-only. Compose draws everything; this only avoids a light flash before the first frame. -->
+    <style name="Theme.TFL" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/tfl_canvas</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Launch theme; MainActivity.installSplashScreen() switches to Theme.TFL. -->
+    <style name="Theme.TFL.Starting" parent="Theme.SplashScreen.IconBackground">
+        <item name="windowSplashScreenBackground">@color/tfl_canvas</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/ic_launcher_background</item>
+        <item name="postSplashScreenTheme">@style/Theme.TFL</item>
+    </style>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="transport_nearby">Nearby</string>
+    <string name="transport_mesh">Mesh</string>
+    <string name="transport_tor">Tor</string>
+    <string name="transport_queued">Queued</string>
+
+    <string name="secure_badge_e2ee">E2EE</string>
+    <string name="secure_badge_unverified">Unverified</string>
+    <string name="secure_badge_key_changed">Key changed</string>
+
+    <string name="delivery_queued">Queued</string>
+    <string name="delivery_sent">Sent</string>
+    <string name="delivery_delivered">Delivered</string>
+    <string name="delivery_read">Read</string>
+
+    <string name="action_back">Back</string>
+    <string name="action_close">Close</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_clear">Clear</string>
+    <string name="action_profile">Your identity</string>
+</resources>

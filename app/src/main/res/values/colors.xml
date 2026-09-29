@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mirrors TflPalette in :core:designsystem, for XML themes that run before Compose. -->
+    <color name="tfl_canvas">#FF0B0F14</color>
+    <color name="ic_launcher_background">#FF141A21</color>
+</resources>

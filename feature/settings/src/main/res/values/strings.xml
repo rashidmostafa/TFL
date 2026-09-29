@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_fingerprint_short">%1$s…%2$s · Ed25519</string>
+    <string name="settings_reachable">Reachable over Nearby and Tor</string>
+    <string name="settings_public_identity">Public identity</string>
+    <string name="settings_copy_fingerprint">Copy fingerprint</string>
+    <string name="settings_stat_mesh_value">ON</string>
+    <string name="settings_stat_mesh_off">OFF</string>
+    <string name="settings_stat_mesh_label">Mesh relay</string>
+    <string name="settings_stat_tor_value">Onion v3</string>
+    <string name="settings_stat_tor_label">Tor</string>
+    <string name="settings_stat_vault_value">Argon2id</string>
+    <string name="settings_stat_vault_label">Vault key</string>
+    <string name="settings_section_configuration">Configuration</string>
+    <string name="settings_account_title">Account &amp; identity</string>
+    <string name="settings_account_subtitle">Keypair, friends, recovery phrase</string>
+    <string name="settings_privacy_title">Privacy</string>
+    <string name="settings_privacy_subtitle">Disappearing messages, read receipts, typing</string>
+    <string name="settings_security_title">Security</string>
+    <string name="settings_security_subtitle">App lock, duress PIN, panic wipe</string>
+    <string name="settings_network_title">Network &amp; transports</string>
+    <string name="settings_network_subtitle">Tor, Nearby, mesh relay, battery</string>
+    <string name="settings_network_badge">TOR ON</string>
+    <string name="settings_bandwidth_title">Bandwidth &amp; data</string>
+    <string name="settings_bandwidth_subtitle">Balanced: previews first, full media when a fast link is up</string>
+    <string name="settings_vault_title">Encrypted vault</string>
+    <string name="settings_notifications_title">Notifications</string>
+    <string name="settings_notifications_subtitle">Quiet by default; SOS alerts always ring</string>
+    <string name="settings_about_title">About</string>
+    <string name="settings_about_subtitle">TFL %s · open-source components only</string>
+    <string name="settings_panic_title">Emergency duress / panic wipe</string>
+    <string name="settings_panic_subtitle">Destroy your keys and switch to a decoy identity</string>
+
+    <!-- Identity sheet -->
+    <string name="settings_identity_title">Your identity</string>
+    <string name="settings_identity_subtitle">Share in person only</string>
+    <string name="settings_identity_qr_placeholder">Your QR code appears here once identities are created.</string>
+    <string name="settings_identity_fingerprint">Public key fingerprint</string>
+    <string name="settings_identity_note">Friends are only ever added in person: they scan this code and you both compare the fingerprint out loud.</string>
+
+    <!-- Shared by the preview shells -->
+    <string name="settings_preview_title">Preview</string>
+    <string name="settings_always_on">ALWAYS ON</string>
+
+    <!-- Security -->
+    <string name="security_title">Security</string>
+    <string name="security_preview_body">These switches aren\'t saved or enforced yet. Screenshot blocking is the only protection active in this build.</string>
+    <string name="security_protections_label">PROTECTIONS</string>
+    <string name="security_protections_title" tools:ignore="PluralsCandidate">%1$d of %2$d active in this build</string>
+    <string name="security_protections_active">Active: screenshot blocking</string>
+    <string name="security_section_access">App access &amp; lock</string>
+    <string name="security_app_lock_title">App lock</string>
+    <string name="security_app_lock_subtitle">PIN and biometrics required on launch</string>
+    <string name="security_auto_lock_title">Auto-lock</string>
+    <string name="security_auto_lock_subtitle">Immediately when you leave the app</string>
+    <string name="security_face_down_title">Lock when face down</string>
+    <string name="security_face_down_subtitle">Locks as soon as the phone is laid screen-down</string>
+    <string name="security_section_duress">Anti-coercion &amp; duress</string>
+    <string name="security_duress_title">Duress PIN</string>
+    <string name="security_duress_subtitle">A second PIN that opens a decoy with no real chats or keys</string>
+    <string name="security_duress_action">Set up</string>
+    <string name="security_panic_trigger">PANIC TRIGGER</string>
+    <string name="security_trigger_shake">Shake the phone five times</string>
+    <string name="security_trigger_volume">Hold volume down for six seconds</string>
+    <string name="security_trigger_action">On trigger: wipe keys and show the decoy</string>
+    <string name="security_section_camouflage">Camouflage</string>
+    <string name="security_calculator_title">Calculator disguise</string>
+    <string name="security_calculator_subtitle">Replace the TFL icon with a working calculator; type your PIN and = to open</string>
+    <string name="security_recents_title">Hide from recent apps</string>
+    <string name="security_recents_subtitle">The app switcher shows a blank card</string>
+    <string name="security_section_device">Device protections</string>
+    <string name="security_screenshots_title">Screenshot blocking</string>
+    <string name="security_screenshots_subtitle">FLAG_SECURE on every screen: no screenshots, recordings or casting</string>
+    <string name="security_memory_title">Clear keys from memory on lock</string>
+    <string name="security_memory_subtitle">Unlocked keys are wiped from RAM whenever the app locks</string>
+    <string name="security_configure_wipe">Configure panic wipe</string>
+    <string name="security_wipe_caption">A panic wipe destroys your identity keys, onion service keys and every local message.</string>
+
+    <!-- Network -->
+    <string name="network_title">Network &amp; transports</string>
+    <string name="network_preview_body">These switches aren\'t saved or enforced yet. Transports arrive in later phases.</string>
+    <string name="network_mesh_status">NEARBY MESH ACTIVE</string>
+    <string name="network_mesh_title">Offline mesh: running</string>
+    <plurals name="network_peers_nearby">
+        <item quantity="one">%d peer nearby</item>
+        <item quantity="other">%d peers nearby</item>
+    </plurals>
+    <string name="network_tx">TX %s</string>
+    <string name="network_rtt">RTT %s</string>
+    <string name="network_rx">RX %s</string>
+    <string name="network_section_tor">Anonymous transport (Tor)</string>
+    <string name="network_tor_title">Tor onion service</string>
+    <string name="network_tor_subtitle">Reach friends over the internet through your own onion service</string>
+    <string name="network_bridges_title">Bridges</string>
+    <string name="network_bridges_subtitle">Off · for networks that block Tor</string>
+    <string name="network_tor_only_title">Tor-only networking</string>
+    <string name="network_tor_only_subtitle">TFL never touches the internet except through Tor</string>
+    <string name="network_section_mesh">Local mesh</string>
+    <string name="network_nearby_title">Nearby (Bluetooth &amp; Wi-Fi Direct)</string>
+    <string name="network_nearby_subtitle">Talk to phones in range with no internet at all</string>
+    <string name="network_relay_title">Relay for friends</string>
+    <string name="network_relay_subtitle">Carry other people\'s encrypted messages, which you can\'t read</string>
+    <string name="network_relay_quota">Daily relay quota</string>
+    <string name="network_relay_used">%1$d MB / %2$d MB</string>
+    <string name="network_relay_resets">Resets in %s</string>
+    <string name="network_section_battery">Battery</string>
+    <string name="network_battery_saver_title">Battery saver</string>
+    <string name="network_battery_saver_subtitle">Look for nearby phones every 60 s instead of continuously</string>
+    <string name="network_low_battery_title">Pause relaying on low battery</string>
+    <string name="network_low_battery_subtitle" formatted="false">Below 15%, stop carrying other people\'s messages</string>
+</resources>

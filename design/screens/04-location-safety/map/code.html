@@ -1,0 +1,316 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#51f0d1", "secondary-fixed-dim": "#7bd0ff", "secondary-container": "#00a6e0", "on-secondary": "#00354a", "on-tertiary-fixed": "#2c0051", "inverse-primary": "#006b5b", "surface-container-lowest": "#0a0e13", "on-primary-fixed": "#00201a", "on-surface": "#e0e2ea", "tertiary": "#e9ceff", "surface-container": "#1c2025", "outline": "#85948f", "tertiary-fixed-dim": "#ddb7ff", "surface-container-high": "#262a30", "on-secondary-container": "#00374d", "inverse-on-surface": "#2d3136", "primary-fixed": "#5efbdc", "tertiary-fixed": "#f0dbff", "tertiary-container": "#d6aaff", "background": "#101419", "primary-fixed-dim": "#37dec0", "surface": "#101419", "on-tertiary": "#490080", "on-secondary-fixed-variant": "#004c69", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001e2c", "on-primary-container": "#005649", "error": "#ffb4ab", "surface-tint": "#37dec0", "on-background": "#e0e2ea", "on-primary-fixed-variant": "#005144", "surface-container-low": "#181c21", "on-primary": "#00382e", "on-surface-variant": "bacac4", "secondary-fixed": "#c4e7ff", "surface-bright": "#36393f", "on-tertiary-fixed-variant": "#6900b3", "surface-variant": "#31353b", "surface-container-highest": "#31353b", "outline-variant": "#3b4a46", "on-tertiary-container": "#6f00be", "primary-container": "#22d3b6", "error-container": "#93000a", "surface-dim": "#101419", "secondary": "#7bd0ff", "on-error": "#690005", "inverse-surface": "#e0e2ea" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-xl": "1.5rem", "space-md": "0.75rem", "gutter": "1rem", "space-xs": "0.25rem", "space-lg": "1rem", "margin": "1rem" }, "fontFamily": { "body-lg": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "code-md": ["JetBrains Mono"], "body-sm": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "code-sm": ["JetBrains Mono"], "body-md": ["Inter"], "label-lg": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#101419;color:#e0e2ea;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md flex flex-col min-h-screen text-on-surface"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><h1 class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-semibold">Map</h1><div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-high"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-code-sm text-code-sm text-primary uppercase">MESH 915MHz</span></div></div><div class="flex items-center gap-space-sm"><button class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[20px]">radar</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-surface flex-1"><div class="flex flex-col w-full relative select-none">
+<!-- Interactive Tactical Map Canvas Area -->
+<div class="relative w-full h-[360px] overflow-hidden bg-surface-container-lowest">
+<!-- Map Vector Ground Layer: Styled Dark Tactical Grid -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center opacity-30 mix-blend-luminosity filter contrast-125" data-location="Berlin Mitte, Germany" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCLiopSETl_CcUvQRnD-eM7H9q_jp21DjQzCdWZT4w4FxXk0_XDUDJbu1f1X1LcDAc2y0i8H_H5HOIKnyBjpRMsFNFDXnujR1WbP5kZZt4W2R7vnARFaC1lbl0lKUjP1icfaYJCN9wmpsVDjtOk5mhKl1iZ5UdnP0a_OsuUWRQeLYeYN9W-EiotKvIYof8nuwCHQHFl2xNc-Fn73fp42zu0-qVXyZJZncr5n7w8mFk6OEv1BCtqWxl4Rg&quot;);"></div>
+<!-- Procedural Tactical Grid & Topographic Contour SVG Overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="48" id="tacGrid" patternUnits="userSpaceOnUse" width="48">
+<path d="M 48 0 L 0 0 0 48" fill="none" stroke="#262a30" stroke-dasharray="2,4" stroke-width="0.75"></path>
+<circle cx="24" cy="24" fill="#37dec0" opacity="0.35" r="1"></circle>
+</pattern>
+<radialGradient cx="50%" cy="50%" id="radarSweepGrad" r="50%">
+<stop offset="0%" stop-color="#51f0d1" stop-opacity="0.18"></stop>
+<stop offset="60%" stop-color="#51f0d1" stop-opacity="0.04"></stop>
+<stop offset="100%" stop-color="#51f0d1" stop-opacity="0"></stop>
+</radialGradient>
+</defs>
+<rect fill="url(#tacGrid)" height="100%" width="100%"></rect>
+<!-- Contour isolines -->
+<path d="M-20,120 Q80,80 180,140 T380,100 T520,160" fill="none" opacity="0.2" stroke="#51f0d1" stroke-width="0.75"></path>
+<path d="M-10,220 Q120,190 220,260 T420,210 T560,280" fill="none" opacity="0.15" stroke="#7bd0ff" stroke-width="0.75"></path>
+<path d="M0,310 Q140,330 260,290 T480,340" fill="none" opacity="0.15" stroke="#e9ceff" stroke-width="0.5"></path>
+</svg>
+<!-- Pulsing Radar Sweep Circle -->
+<div class="absolute top-[48%] left-[46%] -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full pointer-events-none flex items-center justify-center">
+<div class="absolute inset-0 rounded-full bg-primary/5 animate-ping opacity-25 duration-1000"></div>
+<div class="w-48 h-48 rounded-full bg-primary/10 flex items-center justify-center">
+<div class="w-24 h-24 rounded-full bg-primary/15 flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary shadow-sm"></div>
+</div>
+</div>
+<!-- Sweep scanning ray -->
+<div class="absolute w-36 h-36 origin-bottom-right top-0 left-0 rounded-tl-full bg-gradient-to-br from-primary/20 via-transparent to-transparent animate-spin" style="animation-duration: 6s; transform-origin: 100% 100%;"></div>
+</div>
+<!-- Top Status Bar & Sector HUD -->
+<div class="absolute top-3 left-4 right-4 flex items-center justify-between pointer-events-none">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/90 backdrop-blur-md shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-on-surface">52.5200° N, 13.4050° E</span>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high/90 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]">layers</span>
+<span class="font-code-sm text-code-sm text-secondary">SECTOR 07 · 142MB</span>
+</div>
+</div>
+<!-- Friend Live Map Pin 1: Elena Vance (Direct BLE) -->
+<div class="absolute top-[32%] left-[22%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer group transition-transform active:scale-95" id="pin-elena">
+<!-- Pulsing Beacon Rings -->
+<div class="relative flex items-center justify-center">
+<span class="absolute w-12 h-12 rounded-full bg-primary/25 animate-ping"></span>
+<span class="absolute w-8 h-8 rounded-full bg-primary/40"></span>
+<!-- Avatar Node -->
+<div class="relative w-8 h-8 rounded-full bg-surface-container-highest p-0.5 shadow-md flex items-center justify-center">
+<img class="w-full h-full rounded-full object-cover" data-alt="Close-up portrait of Elena Vance with short dark hair and high-tech tactical comms headset, soft blue and teal ambient lighting, sovereign cypherpunk aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgvqq7SeXNUysbmNw1qAYj9BzaV947zNcno9U06nS4-C5_1hpMTnA5cSmbxhT5GRpqQ1T_x30P_9dWxlk1Tsp5dF9dCBYT6WdxgTD5KBwuaHjJPCbIuyTRKYaW7X_8rTEqT13eVc__Fs7JKRA_QR6IdnzIDMbClruhhaY89uc2PH1LEVHe74SRPIhOEjU53x5tFJuAJqmRvgy0rabf1CHRmxMCN2hFC1hCmdMTSTlIshD-Goz3YVdxWQ">
+<span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[8px] font-bold">check</span>
+</span>
+</div>
+</div>
+<!-- Pin Tag / Tactical Pill -->
+<div class="mt-1 px-2 py-0.5 rounded-full bg-surface-container-high/95 backdrop-blur-md flex items-center gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface">Elena</span>
+<span class="font-code-sm text-code-sm text-primary">· 45m</span>
+</div>
+<div class="mt-0.5 px-1.5 py-0.2 rounded-full bg-surface-container-lowest/80 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px] text-secondary">bluetooth</span>
+<span class="font-code-sm text-[9px] text-secondary">BLE</span>
+</div>
+</div>
+<!-- Friend Live Map Pin 2: Alex (Node-01) (Mesh 2 hops) -->
+<div class="absolute top-[24%] right-[24%] translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer group transition-transform active:scale-95" id="pin-alex">
+<div class="relative flex items-center justify-center">
+<span class="absolute w-10 h-10 rounded-full bg-secondary/20 animate-pulse"></span>
+<div class="relative w-8 h-8 rounded-full bg-surface-container-highest p-0.5 shadow-md flex items-center justify-center">
+<img class="w-full h-full rounded-full object-cover" data-alt="Portrait of Alex looking determined in a dark field jacket against outdoor urban infrastructure, teal rim-lighting and low key moody ambiance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh49UoZtzXi3Hq5ofej_hcReqwXaTfiDQWIkVzkekzJ8hM6b_n9Muj-BK3gr_wfx-yWNPITFvVUOt8dQUqexzOHUyojKIQwKyDgZmIR-EHV-JyPzoM7EK18WywvseJvasvJH4qPo_QguygMqpjekBRGdIKW3pLCG8VX632pnEgOhKtx2Xg9sX5-hY21DRMFMclZCUVxDobbp9C84VPxKAdjB-4d8gZlhzm5cMnFu5wFIZ8DvaeFvHXjA">
+<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+</div>
+<div class="mt-1 px-2 py-0.5 rounded-full bg-surface-container-high/95 backdrop-blur-md flex items-center gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface">Alex</span>
+<span class="font-code-sm text-code-sm text-secondary">· 1h</span>
+</div>
+<div class="mt-0.5 px-1.5 py-0.2 rounded-full bg-surface-container-lowest/80 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px] text-secondary">hub</span>
+<span class="font-code-sm text-[9px] text-secondary">2 hops</span>
+</div>
+</div>
+<!-- Friend Live Map Pin 3: Dr. Maya Lin (Mesh 3 hops) -->
+<div class="absolute bottom-[28%] left-[72%] -translate-x-1/2 flex flex-col items-center cursor-pointer group transition-transform active:scale-95" id="pin-maya">
+<div class="relative flex items-center justify-center">
+<div class="relative w-7 h-7 rounded-full bg-surface-container-highest p-0.5 shadow-md flex items-center justify-center">
+<img class="w-full h-full rounded-full object-cover" data-alt="Portrait of Dr. Maya Lin with spectacles and tactical tech badge, calm confident expression, warm ambient rim illumination" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAM9jYSk6xABVqkGwn99o1ZyTxPOFfBvp6w4Egg12tBTahzx5Yf3cCuEpO0g7uY3JSjhmifq1TnHPdyV75JczQUj3GKzpZ9MUQtzaUKEzKp4VhRV-ppP0pdlrRzljeQcSeHptMnf7qd_sJkVnONwbZ2x9nFcD0BUxlq5OjsqHH7uFgfBNtj3URYMLv27r6LwNfH04X29XBl8u0IeqxAWHCZq2Bs_7mo4d_q0mrklUt8RV_9dkQGK3s1g">
+<span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+</div>
+<div class="mt-1 px-2 py-0.5 rounded-full bg-surface-container-high/95 backdrop-blur-md flex items-center gap-1 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface">Maya</span>
+<span class="font-code-sm text-code-sm text-tertiary">· 12m</span>
+</div>
+</div>
+<!-- Floating Map Quick Controls (Right Rail) -->
+<div class="absolute right-4 top-14 flex flex-col gap-2 z-20">
+<!-- Radar Pulse Quick Toggle -->
+<button class="relative w-11 h-11 rounded-full bg-surface-container-high/90 backdrop-blur-md text-primary flex items-center justify-center shadow-md active:bg-surface-container hover:bg-surface-container-highest transition-colors" title="Proximity Scan">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-sm"></span>
+</button>
+<!-- Layer Toggle (Topology / Mesh / RF) -->
+<button class="w-11 h-11 rounded-full bg-surface-container-high/90 backdrop-blur-md text-on-surface flex items-center justify-center shadow-md active:bg-surface-container hover:bg-surface-container-highest transition-colors" id="layerToggleBtn" title="Map Layers">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</button>
+<!-- RF Heatmap Toggle -->
+<button class="w-11 h-11 rounded-full bg-surface-container-high/90 backdrop-blur-md text-secondary flex items-center justify-center shadow-md active:bg-surface-container hover:bg-surface-container-highest transition-colors" title="RF Mesh Heatmap">
+<span class="material-symbols-outlined text-[20px]">cell_tower</span>
+</button>
+<!-- Recenter Crosshairs -->
+<button class="w-11 h-11 rounded-full bg-surface-container-high/90 backdrop-blur-md text-on-surface flex items-center justify-center shadow-md active:bg-surface-container hover:bg-surface-container-highest transition-colors" title="Recenter Location">
+<span class="material-symbols-outlined text-[20px]">my_location</span>
+</button>
+</div>
+<!-- Drop Meetup Pin Floating CTA -->
+<div class="absolute left-4 bottom-4 z-20">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-surface-container-high/95 backdrop-blur-md text-primary shadow-md active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary text-[18px]">add_location_alt</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Drop Meetup Pin</span>
+</button>
+</div>
+</div>
+<!-- Bottom Sheet: Active Friends Nearby & Sharing Controls -->
+<div class="w-full bg-surface-container-low rounded-t-3xl shadow-xl flex flex-col -mt-4 relative z-30 pt-3 pb-4">
+<!-- Sheet Grab Handle -->
+<div class="w-10 h-1 rounded-full bg-surface-container-highest mx-auto mb-3"></div>
+<!-- Sheet Header with Filter & Live Count -->
+<div class="px-margin flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Active Friends</h2>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-code-sm text-code-sm font-semibold">3 Sharing</span>
+</div>
+<!-- Mode / Filter Chip -->
+<div class="flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">filter_alt</span>
+<span class="font-label-sm text-label-sm text-on-surface">Sort: Proximity</span>
+</div>
+</div>
+<!-- Quick Search / Filter Input Bar -->
+<div class="px-margin mb-3">
+<div class="w-full h-10 px-3 rounded-full bg-surface-container flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">search</span>
+<input class="bg-transparent w-full text-body-sm text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search friends, nodes, or coordinates..." type="text">
+<button class="w-6 h-6 flex items-center justify-center text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+</div>
+<!-- List of Friends Sharing Location -->
+<div class="px-margin flex flex-col gap-2.5">
+<!-- Friend 1: Elena Vance -->
+<div class="w-full p-3 rounded-2xl bg-surface-container flex flex-col gap-2 shadow-sm transition-colors hover:bg-surface-container-high active:bg-surface-container-highest cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-11 h-11 rounded-full bg-surface-container-highest p-0.5 shrink-0">
+<img class="w-full h-full rounded-full object-cover" data-alt="Elena Vance cyber-physical portrait thumbnail, calm expressive eyes, teal rim light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD_pZ4jKhsP2vsuPWXnJIHd7tUWPkPFzvLVn9OcuMqpqnuY1F9rTxHN5yqL6LlANKE20y32DtAIMQaFz1E5dTDBEgQH0IVpr-BPEC4L6tfEcP2adZHTIyUrCY0GRUhWzocunligNqPE82v-jLqPnxNmZ2oClnR427GD03g3oE8ESXGNKpZx52l4R34EqTzskOnZFJO3Fz6dI8y0U_NmGGQkEfuMh2nP1yNCtq2Dqj2Z1vByfbXtIME6g">
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[10px] font-bold">verified</span>
+</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Elena Vance</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary/10 text-primary font-code-sm text-[10px]">VERIFIED</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">140 m away · South-East</span>
+</div>
+</div>
+<!-- Battery & Time Left Column -->
+<div class="flex flex-col items-end shrink-0">
+<span class="font-code-sm text-code-sm text-primary font-semibold">45m left</span>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[14px] text-primary">battery_5_bar</span>
+<span class="font-code-sm text-[11px]">78%</span>
+</div>
+</div>
+</div>
+<!-- Telemetry Details Strip -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-[12px]">bluetooth_audio</span>
+<span class="font-code-sm text-[11px]">Direct BLE</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline">-62 dBm</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+</button>
+</div>
+</div>
+<!-- Friend 2: Alex (Node-01) -->
+<div class="w-full p-3 rounded-2xl bg-surface-container flex flex-col gap-2 shadow-sm transition-colors hover:bg-surface-container-high active:bg-surface-container-highest cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-11 h-11 rounded-full bg-surface-container-highest p-0.5 shrink-0">
+<img class="w-full h-full rounded-full object-cover" data-alt="Alex Node-01 avatar headshot in low-contrast ambient dark profile, subtle neon turquoise cyber accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGs3OVt0CbM1n5g7tEWT9iZRbsmbwZPIzlHWdsa0_5lv_bNJmo4fJzE-oLJgTjRMftb9aMRNxfxFeCYjYOTBQhV6szAw7zg23QWbNf0FTMVxcxaexSf9taYL21GWi0rUf7WzuxtUmeVOL3ThV72FoO1JtmL821SkgsoE3ImVTd_n9GOZIJ9mlWdV5wbFjvtjOMWjHrm0k8VVbtB-coJOKHTMOXE-cpyQ7LeFrDyAYkVAKUY-ivh7CPGQ">
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-secondary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Alex (Node-01)</span>
+<span class="font-body-sm text-body-sm text-outline truncate">1.2 km away · Ridge Point</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-code-sm text-code-sm text-secondary-fixed-dim font-semibold">1h 15m left</span>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[14px] text-secondary">battery_6_bar</span>
+<span class="font-code-sm text-[11px]">84%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-[12px]">hub</span>
+<span class="font-code-sm text-[11px]">Mesh · 2 hops</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline">Updated 2m ago</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-secondary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+</button>
+</div>
+</div>
+<!-- Friend 3: Dr. Maya Lin -->
+<div class="w-full p-3 rounded-2xl bg-surface-container flex flex-col gap-2 shadow-sm transition-colors hover:bg-surface-container-high active:bg-surface-container-highest cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative w-11 h-11 rounded-full bg-surface-container-highest p-0.5 shrink-0">
+<img class="w-full h-full rounded-full object-cover" data-alt="Portrait avatar of Dr. Maya Lin, glasses reflecting soft purple and teal data streams, dark cypherpunk aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD14OPCeJnkjy-bLsS7L55dnnSaphZI8gMupGz-GX5fjt2Ml5x6_Rp9cO468_EB8g_3X6Qv13_DWEjjrfX0gzjK-Y7HLfRHgXJuBN9TrT_TsO2xU-QSSUEJq_y-uOaLYHYRbyZOb9tfCpMmIU4P9gApsLkmJ79W-dtH4BpQB5-dMhkQkMncp56WAJyeQywWXhnF0Bdcp-HXD9pMvQnRxJPgS7n6Ef-LawXPcyfsG23aStQGaQDhkt6Xbg">
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-tertiary"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Dr. Maya Lin</span>
+<span class="font-body-sm text-body-sm text-outline truncate">3.8 km away · Metro Depot</span>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-code-sm text-code-sm text-tertiary font-semibold">12m left</span>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[14px] text-tertiary">battery_3_bar</span>
+<span class="font-code-sm text-[11px]">42%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined text-[12px]">alt_route</span>
+<span class="font-code-sm text-[11px]">Mesh · 3 hops</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline">Updated 8m ago</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Broadcast Action Button -->
+<div class="px-margin mt-4">
+<button class="w-full py-3.5 rounded-full bg-primary text-on-primary flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform" id="shareLiveBtn">
+<span class="material-symbols-outlined text-[20px] font-bold">cell_tower</span>
+<span class="font-label-lg text-label-lg font-bold">Share My Live Location</span>
+</button>
+<div class="flex items-center justify-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[13px] text-outline">lock</span>
+<span class="font-code-sm text-code-sm text-outline">Zero-knowledge ephemeral peer broadcast</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const shareBtn = document.getElementById('shareLiveBtn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', function() {
+        const isSharing = this.getAttribute('data-sharing') === 'true';
+        if (!isSharing) {
+          this.setAttribute('data-sharing', 'true');
+          this.classList.remove('bg-primary', 'text-on-primary');
+          this.classList.add('bg-error', 'text-on-error');
+          this.innerHTML = '<span class="material-symbols-outlined text-[20px] font-bold">portable_wifi_off</span><span class="font-label-lg text-label-lg font-bold">Stop Sharing Location (1h)</span>';
+        } else {
+          this.setAttribute('data-sharing', 'false');
+          this.classList.remove('bg-error', 'text-on-error');
+          this.classList.add('bg-primary', 'text-on-primary');
+          this.innerHTML = '<span class="material-symbols-outlined text-[20px] font-bold">cell_tower</span><span class="font-label-lg text-label-lg font-bold">Share My Live Location</span>';
+        }
+      });
+    }
+
+    const layerBtn = document.getElementById('layerToggleBtn');
+    if (layerBtn) {
+      layerBtn.addEventListener('click', function() {
+        this.classList.toggle('text-primary');
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary [&amp;&gt;div]:bg-surface-container-high"><div class="flex justify-around items-center h-20 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] text-on-surface-variant hover:text-on-surface transition-all gap-1" data-path="chats" href="#"><div class="px-3 py-1 rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">forum</span></div><span class="font-label-sm text-label-sm">Chats</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] transition-all gap-1 text-primary [&amp;&gt;div]:bg-surface-container-high" data-path="map" href="#"><div class="px-3 py-1 rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">share_location</span></div><span class="font-label-sm text-label-sm">Map</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] text-on-surface-variant hover:text-on-surface transition-all gap-1" data-path="vault" href="#"><div class="px-3 py-1 rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">lock</span></div><span class="font-label-sm text-label-sm">Vault</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] text-on-surface-variant hover:text-on-surface transition-all gap-1" data-path="tools" href="#"><div class="px-3 py-1 rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">terminal</span></div><span class="font-label-sm text-label-sm">Tools</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[48px] text-on-surface-variant hover:text-on-surface transition-all gap-1" data-path="settings" href="#"><div class="px-3 py-1 rounded-full flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">tune</span></div><span class="font-label-sm text-label-sm">Settings</span></a></div></nav>
+
+</body></html>

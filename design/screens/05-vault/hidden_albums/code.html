@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-bright": "#36393f", "surface-variant": "#31353b", "on-error-container": "#ffdad6", "on-error": "#690005", "error": "#ffb4ab", "primary-fixed-dim": "#37dec0", "on-secondary-fixed": "#001e2c", "primary-fixed": "#5efbdc", "surface-container": "#1c2025", "inverse-on-surface": "#2d3136", "on-tertiary": "#490080", "inverse-primary": "#006b5b", "error-container": "#93000a", "on-tertiary-container": "#6f00be", "tertiary": "#e9ceff", "on-primary-fixed": "#00201a", "secondary-container": "#00a6e0", "on-tertiary-fixed-variant": "#6900b3", "on-primary": "#00382e", "inverse-surface": "#e0e2ea", "on-background": "#e0e2ea", "surface-container-high": "#262a30", "on-secondary-container": "#00374d", "primary": "#51f0d1", "on-primary-container": "#005649", "surface-container-highest": "#31353b", "on-tertiary-fixed": "#2c0051", "surface": "#101419", "on-surface-variant": "#bacac4", "outline": "#85948f", "on-surface": "#e0e2ea", "surface-container-lowest": "#0a0e13", "secondary-fixed": "#c4e7ff", "tertiary-fixed": "#f0dbff", "on-secondary-fixed-variant": "#004c69", "surface-dim": "#101419", "secondary-fixed-dim": "#7bd0ff", "on-primary-fixed-variant": "#005144", "surface-tint": "#37dec0", "primary-container": "#22d3b6", "surface-container-low": "#181c21", "on-secondary": "#00354a", "outline-variant": "#3b4a46", "secondary": "#7bd0ff", "tertiary-container": "#d6aaff", "tertiary-fixed-dim": "#ddb7ff", "background": "#101419" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-md": "0.75rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "1.5rem" }, "fontFamily": { "label-sm": ["JetBrains Mono"], "body-md": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "code-md": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } }</script><style>@layer base { html, body { width: 100vw; min-height: 100vh; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-sm flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Media Detail</h1><div class="flex items-center gap-1.5 overflow-hidden"><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-code-sm text-code-sm uppercase tracking-wider truncate">Argon2id · XChaCha20</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Security Audit Details" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px]">verified_user</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface pb-safe"><div class="flex flex-col w-full pb-8">
+<!-- Interactive Secondary PIN Modal Overlay -->
+<div class="fixed inset-0 z-40 bg-surface/90 backdrop-blur-md flex flex-col justify-end p-4 transition-opacity duration-300 opacity-0 pointer-events-none" id="pin-modal-overlay">
+<div class="w-full bg-surface-container-high rounded-xl p-5 shadow-2xl flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Sub-Enclave Verification</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-on-surface active:bg-surface-bright" id="close-pin-modal">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Enter secondary isolated PIN to authenticate sub-sector isolation. Standard vault memory remains untouched.
+      </p>
+<!-- 6-Pin Display dots inside interactive modal -->
+<div class="flex justify-center items-center gap-3 py-2">
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(81,240,209,0.7)]"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(81,240,209,0.7)]"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(81,240,209,0.7)]"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(81,240,209,0.7)]"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(81,240,209,0.7)]"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(81,240,209,0.7)]"></span>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-1 font-label-lg text-label-lg">
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">1</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">2</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">3</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">4</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">5</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">6</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">7</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">8</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">9</button>
+<button class="h-12 rounded-lg bg-error-container text-on-error-container hover:bg-error flex items-center justify-center active:scale-95 transition-transform font-code-sm text-code-sm">PANIC</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform">0</button>
+<button class="h-12 rounded-lg bg-surface-variant text-on-surface hover:bg-surface-bright flex items-center justify-center active:scale-95 transition-transform"><span class="material-symbols-outlined text-[18px]">backspace</span></button>
+</div>
+<button class="w-full h-11 rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center mt-1 active:opacity-90" id="dismiss-modal-btn">
+        Unlock Vault Sector
+      </button>
+</div>
+</div>
+<!-- Primary Security Challenge Status Banner -->
+<div class="px-4 py-3">
+<div class="bg-surface-container rounded-xl p-4 shadow-sm flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(81,240,209,0.8)] animate-pulse"></div>
+<span class="font-code-sm text-code-sm text-primary uppercase tracking-widest font-semibold">
+            DECOY-RESISTANT SECONDARY PIN VERIFIED
+          </span>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-label-sm text-label-sm" id="trigger-challenge-test">
+<span class="material-symbols-outlined text-[16px]">lock_reset</span>
+          Verify
+        </button>
+</div>
+<div class="flex items-center">
+<div class="h-7 px-3 rounded-full bg-surface-container-high flex items-center gap-1.5 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[14px]">visibility</span>
+<span class="font-label-sm text-label-sm text-on-surface">Sub-Enclave Disengaged · Stealth Mode Unmasked</span>
+</div>
+</div>
+<!-- Sub-PIN Indicator Card -->
+<div class="bg-surface-container-low rounded-lg p-3 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Sector Pin State (Argon2id Salted)</span>
+<span class="font-code-sm text-code-sm text-primary">6 / 6 DIGITS</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-highest px-3 py-2 rounded-lg">
+<div class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_0_6px_rgba(81,240,209,0.6)]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_0_6px_rgba(81,240,209,0.6)]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_0_6px_rgba(81,240,209,0.6)]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_0_6px_rgba(81,240,209,0.6)]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_0_6px_rgba(81,240,209,0.6)]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_0_6px_rgba(81,240,209,0.6)]">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant tracking-widest uppercase">ENCLAVE: #0x9F</span>
+</div>
+<div class="flex items-start gap-2 pt-0.5">
+<span class="material-symbols-outlined text-error text-[16px] shrink-0 mt-0.5">warning</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Independent Argon2id salt. Entering <span class="text-error font-medium">Duress PIN</span> here will purge this sector only.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section Title: Revealed Hidden Albums -->
+<div class="px-4 pt-3 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Revealed Hidden Albums</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high font-code-sm text-code-sm text-primary">3 Active</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">DE-CRYPTED</span>
+</div>
+<!-- Albums List -->
+<div class="px-4 flex flex-col gap-3">
+<!-- Album 1 -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative w-full h-36 bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="High contrast atmospheric night photograph of an anonymous tactical command station with dual field monitors displaying encrypted topographical maps and radar traces in cool teal and deep cyan ambient lighting, cinematic moody security aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFX5m2_Qi6myJunNsQyXvYgyakaJmbGZ7XkKwqs7a6Jjjo-50r11IA8s7Z-y3VsRhlMzPHV5W_YzNgo-iBsqqN3SFpSMUxL9u_Z77mH0e0KHpJIBZCjFTBYzM7VcKBRgBY3Nv0PqYQLnPRK4Qign6FX4LculGiU6eDFpv7eBFuyvZ3-is_hfxNr0xBFGwW6OUkGsSMRGayq0R96Rv7hYclMOMEk6y4aYrOXpzzSeYA05KfyiXxgvCsfQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest/90 backdrop-blur-md">
+<span class="material-symbols-outlined text-primary text-[14px]">shield</span>
+<span class="font-code-sm text-code-sm text-on-surface">SECTOR-01</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest/90 backdrop-blur-md">
+<span class="material-symbols-outlined text-secondary text-[14px]">visibility_off</span>
+<span class="font-label-sm text-label-sm text-secondary">Camouflaged</span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Black Archive / Field Recon</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant pt-0.5">48 photos, 3 videos</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] shrink-0">terminal</span>
+<div class="min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+              Camouflage: Disguised as <span class="text-on-surface font-code-sm font-medium">‘System Cache Logs’</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Album 2 -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative w-full h-36 bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="Monochrome tactical vector evacuation map blueprint rendered on high density digital tablet, vector grid overlays, waypoint markers in glowing neon mint and deep midnight shadows, clean technical military survey layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8R6S_caUEJWfSnm_8M4uLbub1O50aOLzUybbfH8r35WSHpl5peH4-KRF4WUD-Sjjeh6-3JGLRqp387GYIB__lRxQHD-AZUFreY1RwrUIDAtH5CAwEyMlyWRWF5LYAA1ZWJQLU8UQ_MeYjsv84npWjSy_fUOidcbl4W3_ZyeNLZfT4Irk9L8erk3mlWribyIP5M8EvF5NqxXybq9y3XkY9FhsxPkrQBHe_ljsLOmplaiqXDC2i4jkWOQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest/90 backdrop-blur-md">
+<span class="material-symbols-outlined text-secondary text-[14px]">map</span>
+<span class="font-code-sm text-code-sm text-on-surface">SECTOR-02</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest/90 backdrop-blur-md">
+<span class="material-symbols-outlined text-secondary text-[14px]">visibility_off</span>
+<span class="font-label-sm text-label-sm text-secondary">Camouflaged</span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Emergency Evacuation Routes</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant pt-0.5">12 vector maps</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] shrink-0">code</span>
+<div class="min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+              Camouflage: Disguised as <span class="text-on-surface font-code-sm font-medium">‘Android SDK Docs’</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Album 3 -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="relative w-full h-36 bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="Brushed stainless steel hardware cold storage seed backup cipher plate engraved with cryptographic hex hashes, macro perspective, shallow depth of field, dramatic industrial illumination with subtle teal reflection highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdXSGB3c6txsQs5Sy2U8PAVICCnHMw7lEW_WTcXBSut0jnj4vkLQV3ngBGs2XMFe7n0XWwoBJovn1ELqu_CG7ZaSoMlXToChJOyn-USMQKfo2eVzql1TjOUYKZKk2lUkwa4LwEgfQZjN5QVa93mRETcDOO_-3GnM0jhb0FZE1QAWqdoqvmf9iu5a2S3QfibLWvccFw06w__GCJQCeaaSe_Z7bB_5VTtV3wM1o7hUa2t149KXKMY1SjXg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent"></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest/90 backdrop-blur-md">
+<span class="material-symbols-outlined text-tertiary text-[14px]">key</span>
+<span class="font-code-sm text-code-sm text-on-surface">SECTOR-03</span>
+</div>
+<div class="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest/90 backdrop-blur-md">
+<span class="material-symbols-outlined text-secondary text-[14px]">visibility_off</span>
+<span class="font-label-sm text-label-sm text-secondary">Camouflaged</span>
+</div>
+</div>
+<div class="p-3.5 flex flex-col gap-2">
+<div class="flex items-start justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Cold Storage Recovery Seeds</h3>
+<p class="font-code-sm text-code-sm text-on-surface-variant pt-0.5">4 keys</p>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] shrink-0">settings_suggest</span>
+<div class="min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+              Camouflage: Disguised as <span class="text-on-surface font-code-sm font-medium">‘Settings Temp’</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stealth & Obfuscation Controls -->
+<div class="px-4 pt-6 pb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Controls &amp; Stealth Settings</span>
+</div>
+<div class="px-4 flex flex-col gap-3">
+<div class="bg-surface-container rounded-xl p-4 shadow-sm flex flex-col gap-4">
+<!-- Toggle 1: Camouflage Thumbnails -->
+<div class="flex items-center justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface">Camouflage Album Thumbnails as System Icons</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">Renders default gear/log iconography in system recents &amp; drawer</span>
+</div>
+<button aria-checked="true" class="w-12 h-7 rounded-full bg-primary relative p-1 flex items-center transition-colors shrink-0" id="toggle-camouflage" role="switch">
+<span class="w-5 h-5 rounded-full bg-on-primary translate-x-5 transition-transform"></span>
+</button>
+</div>
+<div class="w-full h-[1px] bg-surface-variant"></div>
+<!-- Toggle 2: Auto-Lock on Face Down -->
+<div class="flex items-center justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface">Auto-Lock on Screen Face Down / Shake Phone</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">Instantly zeroes enclave decrypt keys in hardware RAM buffer</span>
+</div>
+<button aria-checked="true" class="w-12 h-7 rounded-full bg-primary relative p-1 flex items-center transition-colors shrink-0" id="toggle-shake" role="switch">
+<span class="w-5 h-5 rounded-full bg-on-primary translate-x-5 transition-transform"></span>
+</button>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2.5 pt-1">
+<button class="w-full h-12 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-transform">
+<span class="material-symbols-outlined text-primary text-[20px]">create_new_folder</span>
+        + Create Hidden Sub-Album
+      </button>
+<button class="w-full h-12 rounded-xl bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm active:scale-[0.99] transition-transform" id="relock-btn">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+        Re-Lock Hidden Albums Immediately
+      </button>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    const overlay = document.getElementById('pin-modal-overlay');
+    const openBtn = document.getElementById('trigger-challenge-test');
+    const closeBtn = document.getElementById('close-pin-modal');
+    const dismissBtn = document.getElementById('dismiss-modal-btn');
+    const relockBtn = document.getElementById('relock-btn');
+
+    function showModal() {
+      if (!overlay) return;
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
+      overlay.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function hideModal() {
+      if (!overlay) return;
+      overlay.classList.remove('opacity-100', 'pointer-events-auto');
+      overlay.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    if (openBtn) openBtn.addEventListener('click', showModal);
+    if (closeBtn) closeBtn.addEventListener('click', hideModal);
+    if (dismissBtn) dismissBtn.addEventListener('click', hideModal);
+
+    if (relockBtn) {
+      relockBtn.addEventListener('click', function () {
+        const originalContent = relockBtn.innerHTML;
+        relockBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span> Zeroizing Memory...';
+        relockBtn.classList.add('opacity-80');
+        setTimeout(function () {
+          relockBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">lock_clock</span> Sector Purged to RAM';
+          setTimeout(function () {
+            relockBtn.innerHTML = originalContent;
+            relockBtn.classList.remove('opacity-80');
+            showModal();
+          }, 1000);
+        }, 800);
+      });
+    }
+
+    function wireToggle(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('click', function () {
+        const checked = el.getAttribute('aria-checked') === 'true';
+        const thumb = el.querySelector('span');
+        if (checked) {
+          el.setAttribute('aria-checked', 'false');
+          el.classList.remove('bg-primary');
+          el.classList.add('bg-surface-variant');
+          if (thumb) {
+            thumb.classList.remove('translate-x-5', 'bg-on-primary');
+            thumb.classList.add('translate-x-0', 'bg-on-surface-variant');
+          }
+        } else {
+          el.setAttribute('aria-checked', 'true');
+          el.classList.remove('bg-surface-variant');
+          el.classList.add('bg-primary');
+          if (thumb) {
+            thumb.classList.remove('translate-x-0', 'bg-on-surface-variant');
+            thumb.classList.add('translate-x-5', 'bg-on-primary');
+          }
+        }
+      });
+    }
+
+    wireToggle('toggle-camouflage');
+    wireToggle('toggle-shake');
+  })();
+</script></main></body></html>

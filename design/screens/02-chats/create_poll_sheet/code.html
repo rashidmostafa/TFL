@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#22d3b6", "primary": "#51f0d1", "error-container": "#93000a", "tertiary": "#e9ceff", "on-error": "#690005", "on-error-container": "#ffdad6", "secondary-fixed-dim": "#7bd0ff", "outline": "#85948f", "on-primary-fixed": "#00201a", "on-primary": "#00382e", "on-tertiary": "#490080", "surface-container-lowest": "#0a0e13", "inverse-surface": "#e0e2ea", "surface-container": "#1c2025", "on-secondary-fixed": "#001e2c", "outline-variant": "#3b4a46", "surface-tint": "#37dec0", "surface-variant": "#31353b", "on-background": "#e0e2ea", "tertiary-container": "#d6aaff", "tertiary-fixed-dim": "#ddb7ff", "on-secondary-container": "#00374d", "background": "#101419", "surface-dim": "#101419", "on-secondary": "#00354a", "tertiary-fixed": "#f0dbff", "surface-container-low": "#181c21", "on-surface-variant": "#bacac4", "secondary-container": "#00a6e0", "surface-container-highest": "#31353b", "on-surface": "#e0e2ea", "surface": "#101419", "on-tertiary-fixed-variant": "#6900b3", "secondary-fixed": "#c4e7ff", "primary-fixed": "#5efbdc", "inverse-primary": "#006b5b", "on-primary-fixed-variant": "#005144", "on-tertiary-container": "#6f00be", "surface-container-high": "#262a30", "secondary": "#7bd0ff", "error": "#ffb4ab", "inverse-on-surface": "#2d3136", "on-secondary-fixed-variant": "#004c69", "primary-fixed-dim": "#37dec0", "surface-bright": "#36393f", "on-primary-container": "#005649", "on-tertiary-fixed": "#2c0051" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "gutter": "1rem", "space-lg": "1rem", "margin": "1rem", "space-xl": "1.5rem", "space-md": "0.75rem", "space-sm": "0.5rem" }, "fontFamily": { "code-md": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "label-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "body-sm": ["Inter"] }, "fontSize": { "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><main class="flex flex-col relative w-full min-h-screen bg-surface pt-safe pb-safe"><div class="flex flex-col w-full relative">
+<!-- Backdrop: Simulated Group Chat (dimmed context layer) -->
+<div class="flex flex-col w-full px-margin opacity-30 pointer-events-none select-none filter blur-[1px]">
+<!-- Top Channel Indicator -->
+<div class="flex items-center justify-between py-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Sector-7 Operations</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary bg-surface-container-high px-2 py-0.5 rounded-full">
+        MESH: 6 PEERS
+      </span>
+</div>
+<!-- Chat Messages Underneath -->
+<div class="flex flex-col gap-space-md w-full">
+<!-- Peer message -->
+<div class="flex flex-col items-start max-w-[80%]">
+<span class="font-code-sm text-code-sm text-on-surface-variant mb-1 ml-2">kestrel_09 // 0x4f82</span>
+<div class="bg-surface-container-high p-space-md rounded-2xl rounded-tl-sm text-on-surface">
+<p class="font-body-md text-body-md">Tor routing node via Relay 3 is degraded. Falling back to LoRa radio bridge.</p>
+<span class="font-code-sm text-code-sm text-on-surface-variant mt-1 block text-right">14:22</span>
+</div>
+</div>
+<!-- Outgoing message -->
+<div class="flex flex-col items-end self-end max-w-[80%]">
+<span class="font-code-sm text-code-sm text-primary mb-1 mr-2">you // verified</span>
+<div class="bg-surface-container-highest p-space-md rounded-2xl rounded-tr-sm text-on-surface">
+<p class="font-body-md text-body-md">Understood. Initiating zero-knowledge location vote now.</p>
+<span class="font-code-sm text-code-sm text-primary-fixed-dim mt-1 block text-right">14:23 • ✓✓</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Backdrop Dimmer Overlay -->
+<div class="absolute inset-0 bg-surface-container-lowest/85 backdrop-blur-sm z-10 pointer-events-auto"></div>
+<!-- Material 3 Bottom Sheet Container -->
+<div class="relative z-20 flex flex-col w-full bg-surface-container-low rounded-t-[24px] shadow-2xl mt-4 max-w-xl mx-auto overflow-hidden">
+<!-- Drag Handle / Grabber -->
+<div class="w-full flex items-center justify-center pt-3 pb-2 cursor-grab active:cursor-grabbing">
+<div class="w-12 h-1.5 bg-outline-variant rounded-full"></div>
+</div>
+<!-- Bottom Sheet Header -->
+<div class="flex items-center justify-between px-space-xl py-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">how_to_vote</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Create Encrypted Poll</h2>
+<p class="font-code-sm text-code-sm text-primary-fixed-dim">ECDSA P-256 MESH BROADCAST</p>
+</div>
+</div>
+<button aria-label="Close poll creator" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Scrollable Form Body -->
+<div class="flex flex-col px-space-xl py-space-sm gap-space-lg max-h-[663px] overflow-y-auto">
+<!-- Question Section -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center gap-1.5" for="poll-question">
+<span>Poll Question</span>
+<span class="font-code-sm text-code-sm text-primary">• E2EE</span>
+</label>
+<span class="font-code-sm text-code-sm text-on-surface-variant">36/120</span>
+</div>
+<div class="relative flex items-center bg-surface-container-high rounded-xl px-space-md py- space-sm focus-within:bg-surface-container-highest transition-all">
+<input class="w-full bg-transparent text-on-surface font-body-lg text-body-lg placeholder-on-surface-variant/50 focus:outline-none py-2" id="poll-question" placeholder="Ask a question..." type="text" value="Where do we meet for offline sync?"/>
+<span class="material-symbols-outlined text-on-surface-variant text-lg ml-2">shield_lock</span>
+</div>
+</div>
+<!-- Poll Options Section -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface">Options</label>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Hold handles to reorder</span>
+</div>
+<div class="flex flex-col gap-2" id="options-container">
+<!-- Option 1 -->
+<div class="flex items-center gap-2 bg-surface-container-high hover:bg-surface-container-highest rounded-xl p-2 transition-colors group">
+<button aria-label="Reorder option 1" class="cursor-grab active:cursor-grabbing p-1.5 text-outline hover:text-on-surface rounded-lg" type="button">
+<span class="material-symbols-outlined text-lg block">drag_indicator</span>
+</button>
+<div class="flex-1 bg-surface-container-low px-3 py-2 rounded-lg">
+<input class="w-full bg-transparent text-on-surface font-body-md text-body-md focus:outline-none" type="text" value="Ridge Point Lookout"/>
+</div>
+<button aria-label="Remove option" class="p-1.5 text-outline-variant hover:text-error transition-colors rounded-lg" type="button">
+<span class="material-symbols-outlined text-lg block">close</span>
+</button>
+</div>
+<!-- Option 2 -->
+<div class="flex items-center gap-2 bg-surface-container-high hover:bg-surface-container-highest rounded-xl p-2 transition-colors group">
+<button aria-label="Reorder option 2" class="cursor-grab active:cursor-grabbing p-1.5 text-outline hover:text-on-surface rounded-lg" type="button">
+<span class="material-symbols-outlined text-lg block">drag_indicator</span>
+</button>
+<div class="flex-1 bg-surface-container-low px-3 py-2 rounded-lg">
+<input class="w-full bg-transparent text-on-surface font-body-md text-body-md focus:outline-none" type="text" value="Underground Station B"/>
+</div>
+<button aria-label="Remove option" class="p-1.5 text-outline-variant hover:text-error transition-colors rounded-lg" type="button">
+<span class="material-symbols-outlined text-lg block">close</span>
+</button>
+</div>
+<!-- Option 3 -->
+<div class="flex items-center gap-2 bg-surface-container-high hover:bg-surface-container-highest rounded-xl p-2 transition-colors group">
+<button aria-label="Reorder option 3" class="cursor-grab active:cursor-grabbing p-1.5 text-outline hover:text-on-surface rounded-lg" type="button">
+<span class="material-symbols-outlined text-lg block">drag_indicator</span>
+</button>
+<div class="flex-1 bg-surface-container-low px-3 py-2 rounded-lg">
+<input class="w-full bg-transparent text-on-surface font-body-md text-body-md focus:outline-none" type="text" value="Community Center Park"/>
+</div>
+<button aria-label="Remove option" class="p-1.5 text-outline-variant hover:text-error transition-colors rounded-lg" type="button">
+<span class="material-symbols-outlined text-lg block">close</span>
+</button>
+</div>
+</div>
+<!-- Add Option Button -->
+<button class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-surface-container text-primary hover:bg-surface-container-high active:scale-[0.99] transition-all" id="btn-add-option" type="button">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span class="font-label-lg text-label-lg">Add another option...</span>
+</button>
+</div>
+<!-- Cryptographic Settings & Toggles -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between pb-1">
+<span class="font-label-lg text-label-lg text-on-surface">Cryptographic Guarantees</span>
+<span class="font-code-sm text-code-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">vpn_key</span>
+            Zero-Trust
+          </span>
+</div>
+<div class="flex flex-col gap-2 bg-surface-container rounded-xl p-space-md">
+<!-- Toggle 1: Anonymous Voting (Default ON) -->
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col pr-2">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface">Anonymous Voting</span>
+<span class="bg-primary-container/20 text-primary font-code-sm text-code-sm px-1.5 py-0.5 rounded-full">Encrypted</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Uses ring signatures to hide voter identity while proving membership.
+              </p>
+</div>
+<button aria-checked="true" class="toggle-switch relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-primary-container p-0.5 transition-colors focus:outline-none" role="switch" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 rounded-full bg-on-primary-fixed shadow transform transition ease-in-out duration-200"></span>
+</button>
+</div>
+<div class="h-px bg-surface-container-highest my-1"></div>
+<!-- Toggle 2: Multiple Choice (Default OFF) -->
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col pr-2">
+<span class="font-label-lg text-label-lg text-on-surface">Multiple Choice</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Allow peers to select more than one option.
+              </p>
+</div>
+<button aria-checked="false" class="toggle-switch relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-surface-container-highest p-0.5 transition-colors focus:outline-none" role="switch" type="button">
+<span class="translate-x-0 inline-block h-5 w-5 rounded-full bg-on-surface-variant shadow transform transition ease-in-out duration-200"></span>
+</button>
+</div>
+<div class="h-px bg-surface-container-highest my-1"></div>
+<!-- Toggle 3: Add Options Allowed (Default OFF) -->
+<div class="flex items-start justify-between gap-3">
+<div class="flex flex-col pr-2">
+<span class="font-label-lg text-label-lg text-on-surface">Add Options Allowed</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                Let members propose new choices.
+              </p>
+</div>
+<button aria-checked="false" class="toggle-switch relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-surface-container-highest p-0.5 transition-colors focus:outline-none" role="switch" type="button">
+<span class="translate-x-0 inline-block h-5 w-5 rounded-full bg-on-surface-variant shadow transform transition ease-in-out duration-200"></span>
+</button>
+</div>
+</div>
+</div>
+<!-- Poll Deadline Selector -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface">Poll Deadline</label>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Auto-tally on expiration</span>
+</div>
+<div class="grid grid-cols-4 gap-2" id="deadline-group">
+<!-- 1 Hour (Selected) -->
+<button class="deadline-chip flex items-center justify-center py-2 px-1 rounded-xl bg-primary text-on-primary font-code-sm text-code-sm transition-all shadow-sm" data-selected="true" type="button">
+            1 Hour
+          </button>
+<!-- 4 Hours -->
+<button class="deadline-chip flex items-center justify-center py-2 px-1 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm transition-all" data-selected="false" type="button">
+            4 Hours
+          </button>
+<!-- 24 Hours -->
+<button class="deadline-chip flex items-center justify-center py-2 px-1 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm transition-all" data-selected="false" type="button">
+            24 Hours
+          </button>
+<!-- No Deadline -->
+<button class="deadline-chip flex items-center justify-center py-2 px-1 rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm transition-all" data-selected="false" type="button">
+            No Limit
+          </button>
+</div>
+</div>
+<!-- Local Security Guarantee Note -->
+<div class="flex items-start gap-2.5 bg-surface-container p-3 rounded-xl">
+<span class="text-base select-none mt-0.5">🔒</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Poll results are aggregated locally over mesh without server consensus. Tamper-evident homomorphic counters ensure no central authority can modify tallies.
+        </p>
+</div>
+</div>
+<!-- Action Buttons Tray -->
+<div class="flex flex-col gap-2 p-space-xl bg-surface-container-low pt-2">
+<!-- Primary Action -->
+<button class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg active:scale-[0.98] transition-all shadow-md hover:bg-primary-fixed" id="btn-publish" type="button">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">send</span>
+<span>Publish Poll to Mesh</span>
+</button>
+<!-- Secondary Action -->
+<button class="w-full flex items-center justify-center py-3 px-6 rounded-full bg-transparent hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors" type="button">
+        Cancel
+      </button>
+</div>
+</div>
+</div>
+<script>
+  // Interactive micro-interactions: Toggles
+  document.querySelectorAll('.toggle-switch').forEach(button => {
+    button.addEventListener('click', () => {
+      const isChecked = button.getAttribute('aria-checked') === 'true';
+      const thumb = button.querySelector('span');
+      
+      if (isChecked) {
+        button.setAttribute('aria-checked', 'false');
+        button.classList.remove('bg-primary-container');
+        button.classList.add('bg-surface-container-highest');
+        thumb.classList.remove('translate-x-5', 'bg-on-primary-fixed');
+        thumb.classList.add('translate-x-0', 'bg-on-surface-variant');
+      } else {
+        button.setAttribute('aria-checked', 'true');
+        button.classList.remove('bg-surface-container-highest');
+        button.classList.add('bg-primary-container');
+        thumb.classList.remove('translate-x-0', 'bg-on-surface-variant');
+        thumb.classList.add('translate-x-5', 'bg-on-primary-fixed');
+      }
+    });
+  });
+
+  // Interactive micro-interactions: Deadline Selector Chips
+  const deadlineChips = document.querySelectorAll('.deadline-chip');
+  deadlineChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      deadlineChips.forEach(c => {
+        c.setAttribute('data-selected', 'false');
+        c.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+      });
+      chip.setAttribute('data-selected', 'true');
+      chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+      chip.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+    });
+  });
+
+  // Interactive micro-interactions: Remove Option
+  const optionsContainer = document.getElementById('options-container');
+  optionsContainer.addEventListener('click', (e) => {
+    const removeBtn = e.target.closest('button[aria-label="Remove option"]');
+    if (removeBtn && optionsContainer.children.length > 2) {
+      const row = removeBtn.closest('.group');
+      if (row) {
+        row.remove();
+      }
+    }
+  });
+
+  // Interactive micro-interactions: Add Option
+  const addOptionBtn = document.getElementById('btn-add-option');
+  addOptionBtn.addEventListener('click', () => {
+    const currentCount = optionsContainer.children.length + 1;
+    if (currentCount <= 6) {
+      const newOption = document.createElement('div');
+      newOption.className = 'flex items-center gap-2 bg-surface-container-high hover:bg-surface-container-highest rounded-xl p-2 transition-colors group';
+      newOption.innerHTML = `
+        <button type="button" aria-label="Reorder option ${currentCount}" class="cursor-grab active:cursor-grabbing p-1.5 text-outline hover:text-on-surface rounded-lg">
+          <span class="material-symbols-outlined text-lg block">drag_indicator</span>
+        </button>
+        <div class="flex-1 bg-surface-container-low px-3 py-2 rounded-lg">
+          <input type="text" placeholder="Option ${currentCount}..." class="w-full bg-transparent text-on-surface font-body-md text-body-md focus:outline-none" />
+        </div>
+        <button type="button" aria-label="Remove option" class="p-1.5 text-outline-variant hover:text-error transition-colors rounded-lg">
+          <span class="material-symbols-outlined text-lg block">close</span>
+        </button>
+      `;
+      optionsContainer.appendChild(newOption);
+      newOption.querySelector('input').focus();
+    }
+  });
+</script></main></body></html>

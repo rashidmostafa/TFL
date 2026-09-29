@@ -1,0 +1,292 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#1c2025", "surface-container-lowest": "#0a0e13", "on-tertiary-container": "#6f00be", "tertiary-container": "#d6aaff", "primary-fixed-dim": "#37dec0", "tertiary-fixed-dim": "ddb7ff", "on-secondary-fixed-variant": "#004c69", "surface-container-high": "#262a30", "on-secondary-container": "#00374d", "inverse-primary": "#006b5b", "secondary": "#7bd0ff", "error-container": "#93000a", "surface-container-low": "#181c21", "inverse-on-surface": "#2d3136", "primary-fixed": "#5efbdc", "on-primary": "#00382e", "surface-bright": "#36393f", "surface-container-highest": "#31353b", "on-primary-fixed": "#00201a", "on-secondary": "#00354a", "on-surface": "#e0e2ea", "inverse-surface": "#e0e2ea", "secondary-fixed-dim": "#7bd0ff", "on-tertiary-fixed-variant": "#6900b3", "on-primary-container": "#005649", "outline-variant": "#3b4a46", "surface": "#101419", "outline": "#85948f", "background": "#101419", "error": "#ffb4ab", "tertiary": "#e9ceff", "on-tertiary": "#490080", "secondary-fixed": "#c4e7ff", "primary-container": "#22d3b6", "primary": "#51f0d1", "tertiary-fixed": "#f0dbff", "on-tertiary-fixed": "#2c0051", "on-secondary-fixed": "#001e2c", "surface-dim": "#101419", "on-error-container": "#ffdad6", "surface-tint": "#37dec0", "secondary-container": "#00a6e0", "on-error": "#690005", "on-background": "#e0e2ea", "on-surface-variant": "#bacac4", "on-primary-fixed-variant": "#005144", "surface-variant": "#31353b" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "space-sm": "0.5rem", "space-xl": "1.5rem", "space-md": "0.75rem", "space-xs": "0.25rem", "space-lg": "1rem", "margin": "1rem" }, fontFamily: { "headline-lg": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "code-md": ["JetBrains Mono"], "label-lg": ["Inter"], "body-md": ["Inter"], "code-sm": ["JetBrains Mono"], "body-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "label-md": ["Inter"] }, fontSize: { "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0.01em", fontWeight: "400" }], "code-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "500" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "code-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "400" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "28px", fontWeight: "600" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "700" }], "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "500" }], "label-md": ["12px", { lineHeight: "16px", fontWeight: "500" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#101419;color:#e0e2ea;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen antialiased"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Go back" class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm tracking-tight text-on-surface truncate">TFL Bandwidth Mode</h1></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 w-full bg-surface pt-16 pb-safe"><div class="flex flex-col w-full pb-8">
+<!-- Informational Top Context -->
+<div class="px-margin pt-4 pb-2">
+<div class="flex items-center gap-space-xs mb-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]">tune</span>
+<span class="font-code-sm text-code-sm text-primary uppercase tracking-wider">PHY Layer Policy</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+      Adaptive Transport &amp; Radio Data Policy: Controls how images, audio, and attachments are downloaded across limited mesh radios and Tor circuits.
+    </p>
+</div>
+<!-- Telemetry Live Banner (Active Route Status) -->
+<div class="px-margin my-3">
+<div class="bg-surface-container-high rounded-xl p-space-md shadow-md relative overflow-hidden">
+<!-- Ambient Glow Behind Radio Details -->
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-space-sm mb-2.5">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span class="font-code-md text-code-md text-on-surface tracking-tight font-semibold">Active Route Telemetry</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-code-sm text-code-sm text-secondary">
+          CH 915.25 MHz
+        </span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-2.5 flex items-center justify-between mb-2">
+<div class="min-w-0 pr-2">
+<div class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">alt_route</span>
+<span class="">Current Path: 2-Hop LoRa Mesh</span>
+</div>
+<div class="font-code-sm text-code-sm text-primary mt-0.5 font-medium truncate">
+            Est. Throughput: 1.8 KB/s · SNR: +4.2 dB
+          </div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Airtime Usage</span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">84% Duty Cap</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary">auto_mode</span>
+<p class="font-body-sm text-body-sm leading-tight">
+          System automatically forced <span class="text-on-surface font-medium">Text Only</span> to conserve RF airtime and hardware battery.
+        </p>
+</div>
+</div>
+</div>
+<!-- Mode Selection Section -->
+<div class="px-margin mt-2 mb-1 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Transport Profiles</span>
+<span class="font-code-sm text-code-sm text-primary-fixed-dim">3 Tiers Available</span>
+</div>
+<!-- Card Deck -->
+<div class="px-margin flex flex-col gap-3" id="profile-cards-container">
+<!-- Card 1: Text Only (Selected/Active) -->
+<div class="relative cursor-pointer transition-all duration-150 rounded-xl p-space-md bg-surface-container-highest shadow-md" id="card-text-only" onclick="selectProfile('text-only')">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">terminal</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Text Only</h2>
+<span class="px-2 py-0.5 rounded-full bg-primary/20 text-primary font-code-sm text-code-sm font-semibold">Active</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Extreme Low Bandwidth</p>
+</div>
+</div>
+<div class="radio-indicator w-5 h-5 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary text-[14px]">check</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-3 leading-relaxed">
+        Only text messages, cryptographic keys, and critical SOS pings are transmitted. Images and voice notes stay in peer queues until Wi-Fi Direct or Tor is reachable.
+      </p>
+<div class="mt-3 pt-2.5 flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-code-sm text-code-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">cell_tower</span> LoRa 868/915
+          </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">bluetooth</span> BLE Beacon
+          </span>
+</div>
+<span class="font-code-sm text-code-sm text-primary font-medium bg-surface-container-lowest px-2 py-0.5 rounded">
+          ~200 B / msg
+        </span>
+</div>
+</div>
+<!-- Card 2: Balanced Mode -->
+<div class="relative cursor-pointer transition-all duration-150 rounded-xl p-space-md bg-surface-container-low shadow-sm hover:bg-surface-container" id="card-balanced" onclick="selectProfile('balanced')">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">balance</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Balanced</h2>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Standard Field Mode</p>
+</div>
+</div>
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+        Text, compressed thumbnails (low-res blur previews), and compressed audio clips (&lt;30s). Full-resolution photos downloaded on manual tap only.
+      </p>
+<div class="mt-3 pt-2.5 flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">wifi_tethering</span> Wi-Fi Direct
+          </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">hub</span> 2.4 GHz Ad-Hoc
+          </span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-medium bg-surface-container-lowest px-2 py-0.5 rounded">
+          Cap: 250 KB
+        </span>
+</div>
+</div>
+<!-- Card 3: Full Media -->
+<div class="relative cursor-pointer transition-all duration-150 rounded-xl p-space-md bg-surface-container-low shadow-sm hover:bg-surface-container" id="card-full" onclick="selectProfile('full')">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">perm_media</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Full Media</h2>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Unrestricted Throughput</p>
+</div>
+</div>
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+        High-resolution media, raw uncompressed documents, and real-time offline voice streaming enabled. Disregards node radio duty restrictions.
+      </p>
+<div class="mt-3 pt-2.5 flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">wifi</span> Direct 5GHz
+          </span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">router</span> LAN Gateway
+          </span>
+</div>
+<span class="font-code-sm text-code-sm text-tertiary font-medium bg-surface-container-lowest px-2 py-0.5 rounded">
+          Unlimited Blob
+        </span>
+</div>
+</div>
+</div>
+<!-- Auto-Switch Policy Control Section -->
+<div class="px-margin mt-6">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Dynamic QoS Automation</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">sensors</span>
+</div>
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col gap-4">
+<!-- Main Auto-Switch Toggle -->
+<div class="flex items-center justify-between gap-4">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface leading-snug">Auto-Switch Based on Connection Path</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Adapt payload budgets based on real-time link quality</p>
+</div>
+<button aria-checked="true" class="w-12 h-6 rounded-full bg-primary p-0.5 transition-colors duration-200 shrink-0 relative flex items-center" id="toggle-autoswitch" onclick="toggleSwitch('toggle-autoswitch')" role="switch">
+<span class="w-5 h-5 rounded-full bg-on-primary translate-x-6 transition-transform duration-200 inline-block"></span>
+</button>
+</div>
+<!-- Explanatory Tactical Note -->
+<div class="bg-surface-container-lowest/80 rounded-lg p-3 flex gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          When enabled, TFL monitors RSSI, packet loss, and hop count. If carrier degrades from Wi-Fi Direct to LoRa mesh, TFL automatically downgrades to <span class="text-on-surface font-medium">Text Only</span> to prevent airtime exhaustion.
+        </p>
+</div>
+<!-- Notify Toggle -->
+<div class="flex items-center justify-between gap-4 pt-1">
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface leading-snug">Notify on Media Pauses</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Alert if attachments are buffered due to RF switch</p>
+</div>
+<button aria-checked="true" class="w-12 h-6 rounded-full bg-primary p-0.5 transition-colors duration-200 shrink-0 relative flex items-center" id="toggle-notify" onclick="toggleSwitch('toggle-notify')" role="switch">
+<span class="w-5 h-5 rounded-full bg-on-primary translate-x-6 transition-transform duration-200 inline-block"></span>
+</button>
+</div>
+<!-- RSSI Slider Parameter -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Minimum RSSI Threshold</span>
+<span class="font-code-sm text-code-sm text-primary font-semibold px-2 py-0.5 rounded bg-surface-container-lowest" id="rssi-display">
+            -115 dBm
+          </span>
+</div>
+<input class="w-full accent-primary h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" id="rssi-slider" max="-70" min="-130" oninput="updateRssi(this.value)" type="range" value="-115">
+<div class="flex justify-between font-code-sm text-code-sm text-on-surface-variant px-0.5">
+<span class="">-130 dBm (Extreme Fringe)</span>
+<span class="">-70 dBm (Strong)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Manual Flush Action Panel -->
+<div class="px-margin mt-6 mb-4">
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">inventory_2</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Queued Attachments</p>
+<p class="font-code-sm text-code-sm text-secondary">3 items · 1.4 MB paused</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-bright active:scale-95 transition-all">
+        Inspect Queue
+      </button>
+</div>
+</div>
+</div>
+<script>
+  function selectProfile(profileKey) {
+    const profiles = {
+      'text-only': { cardId: 'card-text-only', badgeColor: 'bg-primary/20 text-primary', activeColor: 'bg-primary' },
+      'balanced': { cardId: 'card-balanced', badgeColor: 'bg-secondary/20 text-secondary', activeColor: 'bg-secondary' },
+      'full': { cardId: 'card-full', badgeColor: 'bg-tertiary/20 text-tertiary', activeColor: 'bg-tertiary' }
+    };
+
+    Object.keys(profiles).forEach(key => {
+      const card = document.getElementById(profiles[key].cardId);
+      const radio = card.querySelector('.radio-indicator');
+      const activePill = card.querySelector('.bg-primary\\/20, .bg-secondary\\/20, .bg-tertiary\\/20');
+      
+      if (key === profileKey) {
+        card.className = "relative cursor-pointer transition-all duration-150 rounded-xl p-space-md bg-surface-container-highest shadow-md";
+        radio.className = `radio-indicator w-5 h-5 rounded-full ${profiles[key].activeColor} flex items-center justify-center shrink-0`;
+        radio.innerHTML = '<span class="material-symbols-outlined text-on-primary text-[14px]">check</span>';
+        if (!activePill) {
+          const titleDiv = card.querySelector('h2').parentElement;
+          const badge = document.createElement('span');
+          badge.className = `px-2 py-0.5 rounded-full ${profiles[key].badgeColor} font-code-sm text-code-sm font-semibold`;
+          badge.textContent = 'Active';
+          titleDiv.appendChild(badge);
+        }
+      } else {
+        card.className = "relative cursor-pointer transition-all duration-150 rounded-xl p-space-md bg-surface-container-low shadow-sm hover:bg-surface-container";
+        radio.className = "radio-indicator w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0";
+        radio.innerHTML = '';
+        if (activePill) {
+          activePill.remove();
+        }
+      }
+    });
+  }
+
+  function toggleSwitch(elementId) {
+    const btn = document.getElementById(elementId);
+    const knob = btn.querySelector('span');
+    const isChecked = btn.getAttribute('aria-checked') === 'true';
+
+    if (isChecked) {
+      btn.setAttribute('aria-checked', 'false');
+      btn.classList.remove('bg-primary');
+      btn.classList.add('bg-surface-container-highest');
+      knob.classList.remove('translate-x-6', 'bg-on-primary');
+      knob.classList.add('translate-x-0.5', 'bg-on-surface-variant');
+    } else {
+      btn.setAttribute('aria-checked', 'true');
+      btn.classList.remove('bg-surface-container-highest');
+      btn.classList.add('bg-primary');
+      knob.classList.remove('translate-x-0.5', 'bg-on-surface-variant');
+      knob.classList.add('translate-x-6', 'bg-on-primary');
+    }
+  }
+
+  function updateRssi(val) {
+    const display = document.getElementById('rssi-display');
+    display.textContent = val + ' dBm';
+  }
+</script></main>
+
+</body></html>

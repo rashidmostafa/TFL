@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#22d3b6", "primary": "#51f0d1", "error-container": "#93000a", "tertiary": "#e9ceff", "on-error": "#690005", "on-error-container": "#ffdad6", "secondary-fixed-dim": "#7bd0ff", "outline": "#85948f", "on-primary-fixed": "#00201a", "on-primary": "#00382e", "on-tertiary": "#490080", "surface-container-lowest": "#0a0e13", "inverse-surface": "#e0e2ea", "surface-container": "#1c2025", "on-secondary-fixed": "#001e2c", "outline-variant": "#3b4a46", "surface-tint": "#37dec0", "surface-variant": "#31353b", "on-background": "#e0e2ea", "tertiary-container": "#d6aaff", "tertiary-fixed-dim": "#ddb7ff", "on-secondary-container": "#00374d", "background": "#101419", "surface-dim": "#101419", "on-secondary": "#00354a", "tertiary-fixed": "#f0dbff", "surface-container-low": "#181c21", "on-surface-variant": "#bacac4", "secondary-container": "#00a6e0", "surface-container-highest": "#31353b", "on-surface": "#e0e2ea", "surface": "#101419", "on-tertiary-fixed-variant": "#6900b3", "secondary-fixed": "#c4e7ff", "primary-fixed": "#5efbdc", "inverse-primary": "#006b5b", "on-primary-fixed-variant": "#005144", "on-tertiary-container": "#6f00be", "surface-container-high": "#262a30", "secondary": "#7bd0ff", "error": "#ffb4ab", "inverse-on-surface": "#2d3136", "on-secondary-fixed-variant": "#004c69", "primary-fixed-dim": "#37dec0", "surface-bright": "#36393f", "on-primary-container": "#005649", "on-tertiary-fixed": "#2c0051" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "gutter": "1rem", "space-lg": "1rem", "margin": "1rem", "space-xl": "1.5rem", "space-md": "0.75rem", "space-sm": "0.5rem" }, "fontFamily": { "code-md": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "label-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "body-sm": ["Inter"] }, "fontSize": { "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><main class="flex flex-col relative w-full min-h-screen bg-surface pt-safe pb-safe"><div class="flex flex-col w-full relative select-none">
+<!-- Dimmed Mock Conversation Screen (Contextual Backdrop) -->
+<div class="flex flex-col w-full px-margin opacity-35 filter blur-[1px] pointer-events-none space-y-space-lg pt-space-md">
+<!-- Chat Header Simulation -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center space-x-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-headline-sm">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Node_Omega_07</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<span class="font-code-sm text-code-sm text-outline">TOR DIRECT // AES-256-GCM</span>
+</div>
+</div>
+<div class="flex items-center space-x-space-xs">
+<div class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">hub</span>
+<span>3 HOPS</span>
+</div>
+</div>
+</div>
+<!-- Message Stream -->
+<div class="flex flex-col space-y-space-md">
+<!-- Inbound Message -->
+<div class="flex flex-col items-start max-w-[82%]">
+<div class="bg-surface-container text-on-surface p-space-md rounded-2xl rounded-tl-sm shadow-sm space-y-1">
+<p class="font-body-md text-body-md">Grid telemetry coordinates updated. Awaiting handshake confirmation from base terminal.</p>
+<div class="flex justify-end items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span>14:22:08</span>
+<span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
+</div>
+</div>
+</div>
+<!-- Outbound Message -->
+<div class="flex flex-col items-end self-end max-w-[82%]">
+<div class="bg-surface-container-high text-on-surface p-space-md rounded-2xl rounded-tr-sm shadow-md space-y-1">
+<p class="font-body-md text-body-md text-on-surface">Session keys rotated. Initiate ephemeral channel before packet dispatch.</p>
+<div class="flex justify-end items-center gap-1 text-primary-fixed-dim font-code-sm text-code-sm">
+<span>14:23:41</span>
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+</div>
+</div>
+</div>
+<!-- Ephemeral Notice Mock -->
+<div class="flex justify-center my-space-xs">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary">local_fire_department</span>
+<span>EPHEMERAL PROTOCOL ACTIVE (PREV 1H)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Backdrop Overlay -->
+<div class="fixed inset-0 bg-surface-container-lowest/80 backdrop-blur-[2px] transition-opacity"></div>
+<!-- Bottom Sheet Card -->
+<div class="relative w-full mt-4 bg-surface-container-low rounded-t-[28px] shadow-2xl flex flex-col z-20 pb-space-xl">
+<!-- Top Drag Pill Handle -->
+<div class="w-full flex items-center justify-center pt-3 pb-1 cursor-grab active:cursor-grabbing">
+<div class="w-10 h-1.2 rounded-full bg-outline-variant/60"></div>
+</div>
+<!-- Header Section -->
+<div class="px-margin pt-2 pb-space-md flex items-center justify-between">
+<div class="flex items-center space-x-space-md">
+<!-- Emissive Teal Security Badge -->
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center relative shadow-sm">
+<div class="absolute inset-0 rounded-xl bg-primary/10"></div>
+<span class="material-symbols-outlined text-primary text-[26px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Disappearing Messages</h2>
+</div>
+<p class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Ephemeral Session Protocol</p>
+</div>
+</div>
+<!-- Close Action -->
+<button aria-label="Dismiss sheet" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Scrollable Sheet Content -->
+<div class="px-margin space-y-space-md overflow-y-auto max-h-[565px]">
+<!-- Explanatory Technical Banner Card -->
+<div class="p-space-md rounded-xl bg-surface-container flex items-start space-x-space-md shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 mt-0.5 text-primary">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+</div>
+<div class="flex flex-col space-y-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Zero-Fill Overwrite Active</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            When enabled, newly sent and received messages in this chat will self-destruct after the selected time period once viewed. Encryption keys are purged with zero-fill overwrite from local SQLite storage.
+          </p>
+</div>
+</div>
+<!-- Timer Option Selector List -->
+<div class="flex flex-col space-y-2">
+<div class="flex items-center justify-between px-1">
+<span class="font-code-sm text-code-sm uppercase tracking-wider text-outline font-semibold">Select Expiration Interval</span>
+<span class="font-code-sm text-code-sm text-primary">MIL-SPEC 810-Z</span>
+</div>
+<!-- Timer Options Container -->
+<div aria-label="Disappearing message duration" class="flex flex-col space-y-2" id="timer-radio-group" role="radiogroup">
+<!-- Option 1: Off -->
+<div class="timer-card cursor-pointer rounded-xl p-space-md bg-surface-container transition-all flex items-center justify-between" data-label="Off" data-value="off">
+<div class="flex items-start space-x-space-md min-w-0 pr-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">timer_off</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">Off</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Messages persist locally in encrypted vault until manual deletion.</span>
+</div>
+</div>
+<!-- Custom Radio -->
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<div class="radio-inner w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+</div>
+<!-- Option 2: 5 minutes -->
+<div class="timer-card cursor-pointer rounded-xl p-space-md bg-surface-container transition-all flex items-center justify-between" data-label="5 Minutes" data-value="5m">
+<div class="flex items-start space-x-space-md min-w-0 pr-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">5 minutes</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container text-on-error-container text-code-sm font-code-sm uppercase">Flash</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Ultra-ephemeral. Best for high-risk field transmissions.</span>
+</div>
+</div>
+<!-- Custom Radio -->
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<div class="radio-inner w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+</div>
+<!-- Option 3: 1 hour (Active) -->
+<div class="timer-card active-timer cursor-pointer rounded-xl p-space-md bg-surface-container-high transition-all flex items-center justify-between shadow-sm" data-label="1 Hour" data-value="1h">
+<div class="flex items-start space-x-space-md min-w-0 pr-2">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">hourglass_top</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-primary font-bold">1 hour</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-primary-fixed-dim text-code-sm font-code-sm">DEFAULT</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Default session burn timer. Recommended for routine ops.</span>
+</div>
+</div>
+<!-- Custom Radio (Checked) -->
+<div class="radio-indicator w-5 h-5 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-sm">
+<div class="radio-inner w-2 h-2 rounded-full bg-on-primary"></div>
+</div>
+</div>
+<!-- Option 4: 1 day -->
+<div class="timer-card cursor-pointer rounded-xl p-space-md bg-surface-container transition-all flex items-center justify-between" data-label="1 Day" data-value="1d">
+<div class="flex items-start space-x-space-md min-w-0 pr-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">today</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">1 day</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Balanced storage. Purges overnight during maintenance loop.</span>
+</div>
+</div>
+<!-- Custom Radio -->
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<div class="radio-inner w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+</div>
+<!-- Option 5: 1 week -->
+<div class="timer-card cursor-pointer rounded-xl p-space-md bg-surface-container transition-all flex items-center justify-between" data-label="1 Week" data-value="1w">
+<div class="flex items-start space-x-space-md min-w-0 pr-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">date_range</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">1 week</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Extended log. Retains tactical context for 7 days.</span>
+</div>
+</div>
+<!-- Custom Radio -->
+<div class="radio-indicator w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<div class="radio-inner w-2.5 h-2.5 rounded-full bg-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Auto-shred Media Toggle Tile -->
+<div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between shadow-sm">
+<div class="flex items-center space-x-space-md min-w-0 pr-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[20px]">auto_delete</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">Shred View-Once Media Immediately</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">RAM memory scrub directly after closing attachment.</span>
+</div>
+</div>
+<!-- M3 High-Performance Tactile Toggle Switch (ON) -->
+<button aria-checked="true" class="w-12 h-7 rounded-full bg-primary-container p-1 transition-colors relative flex items-center justify-end shrink-0" id="media-shred-toggle" role="switch" type="button">
+<div class="w-5 h-5 rounded-full bg-on-primary-container shadow-md transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px] text-primary">check</span>
+</div>
+</button>
+</div>
+<!-- Cryptographic Guarantee Badge -->
+<div class="py-1 px-3 rounded-lg bg-surface-container-lowest/60 flex items-center justify-between text-code-sm font-code-sm text-outline">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">shield</span>
+<span>NIST SP 800-88 SANITIZATION</span>
+</div>
+<span class="text-on-surface-variant">PASS 0x00</span>
+</div>
+</div>
+<!-- Fixed Bottom Action Bar -->
+<div class="px-margin pt-space-md mt-space-sm flex flex-col space-y-2">
+<!-- Primary Save Action Button -->
+<button class="w-full py-3.5 px-space-lg rounded-xl bg-primary-container text-on-primary-container font-code-md text-code-md font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] transition-all" id="submit-timer-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span id="btn-label-text">Set Timer to 1 Hour</span>
+</button>
+<!-- Secondary Dismiss Button -->
+<button class="w-full py-2.5 px-space-lg rounded-xl bg-transparent text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors active:scale-[0.98]" type="button">
+        Cancel
+      </button>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const radioCards = document.querySelectorAll('.timer-card');
+    const submitBtnLabel = document.getElementById('btn-label-text');
+    const mediaToggle = document.getElementById('media-shred-toggle');
+
+    // Handle timer radio selection state
+    radioCards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Reset all
+        radioCards.forEach(c => {
+          c.classList.remove('bg-surface-container-high', 'active-timer');
+          c.classList.add('bg-surface-container');
+
+          // Reset radio pill
+          const indicator = c.querySelector('.radio-indicator');
+          const innerDot = c.querySelector('.radio-inner');
+          const title = c.querySelector('.font-label-lg');
+          const iconWrapper = c.querySelector('.w-9');
+
+          indicator.className = 'radio-indicator w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0';
+          innerDot.className = 'radio-inner w-2.5 h-2.5 rounded-full bg-transparent';
+          title.className = 'font-label-lg text-label-lg text-on-surface font-medium';
+          
+          if (iconWrapper) {
+            iconWrapper.className = 'w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 text-on-surface-variant';
+          }
+        });
+
+        // Activate selected
+        card.classList.remove('bg-surface-container');
+        card.classList.add('bg-surface-container-high', 'active-timer');
+
+        const activeIndicator = card.querySelector('.radio-indicator');
+        const activeInnerDot = card.querySelector('.radio-inner');
+        const activeTitle = card.querySelector('.font-label-lg');
+        const activeIcon = card.querySelector('.w-9');
+
+        activeIndicator.className = 'radio-indicator w-5 h-5 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-sm';
+        activeInnerDot.className = 'radio-inner w-2 h-2 rounded-full bg-on-primary';
+        activeTitle.className = 'font-label-lg text-label-lg text-primary font-bold';
+        
+        if (activeIcon) {
+          activeIcon.className = 'w-9 h-9 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 shadow-sm';
+        }
+
+        // Update button text
+        const label = card.getAttribute('data-label');
+        if (label === 'Off') {
+          submitBtnLabel.textContent = 'Disable Disappearing Messages';
+        } else {
+          submitBtnLabel.textContent = `Set Timer to ${label}`;
+        }
+      });
+    });
+
+    // Handle media toggle interaction
+    if (mediaToggle) {
+      let isChecked = true;
+      mediaToggle.addEventListener('click', () => {
+        isChecked = !isChecked;
+        mediaToggle.setAttribute('aria-checked', isChecked ? 'true' : 'false');
+        
+        if (isChecked) {
+          mediaToggle.className = 'w-12 h-7 rounded-full bg-primary-container p-1 transition-colors relative flex items-center justify-end shrink-0';
+          mediaToggle.innerHTML = `
+            <div class="w-5 h-5 rounded-full bg-on-primary-container shadow-md transition-transform flex items-center justify-center">
+              <span class="material-symbols-outlined text-[13px] text-primary">check</span>
+            </div>`;
+        } else {
+          mediaToggle.className = 'w-12 h-7 rounded-full bg-surface-container-highest p-1 transition-colors relative flex items-center justify-start shrink-0';
+          mediaToggle.innerHTML = `
+            <div class="w-5 h-5 rounded-full bg-outline shadow-md transition-transform flex items-center justify-center">
+              <span class="material-symbols-outlined text-[13px] text-surface">close</span>
+            </div>`;
+        }
+      });
+    }
+  })();
+</script></main></body></html>

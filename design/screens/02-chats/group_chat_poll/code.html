@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#22d3b6", "primary": "#51f0d1", "error-container": "#93000a", "tertiary": "#e9ceff", "on-error": "#690005", "on-error-container": "#ffdad6", "secondary-fixed-dim": "#7bd0ff", "outline": "#85948f", "on-primary-fixed": "#00201a", "on-primary": "#00382e", "on-tertiary": "#490080", "surface-container-lowest": "#0a0e13", "inverse-surface": "#e0e2ea", "surface-container": "#1c2025", "on-secondary-fixed": "#001e2c", "outline-variant": "#3b4a46", "surface-tint": "#37dec0", "surface-variant": "#31353b", "on-background": "#e0e2ea", "tertiary-container": "#d6aaff", "tertiary-fixed-dim": "#ddb7ff", "on-secondary-container": "#00374d", "background": "#101419", "surface-dim": "#101419", "on-secondary": "#00354a", "tertiary-fixed": "#f0dbff", "surface-container-low": "#181c21", "on-surface-variant": "#bacac4", "secondary-container": "#00a6e0", "surface-container-highest": "#31353b", "on-surface": "#e0e2ea", "surface": "#101419", "on-tertiary-fixed-variant": "#6900b3", "secondary-fixed": "#c4e7ff", "primary-fixed": "#5efbdc", "inverse-primary": "#006b5b", "on-primary-fixed-variant": "#005144", "on-tertiary-container": "#6f00be", "surface-container-high": "#262a30", "secondary": "#7bd0ff", "error": "#ffb4ab", "inverse-on-surface": "#2d3136", "on-secondary-fixed-variant": "#004c69", "primary-fixed-dim": "#37dec0", "surface-bright": "#36393f", "on-primary-container": "#005649", "on-tertiary-fixed": "#2c0051" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "gutter": "1rem", "space-lg": "1rem", "margin": "1rem", "space-xl": "1.5rem", "space-md": "0.75rem", "space-sm": "0.5rem" }, "fontFamily": { "code-md": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "label-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "body-sm": ["Inter"] }, "fontSize": { "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.18)]"><div class="h-16 px-space-sm flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0 flex-1"><button aria-label="Back" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Minimal geometric security icon for TFL mesh communicator app. Features an interlocking cryptographic shield mesh node pattern in glowing teal (#22D3B6) on a dark slate circular container.. Brand logo. - Primary color: #22d3b6
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-md
+" class="h-7 w-auto object-contain hidden xs:block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlJvPF6Li_81KYAsHU3ZLJZebSCSc8czwD-D6gQpDWJ98o9KQ6G0Fmhg41TPg9Ln7JwJE74Fsh1s9rMvVlzvSZHD06fPQy2muIj_pSmQo21SQ1zMTo8TP3hwEV8eVO5JEi8khE5nYnLMzdJA9C7Ub8hdRGRYjgWKhOlifkoLcgnV8xcaWUzeTAFeMcK_ofOXLsGjo67wiCzfAqwvRHUUy_6TdCycvaoD7cQSQHHrKvbkEKWPKb1ScL4A"/><div class="flex items-center gap-space-sm min-w-0"><div class="relative flex-shrink-0"><div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary font-headline-sm text-headline-sm"><span class="material-symbols-outlined text-[20px]">fingerprint</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary"></span></div><div class="flex flex-col min-w-0"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate leading-tight">Conversation</h1><div class="flex items-center gap-space-xs text-on-surface-variant font-code-sm text-code-sm"><span class="material-symbols-outlined text-primary text-[14px]">lock</span><span class="material-symbols-outlined text-secondary text-[14px]">timer</span><span class="truncate">E2EE 4h burn</span></div></div></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Offline Voice Direct" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[22px]">call</span></button><button aria-label="Security Fingerprint Options" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container" type="button"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full pb-safe">
+<!-- Mesh Channel Telemetry Strip -->
+<div class="px-margin pt-space-xs pb-space-sm flex items-center justify-between gap-space-xs bg-surface-container-lowest">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-primary truncate">SEC-7 MESH // 8 PEERS ONLINE</span>
+<span class="font-code-sm text-code-sm text-outline">• HOP-LIMIT: 5</span>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">hourglass_top</span> 24h
+      </span>
+<button aria-label="Walkie Talkie PTT Channel" class="flex items-center gap-1 px-space-sm py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">cell_tower</span>
+        PTT
+      </button>
+</div>
+</div>
+<!-- Chat Timeline Container -->
+<div class="flex flex-col px-margin py-space-md gap-space-md">
+<!-- Timeline Timestamp Divider -->
+<div class="flex items-center justify-center my-space-xs">
+<div class="px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">security</span>
+<span>EPHEMERAL SESSION · ZERO TRACE RETENTION</span>
+</div>
+</div>
+<!-- Incoming Message: Maya -->
+<div class="flex items-start gap-space-sm max-w-[88%]">
+<div class="relative flex-shrink-0 mt-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up cyberpunk portrait photograph of Maya, neon mint ambient rim light on dark tactical gear, high contrast sovereign communicator user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRn-FTK-Q4JHIDWSLDnoxzdOne7INPyF2Sydn3yvsICkd5oGfWa1R1Z_qcjgqoCplZVz1g8JxXq7cIZ_fX3DOlajxhXBjXWmfwjBDyKwwqI045pJtkL81Nz-rmSGAYzY1vs9J9caBj5mdX24G9GrfR2-sURvGDeO7b-Ac2TZDs8xRc8tJBsUs2_ulZznEtXcrq8__ROez4qDrWLVYmdeogToDOqU6RybbqniEct2E98xKWLx_QHHoWEQ"/>
+</div>
+<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="font-label-lg text-label-lg text-primary truncate">Maya</span>
+<span class="font-code-sm text-code-sm text-outline">16:42</span>
+</div>
+<div class="rounded-2xl rounded-tl-sm bg-surface-container px-space-md py-space-sm shadow-sm flex flex-col gap-space-xs">
+<p class="font-body-md text-body-md text-on-surface">Signal is strong at Ridge point. 3 relay hops confirm clear path.</p>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high font-code-sm text-code-sm text-secondary">
+<span class="material-symbols-outlined text-[12px]">hub</span>
+              Mesh · 2 hops
+            </span>
+<span class="font-code-sm text-code-sm text-outline-variant flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px] text-primary">verified</span>
+              sig: valid
+            </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Cryptographic Poll Card -->
+<div class="w-full rounded-2xl bg-surface-container-low p-space-md flex flex-col gap-space-md shadow-md">
+<!-- Poll Card Header -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between gap-space-xs">
+<span class="px-space-xs py-0.5 rounded-full bg-primary/10 font-code-sm text-code-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">how_to_vote</span>
+            CRYPTOGRAPHIC POLL · ANONYMOUS
+          </span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] animate-spin">timelapse</span>
+            Closes in 45m
+          </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mt-1">Where do we meet for offline sync?</h2>
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-on-surface-variant">
+<span class="text-secondary font-medium">Alex</span>
+<span>•</span>
+<span>Initiated 25m ago</span>
+<span>•</span>
+<span class="text-primary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">lock</span> Paillier ZKP
+          </span>
+</div>
+</div>
+<!-- Poll Options List -->
+<div class="flex flex-col gap-space-sm" id="poll-container">
+<!-- Option 1 (Selected Leader) -->
+<button class="group relative w-full text-left rounded-xl bg-surface-container p-space-sm flex flex-col gap-2 overflow-hidden transition-transform active:scale-[0.99]" type="button">
+<div class="absolute inset-0 bg-primary-container/15 rounded-xl pointer-events-none"></div>
+<div class="relative z-10 flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Ridge Point Lookout</span>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<span class="font-code-md text-code-md text-primary font-bold">5 votes</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">(62%)</span>
+</div>
+</div>
+<!-- Vote Bar -->
+<div class="relative z-10 w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full shadow-[0_0_8px_#22d3b6]" style="width: 62%;"></div>
+</div>
+<!-- Voter Avatar Stack -->
+<div class="relative z-10 flex items-center justify-between pt-0.5">
+<div class="flex items-center -space-x-2">
+<div class="w-6 h-6 rounded-full bg-surface-variant overflow-hidden ring-1 ring-surface-container">
+<img class="w-full h-full object-cover" data-alt="Tactical portrait of Maya on dark cyan background, digital peer avatar style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPNyEncPcr32H-e4jk--xFv7e0JoqjGppZhAUNDe7BmgytY9g-r8vsteRns5RIf0dRcUm_NYV1Eq1yXAiATlx6WP3gS-8iqC1bsxyPzVqyu9dPACm38vB1HN2mAm3Pb9wf0OlBvYTIwmhViq2diZo6kZh5qhQPntZdfadN1OAi9tVJ5O-QgCMXrPTiADtfQJu-fgC-qiWT90hTwwBnANDlz1FGVOCUiuJoI7NWgR_pn6q3QS-cjxGndQ"/>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-variant overflow-hidden ring-1 ring-surface-container">
+<img class="w-full h-full object-cover" data-alt="Male peer portrait of Kaelen in low light cybernetic style, slate blue highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8H414SzPc3NNdm3pJ5DVgAxyZXkLaB0a27-zFiplfsBamfwCoGZFS3wx3hmoaNtJVaeVIUfnVfvcHHGIYI53EZFDTaBxfCZUvBWz5Zp7wwBS6-w3gIVmv_7gyKMbvTlSw9Ww0JZwrNdWs3Om6FzzMCm3f8Ze-cectjaVF8r4QA0MBpd3zJppSbXC3qmXkpYYDyWHPwpnn_q1gDtG_M-jKX-m5_2c3x1cj-QNYdWbpm9MATGY33I4A0g"/>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-variant overflow-hidden ring-1 ring-surface-container">
+<img class="w-full h-full object-cover" data-alt="Futuristic digital portrait of Soren with amber ambient lighting, sovereign network mesh node" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxgoBmicJIfiIzNiTNCHxy4VLGpk25I_e2nl-1XbqeeVA2Mwhnsdn5_kXBqt_oE8TK8Nd10crU3NP2jvW2nblfpbgoidiNSjvgtqDk-Ab5HOgQvuKK4kdggN4XbUiGmeryYjsMq6APhDGBpWCOKMMPkX-6mrbNqQjvuwj3tY0kPJQIDY7rlgSBCY-1ICxtEI46iEME2hXCtz9RXISquItjb0-m2WibqJ4ix8XXCN6mYp3WZDxfTXy00w"/>
+</div>
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-code-sm text-primary ring-1 ring-surface-container">
+                +2
+              </div>
+</div>
+<span class="font-code-sm text-code-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified_user</span> Verified Choice
+            </span>
+</div>
+</button>
+<!-- Option 2 -->
+<button class="group relative w-full text-left rounded-xl bg-surface-container p-space-sm flex flex-col gap-2 overflow-hidden transition-transform active:scale-[0.99]" type="button">
+<div class="relative z-10 flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate">Underground Station B</span>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<span class="font-code-md text-code-md text-secondary font-semibold">2 votes</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">(25%)</span>
+</div>
+</div>
+<!-- Vote Bar -->
+<div class="relative z-10 w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 25%;"></div>
+</div>
+<!-- Voter Stack -->
+<div class="relative z-10 flex items-center justify-between pt-0.5">
+<div class="flex items-center -space-x-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-secondary font-code-sm text-[10px] ring-1 ring-surface-container">
+                LM
+              </div>
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-secondary font-code-sm text-[10px] ring-1 ring-surface-container">
+                NA
+              </div>
+</div>
+<span class="font-code-sm text-code-sm text-outline">Offline Relay Node</span>
+</div>
+</button>
+<!-- Option 3 -->
+<button class="group relative w-full text-left rounded-xl bg-surface-container p-space-sm flex flex-col gap-2 overflow-hidden transition-transform active:scale-[0.99]" type="button">
+<div class="relative z-10 flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</span>
+<span class="font-label-lg text-label-lg text-on-surface truncate">Community Center Park</span>
+</div>
+<div class="flex items-center gap-space-xs flex-shrink-0">
+<span class="font-code-md text-code-md text-on-surface-variant font-semibold">1 vote</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">(13%)</span>
+</div>
+</div>
+<!-- Vote Bar -->
+<div class="relative z-10 w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-surface-variant rounded-full" style="width: 13%;"></div>
+</div>
+<!-- Voter Stack -->
+<div class="relative z-10 flex items-center justify-between pt-0.5">
+<div class="flex items-center -space-x-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-outline font-code-sm text-[10px] ring-1 ring-surface-container">
+                RW
+              </div>
+</div>
+<span class="font-code-sm text-code-sm text-outline">Direct RF Hop</span>
+</div>
+</button>
+</div>
+<!-- Poll Card Footer -->
+<div class="rounded-xl bg-surface-container-high p-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-[13px] text-primary">analytics</span>
+            Total: 8 ballots cast
+          </span>
+<span class="text-primary font-medium">Your vote: Ridge Point</span>
+</div>
+<p class="font-code-sm text-code-sm text-outline">
+          Homomorphic tally verified over zero-knowledge cryptographic protocol. Individual identity untraceable.
+        </p>
+</div>
+</div>
+<!-- Outgoing Message: User -->
+<div class="flex flex-col items-end self-end max-w-[85%] gap-1">
+<div class="rounded-2xl rounded-tr-sm bg-surface-container-high px-space-md py-space-sm shadow-sm flex flex-col gap-space-xs">
+<p class="font-body-md text-body-md text-on-surface">Voted. Bringing the spare RF battery pack.</p>
+<div class="flex items-center justify-end gap-space-xs pt-0.5 text-on-surface-variant">
+<span class="font-code-sm text-code-sm text-outline">16:44</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container font-code-sm text-code-sm text-secondary">
+<span class="material-symbols-outlined text-[11px]">cell_wifi</span>
+            Mesh · 1 hop
+          </span>
+<span class="material-symbols-outlined text-[14px] text-primary" title="Delivered to Mesh">done_all</span>
+</div>
+</div>
+</div>
+<!-- Live Telemetry / Mesh Radar Mini Card -->
+<div class="rounded-2xl bg-surface-container p-space-sm flex items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px] animate-pulse">radar</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate font-semibold">Ridge Point Beacon Node</span>
+<span class="font-code-sm text-code-sm text-secondary truncate">RSSI -64 dBm · SNR 12.8 · Latency 42ms</span>
+</div>
+</div>
+<button aria-label="Route trace" class="px-space-sm py-1.5 rounded-full bg-surface-container-highest text-primary font-code-sm text-code-sm active:scale-95 transition-transform flex-shrink-0" type="button">
+        Trace Route
+      </button>
+</div>
+</div>
+<!-- Bottom Input Bar & Quick Actions Dock -->
+<div class="sticky bottom-0 w-full bg-surface-container-lowest/95 backdrop-blur-xl shadow-lg mt-auto pb-safe">
+<!-- Channel Quick Tray -->
+<div class="px-margin pt-space-xs pb-1 flex items-center gap-space-xs overflow-x-auto">
+<button class="flex-shrink-0 flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container font-code-sm text-code-sm text-primary hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[14px]">map</span>
+<span>Beacon GPS: Locked</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container font-code-sm text-code-sm text-secondary hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[14px]">key</span>
+<span>Ratchet #148</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-1 px-space-sm py-1 rounded-full bg-surface-container font-code-sm text-code-sm text-outline hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[14px]">shuffle</span>
+<span>Re-route Tor</span>
+</button>
+</div>
+<!-- Primary Input Control -->
+<div class="px-margin py-space-sm flex items-center gap-space-xs">
+<!-- Media Attachment -->
+<button aria-label="Attach Encrypted File" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-on-surface-variant hover:text-primary active:scale-95 transition-transform flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+</button>
+<!-- Poll Creation Shortcut -->
+<button aria-label="Create Anonymous Mesh Poll" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-primary hover:bg-surface-container-high active:scale-95 transition-transform flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">ballot</span>
+</button>
+<!-- Text Entry Box -->
+<div class="flex-1 min-w-0 rounded-full bg-surface-container px-space-md py-2 flex items-center gap-space-xs shadow-inner">
+<input class="w-full bg-transparent text-on-surface placeholder:text-outline font-body-md text-body-md focus:outline-none" placeholder="Mesh transmission..." type="text"/>
+<span class="font-code-sm text-code-sm text-outline-variant flex-shrink-0 hidden xs:inline">E2EE</span>
+</div>
+<!-- Push To Talk Mic Button -->
+<button aria-label="Push To Talk Mesh Voice" class="w-11 h-11 rounded-full flex items-center justify-center bg-primary-container text-on-primary hover:bg-primary active:scale-90 transition-transform shadow-md flex-shrink-0 relative" id="ptt-button" type="button">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Interactive Poll micro-feedback
+  const pollContainer = document.getElementById('poll-container');
+  if (pollContainer) {
+    const buttons = pollContainer.querySelectorAll('button');
+    buttons.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => {
+          const checkIcon = b.querySelector('.material-symbols-outlined');
+          if (checkIcon && checkIcon.textContent === 'check') {
+            checkIcon.textContent = '';
+            checkIcon.parentElement.className = 'w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center flex-shrink-0';
+          }
+        });
+        const currentIconWrap = btn.querySelector('.w-5');
+        if (currentIconWrap) {
+          currentIconWrap.className = 'w-5 h-5 rounded-full bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0';
+          currentIconWrap.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span>';
+        }
+      });
+    });
+  }
+
+  // Push to talk visual pulse feedback
+  const pttBtn = document.getElementById('ptt-button');
+  if (pttBtn) {
+    let recording = false;
+    pttBtn.addEventListener('mousedown', () => {
+      recording = true;
+      pttBtn.classList.add('ring-4', 'ring-primary/40');
+    });
+    window.addEventListener('mouseup', () => {
+      if (recording) {
+        recording = false;
+        pttBtn.classList.remove('ring-4', 'ring-primary/40');
+      }
+    });
+  }
+</script></main></body></html>

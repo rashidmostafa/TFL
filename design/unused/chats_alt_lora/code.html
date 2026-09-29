@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#6900b3", "surface-tint": "#37dec0", "primary-fixed-dim": "#37dec0", "surface": "#101419", "on-primary-fixed": "#00201a", "secondary": "#7bd0ff", "on-surface": "#e0e2ea", "secondary-fixed": "#c4e7ff", "on-secondary-container": "#00374d", "surface-container-low": "#181c21", "surface-container-high": "#262a30", "on-surface-variant": "#bacac4", "surface-container": "#1c2025", "tertiary-fixed": "#f0dbff", "surface-variant": "#31353b", "secondary-fixed-dim": "#7bd0ff", "on-secondary-fixed-variant": "#004c69", "surface-bright": "#36393f", "error-container": "#93000a", "outline-variant": "#3b4a46", "inverse-on-surface": "#2d3136", "secondary-container": "#00a6e0", "tertiary": "#e9ceff", "on-background": "#e0e2ea", "primary": "#51f0d1", "on-primary": "#00382e", "background": "#101419", "tertiary-container": "#d6aaff", "inverse-surface": "#e0e2ea", "on-tertiary-fixed": "#2c0051", "surface-container-highest": "#31353b", "error": "#ffb4ab", "on-primary-fixed-variant": "#005144", "on-tertiary": "#490080", "on-error-container": "#ffdad6", "on-primary-container": "#005649", "primary-fixed": "#5efbdc", "on-error": "#690005", "outline": "#85948f", "surface-container-lowest": "#0a0e13", "surface-dim": "#101419", "inverse-primary": "#006b5b", "on-secondary": "#00354a", "on-secondary-fixed": "#001e2c", "primary-container": "#22d3b6", "tertiary-fixed-dim": "#ddb7ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-lg": "1rem", "space-md": "0.75rem", "space-xs": "0.25rem", "space-xl": "1.5rem", "gutter": "1rem", "margin": "1rem" }, "fontFamily": { "headline-lg-mobile": [ "Plus Jakarta Sans" ], "code-sm": [ "JetBrains Mono" ], "label-md": [ "Inter" ], "headline-md": [ "Plus Jakarta Sans" ], "body-md": [ "Inter" ], "headline-sm": [ "Plus Jakarta Sans" ], "headline-lg": [ "Plus Jakarta Sans" ], "body-lg": [ "Inter" ], "label-lg": [ "Inter" ], "label-sm": [ "JetBrains Mono" ], "body-sm": [ "Inter" ], "code-md": [ "JetBrains Mono" ] }, "fontSize": { "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "code-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "fontWeight": "500" } ], "headline-md": [ "22px", { "lineHeight": "28px", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-sm": [ "18px", { "lineHeight": "24px", "fontWeight": "600" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-lg": [ "16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" } ], "body-sm": [ "12px", { "lineHeight": "16px", "fontWeight": "400" } ], "code-md": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" } ] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/80 backdrop-blur-xl"><div class="flex flex-col h-28 justify-between px-margin py-space-xs"><div class="flex items-center justify-between h-6"><div class="flex items-center gap-space-xs"><span class="font-code-sm text-code-sm text-on-surface-variant font-medium">09:41</span><div class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></div></div><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">nearby_share</span><span class="material-symbols-outlined text-[14px]">bluetooth</span><span class="material-symbols-outlined text-[14px]">wifi_tethering</span><div class="flex items-center gap-0.5 ml-0.5"><span class="font-code-sm text-code-sm">94%</span><span class="material-symbols-outlined text-[15px]">battery_charging_full</span></div></div></div><div class="flex items-center justify-between pb-space-xs"><div class="flex items-center gap-space-sm"><img alt="TFL Shield Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1V-vbYlkBfU7fkGmlg8ilixnJK7qBuuYLpux606pdUXCjFVl2-1z_MXMh62AmCfVHqB1fXVfeUQjuF3fPBRdumfnlqCnMYVC-vk7drTThGEJaWH-LWphYvs8cdnnpzqDCubuGSbWsxfBpeeKtIGxXbSfRU7Qbwl61_L-r5GxvbDuLCwSc75Vp-KGYzV2MhLA9wsq99M-MdkaT0zUTLxc6i7yufJoq_daLhLa6vgfsbxvpAx3idY0ytYESIU"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface">TFL</span><span class="font-label-sm text-label-sm text-on-surface-variant/80 uppercase tracking-wider">// Chats</span></div><div class="flex items-center gap-space-xs mt-0.5"><div class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container-high"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm text-primary">Mesh (4 Peers)</span><span class="text-outline font-code-sm text-[9px]">·</span><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span class="font-label-sm text-label-sm text-tertiary">Tor ON</span></div></div></div></div><div class="flex items-center gap-space-xs"><button aria-label="Scan Peer QR" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span></button><button aria-label="Key Fingerprint &amp; Shield" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">security</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="flex flex-col relative w-full pt-28 pb-28 px-margin bg-surface"><div class="flex flex-col w-full relative">
+<!-- Top Global Telemetry Banner (Sub-header Alert) -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md mb-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="relative flex items-center justify-center w-2.5 h-2.5">
+<span class="absolute inline-flex w-full h-full rounded-full bg-primary opacity-75 animate-ping"></span>
+<span class="relative inline-flex w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<span class="font-code-sm text-code-sm font-semibold tracking-wider text-primary">RADIO MESH: 4 PEERS ACTIVE</span>
+</div>
+<button class="flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" id="radar-toggle-btn">
+<span class="material-symbols-outlined text-[14px]">radar</span>
+<span id="radar-toggle-label">Radar</span>
+</button>
+</div>
+<!-- Live Telemetry Stream Grid -->
+<div class="flex items-center justify-between mt-1 pt-1.5 border-t border-white/5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px]">cell_tower</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">TX: <span class="text-on-surface font-medium">14.2 KB/s</span> · RX: <span class="text-on-surface font-medium">48.9 KB/s</span></span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined text-[13px]">vpn_lock</span>
+<span class="font-code-sm text-code-sm font-medium">3 Tor Circuits</span>
+</div>
+</div>
+<!-- Expandable Peer Discovery Radar Subpanel -->
+<div class="hidden mt-space-sm pt-space-sm border-t border-white/5 flex-col gap-space-xs" id="radar-drawer">
+<div class="flex items-center justify-between text-on-surface-variant text-label-sm font-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">sensors</span>
+          Active RF Carrier 915MHz LoRa + BLE 5.2
+        </span>
+<span class="font-code-sm text-code-sm text-secondary">SNR: +9.4 dB</span>
+</div>
+<div class="w-full bg-surface-container-lowest rounded-lg p-2.5 flex items-center justify-around">
+<div class="flex flex-col items-center">
+<span class="font-code-sm text-code-sm text-primary">4 Nodes</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Direct Sight</span>
+</div>
+<div class="w-px h-6 bg-surface-container-high"></div>
+<div class="flex flex-col items-center">
+<span class="font-code-sm text-code-sm text-secondary">3 Hops</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Max Diameter</span>
+</div>
+<div class="w-px h-6 bg-surface-container-high"></div>
+<div class="flex flex-col items-center">
+<span class="font-code-sm text-code-sm text-tertiary">99.8%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Packet Integrity</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Peer Quick-Connect & Transport Legend Filter Bar -->
+<div class="w-full mb-space-lg overflow-x-auto no-scrollbar flex items-center gap-2 py-0.5">
+<!-- Add Peer Quick Button -->
+<button class="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-primary hover:bg-surface-container hover:shadow transition-all group">
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:rotate-90 transition-transform">qr_code_scanner</span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wide">Add Peer</span>
+</button>
+<div class="w-px h-6 bg-surface-container-high shrink-0 mx-0.5"></div>
+<!-- Filter Pills -->
+<button class="transport-pill active shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-high text-primary transition-all" data-filter="all">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm font-semibold">All</span>
+<span class="font-code-sm text-code-sm ml-0.5 text-on-surface-variant">(6)</span>
+</button>
+<button class="transport-pill shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-all" data-filter="nearby">
+<span class="material-symbols-outlined text-[14px] text-primary">bluetooth</span>
+<span class="font-label-sm text-label-sm">Nearby</span>
+<span class="font-code-sm text-code-sm ml-0.5 text-on-surface-variant/80">(2)</span>
+</button>
+<button class="transport-pill shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-all" data-filter="mesh">
+<span class="material-symbols-outlined text-[14px] text-secondary">hub</span>
+<span class="font-label-sm text-label-sm">Mesh · 3h</span>
+<span class="font-code-sm text-code-sm ml-0.5 text-on-surface-variant/80">(2)</span>
+</button>
+<button class="transport-pill shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-all" data-filter="tor">
+<span class="material-symbols-outlined text-[14px] text-tertiary">security</span>
+<span class="font-label-sm text-label-sm">Tor</span>
+<span class="font-code-sm text-code-sm ml-0.5 text-on-surface-variant/80">(1)</span>
+</button>
+<button class="transport-pill shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-all" data-filter="queued">
+<span class="material-symbols-outlined text-[14px] text-outline">schedule</span>
+<span class="font-label-sm text-label-sm">Queued</span>
+<span class="font-code-sm text-code-sm ml-0.5 text-on-surface-variant/80">(1)</span>
+</button>
+</div>
+<!-- Pinned Mesh Broadcast Channel -->
+<div class="w-full mb-space-md">
+<div class="flex items-center justify-between mb-1.5 px-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[15px]">push_pin</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase font-semibold text-on-surface-variant">Pinned Mesh Channel</span>
+</div>
+<span class="font-code-sm text-code-sm text-primary">AES-GCM-256</span>
+</div>
+<div class="w-full bg-surface-container-low hover:bg-surface-container p-space-md rounded-xl transition-all cursor-pointer relative shadow-sm">
+<div class="flex items-start justify-between gap-space-sm mb-1.5">
+<div class="flex items-center gap-space-sm min-w-0">
+<!-- Stacked Micro-Avatars -->
+<div class="relative flex items-center shrink-0 w-11 h-9">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-code-sm text-[10px] font-bold shadow-sm">α1</div>
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-secondary font-code-sm text-[10px] font-bold -ml-3 shadow-sm">β4</div>
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-tertiary font-code-sm text-[10px] font-bold -ml-3 shadow-sm">γ7</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Sector 7 Friends Mesh</span>
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0" title="Cryptographically Verified Group">verified</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<!-- Mesh Chip -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[11px]">hub</span>
+<span>Mesh · 2 hops</span>
+</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">8 peers linked</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-code-sm text-code-sm text-on-surface-variant">14:02</span>
+<span class="mt-1 flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-primary text-on-primary font-code-sm text-[10px] font-bold">3</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate pl-0.5 mt-2">
+<span class="text-secondary font-medium">Alex:</span> We set up the relay node at the ridge. Range extended ~800m.
+      </p>
+</div>
+</div>
+<!-- Direct Friend Conversation List Header -->
+<div class="flex items-center justify-between mb-space-sm px-0.5 mt-space-xs">
+<span class="font-label-sm text-label-sm tracking-wider uppercase font-semibold text-on-surface-variant">Direct Peer Threads</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant/80">E2E Session Ratchet</span>
+</div>
+<!-- Direct Peer Cards Container -->
+<div class="flex flex-col w-full gap-space-sm pb-16" id="chats-list">
+<!-- Friend 1: Kaelen (Valkyrie) -->
+<div class="chat-thread-card w-full bg-surface-container-low hover:bg-surface-container p-space-md rounded-xl transition-all cursor-pointer shadow-sm" data-category="nearby">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<!-- Identicon Avatar with Real-time Transport Ring -->
+<div class="relative shrink-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center font-headline-sm text-headline-sm font-bold text-primary">
+              K
+            </div>
+<!-- Nearby Bluetooth Ring Badge -->
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-[13px]">bluetooth</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Kaelen (Valkyrie)</span>
+<span class="material-symbols-outlined text-primary text-[15px] shrink-0" title="In-Person QR Verified">verified_user</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-on-surface-variant/70 tracking-tight">0x7F4B...99C2</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-primary/10 text-primary font-code-sm text-[10px]">
+                Nearby
+              </span>
+</div>
+</div>
+</div>
+<!-- Meta: Timestamp & Signal -->
+<div class="flex flex-col items-end shrink-0 gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[15px]">done_all</span>
+<span class="font-code-sm text-code-sm text-primary font-medium">Just now</span>
+</div>
+<!-- 4-bar RSSI Graphic -->
+<div class="flex items-end gap-0.5 h-3" title="RSSI: -58 dBm">
+<span class="w-1 h-1.5 rounded-xs bg-primary"></span>
+<span class="w-1 h-2 rounded-xs bg-primary"></span>
+<span class="w-1 h-2.5 rounded-xs bg-primary"></span>
+<span class="w-1 h-3 rounded-xs bg-primary"></span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate mt-2 pl-0.5">
+        Key rotation completed. Audio memo encrypted.
+      </p>
+</div>
+<!-- Friend 2: Dr. Maya Lin -->
+<div class="chat-thread-card w-full bg-surface-container-low hover:bg-surface-container p-space-md rounded-xl transition-all cursor-pointer shadow-sm" data-category="mesh">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center font-headline-sm text-headline-sm font-bold text-secondary">
+              M
+            </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[13px]">hub</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Dr. Maya Lin</span>
+<span class="material-symbols-outlined text-primary text-[15px] shrink-0" title="In-Person QR Verified">verified_user</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-on-surface-variant/70 tracking-tight">0x3E11...A48F</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-secondary-container/20 text-secondary font-code-sm text-[10px]">
+                Mesh · 3 hops
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[15px]">done</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">12m ago</span>
+</div>
+<!-- 2-bar Mesh Hop Latency Indicator -->
+<div class="flex items-end gap-0.5 h-3" title="Mesh Latency: ~140ms">
+<span class="w-1 h-1.5 rounded-xs bg-secondary"></span>
+<span class="w-1 h-2 rounded-xs bg-secondary"></span>
+<span class="w-1 h-2.5 rounded-xs bg-surface-container-highest"></span>
+<span class="w-1 h-3 rounded-xs bg-surface-container-highest"></span>
+</div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate mt-2 pl-0.5">
+        Delivered via relay [Node-04]. Awaiting peer ack.
+      </p>
+</div>
+<!-- Friend 3: Soren K. -->
+<div class="chat-thread-card w-full bg-surface-container-low hover:bg-surface-container p-space-md rounded-xl transition-all cursor-pointer shadow-sm" data-category="tor">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center font-headline-sm text-headline-sm font-bold text-tertiary">
+              S
+            </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[13px]">vpn_lock</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Soren K.</span>
+<span class="material-symbols-outlined text-tertiary text-[15px] shrink-0" title="Tor Hidden Service Verified">shield_with_heart</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-on-surface-variant/70 tracking-tight">0x99D0...18FE</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-tertiary/15 text-tertiary font-code-sm text-[10px]">
+                Tor Onion
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary text-[15px]">done_all</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">1h ago</span>
+</div>
+<span class="font-code-sm text-[10px] text-tertiary font-mono">v3-onion</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate mt-2 pl-0.5">
+        Sent schematic file (3.2 MB) via rendezvous point.
+      </p>
+</div>
+<!-- Friend 4: Rowan (Out of Range) -->
+<div class="chat-thread-card w-full bg-surface-container-low hover:bg-surface-container p-space-md rounded-xl transition-all cursor-pointer opacity-90 shadow-sm" data-category="queued">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center font-headline-sm text-headline-sm font-bold text-outline">
+              R
+            </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-outline text-[13px]">schedule</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Rowan</span>
+<span class="material-symbols-outlined text-primary text-[15px] shrink-0" title="Verified Session">verified_user</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-on-surface-variant/70 tracking-tight">0x12A9...BC44</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-surface-container-highest text-outline font-code-sm text-[10px]">
+                Queued
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-outline text-[14px]">history_toggle_off</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant/80">Yesterday</span>
+</div>
+<span class="font-code-sm text-[10px] text-outline font-mono">Store &amp; Fwd</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/80 truncate mt-2 pl-0.5 italic">
+        Message queued locally in encrypted store-and-forward pool.
+      </p>
+</div>
+<!-- Friend 5: Elena Vance -->
+<div class="chat-thread-card w-full bg-surface-container-low hover:bg-surface-container p-space-md rounded-xl transition-all cursor-pointer shadow-sm" data-category="nearby">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center font-headline-sm text-headline-sm font-bold text-error">
+              E
+            </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-error text-[13px]">warning</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Elena Vance</span>
+<span class="material-symbols-outlined text-error text-[15px] shrink-0" title="Key changed - Re-verify QR">gpp_maybe</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-on-surface-variant/70 tracking-tight">0x88CC...014E</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-error/15 text-error font-code-sm text-[10px]">
+                Re-Verify QR
+              </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 gap-1">
+<span class="font-code-sm text-code-sm text-on-surface-variant">3d ago</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-code-sm text-[9px] font-semibold">
+            BLOCKED
+          </span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-error/90 truncate mt-2 pl-0.5 font-medium">
+        New identity key detected. Messages blocked until scan.
+      </p>
+</div>
+</div>
+<!-- Material 3 Floating Action Button (FAB) -->
+<div class="fixed bottom-24 right-4 z-40">
+<button aria-label="Compose Encrypted Message or Scan Peer" class="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary text-on-primary shadow-xl hover:scale-105 active:scale-95 transition-transform" id="compose-fab">
+<span class="material-symbols-outlined text-[26px]">edit_square</span>
+</button>
+</div>
+</div>
+<script>
+  // Filter pill toggles
+  const filterPills = document.querySelectorAll('.transport-pill');
+  const chatCards = document.querySelectorAll('.chat-thread-card');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => {
+        p.classList.remove('bg-surface-container-high', 'text-primary', 'active');
+        p.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+      pill.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      pill.classList.add('bg-surface-container-high', 'text-primary', 'active');
+
+      const filterVal = pill.getAttribute('data-filter');
+      chatCards.forEach(card => {
+        if (filterVal === 'all' || card.getAttribute('data-category') === filterVal) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Radar drawer micro-interaction
+  const radarToggleBtn = document.getElementById('radar-toggle-btn');
+  const radarDrawer = document.getElementById('radar-drawer');
+  const radarLabel = document.getElementById('radar-toggle-label');
+
+  if (radarToggleBtn && radarDrawer) {
+    radarToggleBtn.addEventListener('click', () => {
+      const isHidden = radarDrawer.classList.contains('hidden');
+      if (isHidden) {
+        radarDrawer.classList.remove('hidden');
+        radarDrawer.classList.add('flex');
+        radarLabel.textContent = 'Close';
+      } else {
+        radarDrawer.classList.remove('flex');
+        radarDrawer.classList.add('hidden');
+        radarLabel.textContent = 'Radar';
+      }
+    });
+  }
+
+  // FAB tap feedback
+  const composeFab = document.getElementById('compose-fab');
+  if (composeFab) {
+    composeFab.addEventListener('click', () => {
+      composeFab.classList.add('rotate-12');
+      setTimeout(() => {
+        composeFab.classList.remove('rotate-12');
+      }, 250);
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/85 backdrop-blur-xl" data-active-classes="text-primary [&amp;&gt;div]:bg-surface-container-high"><div class="flex justify-around items-center h-20 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center w-16 h-14 group transition-all text-primary [&amp;&gt;div]:bg-surface-container-high" data-path="chats" href="#"><div class="flex items-center justify-center w-12 h-7 rounded-full transition-colors"><span class="material-symbols-outlined text-[20px]">chat_bubble</span></div><span class="font-label-md text-label-md mt-0.5 font-medium">Chats</span></a><a class="flex flex-col items-center justify-center w-16 h-14 text-on-surface-variant group transition-all" data-path="mesh-topology" href="#"><div class="flex items-center justify-center w-12 h-7 rounded-full transition-colors"><span class="material-symbols-outlined text-[20px]">hub</span></div><span class="font-label-md text-label-md mt-0.5 font-medium">Map</span></a><a class="flex flex-col items-center justify-center w-16 h-14 text-on-surface-variant group transition-all" data-path="vault" href="#"><div class="flex items-center justify-center w-12 h-7 rounded-full transition-colors"><span class="material-symbols-outlined text-[20px]">lock</span></div><span class="font-label-md text-label-md mt-0.5 font-medium">Vault</span></a><a class="flex flex-col items-center justify-center w-16 h-14 text-on-surface-variant group transition-all" data-path="rf-diagnostics" href="#"><div class="flex items-center justify-center w-12 h-7 rounded-full transition-colors"><span class="material-symbols-outlined text-[20px]">cell_tower</span></div><span class="font-label-md text-label-md mt-0.5 font-medium">Tools</span></a><a class="flex flex-col items-center justify-center w-16 h-14 text-on-surface-variant group transition-all" data-path="security-settings" href="#"><div class="flex items-center justify-center w-12 h-7 rounded-full transition-colors"><span class="material-symbols-outlined text-[20px]">fingerprint</span></div><span class="font-label-md text-label-md mt-0.5 font-medium">Settings</span></a></div></nav></body></html>

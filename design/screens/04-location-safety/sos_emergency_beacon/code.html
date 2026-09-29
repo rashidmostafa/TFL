@@ -1,0 +1,423 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#51f0d1", "secondary-fixed-dim": "#7bd0ff", "secondary-container": "#00a6e0", "on-secondary": "#00354a", "on-tertiary-fixed": "#2c0051", "inverse-primary": "#006b5b", "surface-container-lowest": "#0a0e13", "on-primary-fixed": "#00201a", "on-surface": "#e0e2ea", "tertiary": "#e9ceff", "surface-container": "#1c2025", "outline": "#85948f", "tertiary-fixed-dim": "#ddb7ff", "surface-container-high": "#262a30", "on-secondary-container": "#00374d", "inverse-on-surface": "#2d3136", "primary-fixed": "#5efbdc", "tertiary-fixed": "#f0dbff", "tertiary-container": "#d6aaff", "background": "#101419", "primary-fixed-dim": "#37dec0", "surface": "#101419", "on-tertiary": "#490080", "on-secondary-fixed-variant": "#004c69", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001e2c", "on-primary-container": "#005649", "error": "#ffb4ab", "surface-tint": "#37dec0", "on-background": "#e0e2ea", "on-primary-fixed-variant": "#005144", "surface-container-low": "#181c21", "on-primary": "#00382e", "on-surface-variant": "#bacac4", "secondary-fixed": "#c4e7ff", "surface-bright": "#36393f", "on-tertiary-fixed-variant": "#6900b3", "surface-variant": "#31353b", "surface-container-highest": "#31353b", "outline-variant": "#3b4a46", "on-tertiary-container": "#6f00be", "primary-container": "#22d3b6", "error-container": "#93000a", "surface-dim": "#101419", "secondary": "#7bd0ff", "on-error": "#690005", "inverse-surface": "#e0e2ea" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-xl": "1.5rem", "space-md": "0.75rem", "gutter": "1rem", "space-xs": "0.25rem", "space-lg": "1rem", "margin": "1rem" }, "fontFamily": { "body-lg": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "code-md": ["JetBrains Mono"], "body-sm": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "code-sm": ["JetBrains Mono"], "body-md": ["Inter"], "label-lg": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#101419;color:#e0e2ea;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md flex flex-col min-h-screen text-on-surface"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><div class="flex flex-col truncate"><h1 class="font-headline-sm text-headline-sm tracking-tight text-on-surface truncate">Sos Initiator Countdown</h1><span class="font-code-sm text-code-sm text-primary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>E2EE ZERO-TRUST</span></div></div><div class="flex items-center gap-space-xs"><div class="hidden sm:flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-secondary text-[14px]">shield</span><span class="font-code-sm text-code-sm text-secondary">SECURED</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface flex-1"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md select-none">
+<!-- DEFCON Emergency Protocol Banner with Strobe Effect -->
+<div class="w-full bg-error-container/40 rounded-xl p-space-md flex items-center justify-between shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-error/10 via-transparent to-error/10 pointer-events-none"></div>
+<div class="flex items-center gap-space-sm min-w-0 z-10">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-error"></span>
+</span>
+<div class="flex flex-col min-w-0">
+<span class="font-code-md text-code-md tracking-wider text-error font-semibold flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[16px] text-error" style="font-variation-settings: &quot;FILL&quot; 1;">warning</span>
+          DEFCON-1 PROTOCOL ACTIVE
+        </span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">PRIORITY BROADCAST · ZERO LOCKOUT</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-highest px-2 py-0.5 rounded-full z-10">
+<span class="font-code-sm text-code-sm text-error font-semibold" id="sys-clock">13:24:35 UTC</span>
+</div>
+</div>
+<!-- Centerpiece: Pulsing SOS Beacon & Countdown -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg flex flex-col items-center relative overflow-hidden shadow-md">
+<!-- Ambient Emissive Warning Glow -->
+<div class="absolute -top-16 w-64 h-64 bg-error/15 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Countdown Typography Header -->
+<div class="text-center z-10 mb-space-md">
+<span class="font-code-sm text-code-sm tracking-widest text-error uppercase font-medium">Auto-Broadcast Engaging</span>
+<div class="flex items-baseline justify-center gap-1.5 mt-0.5">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface tracking-tight" id="countdown-num">TX</span>
+<span class="font-code-md text-code-md text-error tracking-wider uppercase">SECONDS REMAINING</span>
+</div>
+</div>
+<!-- Interactive Circular Centerpiece with Animated Ring -->
+<div class="relative w-52 h-52 flex items-center justify-center my-space-xs z-10">
+<!-- Pulsing Outer Hazard Waves -->
+<div class="absolute inset-0 rounded-full bg-error/10 animate-ping" style="animation-duration: 2s;"></div>
+<div class="absolute -inset-2 rounded-full bg-error/5 animate-pulse"></div>
+<!-- Circular SVG Countdown Ring -->
+<svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 200 200">
+<circle class="text-surface-container-highest" cx="100" cy="100" fill="none" r="88" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-error transition-all duration-1000 ease-linear" cx="100" cy="100" fill="none" id="countdown-progress" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="0" stroke-linecap="round" stroke-width="8" style="stroke-dashoffset: 552.92;"></circle>
+</svg>
+<!-- Tactical SOS Button -->
+<div class="w-36 h-36 rounded-full bg-gradient-to-br from-error via-error-container to-on-error flex flex-col items-center justify-center text-center shadow-lg transform active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[36px] text-on-error leading-none" style="font-variation-settings: &quot;FILL&quot; 1;">emergency_share</span>
+<span class="font-headline-md text-headline-md font-bold tracking-wider text-on-error mt-0.5">SOS</span>
+<span class="font-code-sm text-code-sm tracking-tight text-on-error/80 uppercase">BEACON ARMED</span>
+</div>
+</div>
+<!-- Live Telemetry Status Ticker -->
+<div class="w-full flex items-center justify-center gap-2 mt-space-md z-10">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-error">TRANSMITTING CIPHER PACKET</span>
+</span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-[14px]">cell_tower</span>
+<span class="font-code-sm text-code-sm">8 RELAYS READY</span>
+</span>
+</div>
+<!-- Slide or Tap to Abort Interface -->
+<div class="w-full mt-space-lg z-10 flex flex-col gap-2">
+<div class="relative w-full h-14 bg-surface-container-highest rounded-full flex items-center p-1.5 overflow-hidden shadow-inner select-none cursor-pointer" id="slide-container">
+<div class="absolute left-0 top-0 bottom-0 bg-primary/20 rounded-full w-14 transition-all duration-150" id="slide-track-fill"></div>
+<div class="w-full flex items-center justify-center pointer-events-none">
+<span class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2 tracking-wide">
+<span class="material-symbols-outlined text-[18px] text-primary">keyboard_double_arrow_right</span>
+            SLIDE TO DISARM BROADCAST
+          </span>
+</div>
+<div class="absolute left-1.5 top-1.5 bottom-1.5 w-11 h-11 bg-primary rounded-full flex items-center justify-center text-on-primary shadow-md cursor-grab active:cursor-grabbing transition-transform touch-none" id="slide-handle">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+</div>
+</div>
+<div class="flex items-center justify-between px-1">
+<button class="font-code-sm text-code-sm text-error hover:text-error-container underline uppercase py-1" id="tap-abort-btn">
+          Tap to Abort Immediately
+        </button>
+<button class="font-code-sm text-code-sm text-primary flex items-center gap-1 font-semibold py-1 hover:underline" id="trigger-instant-btn">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+          Skip Countdown &amp; Broadcast Now
+        </button>
+</div>
+</div>
+</div>
+<!-- Detailed Data Payload Disclosure Package -->
+<div class="w-full bg-surface-container rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">EMERGENCY PAYLOAD PACKAGE</h2>
+</div>
+<span class="font-code-sm text-code-sm bg-primary/10 text-primary px-2 py-0.5 rounded-full font-medium">DISCLOSURE</span>
+</div>
+<!-- Payload Items Stack -->
+<div class="space-y-space-xs">
+<!-- 1. GPS Coordinates & Offline Map Fix -->
+<div class="bg-surface-container-high rounded-lg p-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">my_location</span>
+            GPS Coordinates &amp; Offline Fix
+          </span>
+<span class="font-code-sm text-code-sm text-primary">GNSS LOCK HIGH</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-code-md text-code-md text-on-surface font-semibold">52.5208° N, 13.4094° E</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Accuracy ±4m</span>
+</div>
+<!-- Embedded Mini Location Visual -->
+<div class="w-full h-24 bg-cover bg-center rounded mt-1 overflow-hidden relative shadow-sm" data-location="Berlin Alexanderplatz, Germany" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuD6bp6jNHyYGOep6Vr-Dp1Ji6fnoTgwwZ0gdJCch3DK8W9QOKMt16dHv9L8sySv5AqfeiKx6y6KHwV74I5Xl9p0eBXfIyOooIix1ANFC3CTAdEQx1MUAuTWjiiyJ4zKYFKE4CggZ3AlfGV4kou0Vj1Dbf2l3ViLJfmqDAOe8h9mHzjcrL8ytMGnlbH6zAbIZ1BrKspNKziBw8mdGAiQPCEUPjxUGjCMhBsicA7hZKBWJBkrPArbQPsSGQ&quot;);">
+<div class="absolute inset-0 bg-background/50 flex items-center justify-center backdrop-blur-xs">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest/90">
+<span class="material-symbols-outlined text-error text-[16px] animate-bounce" style="font-variation-settings: &quot;FILL&quot; 1;">location_on</span>
+<span class="font-code-sm text-code-sm text-on-surface">COORDINATES STAMPED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. 10-Second Ambient Audio Clip -->
+<div class="bg-surface-container-high/40 backdrop-blur-md rounded-lg p-space-sm flex flex-col gap-1.5 border border-surface-variant/30">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant/80 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error/80">mic</span>
+            10-Second Ambient Audio Clip
+          </span>
+<span class="font-code-sm text-code-sm text-error/90 font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping opacity-75"></span>
+            [REC: 00:04 / 00:10]
+          </span>
+</div>
+<!-- Live Microphone Waveform Simulator with Translucent Aesthetic -->
+<div class="w-full h-8 bg-surface-container-lowest/50 backdrop-blur-xs rounded flex items-center justify-between px-2 gap-1 overflow-hidden border border-surface-container-highest/20">
+<div class="w-1 bg-error/70 rounded-full h-3 animate-pulse"></div>
+<div class="w-1 bg-error/70 rounded-full h-5"></div>
+<div class="w-1 bg-error/70 rounded-full h-7 animate-pulse"></div>
+<div class="w-1 bg-error/70 rounded-full h-4"></div>
+<div class="w-1 bg-error/70 rounded-full h-6 animate-pulse"></div>
+<div class="w-1 bg-error/70 rounded-full h-8"></div>
+<div class="w-1 bg-error/70 rounded-full h-5 animate-pulse"></div>
+<div class="w-1 bg-error/70 rounded-full h-3"></div>
+<div class="w-1 bg-error/70 rounded-full h-7 animate-pulse"></div>
+<div class="w-1 bg-error/70 rounded-full h-5"></div>
+<div class="w-1 bg-error/70 rounded-full h-6 animate-pulse"></div>
+<div class="w-1 bg-error/70 rounded-full h-2"></div>
+<div class="w-1 bg-error/70 rounded-full h-4 animate-pulse"></div>
+<div class="w-1 bg-error/70 rounded-full h-6"></div>
+<div class="w-1 bg-error/70 rounded-full h-7 animate-pulse"></div>
+<div class="w-1 bg-error/70 rounded-full h-3"></div>
+<div class="w-1 bg-error/70 rounded-full h-5 animate-pulse"></div>
+<div class="w-1 bg-error/25 rounded-full h-1"></div>
+<div class="w-1 bg-error/25 rounded-full h-1"></div>
+<div class="w-1 bg-error/25 rounded-full h-1"></div>
+<div class="w-1 bg-error/25 rounded-full h-1"></div>
+<div class="w-1 bg-error/25 rounded-full h-1"></div>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant/70 flex items-center justify-between">
+<span class="">Opus Encrypted 24kbps Mono</span>
+<span class="text-primary/80 font-medium">BUFFER PREVIEW OK</span>
+</span>
+</div>
+<!-- 3. Device Hardware Vitals -->
+<div class="bg-surface-container-high rounded-lg p-space-sm flex flex-col gap-1.5">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">monitor_heart</span>
+          Device Hardware Vitals
+        </span>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="bg-surface-container-lowest p-2 rounded flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Battery:</span>
+<span class="font-code-md text-code-md text-primary font-semibold">68%</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Barometer:</span>
+<span class="font-code-md text-code-md text-on-surface font-semibold">1013 hPa</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Altitude:</span>
+<span class="font-code-md text-code-md text-on-surface font-semibold">48m AMSL</span>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Heading:</span>
+<span class="font-code-md text-code-md text-secondary font-semibold">042° NE</span>
+</div>
+</div>
+</div>
+<!-- 4. Cryptographic Signature -->
+<div class="bg-surface-container-high rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">verified_user</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">Cryptographic Signature</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">Signed with local Sovereign Ed25519 Key</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-primary bg-primary/10 px-2 py-0.5 rounded font-mono shrink-0">9F82…4AE1</span>
+</div>
+</div>
+</div>
+<!-- Target Audience & Transmission Vectors -->
+<div class="w-full bg-surface-container rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">hub</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">TRANSMISSION TARGETS &amp; VECTORS</h2>
+</div>
+<span class="font-code-sm text-code-sm bg-secondary/10 text-secondary px-2 py-0.5 rounded-full font-medium">8 NODES REACHABLE</span>
+</div>
+<!-- Dispatch Header Details -->
+<div class="bg-surface-container-high rounded-lg p-space-sm flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-lg text-label-lg text-on-surface">DISPATCH TARGETS</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant text-right">ALL 8 PEERS IN MESH &amp; EMERGENCY RELAYS</span>
+</div>
+<!-- 4 Simultaneous Transmission Vectors Grid -->
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- BLE Beacon Flood -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary text-[20px]">bluetooth_searching</span>
+<span class="font-code-sm text-code-sm text-secondary bg-secondary/10 px-1.5 py-0.5 rounded">TX READY</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">BLE Flood</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">+8dBm Omnidirectional</div>
+</div>
+</div>
+<!-- Wi-Fi Direct P2P -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[20px]">wifi_tethering</span>
+<span class="font-code-sm text-code-sm text-primary bg-primary/10 px-1.5 py-0.5 rounded">CONNECTED</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Wi-Fi Direct P2P</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">High Bandwidth Tunnel</div>
+</div>
+</div>
+<!-- LoRa 915MHz -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-tertiary text-[20px]">settings_input_antenna</span>
+<span class="font-code-sm text-code-sm text-tertiary bg-tertiary/10 px-1.5 py-0.5 rounded">LONG RANGE</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">LoRa 915 MHz</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">SF11 / Sub-GHz Wave</div>
+</div>
+</div>
+<!-- Tor Onion Circuit -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between space-y-2">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px]">vpn_lock</span>
+<span class="font-code-sm text-code-sm text-tertiary-fixed-dim bg-tertiary/10 px-1.5 py-0.5 rounded">3 HOPS</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Tor Onion Circuit</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant">V3 Hidden Service Exit</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Safety Assurance Disclaimer -->
+<div class="w-full bg-surface-container-lowest p-space-sm rounded-lg flex items-center gap-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-outline shrink-0">shield_lock</span>
+<p class="font-body-sm text-body-sm">
+      Payload is locally authenticated before dispatch. Canceling halts network dispersion immediately and wipes temporary audio capture buffer.
+    </p>
+</div>
+</div>
+<script>
+  (function () {
+    // Clock synchronizer
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toISOString().substring(11, 19) + ' UTC';
+      const el = document.getElementById('sys-clock');
+      if (el) el.textContent = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Countdown Logic
+    let timeLeft = 5;
+    const totalTime = 5;
+    const circumference = 552.92;
+    const countEl = document.getElementById('countdown-num');
+    const circleEl = document.getElementById('countdown-progress');
+    let timer = null;
+    let aborted = false;
+
+    function tick() {
+      if (aborted) return;
+      timeLeft--;
+      if (timeLeft <= 0) {
+        if (countEl) countEl.textContent = '00';
+        if (circleEl) circleEl.style.strokeDashoffset = circumference;
+        clearInterval(timer);
+        triggerBroadcast();
+        return;
+      }
+      if (countEl) countEl.textContent = timeLeft < 10 ? '0' + timeLeft : timeLeft;
+      if (circleEl) {
+        const offset = circumference - (timeLeft / totalTime) * circumference;
+        circleEl.style.strokeDashoffset = offset;
+      }
+    }
+
+    timer = setInterval(tick, 1000);
+
+    function triggerBroadcast() {
+      if (aborted) return;
+      const countHeader = document.getElementById('countdown-num');
+      if (countHeader) countHeader.textContent = 'TX';
+      alert('DEFCON SOS DISPATCH: Sovereign broadcast transmitted to all 8 reachable mesh relays and emergency nodes.');
+    }
+
+    function abortBroadcast() {
+      if (aborted) return;
+      aborted = true;
+      clearInterval(timer);
+      const countdownContainer = document.getElementById('countdown-num');
+      if (countdownContainer) {
+        countdownContainer.textContent = '--';
+        countdownContainer.classList.add('text-primary');
+      }
+      if (circleEl) {
+        circleEl.classList.remove('text-error');
+        circleEl.classList.add('text-primary');
+        circleEl.style.strokeDashoffset = circumference;
+      }
+      const label = document.querySelector('#countdown-num + span');
+      if (label) {
+        label.textContent = 'BROADCAST ABORTED';
+        label.classList.remove('text-error');
+        label.classList.add('text-primary');
+      }
+      const slideLabel = document.querySelector('#slide-container span');
+      if (slideLabel) {
+        slideLabel.textContent = 'EMERGENCY STANDDOWN CONFIRMED';
+      }
+    }
+
+    // Tap Abort Button
+    const tapAbort = document.getElementById('tap-abort-btn');
+    if (tapAbort) {
+      tapAbort.addEventListener('click', abortBroadcast);
+    }
+
+    // Instant Trigger
+    const instantBtn = document.getElementById('trigger-instant-btn');
+    if (instantBtn) {
+      instantBtn.addEventListener('click', function () {
+        if (aborted) return;
+        timeLeft = 0;
+        clearInterval(timer);
+        triggerBroadcast();
+      });
+    }
+
+    // Slide to Cancel Interaction
+    const container = document.getElementById('slide-container');
+    const handle = document.getElementById('slide-handle');
+    const trackFill = document.getElementById('slide-track-fill');
+
+    if (container && handle) {
+      let isDragging = false;
+      let startX = 0;
+
+      function onStart(e) {
+        if (aborted) return;
+        isDragging = true;
+        startX = (e.touches ? e.touches[0].clientX : e.clientX);
+      }
+
+      function onMove(e) {
+        if (!isDragging || aborted) return;
+        const currentX = (e.touches ? e.touches[0].clientX : e.clientX);
+        const maxDelta = container.offsetWidth - handle.offsetWidth - 12;
+        let delta = currentX - startX;
+        if (delta < 0) delta = 0;
+        if (delta > maxDelta) delta = maxDelta;
+
+        handle.style.transform = `translateX(${delta}px)`;
+        if (trackFill) trackFill.style.width = `${delta + handle.offsetWidth}px`;
+
+        if (delta >= maxDelta * 0.9) {
+          isDragging = false;
+          abortBroadcast();
+          handle.style.transform = `translateX(${maxDelta}px)`;
+        }
+      }
+
+      function onEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        if (!aborted) {
+          handle.style.transform = 'translateX(0px)';
+          if (trackFill) trackFill.style.width = '3.5rem';
+        }
+      }
+
+      handle.addEventListener('mousedown', onStart);
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onEnd);
+
+      handle.addEventListener('touchstart', onStart, { passive: true });
+      window.addEventListener('touchmove', onMove, { passive: true });
+      window.addEventListener('touchend', onEnd);
+    }
+  })();
+</script></main>
+
+</body></html>

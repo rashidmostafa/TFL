@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "tertiary-fixed": "#f0dbff", "surface-container-high": "#262a30", "secondary-fixed-dim": "#7bd0ff", "on-background": "#e0e2ea", "tertiary-container": "#d6aaff", "surface-container": "#1c2025", "secondary": "#7bd0ff", "inverse-primary": "#006b5b", "on-surface-variant": "#bacac4", "error": "#ffb4ab", "surface-tint": "#37dec0", "surface": "#101419", "tertiary-fixed-dim": "#ddb7ff", "on-error": "#690005", "secondary-container": "#00a6e0", "on-secondary-fixed": "#001e2c", "secondary-fixed": "#c4e7ff", "on-secondary": "#00354a", "inverse-surface": "#e0e2ea", "primary": "#51f0d1", "on-surface": "#e0e2ea", "on-error-container": "#ffdad6", "on-primary-fixed": "#00201a", "inverse-on-surface": "#2d3136", "on-secondary-fixed-variant": "#004c69", "on-primary-container": "#005649", "surface-container-lowest": "#0a0e13", "outline-variant": "#3b4a46", "background": "#101419", "error-container": "#93000a", "surface-bright": "#36393f", "on-primary": "#00382e", "tertiary": "#e9ceff", "primary-container": "#22d3b6", "primary-fixed-dim": "#37dec0", "on-tertiary-fixed": "#2c0051", "surface-container-low": "#181c21", "on-secondary-container": "#00374d", "surface-container-highest": "#31353b", "on-tertiary": "#490080", "on-tertiary-container": "#6f00be", "outline": "#85948f", "on-tertiary-fixed-variant": "#6900b3", "surface-variant": "#31353b", "surface-dim": "#101419", "on-primary-fixed-variant": "#005144", "primary-fixed": "#5efbdc" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { margin: "1rem", "space-lg": "1rem", "space-md": "0.75rem", "space-xl": "1.5rem", "space-sm": "0.5rem", gutter: "1rem", "space-xs": "0.25rem" }, fontFamily: { "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "label-lg": ["Inter"], "label-md": ["Inter"], "code-md": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "body-md": ["Inter"], "code-sm": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"] }, fontSize: { "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "500" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0.01em", fontWeight: "400" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", fontWeight: "500" }], "code-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "500" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "700" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "code-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "28px", fontWeight: "600" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)] pt-safe"><div class="h-16 px-space-sm flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-all rounded-full" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><img alt="Minimal geometric security icon for TFL mesh communicator app. Features an interlocking cryptographic shield mesh node pattern in glowing teal (#22D3B6) on a dark slate circular container.. Brand logo. - Primary color: #22d3b6
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain flex-shrink-0 mr-1" src="https://lh3.googleusercontent.com/aida/AEtjO1Vy3rIpamw9QYfs7toAL8iwEkhBJ22BIyn1Ui7DR8hzXd7w_UoONYOwc-U68p3cDshHUFx5Rn6zth4mNrC1FwXI9AsPfSQAQYBQZdCAR7GC5kX-3Z_fw8DIQm3Orvi707um0M5SkrEctVjyQ5619CI53WKfu0zpXXwxBkG9BmgrDND6UC4J5pFTKW1z4JgS-pomgJQurY58-zguxDSw2b5EV3xl713BZyhW6xkVK9wjh1Gp0LIC8O9Evgf0"/><div class="flex flex-col truncate"><span class="font-label-sm text-code-sm text-primary uppercase tracking-wider">SECURE PROTOCOL</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Tfl   Offline File Drop</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="flex items-center gap-1 px-2.5 py-1 bg-surface-container rounded-full" title="Zero-Knowledge E2EE Encrypted"><span class="material-symbols-outlined text-primary text-[14px]">verified_user</span><span class="font-label-sm text-code-sm text-primary tracking-wide hidden sm:inline">E2EE</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full pb-safe">
+<!-- Status & Radio Frequency Chips -->
+<div class="px-margin pt-space-md flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-code-sm uppercase tracking-wider">DIRECT RF SCAN · AIRGAP READY</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-[13px]">cell_tower</span>
+<span class="font-label-sm text-code-sm">CH 149 · 5.8 GHz</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      P2P Zero-Knowledge Blob Beam · No cellular, Wi-Fi router, or cloud required.
+    </p>
+</div>
+<!-- Concentric RF Radar Scope Component -->
+<div class="px-margin pt-space-lg">
+<div class="relative w-full aspect-square max-w-[340px] mx-auto rounded-full bg-surface-container-lowest overflow-hidden flex items-center justify-center p-3 select-none shadow-xl">
+<!-- Radar grid circles -->
+<div class="absolute inset-4 rounded-full border border-primary/10"></div>
+<div class="absolute inset-16 rounded-full border border-primary/15"></div>
+<div class="absolute inset-28 rounded-full border border-primary/20"></div>
+<div class="absolute inset-x-0 top-1/2 h-[1px] bg-primary/10 -translate-y-1/2"></div>
+<div class="absolute inset-y-0 left-1/2 w-[1px] bg-primary/10 -translate-x-1/2"></div>
+<!-- Radar sweeping gradient beam -->
+<div class="absolute inset-0 origin-center pointer-events-none" style="animation: spin 6s linear infinite; background: conic-gradient(from 0deg at 50% 50%, rgba(34, 211, 182, 0.22) 0deg, rgba(34, 211, 182, 0) 65deg);"></div>
+<!-- Center Node: Self (Valkyrie-7) -->
+<div class="relative z-10 flex flex-col items-center group cursor-pointer">
+<div class="relative flex items-center justify-center">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_0_12px_rgba(81,240,209,0.5)]">
+<span class="material-symbols-outlined text-[16px]">radar</span>
+</div>
+</div>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</div>
+<span class="mt-1 px-1.5 py-0.5 rounded bg-surface-container text-primary font-code-sm text-code-sm">Valkyrie-7 (You)</span>
+</div>
+<!-- Peer 1: Alex Chen (Wi-Fi Direct, 4m, 98%) -->
+<button aria-label="Drop file to Alex Chen" class="absolute top-[28%] right-[18%] z-20 flex flex-col items-center active:scale-95 transition-transform" onclick="selectPeer('Alex Chen')" type="button">
+<div class="relative flex items-center justify-center">
+<span class="absolute w-8 h-8 rounded-full bg-secondary/20 animate-ping opacity-60"></span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-secondary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[16px]">wifi_tethering</span>
+</div>
+<span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<div class="mt-1 flex flex-col items-center bg-surface-container-high/90 backdrop-blur-sm px-1.5 py-0.5 rounded">
+<span class="font-label-sm text-[10px] text-on-surface leading-none">Alex Chen</span>
+<span class="font-code-sm text-[9px] text-secondary">4m · 98%</span>
+</div>
+</button>
+<!-- Peer 2: Dr. Maya Lin (BLE, 8m) -->
+<button aria-label="Drop file to Dr. Maya Lin" class="absolute bottom-[24%] right-[22%] z-20 flex flex-col items-center active:scale-95 transition-transform" onclick="selectPeer('Dr. Maya Lin')" type="button">
+<div class="relative flex items-center justify-center">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-tertiary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[15px]">bluetooth</span>
+</div>
+<span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<div class="mt-1 flex flex-col items-center bg-surface-container-high/90 backdrop-blur-sm px-1.5 py-0.5 rounded">
+<span class="font-label-sm text-[10px] text-on-surface leading-none">Dr. Maya Lin</span>
+<span class="font-code-sm text-[9px] text-tertiary">8m · BLE</span>
+</div>
+</button>
+<!-- Peer 3: Kaelen (LoRa, 12m) -->
+<button aria-label="Drop file to Kaelen" class="absolute top-[44%] left-[12%] z-20 flex flex-col items-center active:scale-95 transition-transform" onclick="selectPeer('Kaelen')" type="button">
+<div class="relative flex items-center justify-center">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[15px]">sensors</span>
+</div>
+<span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-outline"></span>
+</div>
+<div class="mt-1 flex flex-col items-center bg-surface-container-high/90 backdrop-blur-sm px-1.5 py-0.5 rounded">
+<span class="font-label-sm text-[10px] text-on-surface leading-none">Kaelen</span>
+<span class="font-code-sm text-[9px] text-on-surface-variant">12m · LoRa</span>
+</div>
+</button>
+</div>
+<!-- Radar Footnote -->
+<div class="mt-space-xs text-center">
+<span class="inline-flex items-center gap-1 font-label-sm text-code-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">touch_app</span>
+        Tap proximate peer to drop payload
+      </span>
+</div>
+</div>
+<!-- Active File Transfer Section -->
+<div class="px-margin pt-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Sending to Alex Chen</h2>
+</div>
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded-full bg-surface-container text-secondary">
+        Target ID: 9f41::88cd · Wi-Fi Direct
+      </span>
+</div>
+<!-- File Payload Card -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-11 h-11 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">folder_zip</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface truncate">sector7_evacuation_topography.tar.zst</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Total: 142.8 MB · ChaCha20-Poly1305</span>
+</div>
+</div>
+<button aria-label="Pause or resume transfer" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:text-primary active:scale-95 transition-all flex-shrink-0" id="toggleTransferBtn" onclick="toggleTransfer()" type="button">
+<span class="material-symbols-outlined text-[22px]" id="transferIcon">pause</span>
+</button>
+</div>
+<!-- Telemetry & Progress Bar -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-primary font-code-md text-code-md">18.2 MB/s · 77% Complete</span>
+<span class="text-on-surface-variant">110.0 MB / 142.8 MB · 2.1s remaining</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full rounded-full bg-primary shadow-[0_0_8px_rgba(81,240,209,0.7)] transition-all duration-300" style="width: 77%;"></div>
+</div>
+</div>
+<!-- On-The-Fly Hash Stream -->
+<div class="px-2.5 py-1.5 rounded-lg bg-surface-container-lowest flex items-center justify-between gap-space-xs font-code-sm text-code-sm">
+<div class="flex items-center gap-1.5 text-primary min-w-0 truncate">
+<span class="material-symbols-outlined text-[14px] flex-shrink-0">tag</span>
+<span class="truncate"># SHA-256: d89e92a4bc881...54aa</span>
+</div>
+<span class="text-secondary flex-shrink-0 text-[10px] tracking-widest font-label-sm uppercase">LIVE STREAM</span>
+</div>
+</div>
+</div>
+<!-- Incoming File Beam Prompt -->
+<div class="px-margin pt-space-lg mb-space-lg flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[20px]">leak_add</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Incoming File Beam</h2>
+</div>
+<span class="font-code-sm text-code-sm px-2.5 py-0.5 rounded-full bg-surface-container-highest text-tertiary">
+        Proximity Alert
+      </span>
+</div>
+<!-- Alert Card Container -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-md shadow-lg">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">person_check</span>
+</div>
+<div class="min-w-0 flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Dr. Maya Lin</span>
+<span class="font-code-sm text-[10px] text-primary bg-primary/10 px-1.5 py-0.2 rounded">VERIFIED</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">FP: 7B3A-8F44-90C1-22E4</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-secondary bg-surface-container-high px-2 py-0.5 rounded flex-shrink-0">BLE Direct</span>
+</div>
+<!-- File Details -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px]">key</span>
+<span class="font-code-md text-code-md text-on-surface truncate font-semibold">tactical_relay_config_v2.4.kdbx</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span>3.2 MB · ChaCha20-Poly1305</span>
+<span>4 Chunks</span>
+</div>
+<div class="flex items-center gap-1 pt-1 text-primary font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>Signature Valid (ED25519) · 0 Malicious Vectors</span>
+</div>
+</div>
+<!-- Action Button Group -->
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<button class="min-h-[48px] px-space-md rounded-full bg-surface-container-high text-on-surface hover:text-error active:scale-95 transition-all flex items-center justify-center gap-1 font-label-lg text-label-lg" onclick="handleDecline(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+          Decline
+        </button>
+<button class="min-h-[48px] px-space-md rounded-full bg-primary text-on-primary active:scale-95 transition-all flex items-center justify-center gap-1.5 font-label-lg text-label-lg shadow-[0_0_14px_rgba(81,240,209,0.35)]" onclick="handleAccept(this)" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_open</span>
+          Accept &amp; Decrypt
+        </button>
+</div>
+</div>
+</div>
+<!-- Inline Micro-interactions -->
+<script>
+    let isPaused = false;
+    function toggleTransfer() {
+      isPaused = !isPaused;
+      const icon = document.getElementById('transferIcon');
+      if (icon) {
+        icon.textContent = isPaused ? 'play_arrow' : 'pause';
+      }
+    }
+
+    function selectPeer(peerName) {
+      const banner = document.createElement('div');
+      banner.className = 'fixed bottom-4 left-4 right-4 z-50 p-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center justify-between shadow-2xl transition-all';
+      banner.innerHTML = `<span>Payload targeted to <strong>${peerName}</strong>. Preparing beam handshake...</span><span class="material-symbols-outlined text-[18px]">cell_tower</span>`;
+      document.body.appendChild(banner);
+      setTimeout(() => banner.remove(), 2600);
+    }
+
+    function handleAccept(btn) {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">sync</span> Decrypting...';
+      btn.classList.add('opacity-80');
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span> Payload Saved';
+        btn.classList.replace('bg-primary', 'bg-primary-container');
+      }, 1200);
+    }
+
+    function handleDecline(btn) {
+      const card = btn.closest('.bg-surface-container');
+      if (card) {
+        card.style.transition = 'all 0.3s ease';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.96)';
+        setTimeout(() => card.remove(), 320);
+      }
+    }
+  </script>
+</div></main></body></html>

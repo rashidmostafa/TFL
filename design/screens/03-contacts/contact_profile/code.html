@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#101419", "surface-variant": "#31353b", "surface-bright": "#36393f", "inverse-on-surface": "#2d3136", "surface": "#101419", "secondary-container": "#00a6e0", "surface-container-high": "#262a30", "tertiary-container": "#d6aaff", "outline": "#85948f", "error": "#ffb4ab", "on-tertiary-fixed": "#2c0051", "on-secondary-container": "#00374d", "on-primary-container": "#005649", "background": "#101419", "on-tertiary": "#490080", "on-primary-fixed": "#00201a", "tertiary-fixed": "#f0dbff", "error-container": "#93000a", "on-tertiary-fixed-variant": "#6900b3", "outline-variant": "#3b4a46", "primary-container": "#22d3b6", "on-tertiary-container": "#6f00be", "on-secondary-fixed-variant": "#004c69", "surface-tint": "#37dec0", "surface-container-lowest": "#0a0e13", "surface-container": "#1c2025", "on-primary": "#00382e", "on-background": "#e0e2ea", "primary": "#51f0d1", "inverse-surface": "#e0e2ea", "on-surface-variant": "#bacac4", "primary-fixed-dim": "#37dec0", "secondary-fixed-dim": "#7bd0ff", "secondary-fixed": "#c4e7ff", "on-secondary-fixed": "#001e2c", "tertiary-fixed-dim": "#ddb7ff", "on-primary-fixed-variant": "#005144", "inverse-primary": "#006b5b", "secondary": "#7bd0ff", "surface-container-low": "#181c21", "on-surface": "#e0e2ea", "on-error": "#690005", "tertiary": "#e9ceff", "primary-fixed": "#5efbdc", "on-error-container": "#ffdad6", "surface-container-highest": "#31353b", "on-secondary": "#00354a" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "gutter": "1rem", "space-lg": "1rem", "space-xs": "0.25rem", "space-md": "0.75rem" }, fontFamily: { "code-md": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "code-sm": ["JetBrains Mono"], "label-lg": ["Inter"], "body-md": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"] }, fontSize: { "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#101419;color:#e0e2ea;}body{overscroll-behavior:none;-webkit-font-smoothing:antialiased;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors active:scale-95" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Minimal geometric security icon for TFL mesh communicator app. Features an interlocking cryptographic shield mesh node pattern in glowing teal (#22D3B6) on a dark slate circular container.. Brand logo. - Primary color: #22d3b6
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vy3rIpamw9QYfs7toAL8iwEkhBJ22BIyn1Ui7DR8hzXd7w_UoONYOwc-U68p3cDshHUFx5Rn6zth4mNrC1FwXI9AsPfSQAQYBQZdCAR7GC5kX-3Z_fw8DIQm3Orvi707um0M5SkrEctVjyQ5619CI53WKfu0zpXXwxBkG9BmgrDND6UC4J5pFTKW1z4JgS-pomgJQurY58-zguxDSw2b5EV3xl713BZyhW6xkVK9wjh1Gp0LIC8O9Evgf0"/><h1 class="font-headline-sm text-headline-sm text-on-surface truncate ml-space-xs tracking-tight">Contact Profile</h1></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 text-primary"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-code-sm text-code-sm uppercase">E2EE</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
+<!-- Peer Hero Banner & Presence Matrix -->
+<section class="flex flex-col items-center text-center mt-space-sm relative">
+<!-- Live Ambient Mesh Pulse (Micro SVG) -->
+<div class="absolute -top-3 w-48 h-48 bg-primary/5 rounded-full blur-2xl pointer-events-none -z-10"></div>
+<div class="relative mb-space-md">
+<!-- Outer Transport Halo -->
+<div class="w-24 h-24 rounded-full p-1 bg-surface-container-high flex items-center justify-center relative shadow-md">
+<img class="w-full h-full rounded-full object-cover" data-alt="Close-up tactical cybernetic portrait of Kaelen Valkyrie, looking sharp and calm in low light with deep emerald and cyan terminal reflections across her face and dark slate ballistic hoodie, photorealistic cinematic 8k render." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh9qsVdgsyQ8P9Ll7qNf9EOpCZTZeuiOkCZrjxnCeP58Y4-FTqLB85bR666QLznhAVVJgC07HHjp-hGEBATWUgMpSKoHe1cuJdPjMsrmg8ziFI4Lnuh22L7er9ZnPe0Q3f2jy8hImDBgzWexcEokfLRgepOXpiZtyBMNzyc5PXPQwnBlXElafMDC_poBRAKhZyPkZhdNti6QcB7klbxuIXEpZex2FrsiVs0HwOP9KvwPQZ3bDEIFYzBg"/>
+<!-- Active Node Pulse Pill -->
+<span class="absolute bottom-1 right-1 w-4 h-4 bg-primary rounded-full shadow-[0_0_8px_#51f0d1] flex items-center justify-center">
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest animate-ping opacity-75"></span>
+</span>
+</div>
+</div>
+<!-- Identity & Moniker -->
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">Kaelen (Valkyrie)</h2>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-code-sm text-code-sm text-secondary font-medium">node_valkyrie_01</span>
+<span class="text-outline-variant font-code-sm text-code-sm">•</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">cell_tower</span> 2 Hops (Mesh)
+      </span>
+</div>
+<!-- Verified Transport Badge -->
+<div class="mt-space-md inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-code-sm text-code-sm font-semibold tracking-wide uppercase">Cryptographically Verified</span>
+</div>
+<!-- Peer Quick Actions (Call, Walkie-Talkie, More) -->
+<div class="grid grid-cols-3 gap-space-sm w-full mt-space-lg">
+<button class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container hover:bg-surface-container-high active:scale-95 transition-all text-on-surface" type="button">
+<div class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</div>
+<span class="font-label-md text-label-md font-medium">P2P Voice</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl bg-primary text-on-primary active:scale-95 transition-all shadow-md" type="button">
+<div class="w-10 h-10 rounded-full bg-on-primary/10 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px]">settings_voice</span>
+</div>
+<span class="font-label-md text-label-md font-semibold">Walkie PTT</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container hover:bg-surface-container-high active:scale-95 transition-all text-on-surface" type="button">
+<div class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-on-surface-variant mb-1">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</div>
+<span class="font-label-md text-label-md font-medium">Telemetry</span>
+</button>
+</div>
+</section>
+<!-- Safety Number & Cryptographic Fingerprint Verification Card -->
+<section class="bg-surface-container rounded-xl p-space-lg space-y-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">fingerprint</span>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase font-semibold">Safety Number (Fingerprint)</h3>
+</div>
+<button aria-label="Security info tooltip" class="text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</div>
+<!-- Monospace Numbers Matrix -->
+<div class="bg-surface-container-lowest rounded-lg p-3 space-y-1.5 text-center">
+<div class="grid grid-cols-4 font-code-md text-code-md text-primary font-medium tracking-wider">
+<span>49201</span>
+<span>38812</span>
+<span>09411</span>
+<span>55823</span>
+</div>
+<div class="grid grid-cols-4 font-code-md text-code-md text-primary font-medium tracking-wider">
+<span>71049</span>
+<span>82310</span>
+<span>44192</span>
+<span>03918</span>
+</div>
+<div class="grid grid-cols-4 font-code-md text-code-md text-primary font-medium tracking-wider">
+<span>66120</span>
+<span>94812</span>
+<span>77301</span>
+<span>28491</span>
+</div>
+</div>
+<!-- QR Thumbnail & Cross-Verification Tool -->
+<div class="flex items-center gap-space-md bg-surface-container-high/60 rounded-lg p-3">
+<!-- QR Thumbnail Placeholder -->
+<div class="w-14 h-14 rounded-lg bg-surface-dim p-1 flex-shrink-0 flex items-center justify-center">
+<img class="w-full h-full object-contain rounded" data-alt="Tactical crisp dark mode QR code matrix with glowing teal alignment squares and high density cryptographic dots on matte obsidian background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0zb21N2qNOpewiTTC_C4TjLTAlC6ounFjZ5VZKqemrjNFlz_7pUnrI9TuMbAllScHERZ-U0fco-f_HGezX70EPJ9Kr_EvrE6ySYbtgTNhXqgxctIjmztXdO7lnI0rYFaXZDKF_uBLn_Lt0D84DgbTJGtvguVDOp-1ER228MvOQQDzN9ir0yMti6OBb775zsNU4Sau7b9F3vVinjmB6oIaIFEIkAWwwSuBLvy9g1BipK2cAff7XkzU4A"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">Visual &amp; NFC handshake verified via local link.</p>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Last verified: 14 Nov 2024</span>
+</div>
+<button class="px-3 py-2 rounded-lg bg-surface-variant hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">compare_arrows</span>
+<span>Compare</span>
+</button>
+</div>
+<!-- Re-Verify Action CTA -->
+<button class="w-full py-3 px-space-lg rounded-full bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center gap-2 active:scale-98 transition-transform font-label-lg text-label-lg font-semibold shadow-md" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">security</span>
+<span>Re-Verify via QR Scanner</span>
+</button>
+</section>
+<!-- Cryptographic Details Card -->
+<section class="bg-surface-container rounded-xl p-space-lg space-y-space-md shadow-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">shield_lock</span>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase font-semibold">Cryptographic Parameters</h3>
+</div>
+<div class="space-y-space-sm divide-y-0">
+<div class="flex items-center justify-between py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Protocol</span>
+<span class="font-code-sm text-code-sm text-on-surface font-medium px-2 py-0.5 rounded bg-surface-container-high">Double Ratchet + Paillier ZKP</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Identity Key</span>
+<span class="font-code-sm text-code-sm text-primary font-medium px-2 py-0.5 rounded bg-surface-container-high">256-bit Ed25519</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">Session Ratchet</span>
+<span class="font-code-sm text-code-sm text-secondary font-medium px-2 py-0.5 rounded bg-surface-container-high">HKDF-SHA256 #884</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="font-body-md text-body-md text-on-surface-variant">First Verified</span>
+<span class="font-code-sm text-code-sm text-on-surface">In-person QR (Nov 14, 2024)</span>
+</div>
+</div>
+</section>
+<!-- Shared Mesh Groups Section -->
+<section class="bg-surface-container rounded-xl p-space-lg space-y-space-sm shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">hub</span>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase font-semibold">Mutual Mesh Channels (2)</h3>
+</div>
+</div>
+<!-- Group 1 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-high/40 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate">Sector 7 Friends Mesh</p>
+<span class="font-code-sm text-code-sm text-on-surface-variant">8 members active • Relay node</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+<!-- Group 2 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-high/40 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+</div>
+<div class="min-w-0">
+<p class="font-label-lg text-label-lg text-on-surface truncate">Tactical Recon Channel</p>
+<span class="font-code-sm text-code-sm text-on-surface-variant">4 members active • Burst mode</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+</section>
+<!-- Shared Encrypted Vault & Payloads -->
+<section class="bg-surface-container rounded-xl p-space-lg space-y-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">lock_clock</span>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase font-semibold">Zero-Knowledge Shared Vault</h3>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">4 Files</span>
+</div>
+<!-- 4 Item Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- File 1: Encrypted Map -->
+<div class="bg-surface-container-high rounded-lg p-2.5 flex flex-col justify-between h-28 relative overflow-hidden group">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[20px]">map</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">lock</span>
+</div>
+<div>
+<p class="font-code-sm text-code-sm text-on-surface truncate font-semibold">topo_map_dist4.enc</p>
+<span class="font-code-sm text-code-sm text-on-surface-variant">2.4 MB • Zero-P2P</span>
+</div>
+</div>
+<!-- File 2: Radio Specs -->
+<div class="bg-surface-container-high rounded-lg p-2.5 flex flex-col justify-between h-28 relative overflow-hidden group">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-secondary text-[20px]">picture_as_pdf</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">lock</span>
+</div>
+<div>
+<p class="font-code-sm text-code-sm text-on-surface truncate font-semibold">radio_specs.pdf</p>
+<span class="font-code-sm text-code-sm text-on-surface-variant">640 KB • Ratcheted</span>
+</div>
+</div>
+<!-- File 3: Emergency Frequencies -->
+<div class="bg-surface-container-high rounded-lg p-2.5 flex flex-col justify-between h-28 relative overflow-hidden group">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-tertiary text-[20px]">contactless</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">lock</span>
+</div>
+<div>
+<p class="font-code-sm text-code-sm text-on-surface truncate font-semibold">freq_plan_v3.kdbx</p>
+<span class="font-code-sm text-code-sm text-on-surface-variant">128 KB • Kept local</span>
+</div>
+</div>
+<!-- File 4: Drone Path Telemetry -->
+<div class="bg-surface-container-high rounded-lg p-2.5 flex flex-col justify-between h-28 relative overflow-hidden group">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary text-[20px]">route</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">lock</span>
+</div>
+<div>
+<p class="font-code-sm text-code-sm text-on-surface truncate font-semibold">recon_vector.gpx</p>
+<span class="font-code-sm text-code-sm text-on-surface-variant">42 KB • Ephemeral</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Danger Zone & Peer Control -->
+<section class="bg-surface-container-low rounded-xl p-space-lg space-y-space-sm shadow-inner">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-[18px] text-error">warning</span>
+<h3 class="font-label-sm text-label-sm text-error tracking-wider uppercase font-semibold">Cryptographic Operations</h3>
+</div>
+<!-- Action 1: Clear Session Keys -->
+<button class="w-full py-3 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md flex items-center justify-between active:scale-98 transition-all" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">key_off</span>
+<span class="text-left">Clear Ephemeral Session Keys</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Reset Ratchet</span>
+</button>
+<!-- Action 2: Sever Peer Relay & Block -->
+<button class="w-full py-3 px-space-md rounded-lg bg-error-container/20 hover:bg-error-container/40 text-error font-label-md text-label-md flex items-center justify-between active:scale-98 transition-all" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">block</span>
+<span class="text-left font-semibold">Block &amp; Sever Peer Relay</span>
+</div>
+<span class="font-code-sm text-code-sm text-error/80">Permanent drop</span>
+</button>
+</section>
+</div>
+<script>
+  // Quick interaction micro-feedback
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Tactile vibration simulation if available
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(12);
+      }
+    });
+  });
+</script></main></body></html>

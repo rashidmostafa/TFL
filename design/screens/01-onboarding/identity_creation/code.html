@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface": "#101419", "on-tertiary-fixed-variant": "#6900b3", "on-tertiary-container": "#6f00be", "inverse-on-surface": "#2d3136", "on-tertiary-fixed": "#2c0051", "background": "#101419", "on-secondary-container": "#00374d", "error-container": "#93000a", "surface-dim": "#101419", "on-secondary": "#00354a", "outline-variant": "#3b4a46", "tertiary-fixed-dim": "#ddb7ff", "secondary-fixed-dim": "#7bd0ff", "inverse-primary": "#006b5b", "tertiary-container": "#d6aaff", "tertiary-fixed": "#f0dbff", "on-secondary-fixed-variant": "#004c69", "surface-container-high": "#262a30", "outline": "#85948f", "on-error-container": "#ffdad6", "secondary-container": "#00a6e0", "on-primary-fixed-variant": "#005144", "error": "#ffb4ab", "surface-bright": "#36393f", "primary": "#51f0d1", "primary-fixed-dim": "#37dec0", "on-primary-container": "#005649", "inverse-surface": "#e0e2ea", "tertiary": "#e9ceff", "surface-container-lowest": "#0a0e13", "on-surface": "#e0e2ea", "on-background": "#e0e2ea", "on-primary-fixed": "#00201a", "on-surface-variant": "#bacac4", "primary-container": "#22d3b6", "surface-tint": "#37dec0", "primary-fixed": "#5efbdc", "surface-container-highest": "#31353b", "on-error": "#690005", "surface-variant": "#31353b", "on-secondary-fixed": "#001e2c", "surface-container": "#1c2025", "secondary-fixed": "#c4e7ff", "secondary": "#7bd0ff", "on-tertiary": "#490080", "on-primary": "#00382e", "surface-container-low": "#181c21" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "margin": "1rem", "space-xl": "1.5rem", "gutter": "1rem", "space-lg": "1rem", "space-md": "0.75rem", "space-xs": "0.25rem" }, fontFamily: { "label-md": ["Inter"], "code-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "code-md": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Inter"] }, fontSize: { "label-md": ["12px", { lineHeight: "16px", fontWeight: "500" }], "code-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "400" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0.01em", fontWeight: "400" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "700" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "500" }], "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "code-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "500" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "28px", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back_ios_new</span></button><img alt="Minimal geometric security icon for TFL mesh communicator app. Features an interlocking cryptographic shield mesh node pattern in glowing teal (#22D3B6) on a dark slate circular container.. Brand logo. - Primary color: #22d3b6
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Vy3rIpamw9QYfs7toAL8iwEkhBJ22BIyn1Ui7DR8hzXd7w_UoONYOwc-U68p3cDshHUFx5Rn6zth4mNrC1FwXI9AsPfSQAQYBQZdCAR7GC5kX-3Z_fw8DIQm3Orvi707um0M5SkrEctVjyQ5619CI53WKfu0zpXXwxBkG9BmgrDND6UC4J5pFTKW1z4JgS-pomgJQurY58-zguxDSw2b5EV3xl713BZyhW6xkVK9wjh1Gp0LIC8O9Evgf0"/><div class="flex flex-col truncate pl-space-xs"><span class="font-code-sm text-code-sm text-primary uppercase tracking-wider">TFL // PROTOCOL</span><span class="font-headline-sm text-headline-sm text-on-surface truncate">Identity Seed Generation</span></div></div><div class="flex items-center gap-space-sm flex-shrink-0"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface px-margin"><div class="flex flex-col w-full pb-space-xl">
+<!-- Step & Header Segment -->
+<div class="flex items-center justify-between mb-space-sm">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-code-sm text-code-sm font-semibold tracking-wider uppercase">Step 01 / 06</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">terminal</span>
+      SESSION::EPHEMERAL
+    </span>
+</div>
+<div class="flex flex-col mb-space-lg">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mb-1">
+      Forge Cryptographic Identity
+    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+      Generate client-side sovereign credentials. Your hardware sensor noise seeds this localized cryptographic node.
+    </p>
+</div>
+<!-- Security Advisory Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg mb-space-xl shadow-md">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start gap-space-md">
+<div class="flex-shrink-0 w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="flex flex-col space-y-1 text-on-surface">
+<span class="font-label-lg text-label-lg font-semibold text-primary">Zero-Trust Sovereign Enclave</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Your identity is a cryptographic key stored <span class="text-on-surface font-medium">only on this device</span>.
+        </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          No cloud registry, phone number, or recovery coordinator exists. Without a seed backup, forgotten credentials are irrecoverable.
+        </p>
+</div>
+</div>
+</div>
+<!-- Identicon Generator Container -->
+<div class="flex flex-col items-center justify-center p-space-lg rounded-xl bg-surface-container mb-space-xl shadow-md relative overflow-hidden">
+<div class="text-center mb-space-md">
+<span class="font-code-sm text-code-sm uppercase tracking-wider text-outline">Deterministic Visual Mesh</span>
+</div>
+<!-- Hex Identicon Preview Frame -->
+<div class="relative mb-space-md group">
+<!-- Glow Underlay -->
+<div class="absolute -inset-2 bg-primary/15 rounded-full blur-xl transition-all duration-500" id="identicon-glow"></div>
+<!-- Interactive SVG Identicon Canvas Container -->
+<div class="relative w-28 h-28 rounded-full bg-surface-container-lowest flex items-center justify-center p-2 shadow-inner">
+<svg class="w-full h-full text-primary transition-transform duration-500" fill="none" id="identicon-mesh" viewbox="0 0 100 100">
+<polygon class="fill-surface-container-high" points="50,5 90,25 90,75 50,95 10,75 10,25"></polygon>
+<polygon class="fill-surface-container" points="50,15 80,30 80,70 50,85 20,70 20,30"></polygon>
+<!-- Deterministic Node Matrix Lines -->
+<line class="opacity-70" stroke="currentColor" stroke-dasharray="3 2" stroke-width="1.5" x1="50" x2="50" y1="15" y2="85"></line>
+<line class="opacity-80" stroke="currentColor" stroke-width="1.5" x1="20" x2="80" y1="30" y2="70"></line>
+<line class="opacity-80" stroke="currentColor" stroke-width="1.5" x1="20" x2="80" y1="70" y2="30"></line>
+<!-- Geometric Center Nodes -->
+<circle class="fill-primary text-on-primary-fixed" cx="50" cy="50" r="10"></circle>
+<circle cx="50" cy="15" fill="#38BDF8" r="4.5"></circle>
+<circle cx="90" cy="25" fill="#22D3B6" r="4.5"></circle>
+<circle cx="90" cy="75" fill="#38BDF8" r="4.5"></circle>
+<circle cx="50" cy="95" fill="#22D3B6" r="4.5"></circle>
+<circle cx="10" cy="75" fill="#38BDF8" r="4.5"></circle>
+<circle cx="10" cy="25" fill="#22D3B6" r="4.5"></circle>
+<circle class="fill-surface-container-lowest" cx="50" cy="50" r="3.5"></circle>
+</svg>
+</div>
+<div class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-primary shadow">
+<span class="material-symbols-outlined text-[16px]">fingerprint</span>
+</div>
+</div>
+<!-- Regenerate Button -->
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface active:scale-95 transition-all" id="regen-btn" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary transition-transform duration-300" id="regen-icon">casino</span>
+<span class="font-label-md text-label-md">Regenerate Visual Key</span>
+</button>
+</div>
+<!-- Form Fields -->
+<div class="flex flex-col space-y-space-md mb-space-xl">
+<div class="flex flex-col">
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-lg text-label-lg font-semibold text-on-surface" for="alias-input">
+          Display Name <span class="font-body-sm text-body-sm text-outline font-normal">(Mesh Alias)</span>
+</label>
+<span class="font-code-sm text-code-sm text-secondary bg-surface-container-high px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Local broadcast only
+        </span>
+</div>
+<div class="relative flex items-center">
+<div class="absolute left-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<input class="w-full h-12 pl-10 pr-4 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md font-body-md focus:outline-none focus:bg-surface-container-high transition-colors" id="alias-input" placeholder="e.g., Valkyrie, Sector7, Phantom" type="text" value="Valkyrie-7"/>
+</div>
+<span class="mt-1 font-body-sm text-body-sm text-outline px-1">
+        Visible to proximate peers during ad-hoc BLE/Wi-Fi mesh synchronization.
+      </span>
+</div>
+</div>
+<!-- Keypair Generation Diagnostics Bar -->
+<div class="rounded-xl bg-surface-container-low p-space-lg mb-space-xl shadow-md">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary animate-spin" style="animation-duration: 4s;">sync</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Generating Ed25519 &amp; X25519 Keypair...</span>
+</div>
+<span class="font-code-sm text-code-sm text-primary font-semibold" id="entropy-pct">98.4%</span>
+</div>
+<!-- Entropy Progress Bar Container -->
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden mb-space-sm">
+<div class="h-full bg-primary rounded-full transition-all duration-700 ease-out" id="entropy-bar" style="width: 98.4%"></div>
+</div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-code-sm text-code-sm text-outline">Hardware Entropy Pool</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        TRNG Jitter Seeded
+      </span>
+</div>
+<!-- Monospace Fingerprint Preview Box -->
+<div class="p-3 rounded-lg bg-surface-container-lowest flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider mb-0.5">Public Fingerprint</span>
+<span class="font-code-md text-code-md text-primary tracking-wider font-semibold" id="fp-text">
+          0x7F4B · 889C · 20AE · 99C2
+        </span>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm uppercase font-bold">Valid</span>
+</div>
+</div>
+</div>
+<!-- Primary Bottom Actions -->
+<div class="flex flex-col space-y-space-sm mt-auto pt-space-md">
+<button class="w-full h-12 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-2 active:scale-[0.99] transition-transform shadow-lg shadow-primary/10" id="save-identity-btn" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+      Save &amp; Lock Identity
+    </button>
+<div class="flex items-center justify-center gap-2 text-outline">
+<span class="material-symbols-outlined text-[14px]">encrypted</span>
+<span class="font-code-sm text-code-sm">Non-custodial Ed25519 Keystore</span>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    const regenBtn = document.getElementById('regen-btn');
+    const regenIcon = document.getElementById('regen-icon');
+    const identiconMesh = document.getElementById('identicon-mesh');
+    const fpText = document.getElementById('fp-text');
+    const entropyBar = document.getElementById('entropy-bar');
+    const entropyPct = document.getElementById('entropy-pct');
+    const saveBtn = document.getElementById('save-identity-btn');
+
+    const sampleFingerprints = [
+      '0x7F4B · 889C · 20AE · 99C2',
+      '0x3E19 · C482 · 771D · AF05',
+      '0x99A0 · 11DF · E423 · 8B88',
+      '0x45C2 · FE60 · A381 · 29DA',
+      '0xD183 · 491C · B990 · 67E2'
+    ];
+
+    const polyPresets = [
+      {
+        poly1: '50,5 90,25 90,75 50,95 10,75 10,25',
+        poly2: '50,15 80,30 80,70 50,85 20,70 20,30'
+      },
+      {
+        poly1: '50,2 95,30 80,90 20,90 5,30',
+        poly2: '50,18 80,38 70,80 30,80 20,38'
+      },
+      {
+        poly1: '30,5 70,5 95,50 70,95 30,95 5,50',
+        poly2: '35,20 65,20 80,50 65,80 35,80 20,50'
+      }
+    ];
+
+    let rotDeg = 0;
+
+    if (regenBtn) {
+      regenBtn.addEventListener('click', function () {
+        rotDeg += 180;
+        regenIcon.style.transform = 'rotate(' + rotDeg + 'deg)';
+        identiconMesh.style.transform = 'scale(0.85) rotate(' + (rotDeg / 2) + 'deg)';
+
+        // Fluctuate entropy and generate new visual key
+        entropyBar.style.width = '60%';
+        entropyPct.innerText = '60.0%';
+
+        setTimeout(() => {
+          const randFp = sampleFingerprints[Math.floor(Math.random() * sampleFingerprints.length)];
+          const randPoly = polyPresets[Math.floor(Math.random() * polyPresets.length)];
+          
+          fpText.innerText = randFp;
+          const polygons = identiconMesh.querySelectorAll('polygon');
+          if (polygons.length >= 2) {
+            polygons[0].setAttribute('points', randPoly.poly1);
+            polygons[1].setAttribute('points', randPoly.poly2);
+          }
+
+          identiconMesh.style.transform = 'scale(1) rotate(0deg)';
+          entropyBar.style.width = '99.8%';
+          entropyPct.innerText = '99.8%';
+        }, 260);
+      });
+    }
+
+    if (saveBtn) {
+      saveBtn.addEventListener('click', function () {
+        saveBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span> Sealing Keyring...';
+        setTimeout(() => {
+          saveBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: \'FILL\' 1;">check_circle</span> Identity Sealed';
+          saveBtn.classList.remove('bg-primary');
+          saveBtn.classList.add('bg-primary-container');
+        }, 650);
+      });
+    }
+  })();
+</script></main></body></html>

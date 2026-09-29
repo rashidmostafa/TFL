@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#22d3b6", "primary": "#51f0d1", "error-container": "#93000a", "tertiary": "#e9ceff", "on-error": "#690005", "on-error-container": "#ffdad6", "secondary-fixed-dim": "#7bd0ff", "outline": "#85948f", "on-primary-fixed": "#00201a", "on-primary": "#00382e", "on-tertiary": "#490080", "surface-container-lowest": "#0a0e13", "inverse-surface": "#e0e2ea", "surface-container": "#1c2025", "on-secondary-fixed": "#001e2c", "outline-variant": "#3b4a46", "surface-tint": "#37dec0", "surface-variant": "#31353b", "on-background": "#e0e2ea", "tertiary-container": "#d6aaff", "tertiary-fixed-dim": "#ddb7ff", "on-secondary-container": "#00374d", "background": "#101419", "surface-dim": "#101419", "on-secondary": "#00354a", "tertiary-fixed": "#f0dbff", "surface-container-low": "#181c21", "on-surface-variant": "#bacac4", "secondary-container": "#00a6e0", "surface-container-highest": "#31353b", "on-surface": "#e0e2ea", "surface": "#101419", "on-tertiary-fixed-variant": "#6900b3", "secondary-fixed": "#c4e7ff", "primary-fixed": "#5efbdc", "inverse-primary": "#006b5b", "on-primary-fixed-variant": "#005144", "on-tertiary-container": "#6f00be", "surface-container-high": "#262a30", "secondary": "#7bd0ff", "error": "#ffb4ab", "inverse-on-surface": "#2d3136", "on-secondary-fixed-variant": "#004c69", "primary-fixed-dim": "#37dec0", "surface-bright": "#36393f", "on-primary-container": "#005649", "on-tertiary-fixed": "#2c0051" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "gutter": "1rem", "space-lg": "1rem", "margin": "1rem", "space-xl": "1.5rem", "space-md": "0.75rem", "space-sm": "0.5rem" }, "fontFamily": { "code-md": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "label-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "body-sm": ["Inter"] }, "fontSize": { "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><main class="flex flex-col relative w-full min-h-screen bg-surface pt-safe pb-safe"><div class="flex flex-col w-full text-on-surface pb-6 select-none">
+<!-- Top Navigation & Channel Header -->
+<div class="flex flex-col px-4 pt-1 pb-3 space-y-2 bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<button aria-label="Navigate back" class="p-2 -ml-2 rounded-full hover:bg-surface-container-high active:bg-surface-container-highest transition-colors text-on-surface" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Sector 7 Mesh</h1>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center space-x-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse mr-1"></span>
+            Walkie-Talkie Tactical
+          </span>
+</div>
+</div>
+<div class="flex items-center space-x-1">
+<button aria-label="Frequency Scan" class="p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">radar</span>
+</button>
+<button aria-label="Channel Settings" class="p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Transport Telemetry Pill -->
+<div class="flex items-center justify-between bg-surface-container px-3 py-1.5 rounded-lg shadow-sm">
+<div class="flex items-center space-x-2 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-secondary">sensors</span>
+<span class="font-code-sm text-code-sm text-secondary truncate tracking-wide">AD-HOC RF CH-03 · 915MHz LoRa</span>
+</div>
+<div class="flex items-center space-x-1.5 shrink-0 bg-surface-container-high px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">8 PEERS</span>
+</div>
+</div>
+</div>
+<!-- Main Scrollable Stage Area -->
+<div class="flex flex-col px-4 pt-3 space-y-4">
+<!-- Active Speaker Banner Card -->
+<div class="relative overflow-hidden bg-surface-container rounded-xl p-3.5 shadow-md transition-all" id="activeSpeakerBanner">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center space-x-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span class="font-label-lg text-label-lg text-primary tracking-wide">Alex is transmitting...</span>
+</div>
+<div class="bg-surface-container-high px-2 py-0.5 rounded text-primary">
+<span class="font-code-sm text-code-sm font-semibold" id="txTimer">00:04 / 00:30</span>
+</div>
+</div>
+<!-- Realtime Audio Wave Visualizer Bars -->
+<div class="flex items-end justify-between h-9 bg-surface-container-lowest/80 rounded-lg px-2.5 py-1 space-x-1">
+<div class="w-1 bg-primary rounded-full h-3 animate-[pulse_0.4s_ease-in-out_infinite]"></div>
+<div class="w-1 bg-primary rounded-full h-6 animate-[pulse_0.6s_ease-in-out_infinite_0.1s]"></div>
+<div class="w-1 bg-primary rounded-full h-8 animate-[pulse_0.5s_ease-in-out_infinite_0.2s]"></div>
+<div class="w-1 bg-primary rounded-full h-5 animate-[pulse_0.7s_ease-in-out_infinite_0.15s]"></div>
+<div class="w-1 bg-primary rounded-full h-7 animate-[pulse_0.4s_ease-in-out_infinite_0.25s]"></div>
+<div class="w-1 bg-primary rounded-full h-9 animate-[pulse_0.55s_ease-in-out_infinite_0.05s]"></div>
+<div class="w-1 bg-primary rounded-full h-4 animate-[pulse_0.8s_ease-in-out_infinite_0.3s]"></div>
+<div class="w-1 bg-primary rounded-full h-6 animate-[pulse_0.45s_ease-in-out_infinite_0.12s]"></div>
+<div class="w-1 bg-primary rounded-full h-8 animate-[pulse_0.5s_ease-in-out_infinite_0.22s]"></div>
+<div class="w-1 bg-primary rounded-full h-7 animate-[pulse_0.65s_ease-in-out_infinite_0.08s]"></div>
+<div class="w-1 bg-primary rounded-full h-5 animate-[pulse_0.4s_ease-in-out_infinite_0.18s]"></div>
+<div class="w-1 bg-primary rounded-full h-8 animate-[pulse_0.7s_ease-in-out_infinite_0.14s]"></div>
+<div class="w-1 bg-primary rounded-full h-3 animate-[pulse_0.5s_ease-in-out_infinite_0.28s]"></div>
+<div class="w-1 bg-primary rounded-full h-7 animate-[pulse_0.6s_ease-in-out_infinite_0.02s]"></div>
+<div class="w-1 bg-primary rounded-full h-9 animate-[pulse_0.4s_ease-in-out_infinite_0.19s]"></div>
+<div class="w-1 bg-primary rounded-full h-6 animate-[pulse_0.55s_ease-in-out_infinite_0.1s]"></div>
+<div class="w-1 bg-primary rounded-full h-4 animate-[pulse_0.35s_ease-in-out_infinite_0.25s]"></div>
+<div class="w-1 bg-primary rounded-full h-2 animate-[pulse_0.6s_ease-in-out_infinite_0.05s]"></div>
+</div>
+<div class="flex items-center justify-between mt-2 pt-1 font-code-sm text-code-sm text-on-surface-variant">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+<span>AES-256-GCM / Ephemeral Key</span>
+</span>
+<span class="text-primary font-medium">RSSI -68 dBm</span>
+</div>
+</div>
+<!-- Active Peers / Voice States Row -->
+<div class="flex flex-col space-y-1.5">
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Nodes in Reach</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Mesh Latency ~24ms</span>
+</div>
+<div class="flex items-center space-x-3 overflow-x-auto py-1 px-0.5 no-scrollbar">
+<!-- Alex: Speaking -->
+<div class="flex flex-col items-center space-y-1 shrink-0">
+<div class="relative flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-high shadow-md">
+<div class="absolute inset-0 rounded-full bg-primary/20 animate-ping"></div>
+<img class="w-10 h-10 rounded-full object-cover relative z-10" data-alt="Tactical radio operator portrait of Alex wearing communication headset in low-light cybernetic control room with teal ambient accents, sharp depth of field, 8k realistic rendering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk6IL_kE99XpKEswzdAwNc2-ujFCvq3nKCYEuW478L--geXo35s1oTYqqnpL5-5TxEEQIFQPp0brNUWtSthIx8iqdP70NebtHDGQFl29X4fiAk2VGGX4IYBQb747hNN10d4GAYpPew_-4-d17083Fyshyhrl49HNUfKHDsRUSMXBu5S3GHbHx8NE_fNbmyNvnS27awyiUvH2TnMZEB_HHHJ9OagXP9mg3AHgQDhZTzPZkAzU2_W9tjjQ"/>
+<div class="absolute -bottom-0.5 -right-0.5 bg-primary rounded-full p-0.5 z-20 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-primary text-[12px]">volume_up</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-semibold text-primary">Alex</span>
+<span class="font-code-sm text-[10px] text-primary leading-none">Speaking</span>
+</div>
+<!-- Maya: Listening -->
+<div class="flex flex-col items-center space-y-1 shrink-0 opacity-90">
+<div class="relative flex items-center justify-center w-12 h-12 rounded-full bg-surface-container">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Field agent Maya wearing high-tech communications collar with soft cyan rim lighting against dark concrete terminal backdrop, portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsdC4ihnbHE3wBPIHHEeM8dNwk1KvGNtfeCOe-YFAOuqgbE7xpvnOFxaQjqP3HbvxDY1KmljfUqRLbqBidA4craoecKBLtLhRHcjKZZ4wEPmK1dmX75sQ1NtvicJyvC15INqt78S6xizLU9hIYGp6ia7-tq-D6Y93IBg2RIKqDYEyzv-YygPu-ZCs7onFm-pFliFDAQ4TrvLt-3kcN64MW5atU0hnRm1KDlVu1qOn8wkDj1q4Kk7lrJQ"/>
+<div class="absolute -bottom-0.5 -right-0.5 bg-secondary-container rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-[12px]">headphones</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Maya</span>
+<span class="font-code-sm text-[10px] text-on-surface-variant leading-none">Listening</span>
+</div>
+<!-- Kaelen: Listening -->
+<div class="flex flex-col items-center space-y-1 shrink-0 opacity-80">
+<div class="relative flex items-center justify-center w-12 h-12 rounded-full bg-surface-container">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of communications specialist Kaelen with earpiece, military grade tactical gear, minimal studio lighting with teal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqxjB64XJeEON_d3uYgy2_Vunvl6H1-FHSkryW0Qg9OOX1ittKoVS2DxJFWPDnFLO6GIqEhuywzlzeHtqfmEOLknVZC2f8ilRfSVDODrxF-ndD3ofHwnkk1cATQOmrvLcYqERdRtAJ0cbv85K7u-8npeKaTacOS1GBBaVsnId2MItDkX_mLbFlzOfCy9JmbATqDl1lqO-yLBmsh9LUV8dzZUJcjaoxKmyIKlSI1ZKQ3gPfOvk5z32-Kg"/>
+<div class="absolute -bottom-0.5 -right-0.5 bg-surface-container-highest rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[12px]">hearing</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Kaelen</span>
+<span class="font-code-sm text-[10px] text-on-surface-variant leading-none">Idle</span>
+</div>
+<!-- Soren: Relay Peer -->
+<div class="flex flex-col items-center space-y-1 shrink-0 opacity-80">
+<div class="relative flex items-center justify-center w-12 h-12 rounded-full bg-surface-container">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 bg-tertiary rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary text-[12px]">alt_route</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Soren</span>
+<span class="font-code-sm text-[10px] text-tertiary leading-none">Relay Node</span>
+</div>
+<!-- You: Ready -->
+<div class="flex flex-col items-center space-y-1 shrink-0">
+<div class="relative flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-high">
+<div class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 bg-primary rounded-full p-0.5 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[12px]">check</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">You</span>
+<span class="font-code-sm text-[10px] text-primary-container leading-none">Ready</span>
+</div>
+</div>
+</div>
+<!-- Recent Voice Clips Timeline / Audio Log -->
+<div class="flex flex-col space-y-2">
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Audio Log Feed</span>
+<button class="font-code-sm text-code-sm text-primary hover:underline" type="button">Clear Buffer</button>
+</div>
+<div class="space-y-2">
+<!-- Clip 1: Alex -->
+<div class="bg-surface-container rounded-xl p-3 shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Alex</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">14:14</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="font-code-sm text-code-sm text-secondary bg-surface-container-lowest px-2 py-0.5 rounded">4.2s · Mesh H-1</span>
+<button aria-label="Play transmission" class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center hover:opacity-90 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</button>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mb-2 font-normal leading-relaxed">
+            "Relay node at ridge is stable. Battery 84%. Moving to waypoint Echo."
+          </p>
+<!-- Playback Mini Waveform -->
+<div class="flex items-center space-x-1 h-3.5 bg-surface-container-lowest px-2 py-0.5 rounded">
+<div class="h-2 w-1 bg-primary rounded-full"></div>
+<div class="h-3 w-1 bg-primary rounded-full"></div>
+<div class="h-1.5 w-1 bg-primary rounded-full"></div>
+<div class="h-2.5 w-1 bg-primary rounded-full"></div>
+<div class="h-3 w-1 bg-primary rounded-full"></div>
+<div class="h-2 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-1 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-2.5 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-2 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-3 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-1 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-2 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-2.5 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-1 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-2 w-1 bg-primary/40 rounded-full"></div>
+<div class="h-3 w-1 bg-primary/40 rounded-full"></div>
+</div>
+</div>
+<!-- Clip 2: Maya -->
+<div class="bg-surface-container rounded-xl p-3 shadow-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Maya</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">14:12</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="font-code-sm text-code-sm text-secondary bg-surface-container-lowest px-2 py-0.5 rounded">2.8s · Direct</span>
+<button aria-label="Play transmission" class="w-7 h-7 rounded-full bg-surface-bright text-on-surface flex items-center justify-center hover:opacity-90 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+</button>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-normal leading-relaxed">
+            "Copied. Maintaining radio silence on channel 2 until 14:30."
+          </p>
+</div>
+</div>
+</div>
+<!-- Centerpiece Push-to-Talk (PTT) Section -->
+<div class="flex flex-col items-center justify-center pt-2 pb-1 relative">
+<!-- Glow Underlay -->
+<div class="absolute w-56 h-56 rounded-full bg-primary/10 blur-2xl pointer-events-none transition-all duration-300" id="pttGlow"></div>
+<!-- Outermost Interactive Ring Container -->
+<div class="relative flex items-center justify-center w-52 h-52">
+<!-- SVG Tactile Arc Markers -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none -rotate-90" viewbox="0 0 200 200">
+<circle class="text-surface-container-highest" cx="100" cy="100" fill="none" r="92" stroke="currentColor" stroke-dasharray="6 8" stroke-width="2"></circle>
+<circle class="text-primary transition-all duration-150" cx="100" cy="100" fill="none" id="txProgressRing" r="92" stroke="currentColor" stroke-dasharray="578" stroke-dashoffset="578" stroke-width="4"></circle>
+</svg>
+<!-- Big Circular Interactive PTT Button -->
+<button class="relative z-10 w-40 h-40 rounded-full bg-surface-container-high flex flex-col items-center justify-center active:scale-95 transition-all duration-100 shadow-xl select-none group touch-manipulation focus:outline-none" id="pttButton" type="button">
+<!-- Pulse wave ring on touch -->
+<div class="absolute inset-2 rounded-full bg-primary/0 group-active:bg-primary/20 transition-colors pointer-events-none" id="activeRing"></div>
+<div class="flex items-center justify-center w-14 h-14 rounded-full bg-surface-container mb-1 group-active:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[32px] text-primary group-active:text-on-primary transition-colors" id="micIcon">mic</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold tracking-wider text-on-surface group-active:text-primary transition-colors" id="pttText">
+            HOLD TO TALK
+          </span>
+<span class="font-code-sm text-[10px] text-on-surface-variant font-medium mt-0.5 tracking-tight uppercase">
+            Burst Broadcast
+          </span>
+</button>
+</div>
+<!-- Transmission Protocol Monospace Status -->
+<div class="flex items-center space-x-1.5 mt-2 bg-surface-container px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] text-primary">security</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">OPUS 24kbps · RELEASE TO SEND</span>
+</div>
+<!-- Tactical Quick Toggles -->
+<div class="grid grid-cols-2 gap-3 w-full mt-4">
+<!-- Hands-Free Lock Toggle -->
+<button class="flex items-center justify-between px-3 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors" id="handsFreeBtn" type="button">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">lock_open</span>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Hands-Free</span>
+<span class="font-code-sm text-[10px] text-on-surface-variant">VOX Latched</span>
+</div>
+</div>
+<div class="w-8 h-4 bg-surface-container-highest rounded-full p-0.5 transition-colors" id="voxToggleIndicator">
+<div class="w-3 h-3 bg-on-surface-variant rounded-full transition-transform"></div>
+</div>
+</button>
+<!-- Auto-Play Toggle -->
+<button class="flex items-center justify-between px-3 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors" id="autoPlayBtn" type="button">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-primary">autoplay</span>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Auto-Play</span>
+<span class="font-code-sm text-[10px] text-primary">Live Relays (ON)</span>
+</div>
+</div>
+<div class="w-8 h-4 bg-primary-container rounded-full p-0.5 flex justify-end">
+<div class="w-3 h-3 bg-on-primary-container rounded-full shadow-sm"></div>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initPTTLogic() {
+    const pttBtn = document.getElementById('pttButton');
+    const pttText = document.getElementById('pttText');
+    const pttGlow = document.getElementById('pttGlow');
+    const micIcon = document.getElementById('micIcon');
+    const ring = document.getElementById('txProgressRing');
+    const speakerBanner = document.getElementById('activeSpeakerBanner');
+    const handsFreeBtn = document.getElementById('handsFreeBtn');
+    const voxIndicator = document.getElementById('voxToggleIndicator');
+
+    let isTransmitting = false;
+    let transmitInterval = null;
+    let elapsedSeconds = 0;
+    let handsFreeEnabled = false;
+
+    function startTransmit() {
+      if (isTransmitting) return;
+      isTransmitting = true;
+      elapsedSeconds = 0;
+
+      // Update button visual
+      pttText.textContent = 'TRANSMITTING';
+      pttText.classList.add('text-primary');
+      micIcon.textContent = 'podcasts';
+      pttGlow.classList.remove('bg-primary/10');
+      pttGlow.classList.add('bg-primary/30', 'scale-125');
+
+      // Animate tactile progress ring (30s limit simulation)
+      const circumference = 578;
+      transmitInterval = setInterval(() => {
+        elapsedSeconds += 0.2;
+        const progress = Math.min(elapsedSeconds / 30, 1);
+        const offset = circumference - (progress * circumference);
+        ring.style.strokeDashoffset = offset;
+
+        if (elapsedSeconds >= 30) {
+          stopTransmit();
+        }
+      }, 200);
+
+      // Tactile feedback if API exists
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate([40, 30, 40]);
+      }
+    }
+
+    function stopTransmit() {
+      if (!isTransmitting) return;
+      isTransmitting = false;
+      clearInterval(transmitInterval);
+      ring.style.strokeDashoffset = '578';
+
+      // Reset button visual
+      pttText.textContent = 'HOLD TO TALK';
+      pttText.classList.remove('text-primary');
+      micIcon.textContent = 'mic';
+      pttGlow.classList.add('bg-primary/10');
+      pttGlow.classList.remove('bg-primary/30', 'scale-125');
+
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(20);
+      }
+    }
+
+    // Touch & Mouse Event Handlers
+    pttBtn.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      startTransmit();
+    });
+    window.addEventListener('mouseup', () => {
+      if (isTransmitting && !handsFreeEnabled) stopTransmit();
+    });
+
+    pttBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      startTransmit();
+    }, { passive: false });
+    
+    pttBtn.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      if (!handsFreeEnabled) stopTransmit();
+    });
+
+    // Toggle Hands-Free Mode
+    handsFreeBtn.addEventListener('click', () => {
+      handsFreeEnabled = !handsFreeEnabled;
+      if (handsFreeEnabled) {
+        voxIndicator.classList.remove('bg-surface-container-highest');
+        voxIndicator.classList.add('bg-primary-container', 'flex', 'justify-end');
+        voxIndicator.firstElementChild.classList.remove('bg-on-surface-variant');
+        voxIndicator.firstElementChild.classList.add('bg-on-primary-container');
+      } else {
+        voxIndicator.classList.add('bg-surface-container-highest');
+        voxIndicator.classList.remove('bg-primary-container', 'flex', 'justify-end');
+        voxIndicator.firstElementChild.classList.add('bg-on-surface-variant');
+        voxIndicator.firstElementChild.classList.remove('bg-on-primary-container');
+        if (isTransmitting) stopTransmit();
+      }
+    });
+  })();
+</script></main></body></html>

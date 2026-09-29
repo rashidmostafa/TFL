@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-bright": "#36393f", "surface-variant": "#31353b", "on-error-container": "#ffdad6", "on-error": "#690005", "error": "#ffb4ab", "primary-fixed-dim": "#37dec0", "on-secondary-fixed": "#001e2c", "primary-fixed": "#5efbdc", "surface-container": "#1c2025", "inverse-on-surface": "#2d3136", "on-tertiary": "#490080", "inverse-primary": "#006b5b", "error-container": "#93000a", "on-tertiary-container": "#6f00be", "tertiary": "#e9ceff", "on-primary-fixed": "#00201a", "secondary-container": "#00a6e0", "on-tertiary-fixed-variant": "#6900b3", "on-primary": "#00382e", "inverse-surface": "#e0e2ea", "on-background": "#e0e2ea", "surface-container-high": "#262a30", "on-secondary-container": "#00374d", "primary": "#51f0d1", "on-primary-container": "#005649", "surface-container-highest": "#31353b", "on-tertiary-fixed": "#2c0051", "surface": "#101419", "on-surface-variant": "#bacac4", "outline": "#85948f", "on-surface": "#e0e2ea", "surface-container-lowest": "#0a0e13", "secondary-fixed": "#c4e7ff", "tertiary-fixed": "#f0dbff", "on-secondary-fixed-variant": "#004c69", "surface-dim": "#101419", "secondary-fixed-dim": "#7bd0ff", "on-primary-fixed-variant": "#005144", "surface-tint": "#37dec0", "primary-container": "#22d3b6", "surface-container-low": "#181c21", "on-secondary": "#00354a", "outline-variant": "#3b4a46", "secondary": "#7bd0ff", "tertiary-container": "#d6aaff", "tertiary-fixed-dim": "#ddb7ff", "background": "#101419" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-md": "0.75rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "1.5rem" }, "fontFamily": { "label-sm": ["JetBrains Mono"], "body-md": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "code-md": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } }</script><style>@layer base { html, body { width: 100vw; min-height: 100vh; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-sm flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Passwords Locker</h1><div class="flex items-center gap-1.5 overflow-hidden"><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-code-sm text-code-sm uppercase tracking-wider truncate">Argon2id · XChaCha20</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Security Audit Details" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px]">verified_user</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface pb-safe"><div class="flex flex-col w-full">
+<!-- Toast Feedback Overlay for Clipboard Actions -->
+<div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 -translate-y-2 flex items-center gap-2 bg-surface-container-highest px-4 py-2 rounded-full shadow-xl" id="clipboard-toast">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-code-sm text-code-sm text-on-surface" id="toast-text">Copied to volatile clipboard</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-0.5 rounded-full">30s TTL</span>
+</div>
+<!-- Security Protocol & Search Section -->
+<section class="px-space-md pt-space-md flex flex-col gap-space-sm">
+<!-- Cryptographic Enclave Banner -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Zero-Knowledge Enclave</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">Argon2id Memory Hardened · Local HSM</span>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-high px-2.5 py-1 rounded-full shrink-0">
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider">Sealed</span>
+</div>
+</div>
+<!-- Search & Filter Control -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-surface-container pl-10 pr-10 py-3 rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none focus:bg-surface-container-high transition-colors" id="search-input" placeholder="Search entries, fingerprints, nodes..." type="text"/>
+<button aria-label="Filter parameters" class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</section>
+<!-- Filter Category Chips (Horizontal Scrollable) -->
+<section class="mt-space-md px-space-md">
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="category-btn active px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shrink-0 flex items-center gap-1.5 transition-all shadow-sm">
+<span>All</span>
+<span class="bg-on-primary/15 px-1.5 py-0.2 rounded-full font-code-sm text-code-sm">42</span>
+</button>
+<button class="category-btn px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 flex items-center gap-1.5 transition-all">
+<span>Logins</span>
+<span class="bg-surface-container-highest px-1.5 py-0.2 rounded-full font-code-sm text-code-sm text-on-surface-variant">28</span>
+</button>
+<button class="category-btn px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 flex items-center gap-1.5 transition-all">
+<span>SSH / PGP Keys</span>
+<span class="bg-surface-container-highest px-1.5 py-0.2 rounded-full font-code-sm text-code-sm text-on-surface-variant">8</span>
+</button>
+<button class="category-btn px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md shrink-0 flex items-center gap-1.5 transition-all">
+<span>Recovery Seeds</span>
+<span class="bg-surface-container-highest px-1.5 py-0.2 rounded-full font-code-sm text-code-sm text-on-surface-variant">6</span>
+</button>
+</div>
+</section>
+<!-- Password List -->
+<section class="px-space-md mt-space-md flex flex-col gap-space-md pb-28">
+<!-- Card 1: Router Admin // Mesh Gateway -->
+<article class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high">
+<!-- Title & Security Scope -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[18px]">router</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Router Admin // Mesh Gateway</h2>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-outline text-[14px]">lock</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Local Gateway · Subnet 192.168.88.1</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest font-label-sm text-label-sm text-on-surface-variant shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">smartphone</span>
+          Private (Device Only)
+        </span>
+</div>
+<!-- Identity & Credential Fieldset -->
+<div class="flex flex-col gap-2 bg-surface-container-low rounded-lg p-space-sm">
+<!-- Username Row -->
+<div class="flex items-center justify-between gap-2 px-2 py-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase w-16 shrink-0">User</span>
+<span class="font-code-md text-code-md text-on-surface truncate" id="user-val-1">admin_mesh_s7</span>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface-variant active:text-primary transition-colors" onclick="copyToClipboard('admin_mesh_s7', 'Username')" title="Copy Username">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<div class="h-px bg-surface-container-highest/60 w-full"></div>
+<!-- Password Row -->
+<div class="flex items-center justify-between gap-2 px-2 py-1">
+<div class="flex items-center gap-2 min-w-0 flex-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase w-16 shrink-0">Secret</span>
+<span class="font-code-md text-code-md text-primary tracking-widest truncate" data-secret="9z#KqL8$vM3*eR1!" id="pwd-val-1">••••••••••••••••</span>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface-variant active:text-on-surface transition-colors" onclick="toggleVisibility('pwd-val-1', this)" title="Reveal secret">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-colors" onclick="copySecret('pwd-val-1', 'Password')" title="Quick Copy Password">
+<span class="material-symbols-outlined text-[16px]">key</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Password Strength & Telemetry -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span>128-bit Entropy (Strong)</span>
+</div>
+<span class="text-on-surface-variant font-code-sm text-code-sm">Auto-clears clipboard: 30s</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full w-full"></div>
+</div>
+</div>
+</article>
+<!-- Card 2: Sector 7 Shared Radio Hub -->
+<article class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high">
+<!-- Title & Sharing Scope -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[18px]">cell_tower</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Sector 7 Shared Radio Hub</h2>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-outline text-[14px]">hub</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">VHF Bridge Relay · Node 0x7E2B</span>
+</div>
+</div>
+</div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary shrink-0 mt-1" title="Synchronized Relay"></div>
+</div>
+<!-- Sharing Indicator Chip -->
+<div class="bg-secondary-container/20 px-3 py-1.5 rounded-lg flex items-center justify-between gap-2">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-secondary text-[18px]">group</span>
+<span class="font-label-md text-label-md text-secondary truncate">Sector 7 Friends Mesh</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary shrink-0 bg-secondary/10 px-2 py-0.5 rounded-full">4 synced</span>
+</div>
+<!-- Identity & Credential Fieldset -->
+<div class="flex flex-col gap-2 bg-surface-container-low rounded-lg p-space-sm">
+<!-- Username Row -->
+<div class="flex items-center justify-between gap-2 px-2 py-1">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase w-16 shrink-0">Callsign</span>
+<span class="font-code-md text-code-md text-on-surface truncate" id="user-val-2">node_operator_echo</span>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface-variant active:text-secondary transition-colors" onclick="copyToClipboard('node_operator_echo', 'Callsign')" title="Copy Callsign">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<div class="h-px bg-surface-container-highest/60 w-full"></div>
+<!-- Password Row -->
+<div class="flex items-center justify-between gap-2 px-2 py-1">
+<div class="flex items-center gap-2 min-w-0 flex-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase w-16 shrink-0">PSK</span>
+<span class="font-code-md text-code-md text-secondary tracking-widest truncate" data-secret="wX9#41mK~vOpsQ-08!tL" id="pwd-val-2">••••••••••••••••</span>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface-variant active:text-on-surface transition-colors" onclick="toggleVisibility('pwd-val-2', this)" title="Reveal secret">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-secondary text-on-secondary hover:bg-secondary-fixed transition-colors" onclick="copySecret('pwd-val-2', 'Mesh PSK')" title="Quick Copy PSK">
+<span class="material-symbols-outlined text-[16px]">key</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Password Strength & Telemetry -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>192-bit High Entropy</span>
+</div>
+<span class="text-on-surface-variant font-code-sm text-code-sm">Rotates in 14d</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-11/12"></div>
+</div>
+</div>
+</article>
+<!-- Card 3: Sovereign PGP Signing Subkey -->
+<article class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-md shadow-sm transition-all hover:bg-surface-container-high">
+<!-- Title & Enclave State -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<div class="w-8 h-8 rounded-lg bg-tertiary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[18px]">fingerprint</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Sovereign PGP Signing Subkey</h2>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-outline text-[14px]">terminal</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Curve25519 · Auth &amp; Sign Only</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-tertiary/15 font-label-sm text-label-sm text-tertiary shrink-0 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+          Hardware Enclave Sealed
+        </span>
+</div>
+<!-- Hex Fingerprint Display -->
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Key ID &amp; Fingerprint</span>
+<span class="font-code-sm text-code-sm text-tertiary bg-tertiary/10 px-1.5 py-0.5 rounded">NO EXPORT</span>
+</div>
+<div class="flex items-center justify-between gap-2 bg-surface-container px-3 py-2 rounded-lg">
+<code class="font-code-md text-code-md text-on-surface tracking-wider select-all truncate">
+            ED25519-SK: 9f8a...4b01
+          </code>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-tertiary active:text-on-surface transition-colors" onclick="copyToClipboard('ED25519-SK:9F8A7D4C2B10E65A4B01', 'PGP Fingerprint')" title="Copy Fingerprint">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm pt-1">
+<span>Created: 2024-03-12</span>
+<span>Never Expires</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Sticky Bottom Actions Bar -->
+<div class="fixed bottom-0 inset-x-0 p-space-md bg-surface/90 backdrop-blur-md pb-safe z-40">
+<div class="flex items-center gap-space-sm max-w-md mx-auto">
+<!-- Generate Password Modal Trigger -->
+<button aria-label="Generate strong password" class="h-12 px-4 rounded-xl bg-surface-container-highest text-on-surface hover:bg-surface-bright active:scale-95 flex items-center justify-center gap-2 transition-all shrink-0" onclick="triggerGenerator()">
+<span class="material-symbols-outlined text-primary text-[20px]">casino</span>
+<span class="font-label-lg text-label-lg hidden sm:inline">Generator</span>
+</button>
+<!-- Add New Secret Primary FAB Button -->
+<button aria-label="Add new secret entry" class="h-12 flex-1 rounded-xl bg-primary text-on-primary hover:bg-primary-fixed active:scale-98 flex items-center justify-center gap-2 font-label-lg text-label-lg shadow-lg shadow-primary/10 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add New Secret</span>
+</button>
+</div>
+</div>
+<!-- Interactive JavaScript Logic -->
+<script>
+    let toastTimeout = null;
+
+    function showToast(message) {
+      const toast = document.getElementById('clipboard-toast');
+      const toastText = document.getElementById('toast-text');
+      if (!toast || !toastText) return;
+
+      toastText.textContent = message;
+      toast.classList.remove('opacity-0', '-translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', '-translate-y-2');
+      }, 3000);
+    }
+
+    function copyToClipboard(val, label) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(val).catch(() => {});
+      }
+      showToast(`${label} copied (Auto-clears in 30s)`);
+    }
+
+    function copySecret(elementId, label) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const secret = el.getAttribute('data-secret');
+      if (secret) {
+        copyToClipboard(secret, label);
+      }
+    }
+
+    function toggleVisibility(elementId, btn) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const isMasked = el.textContent.includes('•');
+      const icon = btn.querySelector('.material-symbols-outlined');
+
+      if (isMasked) {
+        el.textContent = el.getAttribute('data-secret');
+        el.classList.remove('tracking-widest');
+        if (icon) icon.textContent = 'visibility_off';
+      } else {
+        el.textContent = '••••••••••••••••';
+        el.classList.add('tracking-widest');
+        if (icon) icon.textContent = 'visibility';
+      }
+    }
+
+    function triggerGenerator() {
+      const randomCharset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~';
+      let generated = '';
+      for (let i = 0; i < 20; i++) {
+        generated += randomCharset.charAt(Math.floor(Math.random() * randomCharset.length));
+      }
+      copyToClipboard(generated, 'Generated 20-char secret');
+    }
+
+    // Category Tabs Micro-interaction
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.category-btn').forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      });
+    });
+  </script>
+</div></main></body></html>

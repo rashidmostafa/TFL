@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-bright": "#36393f", "surface-variant": "#31353b", "on-error-container": "#ffdad6", "on-error": "#690005", "error": "#ffb4ab", "primary-fixed-dim": "#37dec0", "on-secondary-fixed": "#001e2c", "primary-fixed": "#5efbdc", "surface-container": "#1c2025", "inverse-on-surface": "#2d3136", "on-tertiary": "#490080", "inverse-primary": "#006b5b", "error-container": "#93000a", "on-tertiary-container": "#6f00be", "tertiary": "#e9ceff", "on-primary-fixed": "#00201a", "secondary-container": "#00a6e0", "on-tertiary-fixed-variant": "#6900b3", "on-primary": "#00382e", "inverse-surface": "#e0e2ea", "on-background": "#e0e2ea", "surface-container-high": "#262a30", "on-secondary-container": "#00374d", "primary": "#51f0d1", "on-primary-container": "#005649", "surface-container-highest": "#31353b", "on-tertiary-fixed": "#2c0051", "surface": "#101419", "on-surface-variant": "#bacac4", "outline": "#85948f", "on-surface": "#e0e2ea", "surface-container-lowest": "#0a0e13", "secondary-fixed": "#c4e7ff", "tertiary-fixed": "#f0dbff", "on-secondary-fixed-variant": "#004c69", "surface-dim": "#101419", "secondary-fixed-dim": "#7bd0ff", "on-primary-fixed-variant": "#005144", "surface-tint": "#37dec0", "primary-container": "#22d3b6", "surface-container-low": "#181c21", "on-secondary": "#00354a", "outline-variant": "#3b4a46", "secondary": "#7bd0ff", "tertiary-container": "#d6aaff", "tertiary-fixed-dim": "#ddb7ff", "background": "#101419" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-md": "0.75rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "1.5rem" }, "fontFamily": { "label-sm": ["JetBrains Mono"], "body-md": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "code-md": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } }</script><style>@layer base { html, body { width: 100vw; min-height: 100vh; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-sm flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Shared Albums</h1><div class="flex items-center gap-1.5 overflow-hidden"><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-code-sm text-code-sm uppercase tracking-wider truncate">Argon2id · XChaCha20</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Security Audit Details" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px]">verified_user</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface pb-safe"><div class="flex flex-col w-full pb-8">
+<!-- Status & Subtitle Context Banner -->
+<div class="px-margin pt-space-md pb-space-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-high text-primary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-code-sm text-code-sm tracking-wide">P2P MESH SYNC: ACTIVE</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">hub</span>
+<span>4 Peers</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+      End-to-end encrypted collaborative media vaults synced peer-to-peer over local radios and Tor circuits.
+    </p>
+</div>
+<!-- Vault List -->
+<div class="px-margin flex flex-col gap-space-lg">
+<!-- Album 1: Sector 7 Reconnaissance -->
+<div class="w-full bg-surface-container rounded-xl overflow-hidden shadow-md flex flex-col">
+<!-- Media Mosaic Preview Stack -->
+<div class="relative w-full h-44 bg-surface-container-low flex">
+<div class="w-2/3 h-full relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Monochrome tactical night-vision reconnaissance shot of an industrial outpost under dense rain, with emerald green cipher telemetry HUD overlaid in cyber-physical tactical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWeDlHLWXYqFamPMgUhth9Pkj07ueYS3v2T943K4wDMgHGcxqJSmxcgGAzDKpOi4C2HIUTDZEv5mH9WoBWwOhUm25OP_n4XWwvoExs4vkaxIas8oV3OrBfFRvzeTDF_yB8vB-IhmCwB1MNt3dhuyI40staH1OD0d36bJPityTDYDNtDB37RAw0J9SOjhSlWoV1BZOROrd8HJwFA6e_Vs5Np8n-w5oLFY1cG3ZHgFUVMTQWN83phOW2sA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+</div>
+<div class="w-1/3 h-full flex flex-col pl-0.5">
+<div class="h-1/2 w-full pb-0.5 relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up architectural detail of an abandoned surveillance radar antenna dish with low light cyan highlights against deep stormy clouds in tactical style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi282qZjrRSuHvCHqok456GFMgq4cEWmksWlXq0fPOCCJ_Lk70bK9kPN8YSjZBKZFT2tSFRpggkkqS3L7kNjt2EXCwdirnBIii6_2CGRu6uhvvLKv5pOnrDYDl-TidRMa25iyA2jweQqTDfsQg-RloDgA1JIUjPfzTmf-JmoBh4zWgJfzYKhBuv_BK0_FG1ZM3MqFFIZZv7UeXBYTS5nRe7puMeHpLpQOnehvdZvBpDEbyFSNE0XIDZA"/>
+</div>
+<div class="h-1/2 w-full relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Encrypted server rack glowing with soft teal LED status lights in dark subterranean bunker facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjHdSF620-GU776h_slyJG3LHnxHFqLW6SCMLDMpRCDSY4Z6IGZpXvUDq1aqgEVn2xME_jYMZk-pafcHBTaTz4qRkvaLxY1Jl0WAySaHRPzJR744x6_Bojgxat5w43KTpOCmcZ5WjWQgvCcX6i3kuGHiXo8h-MglYDGSJVZpK0YTvwq0YUFy5rlQ2OtYlq7AFDh3lEXvvG07Qw0784okw2bYJA3gC38s8Vvzwv_yTh5FnctrL4SkCxcQ"/>
+<div class="absolute inset-0 bg-surface-container-highest/80 flex items-center justify-center">
+<span class="font-code-sm text-code-sm text-primary">+39</span>
+</div>
+</div>
+</div>
+<!-- Lock Badge Floating -->
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-surface-container-highest/90 backdrop-blur-md flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-code-sm text-code-sm tracking-wider">AES-256-GCM</span>
+</div>
+<!-- Pinned Route Badge -->
+<div class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-surface-container-highest/90 backdrop-blur-md flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[13px]">wifi_tethering</span>
+<span class="font-code-sm text-code-sm">Mesh Hop #2</span>
+</div>
+</div>
+<!-- Album Details -->
+<div class="p-space-md flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Sector 7 Reconnaissance</h2>
+<div class="flex items-center gap-1.5 pt-0.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-primary font-label-md text-label-md">Synced</span>
+<span class="text-on-surface-variant">·</span>
+<span class="font-code-sm text-code-sm">38 Photos · 4 Videos (412 MB)</span>
+</div>
+</div>
+<button aria-label="Album Options" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Member Avatars Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center -space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shadow-sm" title="Kaelen">
+<span class="font-code-sm text-code-sm text-primary">KL</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shadow-sm" title="Alex">
+<span class="font-code-sm text-code-sm text-on-secondary-container">AL</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center shadow-sm" title="Dr. Maya Lin">
+<span class="font-code-sm text-code-sm text-on-tertiary-container">ML</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm" title="You">
+<span class="material-symbols-outlined text-on-primary text-[15px]">person</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 Collaborators</span>
+</div>
+<!-- Per-Album Sync Mode Pill Selector -->
+<div class="w-full bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[15px]">sync</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface truncate">Full High-Res</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Auto-Sync over Wi-Fi Direct &amp; Mesh</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] shrink-0">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Album 2: Backcountry Expeditions 2024 -->
+<div class="w-full bg-surface-container rounded-xl overflow-hidden shadow-md flex flex-col">
+<!-- Media Cover -->
+<div class="relative w-full h-44 bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High-altitude alpine terrain rugged ridgeline dusted with crisp snow under harsh dramatic sunlight, deep shadows, cyber-physical expedition landscape aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIohhQGX41WR4dleIq3hEm0mGtk7FC8lIL7YDLym0gj4YJdjNjqZYNuBVFs5Mmv2GX3m0ZiIpy8OzBfieUnE-4x9ZxnFebCBYWg6zkOUzXA3Cik12B_j2xTMOu2kB_lALy6jXYkfUSVyms7MIyM1q1wGn_ysIBHUTsan7bPdweEsVkFbTeDhI4r6lvnH8M1xI1hKMckGlDoQkC94jakt_leTDIgUqklF7QUu6H4noyAzUosWBWgKyUgw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/20 to-transparent"></div>
+<!-- Live Transfer Rate Floating Badge -->
+<div class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-surface-container-highest/90 backdrop-blur-md flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[13px] animate-spin">sync</span>
+<span class="font-code-sm text-code-sm">4.2 MB/s</span>
+</div>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-surface-container-highest/90 backdrop-blur-md flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-code-sm text-code-sm tracking-wider">ChaCha20-Poly1305</span>
+</div>
+</div>
+<!-- Album Details -->
+<div class="p-space-md flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Backcountry Expeditions 2024</h2>
+<div class="flex items-center gap-1.5 pt-0.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary animate-pulse">downloading</span>
+<span class="text-secondary font-label-md text-label-md">Syncing 12/40</span>
+<span class="text-on-surface-variant">·</span>
+<span class="font-code-sm text-code-sm">via Wi-Fi Direct</span>
+</div>
+</div>
+<button aria-label="Album Options" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Sync Progress Bar -->
+<div class="flex flex-col gap-1">
+<div class="w-full h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full transition-all duration-300" style="width: 30%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span>Payload 148 MB / 492 MB</span>
+<span class="text-secondary">30% Complete</span>
+</div>
+</div>
+<!-- Member Avatars Row (6 friends) -->
+<div class="flex items-center justify-between">
+<div class="flex items-center -space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center shadow-sm">
+<span class="font-code-sm text-code-sm text-on-surface">TA</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shadow-sm">
+<span class="font-code-sm text-code-sm text-secondary">RJ</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shadow-sm">
+<span class="font-code-sm text-code-sm text-on-secondary-container">EV</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center shadow-sm">
+<span class="font-code-sm text-code-sm text-on-tertiary-container">MK</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center shadow-sm">
+<span class="font-code-sm text-code-sm text-primary">DN</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm">
+<span class="font-code-sm text-code-sm text-on-primary font-bold">+1</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">6 Collaborators</span>
+</div>
+<!-- Per-Album Sync Mode Selector Pill -->
+<div class="w-full bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[15px]">filter_vintage</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface truncate">Full Files</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Selective Manual Download</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] shrink-0">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Album 3: Tactical Hardware Schematics -->
+<div class="w-full bg-surface-container rounded-xl overflow-hidden shadow-md flex flex-col">
+<!-- Media Cover Schematics -->
+<div class="relative w-full h-36 bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover filter blur-[2px] opacity-75" data-alt="Technical circuit diagram schematic blueprint rendered in luminous amber and slate lines on deep graphite background, precise electronic motherboard routing aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMsotRwsb7bXCwKhqzEE1T_vz8PsbSDNBTPGqNB6vipRggYAm04cJcf4oxXiBFSKfxZHB-_QWTPqweegn4GlwDEHkXAKcI-rWFetDe_WcOuDKMwjZNDThSJnh2lQUwne2gq5DTvyEf_EKrQeInwSy__LJGvEEEohMmYbydPr0v7GZwJUUs7XnnQTlhyrqC0kOnIZ8ru6KNxzV9Lb00PyWIYdsViSeFLZ9g8T5M6vX1KTISPE_Ut4wRIQ"/>
+<div class="absolute inset-0 bg-surface-container-lowest/60 backdrop-blur-sm flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-outline text-[24px]">visibility_off</span>
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Scrambled Preview · Bandwidth Saver</span>
+</div>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-surface-container-highest/90 backdrop-blur-md flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+<span class="font-code-sm text-code-sm tracking-wider">Zero-Knowledge</span>
+</div>
+</div>
+<!-- Album Details -->
+<div class="p-space-md flex flex-col gap-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Tactical Hardware Schematics</h2>
+<div class="flex items-center gap-1.5 pt-0.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-tertiary">data_saver_on</span>
+<span class="text-tertiary font-label-md text-label-md">Thumbnails Only</span>
+<span class="text-on-surface-variant">·</span>
+<span class="font-code-sm text-code-sm">Low Bandwidth Mode</span>
+</div>
+</div>
+<button aria-label="Album Options" class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Member Avatars Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center -space-x-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shadow-sm" title="Alex">
+<span class="font-code-sm text-code-sm text-on-secondary-container">AL</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center shadow-sm" title="Soren">
+<span class="font-code-sm text-code-sm text-on-surface">SR</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-sm" title="You">
+<span class="material-symbols-outlined text-on-primary text-[15px]">person</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 Collaborators</span>
+</div>
+<!-- Per-Album Sync Mode Selector Pill -->
+<div class="w-full bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-outline shrink-0">
+<span class="material-symbols-outlined text-[15px]">blur_on</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface truncate">Metadata &amp; Blur Only</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Conserves Radio Battery &amp; Hop Quotas</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] shrink-0">unfold_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Button Container -->
+<div class="px-margin pt-space-xl">
+<button class="w-full h-12 rounded-full bg-primary text-on-primary flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] transition-all" id="createAlbumBtn">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span class="font-label-lg text-label-lg">Create New Shared Vault Album</span>
+</button>
+</div>
+</div>
+<script>
+  document.getElementById('createAlbumBtn')?.addEventListener('click', () => {
+    const feedback = document.createElement('div');
+    feedback.className = 'fixed bottom-20 left-1/2 -translate-x-1/2 px-4 py-2 bg-surface-container-highest text-primary font-code-sm text-code-sm rounded-full shadow-xl flex items-center gap-2 z-50';
+    feedback.innerHTML = '<span class="material-symbols-outlined text-[16px]">key</span> Initializing Ephemeral Vault Keys...';
+    document.body.appendChild(feedback);
+    setTimeout(() => feedback.remove(), 2400);
+  });
+</script></main></body></html>

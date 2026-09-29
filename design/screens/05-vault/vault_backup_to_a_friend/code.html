@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-bright": "#36393f", "surface-variant": "#31353b", "on-error-container": "#ffdad6", "on-error": "#690005", "error": "#ffb4ab", "primary-fixed-dim": "#37dec0", "on-secondary-fixed": "#001e2c", "primary-fixed": "#5efbdc", "surface-container": "#1c2025", "inverse-on-surface": "#2d3136", "on-tertiary": "#490080", "inverse-primary": "#006b5b", "error-container": "#93000a", "on-tertiary-container": "#6f00be", "tertiary": "#e9ceff", "on-primary-fixed": "#00201a", "secondary-container": "#00a6e0", "on-tertiary-fixed-variant": "#6900b3", "on-primary": "#00382e", "inverse-surface": "#e0e2ea", "on-background": "#e0e2ea", "surface-container-high": "#262a30", "on-secondary-container": "#00374d", "primary": "#51f0d1", "on-primary-container": "#005649", "surface-container-highest": "#31353b", "on-tertiary-fixed": "#2c0051", "surface": "#101419", "on-surface-variant": "#bacac4", "outline": "#85948f", "on-surface": "#e0e2ea", "surface-container-lowest": "#0a0e13", "secondary-fixed": "#c4e7ff", "tertiary-fixed": "#f0dbff", "on-secondary-fixed-variant": "#004c69", "surface-dim": "#101419", "secondary-fixed-dim": "#7bd0ff", "on-primary-fixed-variant": "#005144", "surface-tint": "#37dec0", "primary-container": "#22d3b6", "surface-container-low": "#181c21", "on-secondary": "#00354a", "outline-variant": "#3b4a46", "secondary": "#7bd0ff", "tertiary-container": "#d6aaff", "tertiary-fixed-dim": "#ddb7ff", "background": "#101419" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-md": "0.75rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "1.5rem" }, "fontFamily": { "label-sm": ["JetBrains Mono"], "body-md": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "code-md": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "label-lg": ["Inter"], "code-sm": ["JetBrains Mono"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } }</script><style>@layer base { html, body { width: 100vw; min-height: 100vh; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-sm flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:bg-surface-container-high transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="flex flex-col min-w-0"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Peer Backup Enclave</h1><div class="flex items-center gap-1.5 overflow-hidden"><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-code-sm text-code-sm uppercase tracking-wider truncate">Argon2id · XChaCha20</span></div></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Security Audit Details" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px]">verified_user</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface pb-safe"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+<!-- Sub-header Security Telemetry Ribbon -->
+<div class="flex items-center justify-between py-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-primary tracking-wider uppercase">Direct Enclave Active</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-code-sm text-code-sm uppercase tracking-wide">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+      ZERO-KNOWLEDGE BLOB
+    </span>
+</div>
+<!-- Trust & OpSec Guarantee Banner (Hero Moment) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-sm">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-primary/5 pointer-events-none blur-2xl"></div>
+<div class="flex items-start gap-space-md">
+<div class="shrink-0 w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 text-primary mb-1">
+<span class="material-symbols-outlined text-[16px]">key</span>
+<span class="font-code-sm text-code-sm uppercase tracking-widest text-primary font-semibold">Dual-Key Isolated</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight">
+          “They store it encrypted — they cannot read it.”
+        </h2>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Your vault is encrypted with a master key derived on your device before transfer. The peer node acts solely as a blind, tamper-proof cold storage enclave.
+        </p>
+</div>
+</div>
+</div>
+<!-- Trusted Custodian Card -->
+<div class="rounded-xl bg-surface-container p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant uppercase tracking-wider">Designated Blind Peer</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-code-sm text-code-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+        TRUST LEVEL 4
+      </span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of Alex Chen in high-contrast cinematic cyber-minimal lighting with cool cyan rim light, neutral focused expression, sovereign peer identity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeGoE_kXtErKFEC-Lfo3remHz6JHrcL3Hd-_aGIqu6uWNuGg5arqS9J01MtLaaLwjKJahvW6rEpXKG5VIWMkX9eXFvoiDaNU5-RP9335XaML9hBm7HYb6xFb0KQnZKj8hprSoyhZuVpc0FKb_ea_6XfG_7YELJs3JZiTk830aCHB85DpmXPlSjNPyjD6x5TmRh9rgYAMpH7Cd6qnBs2U9I_Dh6bfTGJVjAndmTUvUSTNwc9zZLEjpOMw"/>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="w-3.5 h-3.5 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-on-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
+</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Alex Chen</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-code-sm text-code-sm">Node-01</span>
+</div>
+<div class="flex items-center gap-1.5 text-secondary mt-0.5">
+<span class="material-symbols-outlined text-[14px]">cell_tower</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">Direct Wi-Fi Direct P2P &amp; BLE Relay (Hop 1)</span>
+</div>
+</div>
+</div>
+<!-- Cryptographic Fingerprint Match Sub-panel -->
+<div class="rounded-lg bg-surface-container-high p-space-md space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Identity Hash Fingerprint</span>
+<span class="inline-flex items-center gap-1 text-primary font-code-sm text-code-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">handshake</span>
+          Verified in person
+        </span>
+</div>
+<div class="font-code-md text-code-md text-on-surface tracking-wider bg-surface-container-lowest px-2.5 py-1.5 rounded flex items-center justify-between">
+<span>0x3D82 · 4F19 · C82A · F91A</span>
+<button aria-label="Copy peer fingerprint" class="text-on-surface-variant hover:text-primary transition-colors flex items-center" id="copy-fp-btn">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Backup Health & Status Bento Grid -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between px-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Snapshot Telemetry</h3>
+<span class="font-code-sm text-code-sm text-primary">SYNC_OK</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- Last Full Backup -->
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">Last Snapshot</span>
+<span class="material-symbols-outlined text-[18px] text-primary">history</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">2h ago</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mt-0.5">Today · 12:14 UTC</div>
+</div>
+</div>
+<!-- Payload Size -->
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">Payload Size</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">inventory_2</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">1.42 GB</div>
+<div class="font-code-sm text-code-sm text-secondary mt-0.5">Snapshot #18 (Diff)</div>
+</div>
+</div>
+<!-- Hash Integrity -->
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">SHA-256 Digest</span>
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="font-code-md text-code-md text-on-surface truncate">9b1a...8e44</div>
+<div class="font-code-sm text-code-sm text-primary mt-0.5 flex items-center gap-1">
+<span>Integrity Matched</span>
+</div>
+</div>
+</div>
+<!-- Peer Storage Allocated -->
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">Peer Enclave</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">sd_card</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">1.42 / 5.0 GB</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-2">
+<div class="bg-primary h-full rounded-full" style="width: 28.4%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Automated Backup Policies -->
+<div class="rounded-xl bg-surface-container p-space-lg space-y-space-md shadow-sm">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-primary">tune</span>
+<h3 class="font-headline-sm text-headline-sm">Enclave Transfer Policies</h3>
+</div>
+<div class="space-y-space-md">
+<!-- Toggle 1: Auto-backup -->
+<div class="flex items-center justify-between gap-space-md">
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Proximity Burst Backup</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Trigger differential backup when Wi-Fi Direct range connects</span>
+</div>
+<button aria-checked="true" class="shrink-0 w-12 h-7 bg-primary rounded-full relative p-0.5 transition-colors focus:outline-none" id="toggle-proximity" role="switch">
+<span class="block w-6 h-6 rounded-full bg-on-primary transform translate-x-5 transition-transform"></span>
+</button>
+</div>
+<!-- Toggle 2: Mutual Heartbeat -->
+<div class="flex items-center justify-between gap-space-md">
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Cryptographic Heartbeat</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Require mutual weekly zero-knowledge verification challenge</span>
+</div>
+<button aria-checked="false" class="shrink-0 w-12 h-7 bg-surface-container-highest rounded-full relative p-0.5 transition-colors focus:outline-none" id="toggle-heartbeat" role="switch">
+<span class="block w-6 h-6 rounded-full bg-on-surface-variant transform translate-x-0 transition-transform"></span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary Interactive Actions -->
+<div class="space-y-space-xs pt-space-xs">
+<!-- Backup Now Primary Trigger -->
+<button class="w-full h-12 rounded-full bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-xs transition-all active:scale-[0.99] shadow-md" id="backup-btn">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>Backup to Alex Now (P2P Burst)</span>
+</button>
+<!-- Request Remote Restore -->
+<button class="w-full h-12 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-colors active:scale-[0.99]" id="restore-btn">
+<span class="material-symbols-outlined text-[20px] text-secondary">cloud_download</span>
+<span>Request Remote Restore from Alex</span>
+</button>
+</div>
+<!-- Micro status feedback banner (hidden initially) -->
+<div class="hidden rounded-lg bg-surface-container-high p-space-sm text-center" id="status-toast">
+<span class="font-code-sm text-code-sm text-primary" id="toast-text"></span>
+</div>
+</div>
+<script>
+  (function() {
+    // Interactive switches
+    function setupToggle(id, initialChecked) {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      let checked = initialChecked;
+      btn.addEventListener('click', function() {
+        checked = !checked;
+        btn.setAttribute('aria-checked', String(checked));
+        const knob = btn.firstElementChild;
+        if (checked) {
+          btn.className = 'shrink-0 w-12 h-7 bg-primary rounded-full relative p-0.5 transition-colors focus:outline-none';
+          knob.className = 'block w-6 h-6 rounded-full bg-on-primary transform translate-x-5 transition-transform';
+        } else {
+          btn.className = 'shrink-0 w-12 h-7 bg-surface-container-highest rounded-full relative p-0.5 transition-colors focus:outline-none';
+          knob.className = 'block w-6 h-6 rounded-full bg-on-surface-variant transform translate-x-0 transition-transform';
+        }
+      });
+    }
+
+    setupToggle('toggle-proximity', true);
+    setupToggle('toggle-heartbeat', false);
+
+    // Toast feedback helper
+    const toast = document.getElementById('status-toast');
+    const toastText = document.getElementById('toast-text');
+    let toastTimeout;
+
+    function showStatus(message) {
+      if (!toast || !toastText) return;
+      clearTimeout(toastTimeout);
+      toastText.textContent = message;
+      toast.classList.remove('hidden');
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    // Backup Action
+    const backupBtn = document.getElementById('backup-btn');
+    if (backupBtn) {
+      backupBtn.addEventListener('click', function() {
+        const originalText = backupBtn.innerHTML;
+        backupBtn.disabled = true;
+        backupBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">sync</span><span>Sealing Zero-Knowledge Blob...</span>';
+        setTimeout(function() {
+          backupBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">cloud_upload</span><span>Burst P2P Transfer (48 MB/s)...</span>';
+          setTimeout(function() {
+            backupBtn.disabled = false;
+            backupBtn.innerHTML = originalText;
+            showStatus('Blob encrypted & transferred to Alex Chen (Snapshot #19 OK)');
+          }, 1800);
+        }, 1200);
+      });
+    }
+
+    // Restore Action
+    const restoreBtn = document.getElementById('restore-btn');
+    if (restoreBtn) {
+      restoreBtn.addEventListener('click', function() {
+        showStatus('P2P Restore challenge dispatched to Alex Chen via BLE Hop 1');
+      });
+    }
+
+    // Copy Fingerprint
+    const copyFpBtn = document.getElementById('copy-fp-btn');
+    if (copyFpBtn) {
+      copyFpBtn.addEventListener('click', function() {
+        showStatus('Peer fingerprint 0x3D82...F91A copied to secure clipboard');
+      });
+    }
+  })();
+</script></main></body></html>

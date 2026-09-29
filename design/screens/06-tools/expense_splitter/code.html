@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "tertiary-fixed": "#f0dbff", "surface-container-high": "#262a30", "secondary-fixed-dim": "#7bd0ff", "on-background": "#e0e2ea", "tertiary-container": "#d6aaff", "surface-container": "#1c2025", "secondary": "#7bd0ff", "inverse-primary": "#006b5b", "on-surface-variant": "#bacac4", "error": "#ffb4ab", "surface-tint": "#37dec0", "surface": "#101419", "tertiary-fixed-dim": "#ddb7ff", "on-error": "#690005", "secondary-container": "#00a6e0", "on-secondary-fixed": "#001e2c", "secondary-fixed": "#c4e7ff", "on-secondary": "#00354a", "inverse-surface": "#e0e2ea", "primary": "#51f0d1", "on-surface": "#e0e2ea", "on-error-container": "#ffdad6", "on-primary-fixed": "#00201a", "inverse-on-surface": "#2d3136", "on-secondary-fixed-variant": "#004c69", "on-primary-container": "#005649", "surface-container-lowest": "#0a0e13", "outline-variant": "#3b4a46", "background": "#101419", "error-container": "#93000a", "surface-bright": "#36393f", "on-primary": "#00382e", "tertiary": "#e9ceff", "primary-container": "#22d3b6", "primary-fixed-dim": "#37dec0", "on-tertiary-fixed": "#2c0051", "surface-container-low": "#181c21", "on-secondary-container": "#00374d", "surface-container-highest": "#31353b", "on-tertiary": "#490080", "on-tertiary-container": "#6f00be", "outline": "#85948f", "on-tertiary-fixed-variant": "#6900b3", "surface-variant": "#31353b", "surface-dim": "#101419", "on-primary-fixed-variant": "#005144", "primary-fixed": "#5efbdc" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { margin: "1rem", "space-lg": "1rem", "space-md": "0.75rem", "space-xl": "1.5rem", "space-sm": "0.5rem", gutter: "1rem", "space-xs": "0.25rem" }, fontFamily: { "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "label-lg": ["Inter"], "label-md": ["Inter"], "code-md": ["JetBrains Mono"], "headline-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "body-md": ["Inter"], "code-sm": ["JetBrains Mono"], "headline-md": ["Plus Jakarta Sans"] }, fontSize: { "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "500" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0.01em", fontWeight: "400" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", fontWeight: "500" }], "code-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "500" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "700" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "code-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "28px", fontWeight: "600" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)] pt-safe"><div class="h-16 px-space-sm flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Go back" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-all rounded-full" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><img alt="Minimal geometric security icon for TFL mesh communicator app. Features an interlocking cryptographic shield mesh node pattern in glowing teal (#22D3B6) on a dark slate circular container.. Brand logo. - Primary color: #22d3b6
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain flex-shrink-0 mr-1" src="https://lh3.googleusercontent.com/aida/AEtjO1Vy3rIpamw9QYfs7toAL8iwEkhBJ22BIyn1Ui7DR8hzXd7w_UoONYOwc-U68p3cDshHUFx5Rn6zth4mNrC1FwXI9AsPfSQAQYBQZdCAR7GC5kX-3Z_fw8DIQm3Orvi707um0M5SkrEctVjyQ5619CI53WKfu0zpXXwxBkG9BmgrDND6UC4J5pFTKW1z4JgS-pomgJQurY58-zguxDSw2b5EV3xl713BZyhW6xkVK9wjh1Gp0LIC8O9Evgf0"/><div class="flex flex-col truncate"><span class="font-label-sm text-code-sm text-primary uppercase tracking-wider">SECURE PROTOCOL</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate tracking-tight">Tfl   Expense Splitter</h1></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="flex items-center gap-1 px-2.5 py-1 bg-surface-container rounded-full" title="Zero-Knowledge E2EE Encrypted"><span class="material-symbols-outlined text-primary text-[14px]">verified_user</span><span class="font-label-sm text-code-sm text-primary tracking-wide hidden sm:inline">E2EE</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-28 space-y-space-lg">
+<!-- Ledger Metadata Header -->
+<div class="flex flex-col space-y-space-xs mt-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-code-sm text-primary tracking-widest uppercase">Sector 7 Swarm // ZK-Ledger</span>
+</div>
+<div class="px-2.5 py-0.5 rounded-full bg-surface-container-high flex items-center space-x-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">hub</span>
+<span class="font-label-sm text-code-sm text-secondary tracking-tight">5 NODES</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center space-x-2">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Sector 7 Swarm</h2>
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center text-primary" title="E2EE P2P Balance Sheet">
+<span class="material-symbols-outlined text-[15px]">lock</span>
+</div>
+</div>
+<span class="font-label-sm text-code-sm text-on-surface-variant/80">EPOCH #41</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center space-x-1">
+<span>Zero-knowledge P2P consensus cryptographic balance</span>
+</p>
+</div>
+<!-- Overall Net Position Card -->
+<div class="w-full rounded-xl bg-surface-container p-5 relative overflow-hidden shadow-xl">
+<div class="absolute -right-12 -top-12 w-44 h-44 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-44 h-44 rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<span class="font-label-sm text-code-sm text-on-surface-variant uppercase tracking-wider">Overall Net Position</span>
+<span class="px-2.5 py-1 rounded-full bg-primary/20 text-primary font-label-sm text-code-sm font-semibold tracking-wide flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>YOU ARE OWED</span>
+</span>
+</div>
+<div class="my-4 relative z-10">
+<div class="flex items-baseline space-x-2">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold tracking-tight">+৳150.00</span>
+<span class="font-label-sm text-code-md text-primary/80 font-medium">BDT</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Encrypted liquidity across 4 peer channels</p>
+</div>
+<!-- Cryptographic Telemetry -->
+<div class="pt-3.5 bg-surface-container-lowest/60 -mx-5 -mb-5 px-5 py-3.5 flex flex-col space-y-1.5 relative z-10">
+<div class="flex items-center justify-between font-label-sm text-code-sm text-on-surface-variant">
+<span class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[13px] text-primary">verified</span>
+<span>CONSENSUS STATE</span>
+</span>
+<span class="text-on-surface font-mono">Block #8492 · Valid</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-code-sm text-on-surface-variant">
+<span class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[13px] text-secondary">alt_route</span>
+<span>OPTIMIZATION</span>
+</span>
+<span class="text-secondary font-mono">6 tx → 2 settles</span>
+</div>
+</div>
+</div>
+<!-- Direct Peer Debts (Graph Simplified) -->
+<div class="flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="font-label-lg text-label-lg text-on-surface uppercase tracking-wide">Direct Peer Debts</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-code-sm">Graph Simplified</span>
+</div>
+<button class="font-label-sm text-code-sm text-primary flex items-center space-x-0.5 hover:underline active:opacity-75">
+<span>Topology</span>
+<span class="material-symbols-outlined text-[14px]">schema</span>
+</button>
+</div>
+<!-- Peer Card 1: Debt You Owe -->
+<div class="w-full rounded-lg bg-surface-container p-4 flex items-center justify-between shadow-md">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="relative flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-label-sm text-code-md text-error font-semibold">
+            RF
+          </div>
+<span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-secondary ring-2 ring-surface-container" title="Mesh Node Relay"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center space-x-1">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">You owe Rafi</span>
+</div>
+<span class="font-label-sm text-code-sm text-on-surface-variant truncate">Relay Node #03</span>
+</div>
+</div>
+<div class="flex items-center space-x-3 flex-shrink-0">
+<div class="flex flex-col items-end">
+<span class="font-label-lg text-label-lg text-error font-mono font-bold tracking-tight">-৳250</span>
+<span class="font-label-sm text-code-sm text-error/80 uppercase">Payable</span>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-bright active:scale-95 transition-all font-label-sm text-code-sm flex items-center space-x-1" onclick="triggerToast('Opening lightning P2P channel to RF-03...')">
+<span>Pay</span>
+<span class="material-symbols-outlined text-[13px] text-primary">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Peer Card 2: Debt Owed to You -->
+<div class="w-full rounded-lg bg-surface-container p-4 flex items-center justify-between shadow-md">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="relative flex-shrink-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-label-sm text-code-md text-primary font-semibold">
+            NB
+          </div>
+<span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-primary ring-2 ring-surface-container" title="Active Direct Route"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center space-x-1">
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Nabil owes you</span>
+</div>
+<span class="font-label-sm text-code-sm text-on-surface-variant truncate">Hardware Cache #07</span>
+</div>
+</div>
+<div class="flex items-center space-x-3 flex-shrink-0">
+<div class="flex flex-col items-end">
+<span class="font-label-lg text-label-lg text-primary font-mono font-bold tracking-tight">+৳400</span>
+<span class="font-label-sm text-code-sm text-primary/80 uppercase">Receivable</span>
+</div>
+<button class="px-3 py-1.5 rounded-full bg-primary text-on-primary hover:bg-primary-container active:scale-95 transition-all font-label-sm text-code-sm font-semibold flex items-center space-x-0.5 shadow-sm" onclick="triggerToast('Cryptographic payment request ping broadcasted.')">
+<span>Request</span>
+</button>
+</div>
+</div>
+<!-- Optimization Callout Chip -->
+<div class="w-full rounded-md bg-surface-container-low px-3.5 py-2.5 flex items-center space-x-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">auto_fix_high</span>
+<p class="font-label-sm text-code-sm flex-1">Net settling algorithm eliminates 4 cyclical transfers across swarm</p>
+</div>
+<!-- Settle Up Button -->
+<button class="w-full py-3.5 px-4 rounded-full bg-primary-container hover:bg-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center space-x-2 shadow-lg active:scale-[0.99] transition-all" onclick="openSettleModal()">
+<span class="material-symbols-outlined text-[20px]">security_update_good</span>
+<span>Settle Up Balance</span>
+</button>
+</div>
+<!-- Recent Expenses Section -->
+<div class="flex flex-col space-y-space-md pt-2">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wide">Recent Expenses</h3>
+<button class="font-label-sm text-code-sm text-secondary flex items-center space-x-0.5 hover:underline" onclick="triggerToast('Loading zero-knowledge audit chain...')">
+<span>Audit Log</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+<!-- Category Filter Pills -->
+<div class="flex items-center space-x-2 overflow-x-auto no-scrollbar py-0.5">
+<button class="px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-code-sm font-semibold flex-shrink-0 shadow-sm">
+        All (3)
+      </button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-code-sm flex-shrink-0">
+        Hardware
+      </button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-code-sm flex-shrink-0">
+        Supplies
+      </button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-code-sm flex-shrink-0">
+        Relay
+      </button>
+</div>
+<!-- Expense Items Stack -->
+<div class="flex flex-col space-y-3">
+<!-- Expense Item 1 -->
+<div class="w-full rounded-xl bg-surface-container p-4 flex flex-col space-y-3 shadow-md hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">battery_charging_full</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Replacement 18650 Li-ion Cells</span>
+<span class="font-label-sm text-code-sm text-on-surface-variant truncate">Paid by You (Split 4 ways: ৳300 each) · Today, 14:10</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 ml-2">
+<span class="font-label-lg text-label-lg text-on-surface font-mono font-bold">৳1,200</span>
+<span class="font-label-sm text-code-sm text-primary font-mono">+৳900</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t-0 bg-surface-container-lowest/40 -mx-4 -mb-4 px-4 py-2.5 rounded-b-xl">
+<!-- Avatars involved -->
+<div class="flex items-center -space-x-1.5">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-[10px] font-bold flex items-center justify-center ring-2 ring-surface-container" title="You">ME</div>
+<div class="w-6 h-6 rounded-full bg-surface-bright text-on-surface font-label-sm text-[10px] font-medium flex items-center justify-center ring-2 ring-surface-container" title="Alex">AX</div>
+<div class="w-6 h-6 rounded-full bg-surface-bright text-on-surface font-label-sm text-[10px] font-medium flex items-center justify-center ring-2 ring-surface-container" title="Rafi">RF</div>
+<div class="w-6 h-6 rounded-full bg-surface-bright text-on-surface font-label-sm text-[10px] font-medium flex items-center justify-center ring-2 ring-surface-container" title="Maya">MY</div>
+</div>
+<!-- Badge -->
+<div class="flex items-center space-x-1 text-primary">
+<span class="material-symbols-outlined text-[13px]">verified_user</span>
+<span class="font-label-sm text-code-sm">ZKP Broadcast Confirmed</span>
+</div>
+</div>
+</div>
+<!-- Expense Item 2 -->
+<div class="w-full rounded-xl bg-surface-container p-4 flex flex-col space-y-3 shadow-md hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Field Rations &amp; Water Filters</span>
+<span class="font-label-sm text-code-sm text-on-surface-variant truncate">Paid by Rafi (You owe ৳212.50) · Yesterday, 19:45</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 ml-2">
+<span class="font-label-lg text-label-lg text-on-surface font-mono font-bold">৳850</span>
+<span class="font-label-sm text-code-sm text-error font-mono">-৳212.50</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 bg-surface-container-lowest/40 -mx-4 -mb-4 px-4 py-2.5 rounded-b-xl">
+<div class="flex items-center -space-x-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-bright text-on-surface font-label-sm text-[10px] font-medium flex items-center justify-center ring-2 ring-surface-container" title="Rafi">RF</div>
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary font-label-sm text-[10px] font-bold flex items-center justify-center ring-2 ring-surface-container" title="You">ME</div>
+<div class="w-6 h-6 rounded-full bg-surface-bright text-on-surface font-label-sm text-[10px] font-medium flex items-center justify-center ring-2 ring-surface-container" title="Nabil">NB</div>
+</div>
+<div class="flex items-center space-x-1 text-secondary">
+<span class="material-symbols-outlined text-[13px]">router</span>
+<span class="font-label-sm text-code-sm">Mesh Routed via RF-03</span>
+</div>
+</div>
+</div>
+<!-- Expense Item 3 -->
+<div class="w-full rounded-xl bg-surface-container p-4 flex flex-col space-y-3 shadow-md hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary-fixed-dim flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">settings_ethernet</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">RG58 Coaxial Cable &amp; Connectors</span>
+<span class="font-label-sm text-code-sm text-on-surface-variant truncate">Paid by Nabil (Split equally) · 12 Oct</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 ml-2">
+<span class="font-label-lg text-label-lg text-on-surface font-mono font-bold">৳600</span>
+<span class="font-label-sm text-code-sm text-on-surface-variant font-mono">৳0 net</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 bg-surface-container-lowest/40 -mx-4 -mb-4 px-4 py-2.5 rounded-b-xl">
+<div class="flex items-center -space-x-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-bright text-on-surface font-label-sm text-[10px] font-medium flex items-center justify-center ring-2 ring-surface-container" title="Nabil">NB</div>
+<div class="w-6 h-6 rounded-full bg-surface-bright text-on-surface font-label-sm text-[10px] font-medium flex items-center justify-center ring-2 ring-surface-container" title="Alex">AX</div>
+</div>
+<div class="flex items-center space-x-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px]">lock_clock</span>
+<span class="font-label-sm text-code-sm">Settled on Block #8401</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-margin bg-surface/90 backdrop-blur-xl z-40 max-w-md mx-auto flex items-center space-x-2">
+<button class="flex-1 py-3 px-4 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center space-x-2 shadow-2xl active:scale-95 transition-all" onclick="openExpenseSheet()">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add New Group Expense</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-all flex-shrink-0" onclick="triggerToast('Zero-Knowledge QR Scanner initialized')">
+<span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+</button>
+</div>
+<!-- Add Expense Sheet Modal -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-sm flex flex-col justify-end hidden opacity-0 transition-opacity duration-200" id="expenseModal">
+<div class="w-full max-w-md mx-auto bg-surface-container p-5 rounded-t-3xl shadow-2xl flex flex-col space-y-4 max-h-[85vh] overflow-y-auto">
+<div class="w-12 h-1 rounded-full bg-outline/40 mx-auto mb-1"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-code-sm text-primary uppercase tracking-wider">SECURE ENTRY</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Record Swarm Expense</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="closeExpenseSheet()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Description Input -->
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-sm text-code-sm text-on-surface-variant uppercase">Description</label>
+<div class="w-full rounded-lg bg-surface-container-high px-3.5 py-2.5 flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">receipt_long</span>
+<input class="bg-transparent w-full text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none font-body-md text-body-md" id="expenseDesc" placeholder="e.g., Tactical Solar Array" type="text"/>
+</div>
+</div>
+<!-- Amount Input -->
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-sm text-code-sm text-on-surface-variant uppercase">Amount (BDT)</label>
+<div class="w-full rounded-lg bg-surface-container-high px-3.5 py-2.5 flex items-center space-x-2">
+<span class="font-label-lg text-label-lg text-primary font-mono font-bold">৳</span>
+<input class="bg-transparent w-full text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none font-mono text-headline-sm" id="expenseAmount" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Split Method -->
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-sm text-code-sm text-on-surface-variant uppercase">Split Method</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2 rounded-md bg-primary text-on-primary font-label-sm text-code-sm font-semibold flex items-center justify-center space-x-1" type="button">
+<span class="material-symbols-outlined text-[14px]">balance</span>
+<span>Equal</span>
+</button>
+<button class="py-2 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-code-sm flex items-center justify-center space-x-1" type="button">
+<span class="material-symbols-outlined text-[14px]">pie_chart</span>
+<span>Shares</span>
+</button>
+<button class="py-2 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-code-sm flex items-center justify-center space-x-1" type="button">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Exact</span>
+</button>
+</div>
+</div>
+<!-- Verified Nodes to Include -->
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-sm text-code-sm text-on-surface-variant uppercase">Participants</label>
+<div class="flex items-center space-x-2">
+<div class="px-2.5 py-1 rounded-full bg-primary/20 text-primary font-label-sm text-code-sm font-semibold flex items-center space-x-1">
+<span>You</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-code-sm flex items-center space-x-1">
+<span>Rafi (RF)</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-code-sm flex items-center space-x-1">
+<span>Nabil (NB)</span>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-code-sm flex items-center space-x-1">
+<span>Maya (MY)</span>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+<button class="w-full py-3.5 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center space-x-2 shadow-lg active:scale-95 transition-all" onclick="commitExpense()">
+<span class="material-symbols-outlined text-[20px]">encrypted</span>
+<span>Sign &amp; Broadcast ZK-Proof</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro-interaction Toast -->
+<div class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-code-sm shadow-2xl flex items-center space-x-2 pointer-events-none transition-all duration-300 opacity-0 translate-y-2" id="toast">
+<span class="material-symbols-outlined text-[16px] text-primary" id="toastIcon">check_circle</span>
+<span id="toastMsg">Operation successful</span>
+</div>
+</div>
+<script>
+  function triggerToast(msg, icon = 'check_circle') {
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
+    if (!toast) return;
+    toastMsg.textContent = msg;
+    toastIcon.textContent = icon;
+    toast.classList.remove('opacity-0', 'translate-y-2');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'translate-y-2');
+    }, 2800);
+  }
+
+  function openExpenseSheet() {
+    const modal = document.getElementById('expenseModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    setTimeout(() => modal.classList.remove('opacity-0'), 10);
+  }
+
+  function closeExpenseSheet() {
+    const modal = document.getElementById('expenseModal');
+    if (!modal) return;
+    modal.classList.add('opacity-0');
+    setTimeout(() => modal.classList.add('hidden'), 200);
+  }
+
+  function openSettleModal() {
+    triggerToast('Executing minimal net-settlement batch via Tor relay...', 'sync_alt');
+  }
+
+  function commitExpense() {
+    const desc = document.getElementById('expenseDesc').value || 'Unlabeled Expense';
+    const amount = document.getElementById('expenseAmount').value || '0';
+    closeExpenseSheet();
+    triggerToast(`Signed proof: ৳${amount} for ${desc} shared with swarm.`, 'lock_reset');
+  }
+</script></main></body></html>

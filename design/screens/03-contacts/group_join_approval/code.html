@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#101419", "surface-variant": "#31353b", "surface-bright": "#36393f", "inverse-on-surface": "#2d3136", "surface": "#101419", "secondary-container": "#00a6e0", "surface-container-high": "#262a30", "tertiary-container": "#d6aaff", "outline": "#85948f", "error": "#ffb4ab", "on-tertiary-fixed": "#2c0051", "on-secondary-container": "#00374d", "on-primary-container": "#005649", "background": "#101419", "on-tertiary": "#490080", "on-primary-fixed": "#00201a", "tertiary-fixed": "#f0dbff", "error-container": "#93000a", "on-tertiary-fixed-variant": "#6900b3", "outline-variant": "#3b4a46", "primary-container": "#22d3b6", "on-tertiary-container": "#6f00be", "on-secondary-fixed-variant": "#004c69", "surface-tint": "#37dec0", "surface-container-lowest": "#0a0e13", "surface-container": "#1c2025", "on-primary": "#00382e", "on-background": "#e0e2ea", "primary": "#51f0d1", "inverse-surface": "#e0e2ea", "on-surface-variant": "#bacac4", "primary-fixed-dim": "#37dec0", "secondary-fixed-dim": "#7bd0ff", "secondary-fixed": "#c4e7ff", "on-secondary-fixed": "#001e2c", "tertiary-fixed-dim": "#ddb7ff", "on-primary-fixed-variant": "#005144", "inverse-primary": "#006b5b", "secondary": "#7bd0ff", "surface-container-low": "#181c21", "on-surface": "#e0e2ea", "on-error": "#690005", "tertiary": "#e9ceff", "primary-fixed": "#5efbdc", "on-error-container": "#ffdad6", "surface-container-highest": "#31353b", "on-secondary": "#00354a" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "gutter": "1rem", "space-lg": "1rem", "space-xs": "0.25rem", "space-md": "0.75rem" }, fontFamily: { "code-md": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"], "code-sm": ["JetBrains Mono"], "label-lg": ["Inter"], "body-md": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"] }, fontSize: { "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#101419;color:#e0e2ea;}body{overscroll-behavior:none;-webkit-font-smoothing:antialiased;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors active:scale-95" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Minimal geometric security icon for TFL mesh communicator app. Features an interlocking cryptographic shield mesh node pattern in glowing teal (#22D3B6) on a dark slate circular container.. Brand logo. - Primary color: #22d3b6
+- Font: plusJakartaSans
+- Mode: dark
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vy3rIpamw9QYfs7toAL8iwEkhBJ22BIyn1Ui7DR8hzXd7w_UoONYOwc-U68p3cDshHUFx5Rn6zth4mNrC1FwXI9AsPfSQAQYBQZdCAR7GC5kX-3Z_fw8DIQm3Orvi707um0M5SkrEctVjyQ5619CI53WKfu0zpXXwxBkG9BmgrDND6UC4J5pFTKW1z4JgS-pomgJQurY58-zguxDSw2b5EV3xl713BZyhW6xkVK9wjh1Gp0LIC8O9Evgf0"/><h1 class="font-headline-sm text-headline-sm text-on-surface truncate ml-space-xs tracking-tight">Group Join Approval</h1></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/80 text-primary"><span class="material-symbols-outlined text-[16px]">lock</span><span class="font-code-sm text-code-sm uppercase">E2EE</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-8">
+<!-- Mesh Channel Sub-Header & Status Strip -->
+<div class="px-margin pt-space-md pb-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">hub</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Sector 7 Friends Mesh</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">how_to_reg</span>
+<span class="font-code-sm text-code-sm uppercase tracking-wider">Quorum Protocol</span>
+</div>
+</div>
+<!-- Operational Protocol Context Card -->
+<div class="px-margin my-space-sm">
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm relative overflow-hidden flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary mt-0.5">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-label-lg text-label-lg text-on-surface mb-0.5">Multi-Peer Consensus Required</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Private mesh groups require strict cryptographic consensus. Every member's node must sign off before the prospective peer receives the collective ratchet seed.
+        </p>
+</div>
+</div>
+</div>
+<!-- Prospective Member Card -->
+<div class="px-margin mt-space-sm">
+<div class="bg-surface-container rounded-xl p-space-lg shadow-md space-y-space-md">
+<!-- Member Info & Node Profile -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative w-12 h-12 rounded-full overflow-hidden shrink-0 shadow-sm bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Stylized portrait of Rowan Miller inside an encrypted node terminal, cool teal ambient rim lighting, hyper-realistic dark mode hacker aesthetic, depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARsa5HSzTi4t6wX5rF30qy-rcvGIzH5nsmEvt2pI5i-WW2vMOm30w78o-HYeLDmMPVcgi8fUh-DaYBlCg8wQVype8YMnlEJk8rKMOdhZNmlRibXW0B-cYqxs92FdWJ-ijqKdl5s-AbAY6z5B8nz6d1--dvEHBWhSlI1u0I2p9xTiyEbHrGWSUGnRPrEfF5dsgOZvFeetq2TqXC9765nVvILYkQrQW87K-IhA-XPFTILlueQ6mWlA-ADw"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-on-primary-container">sensors</span>
+</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate">Rowan Miller</h3>
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container-high text-primary">NEW PEER</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">@rowan_node</p>
+</div>
+</div>
+<div class="flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-high text-secondary shrink-0">
+<span class="material-symbols-outlined text-[14px]">router</span>
+<span class="font-code-sm text-code-sm">Mesh Relay</span>
+</div>
+</div>
+<!-- Public Key Fingerprint Display -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Ed25519 Fingerprint</span>
+<span class="material-symbols-outlined text-[15px] text-primary">verified_user</span>
+</div>
+<p class="font-code-md text-code-md text-primary tracking-wider font-semibold">
+          0x12A9 · BC44 · 88F0 · 31CD
+        </p>
+</div>
+<!-- Introduction Metadata Matrix -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Invited By</span>
+<div class="flex items-center gap-1 truncate">
+<span class="font-label-md text-label-md text-on-surface truncate">Kaelen (Valkyrie)</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px] text-secondary">bluetooth</span>
+<span class="font-code-sm text-code-sm text-secondary truncate">Direct BLE intro</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Received</span>
+<span class="font-label-md text-label-md text-on-surface truncate">18m ago</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px] text-outline">lan</span>
+<span class="font-code-sm text-code-sm text-outline">2 hops via Node-01</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Consensus Progress & Member Breakdown -->
+<div class="px-margin mt-space-lg">
+<div class="bg-surface-container rounded-xl p-space-lg shadow-md space-y-space-md">
+<!-- Consensus Header -->
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Admission Threshold</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mt-0.5">3 of 4 Signatures</h4>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-primary/10 text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span class="font-code-md text-code-md font-semibold">75%</span>
+</div>
+</div>
+<!-- Segmented Consensus Progress Meter -->
+<div class="grid grid-cols-4 gap-1.5 w-full h-2 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-300"></div>
+<div class="h-full bg-primary rounded-full transition-all duration-300"></div>
+<div class="h-full bg-primary rounded-full transition-all duration-300"></div>
+<div class="h-full bg-surface-container-highest rounded-full transition-all duration-300" id="self-meter-segment"></div>
+</div>
+<!-- Member Sign-off Breakdown List -->
+<div class="space-y-space-sm pt-space-xs">
+<!-- Alex -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface shrink-0 font-label-md">
+              A1
+            </div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Alex (Node-01)</p>
+<p class="font-code-sm text-code-sm text-primary flex items-center gap-1 truncate">
+<span class="material-symbols-outlined text-[12px]">done_all</span> ECDSA Sig valid
+              </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">check_circle</span>
+</div>
+<!-- Kaelen -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface shrink-0 font-label-md">
+              KV
+            </div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Kaelen (Inviter)</p>
+<p class="font-code-sm text-code-sm text-primary flex items-center gap-1 truncate">
+<span class="material-symbols-outlined text-[12px]">done_all</span> ECDSA Sig valid
+              </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">check_circle</span>
+</div>
+<!-- Soren -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface shrink-0 font-label-md">
+              SK
+            </div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Soren K.</p>
+<p class="font-code-sm text-code-sm text-primary flex items-center gap-1 truncate">
+<span class="material-symbols-outlined text-[12px]">done_all</span> ECDSA Sig valid
+              </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">check_circle</span>
+</div>
+<!-- Current User (You) - Pending Action State -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low transition-colors duration-300" id="self-sign-row">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 font-label-md font-semibold">
+              YOU
+            </div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md text-on-surface font-semibold truncate">You (Local Terminal)</p>
+<p class="font-code-sm text-code-sm text-secondary-fixed-dim flex items-center gap-1.5 truncate" id="self-status-text">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping inline-block"></span> Pending Your Decision
+              </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-primary-fixed-dim shrink-0" id="self-status-icon">hourglass_top</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Cryptographic Ratchet Advisory -->
+<div class="px-margin mt-space-md mb-space-lg">
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex items-start gap-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-outline mt-0.5 shrink-0">lock_reset</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        Once 4 of 4 members sign, the shared session group key will be ratcheted and distributed over individual pairwise E2EE channels automatically.
+      </p>
+</div>
+</div>
+<!-- Bottom Decision Action Stack -->
+<div class="px-margin mt-auto space-y-space-sm">
+<button class="w-full h-12 rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-xs shadow-lg active:scale-[0.98] transition-transform" id="approve-btn" onclick="executeApprove()">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+<span>Approve &amp; Sign Handshake</span>
+</button>
+<button class="w-full h-11 rounded-xl bg-error-container/20 text-error font-label-lg text-label-lg flex items-center justify-center gap-space-xs active:scale-[0.98] transition-transform hover:bg-error-container/30" id="reject-btn" onclick="executeReject()">
+<span class="material-symbols-outlined text-[18px]">block</span>
+<span>Reject Membership</span>
+</button>
+</div>
+<!-- Inline Micro-Interaction Logic -->
+<script>
+    function executeApprove() {
+      const segment = document.getElementById('self-meter-segment');
+      const statusText = document.getElementById('self-status-text');
+      const statusIcon = document.getElementById('self-status-icon');
+      const row = document.getElementById('self-sign-row');
+      const btn = document.getElementById('approve-btn');
+      const rejectBtn = document.getElementById('reject-btn');
+
+      if (!segment || !statusText || !statusIcon || !btn) return;
+
+      btn.disabled = true;
+      btn.classList.add('opacity-75');
+      btn.innerHTML = `<span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span><span>Signing Ratchet Frame...</span>`;
+
+      setTimeout(() => {
+        segment.classList.remove('bg-surface-container-highest');
+        segment.classList.add('bg-primary');
+
+        row.classList.remove('bg-surface-container-low');
+        row.classList.add('bg-surface-container-high');
+
+        statusText.classList.remove('text-secondary-fixed-dim');
+        statusText.classList.add('text-primary');
+        statusText.innerHTML = `<span class="material-symbols-outlined text-[12px]">done_all</span> Signed · Ratchet Initialized`;
+
+        statusIcon.innerText = 'check_circle';
+        statusIcon.classList.remove('text-primary-fixed-dim');
+        statusIcon.classList.add('text-primary');
+
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-highest', 'text-primary');
+        btn.innerHTML = `<span class="material-symbols-outlined text-[20px]">verified</span><span>Quorum Achieved (4/4)</span>`;
+        if (rejectBtn) rejectBtn.style.display = 'none';
+      }, 700);
+    }
+
+    function executeReject() {
+      const statusText = document.getElementById('self-status-text');
+      const statusIcon = document.getElementById('self-status-icon');
+      const btn = document.getElementById('approve-btn');
+      const rejectBtn = document.getElementById('reject-btn');
+
+      if (!statusText || !statusIcon || !rejectBtn) return;
+
+      statusText.classList.remove('text-secondary-fixed-dim');
+      statusText.classList.add('text-error');
+      statusText.innerHTML = `Vetoed · Admission Rejected`;
+
+      statusIcon.innerText = 'cancel';
+      statusIcon.classList.remove('text-primary-fixed-dim');
+      statusIcon.classList.add('text-error');
+
+      if (btn) btn.style.display = 'none';
+      rejectBtn.disabled = true;
+      rejectBtn.classList.remove('bg-error-container/20');
+      rejectBtn.classList.add('bg-error-container', 'text-on-error');
+      rejectBtn.innerHTML = `<span class="material-symbols-outlined text-[18px]">done</span><span>Admission Vetoed</span>`;
+    }
+  </script>
+</div></main></body></html>

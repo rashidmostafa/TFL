@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#1c2025", "surface-container-lowest": "#0a0e13", "on-tertiary-container": "#6f00be", "tertiary-container": "#d6aaff", "primary-fixed-dim": "#37dec0", "tertiary-fixed-dim": "#ddb7ff", "on-secondary-fixed-variant": "#004c69", "surface-container-high": "#262a30", "on-secondary-container": "#00374d", "inverse-primary": "#006b5b", "secondary": "#7bd0ff", "error-container": "#93000a", "surface-container-low": "#181c21", "inverse-on-surface": "#2d3136", "primary-fixed": "#5efbdc", "on-primary": "#00382e", "surface-bright": "#36393f", "surface-container-highest": "#31353b", "on-primary-fixed": "#00201a", "on-secondary": "#00354a", "on-surface": "#e0e2ea", "inverse-surface": "#e0e2ea", "secondary-fixed-dim": "#7bd0ff", "on-tertiary-fixed-variant": "#6900b3", "on-primary-container": "#005649", "outline-variant": "#3b4a46", "surface": "#101419", "outline": "#85948f", "background": "#101419", "error": "#ffb4ab", "tertiary": "#e9ceff", "on-tertiary": "#490080", "secondary-fixed": "#c4e7ff", "primary-container": "#22d3b6", "primary": "#51f0d1", "tertiary-fixed": "#f0dbff", "on-tertiary-fixed": "#2c0051", "on-secondary-fixed": "#001e2c", "surface-dim": "#101419", "on-error-container": "#ffdad6", "surface-tint": "#37dec0", "secondary-container": "#00a6e0", "on-error": "#690005", "on-background": "#e0e2ea", "on-surface-variant": "#bacac4", "on-primary-fixed-variant": "#005144", "surface-variant": "#31353b" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "space-sm": "0.5rem", "space-xl": "1.5rem", "space-md": "0.75rem", "space-xs": "0.25rem", "space-lg": "1rem", "margin": "1rem" }, fontFamily: { "headline-lg": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "code-md": ["JetBrains Mono"], "label-lg": ["Inter"], "body-md": ["Inter"], "code-sm": ["JetBrains Mono"], "body-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["JetBrains Mono"], "label-md": ["Inter"] }, fontSize: { "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0.01em", fontWeight: "400" }], "code-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "500" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "code-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "400" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "28px", fontWeight: "600" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "700" }], "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "500" }], "label-md": ["12px", { lineHeight: "16px", fontWeight: "500" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0a0e13;color:#e0e2ea;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface-container-lowest font-body-md text-body-md text-on-surface flex flex-col min-h-screen antialiased"><main class="flex-1 flex flex-col relative w-full bg-surface-container-lowest pt-safe pb-safe"><div class="flex flex-col w-full px-margin pb-space-xl">
+<!-- Glowing Danger Ambient Backing -->
+<div class="relative w-full overflow-hidden rounded-xl bg-surface-container-low p-space-lg mb-space-lg shadow-xl">
+<div class="absolute -top-12 -left-12 w-44 h-44 bg-error-container/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -right-10 w-44 h-44 bg-error-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Alert Header -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<!-- Pulsing Shield/Warning Icon Container -->
+<div class="relative flex items-center justify-center w-20 h-20 mb-space-md">
+<span class="absolute inline-flex h-full w-full rounded-full bg-error/20 animate-ping"></span>
+<div class="relative flex items-center justify-center w-16 h-16 rounded-full bg-error-container text-on-error-container shadow-md">
+<span class="material-symbols-outlined text-4xl text-error" style="font-variation-settings: 'FILL' 1;">gpp_maybe</span>
+</div>
+</div>
+<!-- Security Level Pill -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-error/10 text-error mb-space-sm">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-code-sm text-code-sm uppercase tracking-widest font-semibold">SECURITY CLEARANCE VOID</span>
+</div>
+<!-- Header Title -->
+<h1 class="font-code-md text-headline-sm uppercase text-error tracking-tight font-bold mb-space-xs">
+        CRITICAL WARNING: ZEROIZE INITIATION
+      </h1>
+<!-- Subtitle -->
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+        This action is irreversible. All cryptographic key material and local storage will be permanently wiped.
+      </p>
+</div>
+</div>
+<!-- Itemized Breakdown Checklist -->
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<div class="flex items-center justify-between px-space-xs mb-space-xs">
+<span class="font-code-sm text-code-sm text-error uppercase font-semibold tracking-wider">Targeted Vector Purge</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">6 SECTORS TARGETED</span>
+</div>
+<!-- Target 1 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-error-container/40 shrink-0 text-error mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">key_off</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">1. Root Cryptographic Material</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">Ed25519 &amp; XChaCha20 Root Seed Keys (Zero-fill overwritten 7 passes)</span>
+</div>
+</div>
+<!-- Target 2 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-error-container/40 shrink-0 text-error mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">sms_failed</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">2. Ephemeral &amp; Group Comms</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">All 1:1 and Group Encrypted Chat Logs &amp; Message Databases</span>
+</div>
+</div>
+<!-- Target 3 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-error-container/40 shrink-0 text-error mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">lock_reset</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">3. Sovereign Vault Locker</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">All Sovereign Encrypted Vault Media, Notes &amp; Password Secrets</span>
+</div>
+</div>
+<!-- Target 4 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-error-container/40 shrink-0 text-error mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">folder_delete</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">4. CRDT Local Workspace Synced State</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">Collaborative Whiteboards, Offline Checklists &amp; Shared Outbox</span>
+</div>
+</div>
+<!-- Target 5 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-error-container/40 shrink-0 text-error mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">5. Mesh Topology &amp; Fingerprints</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">Peer Identity Fingerprints, Trust Scores &amp; Swarm Cache</span>
+</div>
+</div>
+<!-- Target 6 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-error-container/40 shrink-0 text-error mt-0.5">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">masks</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold">6. Camouflage Sub-layers</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant truncate">Decoy &amp; Stealth Profiles, Canary Triggers &amp; Partition Tables</span>
+</div>
+</div>
+</div>
+<!-- Forensic Sanitization Benchmark Card -->
+<div class="p-space-md rounded-xl bg-surface-container-high mb-space-xl shadow-sm">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="material-symbols-outlined text-error text-base">verified_user</span>
+<span class="font-code-sm text-code-sm text-error font-semibold uppercase tracking-wider">Sanitization Benchmark</span>
+</div>
+<p class="font-code-sm text-code-sm text-on-surface-variant leading-relaxed">
+      DoD 5220.22-M 7-Pass Sanitization + Cryptographic Key Decapitation (RAM &amp; Flash sectors zeroed immediately)
+    </p>
+</div>
+<!-- Interactive Hold-to-Confirm Mechanism -->
+<div class="flex flex-col items-center justify-center w-full mb-space-lg">
+<!-- Outer Hold Progress Container -->
+<div class="relative flex items-center justify-center w-64 h-64 select-none touch-none" id="zeroize-zone">
+<!-- Circular Progress Ring SVG -->
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 100 100">
+<!-- Background Track -->
+<circle class="text-surface-container-highest" cx="50" cy="50" fill="transparent" r="44" stroke="currentColor" stroke-width="4"></circle>
+<!-- Dynamic Filling Arc -->
+<circle class="text-error transition-all duration-75" cx="50" cy="50" fill="transparent" id="progress-ring-circle" r="44" stroke="currentColor" stroke-dasharray="276.46" stroke-dashoffset="276.46" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<!-- Center Touch Button -->
+<button class="relative z-10 flex flex-col items-center justify-center w-48 h-48 rounded-full bg-error-container active:scale-95 transition-transform duration-100 shadow-xl p-space-md text-center cursor-pointer" id="zeroize-trigger" type="button">
+<span class="material-symbols-outlined text-4xl text-error mb-space-xs" style="font-variation-settings: 'FILL' 1;">skull</span>
+<span class="font-code-md text-code-md text-on-error-container uppercase font-bold tracking-tight leading-tight">
+          HOLD FOR 3s TO WIPE ALL
+        </span>
+<span class="font-code-sm text-code-sm text-error mt-space-xs font-semibold" id="countdown-text">0.0s / 3.0s</span>
+</button>
+</div>
+<!-- Instruction Indicator -->
+<div class="flex items-center gap-space-xs mt-space-md">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">touch_app</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Press and hold firmly. Releasing cancels wipe.</span>
+</div>
+</div>
+<!-- Cancel / Abort Action -->
+<button class="w-full flex items-center justify-center gap-space-sm py-space-md px-space-lg rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold active:bg-surface-container-highest transition-colors shadow-sm" id="abort-btn" type="button">
+<span class="material-symbols-outlined text-xl">arrow_back</span>
+<span>Cancel &amp; Return to Safety</span>
+</button>
+</div>
+<script>
+  (function() {
+    const triggerBtn = document.getElementById('zeroize-trigger');
+    const ringCircle = document.getElementById('progress-ring-circle');
+    const countdownLabel = document.getElementById('countdown-text');
+    const abortBtn = document.getElementById('abort-btn');
+
+    const totalCircumference = 276.46;
+    const requiredDurationMs = 3000;
+    let holdStartTime = null;
+    let animationFrameId = null;
+    let isWiped = false;
+
+    function resetProgress() {
+      if (isWiped) return;
+      holdStartTime = null;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+      ringCircle.style.strokeDashoffset = totalCircumference;
+      countdownLabel.textContent = '0.0s / 3.0s';
+      countdownLabel.classList.remove('text-on-error');
+      countdownLabel.classList.add('text-error');
+    }
+
+    function updateProgress(timestamp) {
+      if (!holdStartTime) holdStartTime = timestamp;
+      const elapsed = timestamp - holdStartTime;
+      const progressRatio = Math.min(elapsed / requiredDurationMs, 1.0);
+      const currentOffset = totalCircumference - (progressRatio * totalCircumference);
+
+      ringCircle.style.strokeDashoffset = currentOffset;
+      countdownLabel.textContent = (progressRatio * 3.0).toFixed(1) + 's / 3.0s';
+
+      if (progressRatio >= 1.0) {
+        isWiped = true;
+        executePurge();
+      } else {
+        animationFrameId = requestAnimationFrame(updateProgress);
+      }
+    }
+
+    function executePurge() {
+      triggerBtn.classList.remove('bg-error-container');
+      triggerBtn.classList.add('bg-error');
+      countdownLabel.textContent = 'PURGED';
+      countdownLabel.classList.remove('text-error');
+      countdownLabel.classList.add('text-on-error');
+      
+      const icon = triggerBtn.querySelector('.material-symbols-outlined');
+      if (icon) {
+        icon.textContent = 'check_circle';
+        icon.classList.remove('text-error');
+        icon.classList.add('text-on-error');
+      }
+
+      if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 200, 50, 400]);
+      }
+    }
+
+    triggerBtn.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      if (isWiped) return;
+      holdStartTime = null;
+      animationFrameId = requestAnimationFrame(updateProgress);
+      if (navigator.vibrate) navigator.vibrate(30);
+    });
+
+    window.addEventListener('pointerup', () => {
+      resetProgress();
+    });
+
+    triggerBtn.addEventListener('pointercancel', () => {
+      resetProgress();
+    });
+
+    abortBtn.addEventListener('click', () => {
+      resetProgress();
+      if (window.history && window.history.length > 1) {
+        window.history.back();
+      }
+    });
+  })();
+</script></main></body></html>

@@ -302,3 +302,9 @@ storage
 phonelink_lock
 mobile_off
 gpp_good
+restore
+radio_button_checked
+check_box_outline_blank
+photo_camera
+settings_backup_restore
+quiz

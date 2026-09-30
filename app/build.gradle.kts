@@ -45,11 +45,19 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.findByName("release")
+            // Phones only: libsodium, SQLCipher and JNA natives for 64- and 32-bit ARM. Debug builds keep
+            // every ABI so they also run on x86 emulators.
+            ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
         }
     }
 
     buildFeatures {
         buildConfig = true
+    }
+
+    lint {
+        // Release builds are for ARM phones only (see abiFilters); ChromeOS isn't a target.
+        disable += "ChromeOsAbiSupport"
     }
 }
 
@@ -61,6 +69,8 @@ dependencies {
     implementation(projects.feature.vault)
     implementation(projects.feature.tools)
     implementation(projects.feature.settings)
+    implementation(projects.feature.onboarding)
+    implementation(projects.core.session)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
@@ -68,6 +78,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.fragment)
     implementation(libs.kotlinx.serialization.core)
 
     testImplementation(projects.core.testing)

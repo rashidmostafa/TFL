@@ -25,9 +25,14 @@ import app.tfl.core.designsystem.component.EmptyState
 import app.tfl.core.designsystem.component.FingerprintBlock
 import app.tfl.core.designsystem.component.GhostButton
 import app.tfl.core.designsystem.component.IconTile
+import app.tfl.core.designsystem.component.IdentityGlyph
 import app.tfl.core.designsystem.component.ListRow
 import app.tfl.core.designsystem.component.ListRowTone
+import app.tfl.core.designsystem.component.PhraseWordGrid
 import app.tfl.core.designsystem.component.PillButton
+import app.tfl.core.designsystem.component.PinDots
+import app.tfl.core.designsystem.component.PinPad
+import app.tfl.core.designsystem.component.PinPadIconKey
 import app.tfl.core.designsystem.component.PrimaryButton
 import app.tfl.core.designsystem.component.ProfileButton
 import app.tfl.core.designsystem.component.RadioRow
@@ -38,6 +43,7 @@ import app.tfl.core.designsystem.component.SegmentedBar
 import app.tfl.core.designsystem.component.SheetHeader
 import app.tfl.core.designsystem.component.StatusLine
 import app.tfl.core.designsystem.component.StatusPill
+import app.tfl.core.designsystem.component.StepHeader
 import app.tfl.core.designsystem.component.Tag
 import app.tfl.core.designsystem.component.TextBubble
 import app.tfl.core.designsystem.component.TflButtonSize
@@ -80,6 +86,7 @@ val catalogSections: List<CatalogSection> = listOf(
     CatalogSection("Callouts, keys & progress") { CatalogCalloutsAndKeys() },
     CatalogSection("Sheet header") { CatalogSheetHeader() },
     CatalogSection("Empty state") { CatalogEmptyState() },
+    CatalogSection("PIN & identity") { CatalogPinAndIdentity() },
 )
 
 @Composable
@@ -273,4 +280,22 @@ fun CatalogEmptyState() = Samples {
         message = "Friends are added in person by scanning each other's QR code.",
         action = { GhostButton("Add friend", onClick = {}, icon = MaterialSymbols.QrCodeScanner, size = TflButtonSize.Medium) },
     )
+}
+
+@Composable
+fun CatalogPinAndIdentity() = Samples {
+    StepHeader(label = "Device security", step = 2, total = 6)
+    Row(horizontalArrangement = Arrangement.spacedBy(16.dp), verticalAlignment = Alignment.CenterVertically) {
+        IdentityGlyph("F162BE7D2746777DB5A0FF5D6329EC0E", size = 120.dp)
+        IdentityGlyph("7F4B889C20AE99C21D0E5A77C3F10B92", size = 120.dp)
+    }
+    PinDots(entered = 4)
+    PinDots(entered = 6, error = true)
+    PinPad(
+        onDigit = {},
+        onDelete = {},
+        bottomStart = { PinPadIconKey(MaterialSymbols.Fingerprint, "Unlock with fingerprint", onClick = {}) },
+    )
+    PhraseWordGrid(listOf("velvet", "quantum", "orbit", "cipher", "timber", "galaxy", "mirror", "bunker"))
+    PhraseWordGrid(listOf("velvet", "quantum", "orbit", "cipher"), hidden = true)
 }

@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--
-        Phase 0 requests no permissions: no INTERNET, no Bluetooth, no location. The only entry in the
-        merged manifest is AndroidX's app-private receiver permission. ManifestHardeningTest enforces this.
+        No INTERNET, Bluetooth or location permission. The merged manifest holds only AndroidX's
+        app-private receiver permission and androidx.biometric's USE_BIOMETRIC / USE_FINGERPRINT (normal
+        permissions, granted at install). ManifestHardeningTest enforces this list.
     -->
 
     <application
@@ -19,16 +20,43 @@
         android:theme="@style/Theme.TFL"
         tools:targetApi="31">
 
+        <!-- Opened only through the launcher aliases below (and by the calculator after its code). -->
         <activity
             android:name=".MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.TFL.Starting"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Declared here so it precedes the alias that targets it (from :feature:onboarding). -->
+        <activity android:name="app.tfl.feature.onboarding.stealth.CalculatorActivity" />
+
+        <!--
+            The launcher entries. Exactly one is enabled at a time; CalculatorDisguise swaps them. Their
+            names are fixed (namespace app.tfl) in every build type.
+        -->
+        <activity-alias
+            android:name=".LauncherDefault"
+            android:exported="true"
+            android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".LauncherCalculator"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_calculator"
+            android:label="@string/calculator_label"
+            android:roundIcon="@mipmap/ic_calculator"
+            android:targetActivity="app.tfl.feature.onboarding.stealth.CalculatorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
     </application>
 
 </manifest>

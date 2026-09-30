@@ -3,86 +3,172 @@
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_fingerprint_short">%1$s…%2$s · Ed25519</string>
-    <string name="settings_reachable">Reachable over Nearby and Tor</string>
     <string name="settings_public_identity">Public identity</string>
     <string name="settings_copy_fingerprint">Copy fingerprint</string>
-    <string name="settings_stat_mesh_value">ON</string>
-    <string name="settings_stat_mesh_off">OFF</string>
-    <string name="settings_stat_mesh_label">Mesh relay</string>
-    <string name="settings_stat_tor_value">Onion v3</string>
-    <string name="settings_stat_tor_label">Tor</string>
-    <string name="settings_stat_vault_value">Argon2id</string>
-    <string name="settings_stat_vault_label">Vault key</string>
+    <string name="settings_stat_keys_label">Key storage</string>
+    <string name="settings_stat_kdf_value">Argon2id</string>
+    <string name="settings_stat_kdf_label">PIN · %d MiB</string>
+    <string name="settings_stat_autolock_label">Auto-lock</string>
     <string name="settings_section_configuration">Configuration</string>
     <string name="settings_account_title">Account &amp; identity</string>
     <string name="settings_account_subtitle">Keypair, friends, recovery phrase</string>
     <string name="settings_privacy_title">Privacy</string>
     <string name="settings_privacy_subtitle">Disappearing messages, read receipts, typing</string>
     <string name="settings_security_title">Security</string>
-    <string name="settings_security_subtitle">App lock, duress PIN, panic wipe</string>
+    <string name="settings_security_subtitle">App lock, duress PIN, calculator disguise</string>
     <string name="settings_network_title">Network &amp; transports</string>
     <string name="settings_network_subtitle">Tor, Nearby, mesh relay, battery</string>
-    <string name="settings_network_badge">TOR ON</string>
     <string name="settings_bandwidth_title">Bandwidth &amp; data</string>
     <string name="settings_bandwidth_subtitle">Balanced: previews first, full media when a fast link is up</string>
     <string name="settings_vault_title">Encrypted vault</string>
+    <string name="settings_vault_subtitle">Photos, files, notes and passwords</string>
     <string name="settings_notifications_title">Notifications</string>
     <string name="settings_notifications_subtitle">Quiet by default; SOS alerts always ring</string>
     <string name="settings_about_title">About</string>
     <string name="settings_about_subtitle">TFL %s · open-source components only</string>
     <string name="settings_panic_title">Emergency duress / panic wipe</string>
-    <string name="settings_panic_subtitle">Destroy your keys and switch to a decoy identity</string>
+    <string name="settings_panic_subtitle">Duress PIN, wipe after failed attempts</string>
+
+    <!-- Values shared by several screens -->
+    <string name="key_storage_strongbox">StrongBox</string>
+    <string name="key_storage_tee">TEE</string>
+    <string name="key_storage_software">Software</string>
+    <string name="autolock_short_immediately">Instant</string>
+    <string name="autolock_short_30s">30 s</string>
+    <string name="autolock_short_1m">1 min</string>
+    <string name="autolock_short_5m">5 min</string>
+    <string name="autolock_immediately">Immediately</string>
+    <string name="autolock_30s">After 30 seconds</string>
+    <string name="autolock_1m">After 1 minute</string>
+    <string name="autolock_5m">After 5 minutes</string>
 
     <!-- Identity sheet -->
     <string name="settings_identity_title">Your identity</string>
     <string name="settings_identity_subtitle">Share in person only</string>
-    <string name="settings_identity_qr_placeholder">Your QR code appears here once identities are created.</string>
+    <string name="settings_identity_qr_placeholder">Your QR code arrives with contacts in a later update.</string>
     <string name="settings_identity_fingerprint">Public key fingerprint</string>
     <string name="settings_identity_note">Friends are only ever added in person: they scan this code and you both compare the fingerprint out loud.</string>
 
-    <!-- Shared by the preview shells -->
+    <!-- Shared by the settings screens -->
     <string name="settings_preview_title">Preview</string>
     <string name="settings_always_on">ALWAYS ON</string>
+    <string name="settings_not_active_yet">NOT ACTIVE YET</string>
 
     <!-- Security -->
     <string name="security_title">Security</string>
-    <string name="security_preview_body">These switches aren\'t saved or enforced yet. Screenshot blocking is the only protection active in this build.</string>
     <string name="security_protections_label">PROTECTIONS</string>
-    <string name="security_protections_title" tools:ignore="PluralsCandidate">%1$d of %2$d active in this build</string>
-    <string name="security_protections_active">Active: screenshot blocking</string>
+    <string name="security_protections_title" tools:ignore="PluralsCandidate">%1$d of %2$d active</string>
+    <string name="protection_pin_lock">PIN lock</string>
+    <string name="protection_encrypted_storage">encrypted storage</string>
+    <string name="protection_screenshot_blocking">screenshot blocking</string>
+    <string name="protection_duress_pin">duress PIN</string>
+    <string name="protection_wipe_after_failures">wipe after failed attempts</string>
+    <string name="protection_calculator_disguise">calculator disguise</string>
+    <string name="security_protections_active">Active: %s</string>
     <string name="security_section_access">App access &amp; lock</string>
     <string name="security_app_lock_title">App lock</string>
-    <string name="security_app_lock_subtitle">PIN and biometrics required on launch</string>
+    <string name="security_app_lock_subtitle">6-digit PIN, Argon2id (%d MiB), every time TFL starts</string>
+    <string name="security_change_pin_title">Change PIN</string>
+    <string name="security_change_pin_subtitle">Your current PIN is needed</string>
+    <string name="security_biometric_title">Fingerprint unlock</string>
+    <string name="security_biometric_subtitle">Unlock with a fingerprint; your PIN still works</string>
+    <string name="security_biometric_duress">Off while a duress PIN is set: a forced fingerprint would open your real profile</string>
+    <string name="security_biometric_unavailable">No strong fingerprint unlock on this phone</string>
+    <string name="security_biometric_prompt_title">Turn on fingerprint unlock</string>
+    <string name="security_biometric_prompt_subtitle">Confirm with your fingerprint</string>
+    <string name="security_biometric_prompt_cancel">Cancel</string>
     <string name="security_auto_lock_title">Auto-lock</string>
-    <string name="security_auto_lock_subtitle">Immediately when you leave the app</string>
+    <string name="security_auto_lock_disguised">Immediately while the calculator disguise is on</string>
     <string name="security_face_down_title">Lock when face down</string>
-    <string name="security_face_down_subtitle">Locks as soon as the phone is laid screen-down</string>
+    <string name="security_face_down_subtitle">Saved now; enforced in a later update</string>
     <string name="security_section_duress">Anti-coercion &amp; duress</string>
     <string name="security_duress_title">Duress PIN</string>
-    <string name="security_duress_subtitle">A second PIN that opens a decoy with no real chats or keys</string>
-    <string name="security_duress_action">Set up</string>
+    <string name="security_duress_off">Off · a second PIN for when you\'re forced to unlock</string>
+    <string name="security_duress_decoy">On · opens an empty decoy profile</string>
+    <string name="security_duress_wipe">On · wipes TFL on this phone</string>
+    <string name="security_duress_set_up">Set up</string>
+    <string name="security_duress_change">Change</string>
+    <string name="security_duress_remove">Remove duress PIN</string>
+    <string name="security_wipe_after_title">Wipe after failed attempts</string>
+    <string name="security_wipe_after_off">Off · wrong PINs only add delays</string>
+    <plurals name="security_wipe_after_on">
+        <item quantity="one">Wipes TFL after %d wrong PIN in a row</item>
+        <item quantity="other">Wipes TFL after %d wrong PINs in a row</item>
+    </plurals>
+    <string name="security_wipe_after_sheet_off">Off</string>
+    <plurals name="security_wipe_after_option">
+        <item quantity="one">After %d wrong PIN</item>
+        <item quantity="other">After %d wrong PINs</item>
+    </plurals>
+    <string name="security_wipe_after_note">Wrong PINs always add delays: 30 seconds after the 5th, rising to an hour. A wipe deletes everything TFL keeps on this phone; your recovery phrase can restore your identity.</string>
     <string name="security_panic_trigger">PANIC TRIGGER</string>
     <string name="security_trigger_shake">Shake the phone five times</string>
     <string name="security_trigger_volume">Hold volume down for six seconds</string>
-    <string name="security_trigger_action">On trigger: wipe keys and show the decoy</string>
+    <string name="security_trigger_note">Saved now; triggers are enforced in a later update</string>
     <string name="security_section_camouflage">Camouflage</string>
     <string name="security_calculator_title">Calculator disguise</string>
-    <string name="security_calculator_subtitle">Replace the TFL icon with a working calculator; type your PIN and = to open</string>
+    <string name="security_calculator_subtitle">Replace the TFL icon with a working calculator; type your secret code and = to open. TFL then locks as soon as you leave it.</string>
     <string name="security_recents_title">Hide from recent apps</string>
     <string name="security_recents_subtitle">The app switcher shows a blank card</string>
     <string name="security_section_device">Device protections</string>
     <string name="security_screenshots_title">Screenshot blocking</string>
-    <string name="security_screenshots_subtitle">FLAG_SECURE on every screen: no screenshots, recordings or casting</string>
+    <string name="security_screenshots_subtitle">FLAG_SECURE on every TFL screen: no screenshots, recordings or casting</string>
     <string name="security_memory_title">Clear keys from memory on lock</string>
-    <string name="security_memory_subtitle">Unlocked keys are wiped from RAM whenever the app locks</string>
+    <string name="security_memory_subtitle">The unlock key is wiped from RAM and the database closed whenever TFL locks</string>
+    <string name="security_key_storage_title">Hardware key storage</string>
+    <string name="security_key_storage_strongbox">StrongBox secure element: TFL\'s files are useless off this phone</string>
+    <string name="security_key_storage_tee">Secure hardware (TEE): TFL\'s files are useless off this phone</string>
+    <string name="security_key_storage_software">Software keystore only: this phone has no secure hardware for keys</string>
     <string name="security_configure_wipe">Configure panic wipe</string>
-    <string name="security_wipe_caption">A panic wipe destroys your identity keys, onion service keys and every local message.</string>
+    <string name="security_wipe_caption">A panic wipe destroys your identity keys and every local message.</string>
+
+    <!-- Security messages -->
+    <string name="security_message_pin_changed">PIN changed</string>
+    <string name="security_message_duress_set">Duress PIN set</string>
+    <string name="security_message_duress_removed">Duress PIN removed</string>
+    <string name="security_message_disguise_on">Calculator disguise on. The icon may take a moment to change.</string>
+    <string name="security_message_disguise_off">Calculator disguise off</string>
+    <string name="security_message_biometric_on">Fingerprint unlock on</string>
+    <string name="security_message_biometric_failed">Fingerprint unlock wasn\'t turned on</string>
+
+    <!-- PIN prompts -->
+    <string name="pin_flow_change_title">Change PIN</string>
+    <string name="pin_flow_duress_title">Duress PIN</string>
+    <string name="pin_flow_remove_duress_title">Remove duress PIN</string>
+    <string name="pin_flow_disguise_title">Calculator disguise</string>
+    <string name="pin_flow_current">Enter your current PIN</string>
+    <string name="pin_flow_new_pin">Choose a new PIN</string>
+    <string name="pin_flow_new_duress">Choose the duress PIN</string>
+    <string name="pin_flow_new_code">Choose a 6-digit secret code</string>
+    <string name="pin_flow_confirm">Enter it again</string>
+    <string name="pin_flow_code_help">Anyone watching you open the calculator sees the code, so don\'t use your PIN.</string>
+    <string name="pin_flow_duress_help">Must differ from your PIN. Setting a duress PIN turns fingerprint unlock off.</string>
+    <string name="pin_flow_checking">Checking…</string>
+    <string name="pin_flow_wrong">Wrong PIN. Three wrong PINs in a row lock TFL.</string>
+    <string name="pin_flow_mismatch">They didn\'t match. Start again.</string>
+    <string name="pin_flow_same_as_duress">That\'s your duress PIN. Choose a different one.</string>
+    <string name="pin_flow_same_as_pin">That\'s your app PIN. Choose a different one.</string>
+    <string name="pin_flow_code_is_pin">That\'s your PIN. Choose a different code.</string>
+    <string name="pin_flow_failed">Something went wrong. Nothing was changed.</string>
+    <string name="pin_flow_mode_title">When the duress PIN is entered</string>
+    <string name="pin_flow_decoy_title">Open a decoy profile</string>
+    <string name="pin_flow_decoy_tag">Empty profile</string>
+    <string name="pin_flow_decoy_body">Opens a separate, empty TFL profile with its own keys. It hides your real data from a quick look, but a forensic examination of the phone could still find that a second profile exists.</string>
+    <string name="pin_flow_wipe_title">Wipe everything</string>
+    <string name="pin_flow_wipe_tag">Irreversible</string>
+    <string name="pin_flow_wipe_body">Destroys TFL\'s keys and data on this phone, then shows a fresh app. Your recovery phrase can still restore your identity later, but not what was stored on this phone.</string>
+    <string name="pin_flow_continue">Continue</string>
+    <string name="pin_flow_disguise_intro_title">How the disguise works</string>
+    <string name="pin_flow_disguise_intro_icon">TFL\'s icon becomes a working calculator called Calculator, and TFL disappears from recent apps.</string>
+    <string name="pin_flow_disguise_intro_open">To open TFL, type your secret code in the calculator and press =. Then enter your PIN as usual.</string>
+    <string name="pin_flow_disguise_intro_close">TFL closes as soon as you turn the disguise on, and locks whenever you leave it.</string>
+    <string name="pin_flow_choose_code">Choose a secret code</string>
 
     <!-- Network -->
     <string name="network_title">Network &amp; transports</string>
-    <string name="network_preview_body">These switches aren\'t saved or enforced yet. Transports arrive in later phases.</string>
-    <string name="network_mesh_status">NEARBY MESH ACTIVE</string>
-    <string name="network_mesh_title">Offline mesh: running</string>
+    <string name="network_preview_body">Your choices here are saved and take effect when transports arrive in a later update. The mesh figures are sample data.</string>
+    <string name="network_mesh_status">SAMPLE DATA</string>
+    <string name="network_mesh_title">Offline mesh</string>
     <plurals name="network_peers_nearby">
         <item quantity="one">%d peer nearby</item>
         <item quantity="other">%d peers nearby</item>
@@ -93,8 +179,13 @@
     <string name="network_section_tor">Anonymous transport (Tor)</string>
     <string name="network_tor_title">Tor onion service</string>
     <string name="network_tor_subtitle">Reach friends over the internet through your own onion service</string>
-    <string name="network_bridges_title">Bridges</string>
-    <string name="network_bridges_subtitle">Off · for networks that block Tor</string>
+    <string name="network_bridges_title">Connection to Tor</string>
+    <string name="network_bridge_direct">Direct</string>
+    <string name="network_bridge_direct_body">Fastest, for networks that don\'t block Tor</string>
+    <string name="network_bridge_obfs4">obfs4 bridge</string>
+    <string name="network_bridge_obfs4_body">Disguises Tor traffic on networks that block it</string>
+    <string name="network_bridge_snowflake">Snowflake bridge</string>
+    <string name="network_bridge_snowflake_body">Routes through temporary volunteer proxies</string>
     <string name="network_tor_only_title">Tor-only networking</string>
     <string name="network_tor_only_subtitle">TFL never touches the internet except through Tor</string>
     <string name="network_section_mesh">Local mesh</string>

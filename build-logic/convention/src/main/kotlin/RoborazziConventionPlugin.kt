@@ -3,10 +3,8 @@ import app.tfl.buildlogic.library
 import io.github.takahirom.roborazzi.RoborazziExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.tasks.testing.Test
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.withType
 
 /**
  * JVM Compose UI tests (Robolectric) and screenshot tests (Roborazzi).
@@ -21,14 +19,6 @@ class RoborazziConventionPlugin : Plugin<Project> {
 
             extensions.configure<RoborazziExtension> {
                 outputDir.set(layout.projectDirectory.dir("src/test/screenshots"))
-            }
-
-            tasks.withType<Test>().configureEach {
-                // Robolectric's Android 16 runtime reaches into JDK file-descriptor internals.
-                jvmArgs(
-                    "--add-opens=java.base/jdk.internal.access=ALL-UNNAMED",
-                    "--add-opens=java.base/java.io=ALL-UNNAMED",
-                )
             }
 
             dependencies {

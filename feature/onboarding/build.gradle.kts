@@ -1,4 +1,9 @@
-// Skeleton: no code or dependencies until Phase 1.
 plugins {
-    id("tfl.android.library")
+    id("tfl.android.feature")
+}
+
+dependencies {
+    implementation(projects.core.session)
+    implementation(libs.androidx.biometric)
+    implementation(libs.androidx.fragment)
 }

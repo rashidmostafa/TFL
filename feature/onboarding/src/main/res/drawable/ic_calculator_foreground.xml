@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A generic calculator: nothing about it says TFL. Foreground of the disguise's adaptive icon. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFECEFF1"
+        android:pathData="M41,27 H67 A6,6 0 0 1 73,33 V75 A6,6 0 0 1 67,81 H41 A6,6 0 0 1 35,75 V33 A6,6 0 0 1 41,27 Z" />
+    <path
+        android:fillColor="#FF263238"
+        android:pathData="M42.5,32 H65.5 A2.5,2.5 0 0 1 68,34.5 V41.5 A2.5,2.5 0 0 1 65.5,44 H42.5 A2.5,2.5 0 0 1 40,41.5 V34.5 A2.5,2.5 0 0 1 42.5,32 Z" />
+    <path
+        android:fillColor="#FF90A4AE"
+        android:pathData="M41.5,49 H45.5 A1.5,1.5 0 0 1 47,50.5 V54.5 A1.5,1.5 0 0 1 45.5,56 H41.5 A1.5,1.5 0 0 1 40,54.5 V50.5 A1.5,1.5 0 0 1 41.5,49 Z M52,49 H56 A1.5,1.5 0 0 1 57.5,50.5 V54.5 A1.5,1.5 0 0 1 56,56 H52 A1.5,1.5 0 0 1 50.5,54.5 V50.5 A1.5,1.5 0 0 1 52,49 Z M62.5,49 H66.5 A1.5,1.5 0 0 1 68,50.5 V54.5 A1.5,1.5 0 0 1 66.5,56 H62.5 A1.5,1.5 0 0 1 61,54.5 V50.5 A1.5,1.5 0 0 1 62.5,49 Z M41.5,58.5 H45.5 A1.5,1.5 0 0 1 47,60 V64 A1.5,1.5 0 0 1 45.5,65.5 H41.5 A1.5,1.5 0 0 1 40,64 V60 A1.5,1.5 0 0 1 41.5,58.5 Z M52,58.5 H56 A1.5,1.5 0 0 1 57.5,60 V64 A1.5,1.5 0 0 1 56,65.5 H52 A1.5,1.5 0 0 1 50.5,64 V60 A1.5,1.5 0 0 1 52,58.5 Z M62.5,58.5 H66.5 A1.5,1.5 0 0 1 68,60 V64 A1.5,1.5 0 0 1 66.5,65.5 H62.5 A1.5,1.5 0 0 1 61,64 V60 A1.5,1.5 0 0 1 62.5,58.5 Z M41.5,68 H45.5 A1.5,1.5 0 0 1 47,69.5 V73.5 A1.5,1.5 0 0 1 45.5,75 H41.5 A1.5,1.5 0 0 1 40,73.5 V69.5 A1.5,1.5 0 0 1 41.5,68 Z M52,68 H56 A1.5,1.5 0 0 1 57.5,69.5 V73.5 A1.5,1.5 0 0 1 56,75 H52 A1.5,1.5 0 0 1 50.5,73.5 V69.5 A1.5,1.5 0 0 1 52,68 Z" />
+    <path
+        android:fillColor="#FFFF8F00"
+        android:pathData="M62.5,68 H66.5 A1.5,1.5 0 0 1 68,69.5 V73.5 A1.5,1.5 0 0 1 66.5,75 H62.5 A1.5,1.5 0 0 1 61,73.5 V69.5 A1.5,1.5 0 0 1 62.5,68 Z" />
+</vector>

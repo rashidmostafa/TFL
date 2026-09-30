@@ -7,6 +7,15 @@
     <string name="debug_catalog_subtitle" translatable="false">Every shared component in its states</string>
     <string name="debug_screenshots_title" translatable="false">Allow screenshots</string>
     <string name="debug_screenshots_subtitle" translatable="false">Turns FLAG_SECURE off until the app restarts</string>
+    <string name="debug_benchmark_title" translatable="false">Argon2id benchmark</string>
+    <string name="debug_benchmark_subtitle" translatable="false">Time one PIN key derivation per cost tier on this phone</string>
+    <string name="debug_benchmark_running" translatable="false">Measuring… (a few seconds)</string>
+    <string name="debug_wipe_title" translatable="false">Wipe now</string>
+    <string name="debug_wipe_subtitle" translatable="false">Delete TFL\'s keys and data, then restart</string>
+    <string name="debug_wipe_confirm_title" translatable="false">Wipe TFL now?</string>
+    <string name="debug_wipe_confirm_body" translatable="false">Deletes the hardware keys first, then every TFL file on this phone, and restarts into a fresh app. Only the recovery phrase can bring the identity back.</string>
+    <string name="debug_wipe_confirm" translatable="false">Wipe everything</string>
+    <string name="debug_wipe_cancel" translatable="false">Cancel</string>
     <string name="debug_catalog_screen_title" translatable="false">Design system</string>
     <string name="debug_catalog_sheet_demo" translatable="false">Open the bottom sheet demo</string>
     <string name="debug_catalog_sheet_body" translatable="false" formatted="false">A TflModalBottomSheet: 24dp top corners, drag handle, 60% scrim.</string>

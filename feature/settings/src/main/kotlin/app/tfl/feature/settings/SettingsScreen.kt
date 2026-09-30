@@ -34,8 +34,6 @@ import app.tfl.core.designsystem.component.ListRowTone
 import app.tfl.core.designsystem.component.PrimaryButton
 import app.tfl.core.designsystem.component.SecureBadge
 import app.tfl.core.designsystem.component.SectionHeader
-import app.tfl.core.designsystem.component.StatusLine
-import app.tfl.core.designsystem.component.Tag
 import app.tfl.core.designsystem.component.TflButtonSize
 import app.tfl.core.designsystem.component.TflCard
 import app.tfl.core.designsystem.component.TflIconButton
@@ -43,6 +41,8 @@ import app.tfl.core.designsystem.component.TflTopBar
 import app.tfl.core.designsystem.icon.MaterialSymbols
 import app.tfl.core.designsystem.icon.TflIcon
 import app.tfl.core.designsystem.theme.TflTheme
+import app.tfl.core.model.security.AutoLockTimeout
+import app.tfl.core.model.security.KeyStorageLevel
 import app.tfl.feature.settings.components.IdentitySheet
 
 @Composable
@@ -106,24 +106,24 @@ internal fun SettingsContent(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 StatTile(
-                    value = stringResource(if (uiState.meshRelayOn) R.string.settings_stat_mesh_value else R.string.settings_stat_mesh_off),
-                    label = stringResource(R.string.settings_stat_mesh_label),
-                    color = colors.mesh,
-                    icon = MaterialSymbols.Hub,
-                    modifier = Modifier.weight(1f),
-                )
-                StatTile(
-                    value = stringResource(R.string.settings_stat_tor_value),
-                    label = stringResource(R.string.settings_stat_tor_label),
-                    color = colors.tor,
-                    icon = MaterialSymbols.VpnLock,
-                    modifier = Modifier.weight(1f),
-                )
-                StatTile(
-                    value = stringResource(R.string.settings_stat_vault_value),
-                    label = stringResource(R.string.settings_stat_vault_label),
+                    value = uiState.keyStorage?.let { stringResource(it.label()) }.orEmpty(),
+                    label = stringResource(R.string.settings_stat_keys_label),
                     color = colors.primary,
                     icon = MaterialSymbols.Memory,
+                    modifier = Modifier.weight(1f),
+                )
+                StatTile(
+                    value = stringResource(R.string.settings_stat_kdf_value),
+                    label = uiState.kdfMemoryMiB?.let { stringResource(R.string.settings_stat_kdf_label, it.toInt()) }.orEmpty(),
+                    color = colors.mesh,
+                    icon = MaterialSymbols.Key,
+                    modifier = Modifier.weight(1f),
+                )
+                StatTile(
+                    value = stringResource(uiState.autoLock.shortLabel()),
+                    label = stringResource(R.string.settings_stat_autolock_label),
+                    color = colors.tor,
+                    icon = MaterialSymbols.LockClock,
                     modifier = Modifier.weight(1f),
                 )
             }
@@ -150,11 +150,6 @@ internal fun SettingsContent(
                 title = stringResource(R.string.settings_network_title),
                 subtitle = stringResource(R.string.settings_network_subtitle),
                 icon = MaterialSymbols.CellTower,
-                titleBadge = if (uiState.torConnected) {
-                    { Tag(stringResource(R.string.settings_network_badge), color = colors.tor) }
-                } else {
-                    null
-                },
                 onClick = onOpenNetwork,
             )
             ListRow(
@@ -165,7 +160,7 @@ internal fun SettingsContent(
             )
             ListRow(
                 title = stringResource(R.string.settings_vault_title),
-                subtitle = uiState.vaultUsage,
+                subtitle = stringResource(R.string.settings_vault_subtitle),
                 icon = MaterialSymbols.Lock,
                 onClick = onNotYetAvailable,
             )
@@ -187,7 +182,7 @@ internal fun SettingsContent(
                 icon = MaterialSymbols.Warning,
                 tone = ListRowTone.Danger,
                 modifier = Modifier.padding(top = 8.dp),
-                onClick = onNotYetAvailable,
+                onClick = onOpenSecurity,
             )
             developerSection?.invoke()
         }
@@ -226,15 +221,16 @@ private fun IdentityCard(uiState: SettingsUiState, onShowIdentity: () -> Unit, o
                     Text(uiState.displayName, style = TflTheme.typography.headlineMd, color = colors.textPrimary)
                     TflIcon(MaterialSymbols.Verified, contentDescription = null, size = 18.dp, tint = colors.primary)
                 }
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                    TflIcon(MaterialSymbols.Fingerprint, contentDescription = null, size = 14.dp, tint = colors.textMuted)
-                    Text(
-                        text = stringResource(R.string.settings_fingerprint_short, uiState.fingerprint.first(), uiState.fingerprint.last()),
-                        style = TflTheme.typography.codeSm,
-                        color = colors.textMuted,
-                    )
+                if (uiState.fingerprint.isNotEmpty()) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                        TflIcon(MaterialSymbols.Fingerprint, contentDescription = null, size = 14.dp, tint = colors.textMuted)
+                        Text(
+                            text = stringResource(R.string.settings_fingerprint_short, uiState.fingerprint.first(), uiState.fingerprint.last()),
+                            style = TflTheme.typography.codeSm,
+                            color = colors.textMuted,
+                        )
+                    }
                 }
-                StatusLine(stringResource(R.string.settings_reachable))
             }
         }
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -283,4 +279,24 @@ private fun StatTile(value: String, label: String, color: Color, icon: String, m
             maxLines = 1,
         )
     }
+}
+
+internal fun KeyStorageLevel.label(): Int = when (this) {
+    KeyStorageLevel.STRONGBOX -> R.string.key_storage_strongbox
+    KeyStorageLevel.TEE -> R.string.key_storage_tee
+    KeyStorageLevel.SOFTWARE -> R.string.key_storage_software
+}
+
+internal fun AutoLockTimeout.shortLabel(): Int = when (this) {
+    AutoLockTimeout.IMMEDIATELY -> R.string.autolock_short_immediately
+    AutoLockTimeout.SECONDS_30 -> R.string.autolock_short_30s
+    AutoLockTimeout.MINUTE_1 -> R.string.autolock_short_1m
+    AutoLockTimeout.MINUTES_5 -> R.string.autolock_short_5m
+}
+
+internal fun AutoLockTimeout.label(): Int = when (this) {
+    AutoLockTimeout.IMMEDIATELY -> R.string.autolock_immediately
+    AutoLockTimeout.SECONDS_30 -> R.string.autolock_30s
+    AutoLockTimeout.MINUTE_1 -> R.string.autolock_1m
+    AutoLockTimeout.MINUTES_5 -> R.string.autolock_5m
 }

@@ -1,46 +1,13 @@
 package app.tfl.feature.settings.fake
 
-import app.tfl.feature.settings.NetworkSettingsUiState
-import app.tfl.feature.settings.NetworkToggle
-import app.tfl.feature.settings.PanicTrigger
-import app.tfl.feature.settings.SecuritySettingsUiState
-import app.tfl.feature.settings.SecurityToggle
-import app.tfl.feature.settings.SettingsUiState
+import app.tfl.feature.settings.NetworkPreview
 
 /**
- * PHASE 0 PLACEHOLDER DATA adapted from the Stitch mock. The identity and fingerprint are made up;
- * real ones are generated on-device in Phase 1. Security and network settings are wired up in the
- * phases that build them.
+ * PLACEHOLDER FIGURES for the Network screen's mesh card, adapted from the Stitch mock and labelled
+ * as sample data on screen. Real figures come from the transports (Phases 3 and 4).
  */
 internal object FakeSettingsData {
-    val settings = SettingsUiState(
-        displayName = "Valkyrie-7",
-        fingerprint = listOf("9F8A", "31C2", "77D0", "4B01"),
-        meshRelayOn = true,
-        torConnected = true,
-        vaultUsage = "24.8 GB of 128 GB used",
-    )
-
-    val security = SecuritySettingsUiState(
-        toggles = mapOf(
-            SecurityToggle.APP_LOCK to true,
-            SecurityToggle.FACE_DOWN_LOCK to true,
-            SecurityToggle.CALCULATOR_DISGUISE to false,
-            SecurityToggle.CLEAR_KEYS_ON_LOCK to true,
-        ),
-        panicTrigger = PanicTrigger.SHAKE,
-        enforcedProtections = 1,
-        totalProtections = 6,
-    )
-
-    val network = NetworkSettingsUiState(
-        toggles = mapOf(
-            NetworkToggle.TOR to true,
-            NetworkToggle.NEARBY to true,
-            NetworkToggle.RELAY to true,
-            NetworkToggle.BATTERY_SAVER to false,
-            NetworkToggle.PAUSE_RELAY_ON_LOW_BATTERY to true,
-        ),
+    val networkPreview = NetworkPreview(
         peersNearby = 8,
         txRate = "12.8 KB/s",
         rxRate = "44.1 KB/s",

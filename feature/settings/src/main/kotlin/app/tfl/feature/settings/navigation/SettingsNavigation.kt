@@ -52,7 +52,7 @@ fun NavGraphBuilder.settingsGraph(
             SecuritySettingsScreen(onBack = onBack, onNotYetAvailable = onNotYetAvailable)
         }
         composable<NetworkSettingsRoute> {
-            NetworkSettingsScreen(onBack = onBack, onNotYetAvailable = onNotYetAvailable)
+            NetworkSettingsScreen(onBack = onBack)
         }
     }
 }

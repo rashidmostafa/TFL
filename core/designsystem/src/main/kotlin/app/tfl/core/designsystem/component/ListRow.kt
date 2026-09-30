@@ -139,6 +139,7 @@ fun ToggleRow(
     subtitle: String? = null,
     icon: String? = null,
     enabled: Boolean = true,
+    titleBadge: (@Composable () -> Unit)? = null,
 ) {
     ListRow(
         title = title,
@@ -151,6 +152,7 @@ fun ToggleRow(
         subtitle = subtitle,
         icon = icon,
         standalone = false,
+        titleBadge = titleBadge,
         trailing = { TflSwitch(checked = checked, onCheckedChange = null, enabled = enabled) },
     )
 }

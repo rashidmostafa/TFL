@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- A plain dark calculator: no TFL splash, logo or colours in the window chrome. -->
+    <style name="Theme.Calculator" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/calculator_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <color name="calculator_background">#FF0B0F14</color>
+    <color name="calculator_icon_background">#FF37474F</color>
+</resources>

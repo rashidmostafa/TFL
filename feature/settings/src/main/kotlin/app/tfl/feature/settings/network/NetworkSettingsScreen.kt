@@ -37,6 +37,11 @@ import app.tfl.core.designsystem.component.TflTopBar
 import app.tfl.core.designsystem.component.ToggleRow
 import app.tfl.core.designsystem.icon.MaterialSymbols
 import app.tfl.core.designsystem.theme.TflTheme
+import app.tfl.core.designsystem.component.RadioRow
+import app.tfl.core.designsystem.component.SheetHeader
+import app.tfl.core.designsystem.component.TflModalBottomSheet
+import app.tfl.core.model.network.BridgeMode
+import app.tfl.feature.settings.NetworkPreview
 import app.tfl.feature.settings.NetworkSettingsUiState
 import app.tfl.feature.settings.NetworkSettingsViewModel
 import app.tfl.feature.settings.NetworkToggle
@@ -46,12 +51,14 @@ import app.tfl.feature.settings.security.GroupCard
 @Composable
 internal fun NetworkSettingsScreen(
     onBack: () -> Unit,
-    onNotYetAvailable: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: NetworkSettingsViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    NetworkSettingsContent(uiState, onBack, viewModel::onToggle, onNotYetAvailable, modifier)
+    NetworkSettingsContent(uiState, onBack, viewModel::onToggle, onShowBridges = { viewModel.showBridges(true) }, modifier = modifier)
+    if (uiState.showBridges) {
+        BridgeSheet(uiState.bridgeMode, onSelect = viewModel::onBridgeSelect, onDismiss = { viewModel.showBridges(false) })
+    }
 }
 
 @Composable
@@ -59,7 +66,7 @@ internal fun NetworkSettingsContent(
     uiState: NetworkSettingsUiState,
     onBack: () -> Unit,
     onToggle: (NetworkToggle, Boolean) -> Unit,
-    onNotYetAvailable: () -> Unit,
+    onShowBridges: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val colors = TflTheme.colors
@@ -84,7 +91,7 @@ internal fun NetworkSettingsContent(
                 title = stringResource(R.string.settings_preview_title),
                 tone = CalloutTone.Warning,
             )
-            MeshStatusCard(uiState)
+            MeshStatusCard(uiState.preview)
 
             SectionHeader(
                 stringResource(R.string.network_section_tor),
@@ -102,9 +109,9 @@ internal fun NetworkSettingsContent(
                 TflDivider()
                 ListRow(
                     title = stringResource(R.string.network_bridges_title),
-                    subtitle = stringResource(R.string.network_bridges_subtitle),
+                    subtitle = stringResource(uiState.bridgeMode.label().first),
                     standalone = false,
-                    onClick = onNotYetAvailable,
+                    onClick = onShowBridges,
                 )
                 TflDivider()
                 ListRow(
@@ -135,7 +142,7 @@ internal fun NetworkSettingsContent(
                     checked = uiState.isOn(NetworkToggle.RELAY),
                     onCheckedChange = { onToggle(NetworkToggle.RELAY, it) },
                 )
-                RelayQuota(uiState)
+                RelayQuota(uiState.preview)
             }
 
             SectionHeader(
@@ -163,11 +170,12 @@ internal fun NetworkSettingsContent(
     }
 }
 
+/** Sample figures only, labelled as such, until the transports exist. */
 @Composable
-private fun MeshStatusCard(uiState: NetworkSettingsUiState) {
+private fun MeshStatusCard(uiState: NetworkPreview) {
     val colors = TflTheme.colors
     TflCard(modifier = Modifier.padding(top = 4.dp), borderColor = colors.primary.copy(alpha = 0.25f), verticalSpacing = 10.dp) {
-        StatusPill(stringResource(R.string.network_mesh_status))
+        StatusPill(stringResource(R.string.network_mesh_status), color = colors.warning)
         Text(stringResource(R.string.network_mesh_title), style = TflTheme.typography.headlineSm, color = colors.textPrimary)
         Text(
             text = pluralStringResource(R.plurals.network_peers_nearby, uiState.peersNearby, uiState.peersNearby),
@@ -201,7 +209,7 @@ private fun MeshStatusCard(uiState: NetworkSettingsUiState) {
 }
 
 @Composable
-private fun RelayQuota(uiState: NetworkSettingsUiState) {
+private fun RelayQuota(uiState: NetworkPreview) {
     val colors = TflTheme.colors
     Column(
         modifier = Modifier
@@ -221,5 +229,25 @@ private fun RelayQuota(uiState: NetworkSettingsUiState) {
         }
         TflProgressBar(progress = uiState.relayUsedMb.toFloat() / uiState.relayQuotaMb)
         Text(stringResource(R.string.network_relay_resets, uiState.relayResetsIn), style = TflTheme.typography.codeSm, color = colors.textMuted)
+    }
+}
+
+/** Title and explanation of each way to reach Tor. */
+internal fun BridgeMode.label(): Pair<Int, Int> = when (this) {
+    BridgeMode.DIRECT -> R.string.network_bridge_direct to R.string.network_bridge_direct_body
+    BridgeMode.OBFS4 -> R.string.network_bridge_obfs4 to R.string.network_bridge_obfs4_body
+    BridgeMode.SNOWFLAKE -> R.string.network_bridge_snowflake to R.string.network_bridge_snowflake_body
+}
+
+@Composable
+private fun BridgeSheet(selected: BridgeMode, onSelect: (BridgeMode) -> Unit, onDismiss: () -> Unit) {
+    TflModalBottomSheet(onDismissRequest = onDismiss) {
+        SheetHeader(stringResource(R.string.network_bridges_title), icon = MaterialSymbols.VpnLock, onClose = onDismiss)
+        Column(Modifier.padding(bottom = 16.dp)) {
+            BridgeMode.entries.forEach { mode ->
+                val (title, body) = mode.label()
+                RadioRow(stringResource(title), selected = mode == selected, onSelect = { onSelect(mode) }, subtitle = stringResource(body))
+            }
+        }
     }
 }

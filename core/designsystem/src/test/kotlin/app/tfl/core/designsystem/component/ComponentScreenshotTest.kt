@@ -17,6 +17,7 @@ import app.tfl.core.designsystem.catalog.CatalogCalloutsAndKeys
 import app.tfl.core.designsystem.catalog.CatalogChipsAndBadges
 import app.tfl.core.designsystem.catalog.CatalogEmptyState
 import app.tfl.core.designsystem.catalog.CatalogListRows
+import app.tfl.core.designsystem.catalog.CatalogPinAndIdentity
 import app.tfl.core.designsystem.catalog.CatalogSheetHeader
 import app.tfl.core.testing.SCREENSHOT_DEVICE
 import app.tfl.core.testing.TflTestSurface
@@ -77,6 +78,9 @@ class ComponentScreenshotTest {
 
     @Test
     fun emptyState() = capture("empty_state") { CatalogEmptyState() }
+
+    @Test
+    fun pinAndIdentity() = capture("pin_identity") { CatalogPinAndIdentity() }
 
     private companion object {
         const val TAG = "component"

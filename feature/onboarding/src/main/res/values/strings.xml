@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Shared -->
+    <string name="onboarding_back">Back</string>
+    <string name="onboarding_continue">Continue</string>
+    <string name="onboarding_step_identity">Identity</string>
+    <string name="onboarding_step_security">Device security</string>
+    <string name="onboarding_step_duress">Duress protection</string>
+    <string name="onboarding_step_phrase">Recovery phrase</string>
+    <string name="onboarding_step_permissions">Permissions</string>
+    <string name="onboarding_step_network">Network</string>
+    <string name="onboarding_step_disguise">Disguise · optional</string>
+
+    <!-- Welcome -->
+    <string name="welcome_status">ON-DEVICE KEYS · NO ACCOUNTS</string>
+    <string name="welcome_tagline">Private. Offline. Ours.</string>
+    <string name="welcome_keys_title">Keys stay on this phone</string>
+    <string name="welcome_keys_body">Sealed with this phone\'s hardware keystore</string>
+    <string name="welcome_mesh_title">Bluetooth &amp; Wi-Fi Direct mesh</string>
+    <string name="welcome_mesh_body">Talk to nearby friends with no internet</string>
+    <string name="welcome_tor_title">Tor onion routing</string>
+    <string name="welcome_tor_body">Reach friends over the internet without a server</string>
+    <string name="welcome_accounts_title">No accounts or phone numbers</string>
+    <string name="welcome_accounts_body">Your identity is a key pair made on this phone</string>
+    <string name="welcome_create">Create identity</string>
+    <string name="welcome_restore">Restore from 24-word recovery phrase</string>
+    <string name="welcome_footer">Open source · end-to-end encrypted with libsodium</string>
+
+    <!-- Identity -->
+    <string name="identity_title">Create your identity</string>
+    <string name="identity_title_restored">Your restored identity</string>
+    <string name="identity_body">Your identity is a key pair created on this phone. There is no server, account or phone number behind it.</string>
+    <string name="identity_callout_title">Only on this phone</string>
+    <string name="identity_callout_body">Without your recovery phrase, a lost phone means a lost identity. You\'ll write the phrase down in a moment.</string>
+    <string name="identity_regenerate">New key</string>
+    <string name="identity_name_label">Display name</string>
+    <string name="identity_name_placeholder">What friends will call you</string>
+    <string name="identity_name_help">Stored on this phone only for now; shared when you add a friend in person.</string>
+    <string name="identity_name_error">Use 1 to 32 characters</string>
+    <string name="identity_fingerprint">Public fingerprint</string>
+    <string name="identity_generated">Made on this phone with libsodium · Ed25519 + X25519</string>
+    <string name="identity_restored_note">Same phrase, same keys: this fingerprint matches the one you had before.</string>
+
+    <!-- Restore -->
+    <string name="restore_title">Restore from recovery phrase</string>
+    <string name="restore_body">Type your 24 words in order. Suggestions appear as you type.</string>
+    <string name="restore_submit">Restore identity</string>
+    <string name="restore_error_unknown" tools:ignore="PluralsCandidate">Word %d isn\'t in the recovery word list.</string>
+    <string name="restore_error_checksum">These words don\'t form a valid phrase. Check each word and their order.</string>
+    <string name="restore_error_incomplete">Fill in all 24 words.</string>
+    <string name="restore_word_label">Word %d</string>
+
+    <!-- App lock -->
+    <string name="applock_title">Create a 6-digit PIN</string>
+    <string name="applock_body">Your PIN unlocks TFL and the keys to its encrypted database, protected with Argon2id. It\'s needed every time TFL starts.</string>
+    <string name="applock_confirm_title">Enter the PIN again</string>
+    <string name="applock_mismatch">The PINs didn\'t match. Start again.</string>
+    <string name="applock_done_title">Your PIN is set</string>
+    <string name="applock_done_body">Now choose how TFL unlocks and when it locks itself.</string>
+    <string name="applock_biometric_title">Fingerprint unlock</string>
+    <string name="applock_biometric_body">Unlock with a fingerprint; your PIN still works</string>
+    <string name="applock_biometric_unavailable">No strong fingerprint unlock on this phone</string>
+    <string name="applock_autolock">Auto-lock</string>
+    <string name="onboarding_autolock_immediately">Immediately</string>
+    <string name="onboarding_autolock_30s">30 seconds</string>
+    <string name="onboarding_autolock_1m">1 minute</string>
+    <string name="onboarding_autolock_5m">5 minutes</string>
+    <string name="applock_continue">Continue to duress setup</string>
+    <string name="applock_reset">Start over</string>
+
+    <!-- Duress -->
+    <string name="duress_title">Duress PIN</string>
+    <string name="duress_body">A second PIN for when someone forces you to unlock TFL. Entered on the lock screen, it does what you choose below instead of opening your real profile.</string>
+    <string name="duress_mode_label">When the duress PIN is entered</string>
+    <string name="duress_decoy_title">Open a decoy profile</string>
+    <string name="duress_decoy_tag">Empty profile</string>
+    <string name="duress_decoy_body">Opens a separate, empty TFL profile with its own keys. It hides your real data from a quick look, but a forensic examination of the phone could still find that a second profile exists.</string>
+    <string name="duress_wipe_title">Wipe everything</string>
+    <string name="duress_wipe_tag">Irreversible</string>
+    <string name="duress_wipe_body">Destroys TFL\'s keys and data on this phone, then shows a fresh app. Your recovery phrase can still restore your identity later, but not what was stored on this phone.</string>
+    <string name="duress_pin_label">Set the duress PIN</string>
+    <string name="duress_pin_differs">Must differ from your PIN</string>
+    <string name="duress_confirm_label">Enter the duress PIN again</string>
+    <string name="duress_same_as_pin">That\'s your app PIN. Choose a different one.</string>
+    <string name="duress_biometric_note">Fingerprint unlock is turned off while a duress PIN is set: a forced fingerprint would open your real profile.</string>
+    <string name="duress_confirm">Set duress PIN</string>
+    <string name="duress_choose_pin">Choose a duress PIN</string>
+    <string name="duress_entry_decoy">Entered on the lock screen, it opens an empty decoy profile.</string>
+    <string name="duress_entry_wipes">Entered on the lock screen, it wipes TFL on this phone.</string>
+    <string name="duress_skip">Skip for now</string>
+
+    <!-- Commit -->
+    <string name="commit_title">Securing your identity</string>
+    <string name="commit_body">Measuring Argon2id on this phone and sealing your keys with its secure hardware. This takes a few seconds.</string>
+    <string name="commit_failed">Something went wrong while saving your identity. Nothing was kept; try again.</string>
+    <string name="commit_retry">Try again</string>
+
+    <!-- Recovery phrase -->
+    <string name="phrase_title">Write down your recovery phrase</string>
+    <string name="phrase_warning_title">The only way to restore your identity</string>
+    <string name="phrase_warning_body">There\'s no \"forgot password\". Anyone with these 24 words can become you, so keep them secret.</string>
+    <string name="phrase_words_label">24 words</string>
+    <string name="phrase_hide">Hide</string>
+    <string name="phrase_show">Show</string>
+    <string name="phrase_standard">BIP39 wordlist · not a crypto-wallet phrase</string>
+    <string name="phrase_paper_title">Use paper, not a screen</string>
+    <string name="phrase_paper_body">Write the words in order and keep them somewhere safe. Don\'t photograph them or save them in notes or cloud storage.</string>
+    <string name="phrase_written">I\'ve written it down, in order</string>
+    <string name="phrase_verify">Verify words</string>
+    <string name="quiz_title">Check your copy</string>
+    <string name="quiz_body">Type the words at these positions from what you wrote down.</string>
+    <string name="quiz_word">Word %d</string>
+    <string name="quiz_wrong" tools:ignore="PluralsCandidate">Word %d doesn\'t match. Check what you wrote down.</string>
+    <string name="quiz_submit">Confirm</string>
+    <string name="quiz_show_again">Show the phrase again</string>
+
+    <!-- Biometric enrolment -->
+    <string name="biometric_enrol_title">Turn on fingerprint unlock</string>
+    <string name="biometric_enrol_subtitle">Confirm with your fingerprint</string>
+    <string name="biometric_cancel">Not now</string>
+    <string name="biometric_enrol_failed">Fingerprint unlock wasn\'t turned on. You can try again in Settings → Security.</string>
+
+    <!-- Permissions -->
+    <string name="permissions_title">What TFL will ask for</string>
+    <string name="permissions_body">Nothing is requested now. Each permission is asked for the first time a feature needs it, and TFL works without the ones you decline.</string>
+    <string name="permission_nearby_title">Nearby devices</string>
+    <string name="permission_nearby_body">Bluetooth and Wi-Fi Direct, to reach friends\' phones in range.</string>
+    <string name="permission_location_title">Location</string>
+    <string name="permission_location_body">This version of Android requires it to find nearby phones. TFL doesn\'t read your position for this.</string>
+    <string name="permission_notifications_title">Notifications</string>
+    <string name="permission_notifications_body">To tell you when a friend\'s message arrives.</string>
+    <string name="permission_battery_title">Background activity</string>
+    <string name="permission_battery_body">So Android doesn\'t stop TFL passing messages on for friends.</string>
+    <string name="permission_camera_title">Camera</string>
+    <string name="permission_camera_body">To scan a friend\'s QR code when you meet in person.</string>
+    <string name="permission_later">Asked when needed</string>
+    <string name="permissions_zero_telemetry">No analytics, no ads, no crash reporting. TFL has no internet permission at all yet.</string>
+
+    <!-- Network -->
+    <string name="onboarding_network_title">How TFL connects</string>
+    <string name="onboarding_network_body">Choose how TFL reaches friends beyond Bluetooth range. These settings take effect in a later update; nothing connects yet.</string>
+    <string name="onboarding_network_mesh_title">Nearby mesh</string>
+    <string name="onboarding_network_mesh_body">Messages hop between friends\' phones over Bluetooth and Wi-Fi Direct, even in airplane mode.</string>
+    <string name="onboarding_network_tor_title">Tor onion routing</string>
+    <string name="onboarding_network_tor_body">Reach friends over the internet through Tor, which hides who is talking to whom.</string>
+    <string name="onboarding_network_bridge_label">Connection to Tor</string>
+    <string name="onboarding_network_bridge_direct">Direct</string>
+    <string name="onboarding_network_bridge_direct_body">Fastest, for networks that don\'t block Tor</string>
+    <string name="onboarding_network_bridge_obfs4">obfs4 bridge</string>
+    <string name="onboarding_network_bridge_obfs4_body">Disguises Tor traffic on networks that block it</string>
+    <string name="onboarding_network_bridge_snowflake">Snowflake bridge</string>
+    <string name="onboarding_network_bridge_snowflake_body">Routes through temporary volunteer proxies</string>
+    <string name="onboarding_network_later">Takes effect in a later update</string>
+
+    <!-- Disguise -->
+    <string name="disguise_title">Disguise TFL as a calculator</string>
+    <string name="disguise_body">Replace the TFL icon with a calculator that really calculates. Type your secret code and press = to open TFL\'s lock screen.</string>
+    <string name="disguise_toggle">Use the calculator disguise</string>
+    <string name="disguise_code_label">Choose a 6-digit secret code</string>
+    <string name="disguise_code_confirm">Enter the code again</string>
+    <string name="disguise_code_help">Use a different code from your PIN: anyone watching you open the calculator sees what you type.</string>
+    <string name="disguise_code_mismatch">The codes didn\'t match. Start again.</string>
+    <string name="disguise_code_is_pin">That\'s your PIN. Choose a different code.</string>
+    <string name="disguise_code_set">Secret code set</string>
+    <string name="disguise_code_change">Change</string>
+    <string name="disguise_cancel">Don\'t use the disguise</string>
+    <string name="disguise_closes_note">When you finish, TFL closes and its icon becomes Calculator. To come back, open the Calculator, type your code and press =. While the disguise is on, TFL locks as soon as you leave it.</string>
+    <string name="disguise_finish">Finish setup</string>
+    <string name="disguise_preview">Try the calculator</string>
+    <string name="disguise_preview_hide">Hide the calculator</string>
+
+    <!-- Lock screen -->
+    <string name="lock_title">Enter your PIN</string>
+    <string name="lock_checking">Checking…</string>
+    <string name="lock_wrong">Wrong PIN</string>
+    <plurals name="lock_attempts_before_wipe">
+        <item quantity="one">Wrong PIN. %d attempt left before TFL wipes this phone.</item>
+        <item quantity="other">Wrong PIN. %d attempts left before TFL wipes this phone.</item>
+    </plurals>
+    <string name="lock_wait">Too many attempts. Try again in %s.</string>
+    <string name="lock_failed">TFL couldn\'t check the PIN. Try again.</string>
+    <string name="lock_biometric">Unlock with fingerprint</string>
+    <string name="lock_biometric_title">Unlock TFL</string>
+    <string name="lock_use_pin">Use PIN</string>
+    <string name="lock_forgot">Forgot PIN?</string>
+    <string name="lock_forgot_title">Wipe TFL on this phone?</string>
+    <string name="lock_forgot_body">A PIN can\'t be reset: the PIN is part of the key that protects TFL\'s data. Wiping deletes everything TFL keeps on this phone. You can then restore your identity with your recovery phrase, but not the data.</string>
+    <string name="lock_forgot_confirm">Wipe and restore</string>
+    <string name="lock_cancel">Cancel</string>
+
+    <!-- Keys unavailable -->
+    <string name="keys_unavailable_title">TFL can\'t open its keys</string>
+    <string name="keys_unavailable_body">This phone\'s secure hardware no longer has the key that protects TFL\'s data (this can happen after some system updates or a device reset). The data can\'t be recovered. Wipe TFL and restore your identity from your recovery phrase.</string>
+
+    <!-- Calculator (the disguise: no TFL branding anywhere) -->
+    <string name="calculator_label" translatable="false">Calculator</string>
+    <string name="calculator_error">Error</string>
+    <string name="calculator_delete">Delete</string>
+    <string name="calculator_clear">Clear</string>
+    <string name="calculator_parentheses">Parentheses</string>
+    <string name="calculator_percent">Percent</string>
+    <string name="calculator_divide">Divide</string>
+    <string name="calculator_multiply">Multiply</string>
+    <string name="calculator_minus">Minus</string>
+    <string name="calculator_plus">Plus</string>
+    <string name="calculator_sign">Plus or minus</string>
+    <string name="calculator_decimal">Decimal point</string>
+    <string name="calculator_equals">Equals</string>
+</resources>

@@ -5,6 +5,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import app.tfl.core.testing.SCREENSHOT_DEVICE
+import app.tfl.testing.AppStateRule
 import app.tfl.core.testing.captureScreenshot
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -26,6 +27,9 @@ class AppShellScreenshotTest {
     val hiltRule = HiltAndroidRule(this)
 
     @get:Rule(order = 1)
+    val appState = AppStateRule(AppStateRule.State.UNLOCKED)
+
+    @get:Rule(order = 2)
     val composeRule = createAndroidComposeRule<MainActivity>()
 
     @Test

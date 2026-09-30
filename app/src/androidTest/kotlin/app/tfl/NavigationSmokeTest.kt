@@ -16,7 +16,10 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/** On-device smoke test: `./gradlew connectedDebugAndroidTest` with a phone or emulator attached. */
+/**
+ * On-device smoke test: `./gradlew connectedDebugAndroidTest` with a phone or emulator attached. It
+ * wipes the debug app's TFL data first.
+ */
 @HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
 class NavigationSmokeTest {
@@ -25,6 +28,9 @@ class NavigationSmokeTest {
     val hiltRule = HiltAndroidRule(this)
 
     @get:Rule(order = 1)
+    val identity = FreshIdentityRule()
+
+    @get:Rule(order = 2)
     val composeRule = createAndroidComposeRule<MainActivity>()
 
     @Test

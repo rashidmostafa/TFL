@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher icon of the calculator disguise (the LauncherCalculator alias in the app manifest). -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/calculator_icon_background" />
+    <foreground android:drawable="@drawable/ic_calculator_foreground" />
+</adaptive-icon>

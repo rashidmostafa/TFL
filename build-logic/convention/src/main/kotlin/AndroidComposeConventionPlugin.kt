@@ -1,3 +1,4 @@
+import app.tfl.buildlogic.hasDeviceTests
 import app.tfl.buildlogic.libs
 import app.tfl.buildlogic.library
 import com.android.build.api.dsl.ApplicationExtension
@@ -21,7 +22,7 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
                 val bom = platform(libs.library("androidx-compose-bom"))
                 "implementation"(bom)
                 "testImplementation"(bom)
-                "androidTestImplementation"(bom)
+                if (hasDeviceTests) "androidTestImplementation"(bom)
                 "implementation"(libs.library("androidx-compose-ui-tooling-preview"))
                 "debugImplementation"(libs.library("androidx-compose-ui-tooling"))
             }

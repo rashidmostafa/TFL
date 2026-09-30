@@ -41,8 +41,16 @@ Invite-only, end-to-end encrypted Android app for a small friend group.
 :core:database       — Room + SQLCipher, DAOs, repositories
 :core:transport      — Transport interface, NearbyTransport, TorTransport, MeshRouter, Outbox, Dedup
 :core:common         — utilities, dispatchers, Result types
+:core:session        — the lock gate (AppSession), LockSettings, AutoLock, WipeController, CalculatorDisguise
+:core:testing        — test-only: JVM libsodium (lazysodium-java), fake Keystore, plain Room files, SessionFixture
 :feature:onboarding, :feature:chats, :feature:contacts, :feature:map,
 :feature:vault, :feature:tools, :feature:settings
+
+Testing notes (from Phase 1):
+- JVM/Robolectric tests run the real crypto and session code: libsodium via lazysodium-java (JvmSodium),
+  FakeHardwareKeys for the Keystore, PlainDatabaseFactory for Room (SQLCipher can't load on the JVM).
+- :app tests swap those in with @TestInstallIn (app/src/test/.../testing) and set the lock state with AppStateRule.
+- Keystore, SQLCipher and libsodium-on-Android are checked by connectedDebugAndroidTest on a real phone.
 
 ## Core design: the Envelope
 Every message, file chunk, sync op, and control command is an Envelope sealed on the sender's device:

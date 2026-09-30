@@ -38,6 +38,7 @@ include(":core:designsystem")
 include(":core:crypto")
 include(":core:database")
 include(":core:transport")
+include(":core:session")
 include(":core:testing")
 
 include(":feature:onboarding")

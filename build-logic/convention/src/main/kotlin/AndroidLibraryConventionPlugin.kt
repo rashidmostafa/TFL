@@ -1,5 +1,6 @@
 import app.tfl.buildlogic.TflSdk
 import app.tfl.buildlogic.configureKotlinAndroid
+import app.tfl.buildlogic.disableDeviceTestsIfAbsent
 import app.tfl.buildlogic.enableReleaseUnitTestsIfPresent
 import app.tfl.buildlogic.libs
 import app.tfl.buildlogic.library
@@ -24,6 +25,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
             extensions.configure<LibraryAndroidComponentsExtension> {
                 enableReleaseUnitTestsIfPresent(target)
+                disableDeviceTestsIfAbsent(target)
             }
 
             dependencies {

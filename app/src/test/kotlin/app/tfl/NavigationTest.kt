@@ -7,6 +7,7 @@ import androidx.compose.ui.test.SemanticsNodeInteraction
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
+import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -21,7 +22,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 
-/** Drives the real MainActivity: tabs, the Settings detail screens, back, and placeholder actions. */
+/** Drives the real MainActivity: tabs, the Settings and contacts screens, back, and placeholder actions. */
 @HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
 @Config(application = HiltTestApplication::class, qualifiers = SCREENSHOT_DEVICE)
@@ -79,7 +80,42 @@ class NavigationTest {
 
     @Test
     fun unbuiltAction_explainsItself() {
-        composeRule.onNodeWithText("SCAN").performClick()
+        composeRule.onNodeWithText("Emergency bulletins").performClick()
         composeRule.onNodeWithText("Not available yet").assertExists()
+    }
+
+    @Test
+    fun scan_opensAddFriendOnTheCamera() {
+        composeRule.onNodeWithText("SCAN").performClick()
+        composeRule.onNodeWithText("Add friend").assertExists()
+        composeRule.onNodeWithText("Camera needed to scan").assertExists()
+        tab("Chats").assertDoesNotExist()
+
+        composeRule.onNodeWithContentDescription("Back").performClick()
+        tab("Chats").assertIsSelected()
+    }
+
+    @Test
+    fun newChat_opensFriends_andAddFriendShowsMyCode() {
+        composeRule.onNodeWithContentDescription("New chat").performClick()
+        composeRule.onNodeWithText("No friends yet").assertExists()
+
+        composeRule.onNodeWithText("Add friend").performClick()
+        composeRule.waitUntil(5_000) {
+            composeRule.onAllNodesWithContentDescription("Your pairing code. Let your friend scan it.").fetchSemanticsNodes().isNotEmpty()
+        }
+        composeRule.onNodeWithText("New code in", substring = true).assertExists()
+    }
+
+    @Test
+    fun settings_accountAndIdentity_openFriendsAndMyCode() {
+        tab("Settings").performClick()
+        composeRule.onNodeWithText("Account & identity").performClick()
+        composeRule.onNodeWithText("No friends yet").assertExists()
+
+        composeRule.onNodeWithContentDescription("Back").performClick()
+        composeRule.onNodeWithText("Public identity").performClick()
+        composeRule.onNodeWithText("Show my pairing code").performClick()
+        composeRule.onNodeWithText("My QR").assertIsSelected()
     }
 }

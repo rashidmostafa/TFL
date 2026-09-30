@@ -1,0 +1,43 @@
+// TFL's in-person pairing codes (QR). They carry public information only, never a secret.
+// Parsing, signing and every check live in :core:crypto (app.tfl.core.crypto.pairing).
+syntax = "proto3";
+
+package tfl.pairing.v1;
+
+option java_package = "app.tfl.core.model.proto";
+option java_multiple_files = true;
+
+// What a pairing QR says about its owner. It's signed as serialized bytes: see SignedPairingCode.
+message PairingPayload {
+  // 1 for this format. Codes with any other version are refused.
+  uint32 version = 1;
+  // The owner's display name: 1–32 characters, no control or invisible direction characters.
+  string display_name = 2;
+  // The owner's Ed25519 identity public key (32 bytes). It signs this code.
+  bytes sign_public_key = 3;
+  // The owner's X25519 key-agreement public key (32 bytes).
+  bytes kex_public_key = 4;
+  // When the code was made, in milliseconds since 1970 by the owner's clock. Codes expire after 5 minutes.
+  int64 created_at_millis = 5;
+  // 16 random bytes, so every code is different.
+  bytes nonce = 6;
+  // BLAKE2b-128 of the other phone's code this one answers; empty when it answers none.
+  bytes answers = 7;
+  // The owner's onion address. Reserved: always empty until Phase 4.
+  string onion_address = 8;
+}
+
+// A pairing QR's content: the payload bytes exactly as signed, and the Ed25519 signature
+// over "TFL-pairing-v1" 0x00 payload, made with payload.sign_public_key's private key.
+message SignedPairingCode {
+  bytes payload = 1;
+  bytes signature = 2;
+}
+
+// A safety-number comparison QR. Both phones show the same one for the same pair of keys.
+message SafetyNumberCode {
+  // 1 for this format.
+  uint32 version = 1;
+  // The 60-byte BLAKE2b hash the safety number's digits come from.
+  bytes digest = 2;
+}

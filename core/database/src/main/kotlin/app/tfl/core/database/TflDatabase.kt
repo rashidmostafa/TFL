@@ -1,5 +1,6 @@
 package app.tfl.core.database
 
+import androidx.room.AutoMigration
 import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Entity
@@ -60,8 +61,19 @@ interface SettingsDao {
     suspend fun putAll(settings: List<SettingEntity>)
 }
 
-@Database(entities = [IdentityEntity::class, SettingEntity::class], version = 1, exportSchema = true)
+/**
+ * Version history (schemas exported to core/database/schemas):
+ * 1. identity and settings (Phase 1)
+ * 2. contacts and their key history (Phase 2)
+ */
+@Database(
+    entities = [IdentityEntity::class, SettingEntity::class, ContactEntity::class, ContactKeyEntity::class],
+    version = 2,
+    exportSchema = true,
+    autoMigrations = [AutoMigration(from = 1, to = 2)],
+)
 abstract class TflDatabase : RoomDatabase() {
     abstract fun identityDao(): IdentityDao
     abstract fun settingsDao(): SettingsDao
+    abstract fun contactDao(): ContactDao
 }

@@ -36,6 +36,7 @@ import app.tfl.core.designsystem.component.ToggleRow
 import app.tfl.core.designsystem.icon.MaterialSymbols
 import app.tfl.core.designsystem.theme.TflTheme
 import app.tfl.core.session.AppSession
+import app.tfl.feature.contacts.debug.ContactsDebugTools
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
@@ -73,6 +74,7 @@ internal object DebugTools {
             onOpenCatalog = { navController.navigate(DesignCatalogRoute) },
             allowScreenshots = allowScreenshotsState.value,
             onAllowScreenshotsChange = { allowScreenshotsState.value = it },
+            contactsTools = { ContactsDebugTools.DeveloperRows(navController) },
         )
     }
 
@@ -86,6 +88,7 @@ private fun DeveloperSection(
     onOpenCatalog: () -> Unit,
     allowScreenshots: Boolean,
     onAllowScreenshotsChange: (Boolean) -> Unit,
+    contactsTools: @Composable () -> Unit,
 ) {
     Column(Modifier.padding(top = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         SectionHeader(
@@ -109,6 +112,8 @@ private fun DeveloperSection(
                 checked = allowScreenshots,
                 onCheckedChange = onAllowScreenshotsChange,
             )
+            TflDivider()
+            contactsTools()
             TflDivider()
             SecurityTools()
         }

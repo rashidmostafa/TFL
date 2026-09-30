@@ -41,9 +41,15 @@ import app.tfl.core.designsystem.theme.TflTheme
 import app.tfl.feature.chats.components.BroadcastCard
 import app.tfl.feature.chats.components.ConversationCard
 
+/**
+ * @param onScan the SCAN button: add a friend by scanning their code.
+ * @param onNewChat until chats arrive (Phase 3), opens the friends list.
+ */
 @Composable
 internal fun ChatsScreen(
     onOpenProfile: () -> Unit,
+    onScan: () -> Unit,
+    onNewChat: () -> Unit,
     onNotYetAvailable: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ChatsViewModel = hiltViewModel(),
@@ -54,6 +60,8 @@ internal fun ChatsScreen(
         searchQuery = viewModel.searchQuery,
         onFilterSelect = viewModel::onFilterSelect,
         onOpenProfile = onOpenProfile,
+        onScan = onScan,
+        onNewChat = onNewChat,
         onNotYetAvailable = onNotYetAvailable,
         modifier = modifier,
     )
@@ -65,6 +73,8 @@ internal fun ChatsContent(
     searchQuery: TextFieldState,
     onFilterSelect: (ChatFilter) -> Unit,
     onOpenProfile: () -> Unit,
+    onScan: () -> Unit,
+    onNewChat: () -> Unit,
     onNotYetAvailable: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -81,7 +91,7 @@ internal fun ChatsContent(
                 actions = {
                     PillButton(
                         text = stringResource(R.string.chats_scan),
-                        onClick = onNotYetAvailable,
+                        onClick = onScan,
                         icon = MaterialSymbols.QrCodeScanner,
                     )
                     ProfileButton(onClick = onOpenProfile)
@@ -138,7 +148,7 @@ internal fun ChatsContent(
             }
         }
         NewChatButton(
-            onClick = onNotYetAvailable,
+            onClick = onNewChat,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp),

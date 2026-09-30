@@ -52,10 +52,18 @@ class SqlCipherDatabaseTest {
     @Test
     fun memorySecurityIsOn() {
         holder.open(name, key)
-        val value = holder.require().openHelper.writableDatabase.query("PRAGMA cipher_memory_security").use { cursor ->
+        assertEquals("1", pragma("cipher_memory_security"))
+    }
+
+    @Test
+    fun deletedRowsAreOverwritten() {
+        holder.open(name, key)
+        assertEquals("1", pragma("secure_delete"))
+    }
+
+    private fun pragma(setting: String): String =
+        holder.require().openHelper.writableDatabase.query("PRAGMA $setting").use { cursor ->
             cursor.moveToFirst()
             cursor.getString(0)
         }
-        assertEquals("1", value)
-    }
 }

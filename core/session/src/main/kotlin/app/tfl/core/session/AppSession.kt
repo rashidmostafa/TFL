@@ -12,6 +12,7 @@ import app.tfl.core.crypto.lock.UnlockResult
 import app.tfl.core.crypto.lock.VaultSetup
 import app.tfl.core.crypto.sodium.SodiumApi
 import app.tfl.core.database.DatabaseHolder
+import app.tfl.core.database.DatabaseLockedException
 import app.tfl.core.database.repository.SettingKeys
 import app.tfl.core.database.repository.SettingValue
 import app.tfl.core.database.repository.SettingsRepository
@@ -262,8 +263,11 @@ class AppSession @Inject constructor(
         autoLock = timeout
     }
 
-    /** A copy of the unlock key for an operation that needs it (e.g. enabling biometrics). The caller wipes it. */
-    internal fun unlockKeyCopy(): ByteArray = checkNotNull(unlockKey) { "Locked" }.copyOf()
+    /**
+     * A copy of the unlock key for an operation that needs it (e.g. enabling biometrics). The caller wipes it.
+     * @throws DatabaseLockedException while locked.
+     */
+    internal fun unlockKeyCopy(): ByteArray = (unlockKey ?: throw DatabaseLockedException()).copyOf()
 
     /** Whether onboarding restored this identity from a phrase (it then has no phrase step). */
     suspend fun wasRestored(): Boolean = settings.get(SettingKeys.ONBOARDING_RESTORED)

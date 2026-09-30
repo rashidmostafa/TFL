@@ -1,6 +1,14 @@
 package app.tfl.core.designsystem.component
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.assertIsNotSelected
 import androidx.compose.ui.test.assertIsSelected
@@ -14,6 +22,7 @@ import app.tfl.core.designsystem.icon.TflIcon
 import app.tfl.core.model.Transport
 import app.tfl.core.testing.TflTestSurface
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThrows
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -146,5 +155,33 @@ class ComponentBehaviorTest {
     fun fingerprint_isSpelledOutForTalkBack() {
         composeRule.setContent { TflTestSurface { FingerprintBlock(listOf("7F4B", "889C")) } }
         composeRule.onNodeWithContentDescription("7 F 4 B, 8 8 9 C").assertExists()
+    }
+
+    @Test
+    fun segmentedTabs_areTabsAndSelectOnClick() {
+        composeRule.setContent {
+            TflTestSurface {
+                var selected by remember { mutableIntStateOf(0) }
+                SegmentedTabs(listOf(SegmentedTab("My QR"), SegmentedTab("Scan")), selected, onSelect = { selected = it })
+            }
+        }
+        composeRule.onNodeWithText("My QR").assertIsSelected()
+            .assert(SemanticsMatcher.expectValue(SemanticsProperties.Role, Role.Tab))
+        composeRule.onNodeWithText("Scan").assertIsNotSelected().performClick()
+        composeRule.onNodeWithText("Scan").assertIsSelected()
+        composeRule.onNodeWithText("My QR").assertIsNotSelected()
+    }
+
+    @Test
+    fun safetyNumber_isReadDigitByDigit() {
+        composeRule.setContent { TflTestSurface { SafetyNumberGrid(listOf("01953", "97817")) } }
+        composeRule.onNodeWithContentDescription("0 1 9 5 3, 9 7 8 1 7").assertExists()
+    }
+
+    @Test
+    fun qrMatrix_mustBeSquare() {
+        assertThrows(IllegalArgumentException::class.java) { QrMatrix(3, BooleanArray(8)) }
+        val matrix = QrMatrix(2, booleanArrayOf(true, false, false, true))
+        assertEquals(listOf(true, false, false, true), listOf(matrix.isDark(0, 0), matrix.isDark(1, 0), matrix.isDark(0, 1), matrix.isDark(1, 1)))
     }
 }

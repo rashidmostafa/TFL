@@ -2,6 +2,7 @@ package app.tfl.feature.chats
 
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.test.junit4.v2.createComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
@@ -28,6 +29,7 @@ class ChatsScreenTest {
 
     private val viewModel = ChatsViewModel()
     private var placeholderTaps = 0
+    private val opened = mutableListOf<String>()
 
     private fun setContent() {
         composeRule.setContent {
@@ -38,6 +40,8 @@ class ChatsScreenTest {
                     searchQuery = viewModel.searchQuery,
                     onFilterSelect = viewModel::onFilterSelect,
                     onOpenProfile = {},
+                    onScan = { opened += "scan" },
+                    onNewChat = { opened += "new chat" },
                     onNotYetAvailable = { placeholderTaps++ },
                 )
             }
@@ -67,10 +71,18 @@ class ChatsScreenTest {
     }
 
     @Test
-    fun unbuiltActions_reportPlaceholder() {
+    fun scanAndNewChat_openContacts() {
         setContent()
         composeRule.onNodeWithText("SCAN").performClick()
+        composeRule.onNodeWithContentDescription("New chat").performClick()
+        assertEquals(listOf("scan", "new chat"), opened)
+        assertEquals(0, placeholderTaps)
+    }
+
+    @Test
+    fun unbuiltActions_reportPlaceholder() {
+        setContent()
         composeRule.onNodeWithText("Resolve key").performScrollTo().performClick()
-        assertEquals(2, placeholderTaps)
+        assertEquals(1, placeholderTaps)
     }
 }

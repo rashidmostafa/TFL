@@ -4,9 +4,16 @@
 
     <!--
         No INTERNET, Bluetooth or location permission. The merged manifest holds only AndroidX's
-        app-private receiver permission and androidx.biometric's USE_BIOMETRIC / USE_FINGERPRINT (normal
-        permissions, granted at install). ManifestHardeningTest enforces this list.
+        app-private receiver permission, androidx.biometric's USE_BIOMETRIC / USE_FINGERPRINT (normal
+        permissions, granted at install) and CAMERA, asked for only when you open Scan, to read
+        friends' QR codes. ManifestHardeningTest enforces this list.
     -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Phones without a camera can still install TFL: friends scan their code instead. -->
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="false" />
 
     <application
         android:name=".TflApplication"

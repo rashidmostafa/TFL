@@ -50,6 +50,8 @@ internal fun SettingsScreen(
     appVersion: String,
     onOpenSecurity: () -> Unit,
     onOpenNetwork: () -> Unit,
+    onOpenFriends: () -> Unit,
+    onShowPairingCode: () -> Unit,
     onNotYetAvailable: () -> Unit,
     developerSection: (@Composable () -> Unit)?,
     modifier: Modifier = Modifier,
@@ -63,12 +65,20 @@ internal fun SettingsScreen(
         onShowIdentity = { showIdentity = true },
         onOpenSecurity = onOpenSecurity,
         onOpenNetwork = onOpenNetwork,
+        onOpenFriends = onOpenFriends,
         onNotYetAvailable = onNotYetAvailable,
         developerSection = developerSection,
         modifier = modifier,
     )
     if (showIdentity) {
-        IdentitySheet(fingerprint = uiState.fingerprint, onDismiss = { showIdentity = false })
+        IdentitySheet(
+            fingerprint = uiState.fingerprint,
+            onShowPairingCode = {
+                showIdentity = false
+                onShowPairingCode()
+            },
+            onDismiss = { showIdentity = false },
+        )
     }
 }
 
@@ -79,6 +89,7 @@ internal fun SettingsContent(
     onShowIdentity: () -> Unit,
     onOpenSecurity: () -> Unit,
     onOpenNetwork: () -> Unit,
+    onOpenFriends: () -> Unit,
     onNotYetAvailable: () -> Unit,
     developerSection: (@Composable () -> Unit)?,
     modifier: Modifier = Modifier,
@@ -132,7 +143,7 @@ internal fun SettingsContent(
                 title = stringResource(R.string.settings_account_title),
                 subtitle = stringResource(R.string.settings_account_subtitle),
                 icon = MaterialSymbols.ManageAccounts,
-                onClick = onNotYetAvailable,
+                onClick = onOpenFriends,
             )
             ListRow(
                 title = stringResource(R.string.settings_privacy_title),

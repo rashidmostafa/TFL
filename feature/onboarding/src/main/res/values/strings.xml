@@ -36,7 +36,7 @@
     <string name="identity_name_label">Display name</string>
     <string name="identity_name_placeholder">What friends will call you</string>
     <string name="identity_name_help">Stored on this phone only for now; shared when you add a friend in person.</string>
-    <string name="identity_name_error">Use 1 to 32 characters</string>
+    <string name="identity_name_error">Use 1 to 32 characters, without line breaks or invisible characters</string>
     <string name="identity_fingerprint">Public fingerprint</string>
     <string name="identity_generated">Made on this phone with libsodium · Ed25519 + X25519</string>
     <string name="identity_restored_note">Same phrase, same keys: this fingerprint matches the one you had before.</string>

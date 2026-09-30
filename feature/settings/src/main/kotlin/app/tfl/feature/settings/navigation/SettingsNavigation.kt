@@ -28,12 +28,16 @@ fun NavController.navigateToSecuritySettings() = navigate(SecuritySettingsRoute)
 fun NavController.navigateToNetworkSettings() = navigate(NetworkSettingsRoute)
 
 /**
+ * @param onOpenFriends "Account & identity": the friends list.
+ * @param onShowPairingCode the identity sheet's button: this phone's pairing code.
  * @param developerSection extra rows at the end of the list; supplied only by debug builds.
  */
 fun NavGraphBuilder.settingsGraph(
     appVersion: String,
     onOpenSecurity: () -> Unit,
     onOpenNetwork: () -> Unit,
+    onOpenFriends: () -> Unit,
+    onShowPairingCode: () -> Unit,
     onBack: () -> Unit,
     onNotYetAvailable: () -> Unit,
     developerSection: (@Composable () -> Unit)? = null,
@@ -44,6 +48,8 @@ fun NavGraphBuilder.settingsGraph(
                 appVersion = appVersion,
                 onOpenSecurity = onOpenSecurity,
                 onOpenNetwork = onOpenNetwork,
+                onOpenFriends = onOpenFriends,
+                onShowPairingCode = onShowPairingCode,
                 onNotYetAvailable = onNotYetAvailable,
                 developerSection = developerSection,
             )

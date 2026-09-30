@@ -8,8 +8,14 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.input.rememberTextFieldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,11 +41,16 @@ import app.tfl.core.designsystem.component.PinPad
 import app.tfl.core.designsystem.component.PinPadIconKey
 import app.tfl.core.designsystem.component.PrimaryButton
 import app.tfl.core.designsystem.component.ProfileButton
+import app.tfl.core.designsystem.component.QrCode
+import app.tfl.core.designsystem.component.QrMatrix
 import app.tfl.core.designsystem.component.RadioRow
+import app.tfl.core.designsystem.component.SafetyNumberGrid
 import app.tfl.core.designsystem.component.SecureBadge
 import app.tfl.core.designsystem.component.SecureBadgeState
 import app.tfl.core.designsystem.component.SectionHeader
 import app.tfl.core.designsystem.component.SegmentedBar
+import app.tfl.core.designsystem.component.SegmentedTab
+import app.tfl.core.designsystem.component.SegmentedTabs
 import app.tfl.core.designsystem.component.SheetHeader
 import app.tfl.core.designsystem.component.StatusLine
 import app.tfl.core.designsystem.component.StatusPill
@@ -63,10 +74,13 @@ import app.tfl.core.designsystem.component.TflSwitch
 import app.tfl.core.designsystem.component.TflTopBar
 import app.tfl.core.designsystem.component.ToggleRow
 import app.tfl.core.designsystem.component.TransportChip
+import app.tfl.core.designsystem.component.cornerMarks
 import app.tfl.core.designsystem.icon.MaterialSymbols
 import app.tfl.core.designsystem.theme.TflTheme
 import app.tfl.core.model.DeliveryStatus
 import app.tfl.core.model.Transport
+import kotlin.math.abs
+import kotlin.random.Random
 
 /*
  * Every shared component in representative states. Shown by the debug-only design catalog screen
@@ -84,6 +98,7 @@ val catalogSections: List<CatalogSection> = listOf(
     CatalogSection("Avatars") { CatalogAvatars() },
     CatalogSection("Bars & inputs") { CatalogBarsAndInputs() },
     CatalogSection("Callouts, keys & progress") { CatalogCalloutsAndKeys() },
+    CatalogSection("QR & safety numbers") { CatalogQrAndSafetyNumbers() },
     CatalogSection("Sheet header") { CatalogSheetHeader() },
     CatalogSection("Empty state") { CatalogEmptyState() },
     CatalogSection("PIN & identity") { CatalogPinAndIdentity() },
@@ -298,4 +313,42 @@ fun CatalogPinAndIdentity() = Samples {
     )
     PhraseWordGrid(listOf("velvet", "quantum", "orbit", "cipher", "timber", "galaxy", "mirror", "bunker"))
     PhraseWordGrid(listOf("velvet", "quantum", "orbit", "cipher"), hidden = true)
+}
+
+@Composable
+fun CatalogQrAndSafetyNumbers() = Samples {
+    var tab by remember { mutableIntStateOf(0) }
+    SegmentedTabs(
+        tabs = listOf(SegmentedTab("My QR", MaterialSymbols.QrCode2), SegmentedTab("Scan", MaterialSymbols.QrCodeScanner)),
+        selectedIndex = tab,
+        onSelect = { tab = it },
+    )
+    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        QrCode(
+            matrix = sampleQrMatrix,
+            contentDescription = "Sample pattern",
+            modifier = Modifier
+                .size(200.dp)
+                .cornerMarks(TflTheme.colors.primary)
+                .padding(10.dp),
+        )
+    }
+    SafetyNumberGrid(
+        listOf("01953", "97817", "65409", "49173", "11172", "35446", "44819", "72146", "06261", "49463", "63610", "08650"),
+    )
+}
+
+/** Looks like a QR code (finder squares, fixed noise) but encodes nothing. */
+private val sampleQrMatrix: QrMatrix = run {
+    val size = 25
+    val random = Random(7)
+    val dark = BooleanArray(size * size) { random.nextBoolean() }
+    for ((left, top) in listOf(0 to 0, size - 7 to 0, 0 to size - 7)) {
+        for (y in -1..7) for (x in -1..7) {
+            if (left + x !in 0 until size || top + y !in 0 until size) continue
+            val ring = maxOf(abs(x - 3), abs(y - 3))
+            dark[(top + y) * size + left + x] = ring <= 1 || ring == 3
+        }
+    }
+    QrMatrix(size, dark)
 }

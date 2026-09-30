@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Debug builds only: release builds have none of these strings. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="contacts_debug_section">Developer</string>
+    <string name="contacts_debug_fake_title">Add fake friends</string>
+    <string name="contacts_debug_fake_subtitle">Six friends with random keys, one in each state</string>
+    <string name="contacts_debug_fake_done">Added: see Friends</string>
+    <string name="contacts_debug_key_change_title">Simulate key change</string>
+    <string name="contacts_debug_key_change_subtitle">Replace their key with a random one, as if they reinstalled</string>
+    <string name="contacts_debug_test_qr_title">Test friend QR</string>
+    <string name="contacts_debug_test_qr_subtitle">A made-up friend\'s codes, to test with one phone</string>
+    <string name="contacts_debug_test_qr_body">Debug builds only. Turn on Allow screenshots, take a screenshot of this screen, show it on a laptop and scan it with this phone. Pairing codes expire after 5 minutes.</string>
+    <string name="contacts_debug_kind_pairing">Pairing code</string>
+    <string name="contacts_debug_kind_safety">Safety-number code</string>
+    <string name="contacts_debug_wrong_key_title">Wrong key</string>
+    <string name="contacts_debug_wrong_key_subtitle">As if their phone had a different key for you: a mismatch</string>
+    <string name="contacts_debug_safety_hint">Pair with Test friend first. Then on this phone open Test friend\'s profile, Compare safety numbers, Scan theirs, and scan this code on the laptop.</string>
+    <string name="contacts_debug_answer_title">Answer my latest code</string>
+    <string name="contacts_debug_answer_subtitle">As if the test friend had scanned your code</string>
+    <string name="contacts_debug_answer_none">No code of yours was shown in the last 5 minutes. Open Add friend, My QR first.</string>
+    <string name="contacts_debug_code_placeholder">A code\'s text, as if scanned</string>
+    <string name="contacts_debug_code_use">Use this code</string>
+    <string name="contacts_debug_new_code_in" tools:ignore="PluralsCandidate">New code in %1$d s</string>
+</resources>

@@ -62,11 +62,15 @@ class SqlCipherDatabaseFactory @Inject constructor(
         context.deleteDatabase(name)
     }
 
-    /** Asks SQLCipher to zero memory it frees, so decrypted pages don't linger. */
+    /**
+     * Asks SQLCipher to zero memory it frees, so decrypted pages don't linger, and to overwrite
+     * deleted rows inside the file, so a deleted friend's keys don't stay in free pages.
+     */
     private object MemorySecurityHook : SQLiteDatabaseHook {
         override fun preKey(connection: SQLiteConnection) = Unit
         override fun postKey(connection: SQLiteConnection) {
             connection.executeRaw("PRAGMA cipher_memory_security = ON", null, null)
+            connection.executeRaw("PRAGMA secure_delete = ON", null, null)
         }
     }
 

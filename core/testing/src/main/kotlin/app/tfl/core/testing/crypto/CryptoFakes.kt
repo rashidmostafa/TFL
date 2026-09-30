@@ -110,13 +110,16 @@ class FakeHardwareKeys(private val level: KeyStorageLevel = KeyStorageLevel.TEE)
     }
 }
 
-/** A boot clock the test controls. */
-class FakeDeviceClock(var elapsed: Long = 10_000_000, var boots: Int = 1) : DeviceClock {
+/** Clocks the test controls. [wall] starts on 21 September 2026. */
+class FakeDeviceClock(var elapsed: Long = 10_000_000, var boots: Int = 1, var wall: Long = 1_790_000_000_000) : DeviceClock {
     override fun elapsedRealtime(): Long = elapsed
     override fun bootCount(): Int = boots
+    override fun currentTimeMillis(): Long = wall
 
+    /** Time passes: both clocks move on. */
     fun advance(millis: Long) {
         elapsed += millis
+        wall += millis
     }
 
     /** A reboot: the boot count goes up and time since boot starts again. */

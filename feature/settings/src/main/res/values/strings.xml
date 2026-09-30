@@ -11,7 +11,7 @@
     <string name="settings_stat_autolock_label">Auto-lock</string>
     <string name="settings_section_configuration">Configuration</string>
     <string name="settings_account_title">Account &amp; identity</string>
-    <string name="settings_account_subtitle">Keypair, friends, recovery phrase</string>
+    <string name="settings_account_subtitle">Friends, pairing codes, safety numbers</string>
     <string name="settings_privacy_title">Privacy</string>
     <string name="settings_privacy_subtitle">Disappearing messages, read receipts, typing</string>
     <string name="settings_security_title">Security</string>
@@ -45,9 +45,9 @@
     <!-- Identity sheet -->
     <string name="settings_identity_title">Your identity</string>
     <string name="settings_identity_subtitle">Share in person only</string>
-    <string name="settings_identity_qr_placeholder">Your QR code arrives with contacts in a later update.</string>
+    <string name="settings_identity_show_code">Show my pairing code</string>
     <string name="settings_identity_fingerprint">Public key fingerprint</string>
-    <string name="settings_identity_note">Friends are only ever added in person: they scan this code and you both compare the fingerprint out loud.</string>
+    <string name="settings_identity_note">Friends are only ever added in person, by scanning each other\'s pairing codes. Your code holds only public keys and changes every minute.</string>
 
     <!-- Shared by the settings screens -->
     <string name="settings_preview_title">Preview</string>

@@ -10,9 +10,11 @@ data object ChatsRoute
 
 fun NavGraphBuilder.chatsScreen(
     onOpenProfile: () -> Unit,
+    onScan: () -> Unit,
+    onNewChat: () -> Unit,
     onNotYetAvailable: () -> Unit,
 ) {
     composable<ChatsRoute> {
-        ChatsScreen(onOpenProfile = onOpenProfile, onNotYetAvailable = onNotYetAvailable)
+        ChatsScreen(onOpenProfile = onOpenProfile, onScan = onScan, onNewChat = onNewChat, onNotYetAvailable = onNotYetAvailable)
     }
 }

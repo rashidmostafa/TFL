@@ -4,12 +4,13 @@ Invite-only, end-to-end encrypted, offline-first Android messenger for a small g
 See [CLAUDE.md](CLAUDE.md) for the architecture and security rules, and
 [design/SCREEN_INDEX.md](design/SCREEN_INDEX.md) for the design reference.
 
-**Status: Phase 1 (identity, storage, app lock).** Onboarding creates or restores a real identity
+**Status: Phase 2 (contacts and trust).** Onboarding creates or restores a real identity
 (Ed25519/X25519 keys from a 24-word recovery phrase), everything local is stored in an encrypted
 database, and the app is protected by a PIN lock with fingerprint unlock, a duress PIN, brute-force
-delays, an optional wipe after failed attempts, and a calculator disguise. There is still no
-networking: no INTERNET permission, no transport, and the chat, map, vault and tools tabs run on
-fake data.
+delays, an optional wipe after failed attempts, and a calculator disguise. Friends are added in
+person by scanning each other's QR codes, verified by three scans or by comparing safety numbers,
+and a changed key is flagged until it's verified again. There is still no networking: no INTERNET
+permission, no transport, and the chat, map, vault and tools tabs run on fake data.
 
 ## Setup
 
@@ -55,15 +56,16 @@ app afterwards, so do manual testing after it.
 ```
 :app ─┬─ :feature:chats ──────┐
       ├─ :feature:map ────────┤
-      ├─ :feature:vault ──────┼─ :core:designsystem ── :core:model
+      ├─ :feature:vault ──────┼─ :core:designsystem ── :core:model (models, protobuf wire formats)
       ├─ :feature:tools ──────┤   :core:common (logging)
       ├─ :feature:settings ───┤
+      ├─ :feature:contacts ───┤   (friends, pairing codes, safety numbers; CameraX + ZXing)
       └─ :feature:onboarding ─┘
             │
-            └─ :core:session ─┬─ :core:crypto    (libsodium, Keystore, PIN vault — all crypto lives here)
+            └─ :core:session ─┬─ :core:crypto    (libsodium, Keystore, PIN vault, pairing codes — all crypto lives here)
                (lock gate)    └─ :core:database  (Room + SQLCipher)
 
-Empty until their phase: :feature:contacts, :core:transport
+Empty until its phase:   :core:transport
 Tests only:              :core:testing (JVM libsodium, fake Keystore, plain Room files, SessionFixture)
 ```
 
@@ -79,7 +81,7 @@ in `build-logic/` as convention plugins (`tfl.android.feature`, `tfl.hilt`, …)
   `core/designsystem/material-symbols.txt` and run `python3 tools/fonts/build_fonts.py`, which
   regenerates the font files and `MaterialSymbols.kt`. The script pins every source file by commit and SHA-256.
 
-## Security model (Phase 1)
+## Security model (Phases 1–2)
 
 The full design, with what each key protects and the unlock and wipe steps, is in
 [docs/SECURITY_DESIGN.md](docs/SECURITY_DESIGN.md).
@@ -102,6 +104,39 @@ lockstate.bin (all of the wrapped keys above) ──► encrypted with a Keystor
   the real PIN. Fingerprint unlock is unavailable while a duress PIN is set.
 - **The recovery phrase uses the BIP39 English word list** but isn't a crypto-wallet phrase: the 24
   words encode the 32-byte seed directly.
+- **Pairing codes** carry your name and public keys, signed with your identity key, and expire after
+  5 minutes; your screen shows a new one every minute. A friend is "verified in person" when both
+  phones scanned each other within 5 minutes (three scans), or after comparing **safety numbers**
+  (60 digits from both identity keys, identical on both phones).
+- **A changed key** moves the old one to the friend's key history and marks them unverified: sending
+  to them stays paused (from Phase 3) until the new key is verified.
+
+## Testing pairing on phones
+
+One phone and a laptop cover every scanning path (debug builds); the laptop screen plays the
+friend's phone. Turn on **Settings → Developer → Allow screenshots**, open **Settings → Developer →
+Test friend QR**, copy the phone's screen to the laptop and open it there, then scan it with the
+phone:
+
+```bash
+adb exec-out screencap -p > friend.png
+```
+
+- **They scan you first:** open **Add friend → My QR**, then Test friend QR with "Answer my latest
+  code" on. Scanning it from **Add friend → Scan** verifies Test friend in person.
+- **You scan first:** with the switch off, scanning adds Test friend unverified and your answer
+  appears. Switch it on (it now answers your answer) and scan again: both are verified.
+- **Safety numbers:** Test friend QR → **Safety-number code**, scanned from Test friend's profile →
+  Compare safety numbers → Scan theirs. It matches; **Wrong key** shows the mismatch warning.
+- **Same person, new key:** the test friend gets a new key whenever TFL restarts, so pairing again
+  after a restart asks whether it's the same person.
+
+Without aiming the camera at all, each Scan tab in debug builds has a field that takes a code's text
+(`adb shell input text '…'`), so a code read from a screenshot can be fed in over adb.
+
+With two phones, each shows **My QR** and scans the other's, three scans in all, as the screens ask.
+**Settings → Developer → Add fake friends** fills the list with one friend in every state, and each
+friend's profile has **Simulate key change**.
 
 ## Dependencies
 

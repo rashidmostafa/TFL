@@ -23,6 +23,9 @@ dependencies {
     compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.roborazzi.gradlePlugin)
+    // Not compileOnly: the protobuf plugin's marker isn't on Maven Central, so it isn't applied
+    // through the root build like the others; it comes onto the classpath from here.
+    implementation(libs.protobuf.gradlePlugin)
 }
 
 tasks {
@@ -61,6 +64,10 @@ gradlePlugin {
         register("roborazzi") {
             id = "tfl.roborazzi"
             implementationClass = "RoborazziConventionPlugin"
+        }
+        register("protobuf") {
+            id = "tfl.protobuf"
+            implementationClass = "ProtobufConventionPlugin"
         }
     }
 }

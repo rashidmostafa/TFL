@@ -7,6 +7,9 @@ import androidx.navigation.compose.NavHost
 import app.tfl.debug.DebugTools
 import app.tfl.feature.chats.navigation.ChatsRoute
 import app.tfl.feature.chats.navigation.chatsScreen
+import app.tfl.feature.contacts.navigation.contactsGraph
+import app.tfl.feature.contacts.navigation.navigateToAddFriend
+import app.tfl.feature.contacts.navigation.navigateToFriends
 import app.tfl.feature.map.navigation.mapScreen
 import app.tfl.feature.settings.navigation.navigateToNetworkSettings
 import app.tfl.feature.settings.navigation.navigateToSecuritySettings
@@ -28,7 +31,12 @@ fun TflNavHost(
     val developerSection = remember(navController) { DebugTools.settingsSection(navController) }
 
     NavHost(navController = navController, startDestination = ChatsRoute, modifier = modifier) {
-        chatsScreen(onOpenProfile = openProfile, onNotYetAvailable = onNotYetAvailable)
+        chatsScreen(
+            onOpenProfile = openProfile,
+            onScan = { navController.navigateToAddFriend(scan = true) },
+            onNewChat = navController::navigateToFriends,
+            onNotYetAvailable = onNotYetAvailable,
+        )
         mapScreen(onOpenProfile = openProfile, onNotYetAvailable = onNotYetAvailable)
         vaultScreen(onOpenProfile = openProfile, onNotYetAvailable = onNotYetAvailable)
         toolsScreen(onOpenProfile = openProfile, onNotYetAvailable = onNotYetAvailable)
@@ -36,10 +44,13 @@ fun TflNavHost(
             appVersion = appVersion,
             onOpenSecurity = navController::navigateToSecuritySettings,
             onOpenNetwork = navController::navigateToNetworkSettings,
+            onOpenFriends = navController::navigateToFriends,
+            onShowPairingCode = { navController.navigateToAddFriend() },
             onBack = { navController.popBackStack() },
             onNotYetAvailable = onNotYetAvailable,
             developerSection = developerSection,
         )
+        contactsGraph(navController)
         with(DebugTools) { debugDestinations(onBack = { navController.popBackStack() }) }
     }
 }

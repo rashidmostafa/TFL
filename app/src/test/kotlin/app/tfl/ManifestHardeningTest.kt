@@ -3,6 +3,7 @@ package app.tfl
 import android.content.ComponentName
 import android.content.Context
 import android.content.pm.ApplicationInfo
+import android.content.pm.FeatureInfo
 import android.content.pm.PackageManager
 import android.view.WindowManager
 import androidx.test.core.app.ActivityScenario
@@ -53,10 +54,23 @@ class ManifestHardeningTest {
                 // From androidx.biometric: normal permissions, granted at install, no network access.
                 "android.permission.USE_BIOMETRIC",
                 "android.permission.USE_FINGERPRINT",
+                // Asked for only when Scan opens, to read friends' QR codes.
+                "android.permission.CAMERA",
             ),
             requested,
         )
         assertFalse("android.permission.INTERNET" in requested)
+    }
+
+    @Test
+    fun theCameraIsOptionalHardware() {
+        val features = packageManager
+            .getPackageInfo(context.packageName, PackageManager.GET_CONFIGURATIONS)
+            .reqFeatures
+            .orEmpty()
+            .filter { it.name?.startsWith("android.hardware.camera") == true }
+        assertTrue(features.isNotEmpty())
+        assertTrue(features.none { it.flags and FeatureInfo.FLAG_REQUIRED != 0 })
     }
 
     @Test

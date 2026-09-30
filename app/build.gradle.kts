@@ -69,6 +69,7 @@ dependencies {
     implementation(projects.feature.vault)
     implementation(projects.feature.tools)
     implementation(projects.feature.settings)
+    implementation(projects.feature.contacts)
     implementation(projects.feature.onboarding)
     implementation(projects.core.session)
 

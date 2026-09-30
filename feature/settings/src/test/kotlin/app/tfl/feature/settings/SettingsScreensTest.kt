@@ -52,6 +52,7 @@ class SettingsScreenTest {
                     onShowIdentity = { opened += "identity" },
                     onOpenSecurity = { opened += "security" },
                     onOpenNetwork = { opened += "network" },
+                    onOpenFriends = { opened += "friends" },
                     onNotYetAvailable = { opened += "placeholder" },
                     developerSection = null,
                 )
@@ -69,11 +70,12 @@ class SettingsScreenTest {
     fun rows_openTheirScreens() {
         setContent()
         composeRule.onNodeWithText("Public identity").performClick()
+        composeRule.onNodeWithText("Account & identity").performClick()
         composeRule.onNodeWithText("Security").performClick()
         composeRule.onNodeWithText("Network & transports").performClick()
         composeRule.onNodeWithText("Privacy").performClick()
         composeRule.onNodeWithText("Emergency duress / panic wipe").performClick()
-        assertEquals(listOf("identity", "security", "network", "placeholder", "security"), opened)
+        assertEquals(listOf("identity", "friends", "security", "network", "placeholder", "security"), opened)
     }
 
     @Test

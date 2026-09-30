@@ -6,15 +6,20 @@ import android.provider.Settings
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-/** Time since boot plus the boot count: neither can be changed by adjusting the phone's clock. */
+/**
+ * The phone's clocks. Time since boot and the boot count can't be changed by setting the clock, so
+ * the PIN throttle uses them. Wall time is only for times another phone must read (pairing codes).
+ */
 interface DeviceClock {
     fun elapsedRealtime(): Long
     fun bootCount(): Int
+    fun currentTimeMillis(): Long
 }
 
 class AndroidDeviceClock @Inject constructor(@ApplicationContext private val context: Context) : DeviceClock {
     override fun elapsedRealtime(): Long = SystemClock.elapsedRealtime()
     override fun bootCount(): Int = Settings.Global.getInt(context.contentResolver, Settings.Global.BOOT_COUNT, 0)
+    override fun currentTimeMillis(): Long = System.currentTimeMillis()
 }
 
 /** Escalating waits after consecutive wrong PINs. */

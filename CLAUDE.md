@@ -28,7 +28,7 @@ Invite-only, end-to-end encrypted Android app for a small friend group.
 - Protocol Buffers (protobuf-kotlin-lite) wire format
 - Google Nearby Connections (P2P_CLUSTER) offline transport
 - Guardian Project tor-android + jtorctl; embedded Ktor server behind the onion service; outbound via Tor SOCKS
-- Media3 ExoPlayer (custom DataSource for streaming decryption); CameraX + ML Kit barcode scanning for QR
+- Media3 ExoPlayer (custom DataSource for streaming decryption); CameraX + ZXing core for QR (not ML Kit: no model downloads)
 - osmdroid (offline tiles); Automerge (Java bindings) for CRDT notes/lists; ML Kit on-device translation
 - WorkManager + foreground service for background transport
 - minSdk 26, targetSdk latest stable. Android only.
@@ -46,11 +46,15 @@ Invite-only, end-to-end encrypted Android app for a small friend group.
 :feature:onboarding, :feature:chats, :feature:contacts, :feature:map,
 :feature:vault, :feature:tools, :feature:settings
 
-Testing notes (from Phase 1):
+Testing notes (from Phases 1–2):
 - JVM/Robolectric tests run the real crypto and session code: libsodium via lazysodium-java (JvmSodium),
   FakeHardwareKeys for the Keystore, PlainDatabaseFactory for Room (SQLCipher can't load on the JVM).
 - :app tests swap those in with @TestInstallIn (app/src/test/.../testing) and set the lock state with AppStateRule.
 - Keystore, SQLCipher and libsodium-on-Android are checked by connectedDebugAndroidTest on a real phone.
+- Several phones in one test: SessionFixture(context, phone = "alice", clock = sharedClock). Tests "scan" another
+  phone's QR through ZXing with QrMatrix.scan() (feature/contacts test sources).
+- runTest runs everything left on its virtual clock after the body; stop endless ViewModel loops (e.g. the
+  Add friend code ticker) before the body ends, or the test never finishes.
 
 ## Core design: the Envelope
 Every message, file chunk, sync op, and control command is an Envelope sealed on the sender's device:

@@ -6,6 +6,7 @@ import androidx.compose.foundation.text.input.clearText
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.tfl.core.crypto.phrase.PhraseResult
+import app.tfl.core.model.identity.DisplayNames
 import app.tfl.core.model.security.AutoLockTimeout
 import app.tfl.core.model.security.DuressMode
 import app.tfl.core.session.AppSession
@@ -107,8 +108,8 @@ class SetupViewModel @Inject constructor(
     }
 
     fun continueFromIdentity() {
-        val name = displayName.text.trim()
-        if (name.length !in 1..MAX_NAME) {
+        // The same rule friends' phones apply to the name in your pairing code.
+        if (!DisplayNames.isValid(displayName.text.trim().toString())) {
             state.update { it.copy(nameError = true) }
             return
         }
@@ -248,6 +249,5 @@ class SetupViewModel @Inject constructor(
 
     private companion object {
         const val WORDS = 24
-        const val MAX_NAME = 32
     }
 }

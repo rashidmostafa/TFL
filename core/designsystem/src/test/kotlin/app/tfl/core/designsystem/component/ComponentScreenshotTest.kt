@@ -18,6 +18,7 @@ import app.tfl.core.designsystem.catalog.CatalogChipsAndBadges
 import app.tfl.core.designsystem.catalog.CatalogEmptyState
 import app.tfl.core.designsystem.catalog.CatalogListRows
 import app.tfl.core.designsystem.catalog.CatalogPinAndIdentity
+import app.tfl.core.designsystem.catalog.CatalogQrAndSafetyNumbers
 import app.tfl.core.designsystem.catalog.CatalogSheetHeader
 import app.tfl.core.testing.SCREENSHOT_DEVICE
 import app.tfl.core.testing.TflTestSurface
@@ -72,6 +73,9 @@ class ComponentScreenshotTest {
 
     @Test
     fun calloutsAndKeys() = capture("callouts_keys") { CatalogCalloutsAndKeys() }
+
+    @Test
+    fun qrAndSafetyNumbers() = capture("qr_safety") { CatalogQrAndSafetyNumbers() }
 
     @Test
     fun sheetHeader() = capture("sheet") { CatalogSheetHeader() }

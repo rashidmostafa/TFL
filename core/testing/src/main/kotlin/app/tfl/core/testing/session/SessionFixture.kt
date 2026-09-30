@@ -6,10 +6,13 @@ import app.tfl.core.crypto.identity.IdentityKeyDerivation
 import app.tfl.core.crypto.lock.Argon2idHasher
 import app.tfl.core.crypto.lock.LockStateStore
 import app.tfl.core.crypto.lock.PinVault
+import app.tfl.core.crypto.pairing.PairingCodes
+import app.tfl.core.crypto.pairing.SafetyNumbers
 import app.tfl.core.crypto.phrase.Bip39Wordlist
 import app.tfl.core.crypto.phrase.RecoveryPhraseCodec
 import app.tfl.core.crypto.sodium.SealedBox
 import app.tfl.core.database.DatabaseHolder
+import app.tfl.core.database.repository.ContactRepository
 import app.tfl.core.database.repository.IdentityRepository
 import app.tfl.core.database.repository.SettingsRepository
 import app.tfl.core.model.security.AutoLockTimeout
@@ -19,6 +22,7 @@ import app.tfl.core.session.CalculatorDisguise
 import app.tfl.core.session.IdentityTools
 import app.tfl.core.session.LockSettings
 import app.tfl.core.session.OnboardingDraft
+import app.tfl.core.session.PairingIdentity
 import app.tfl.core.session.ProfileCreator
 import app.tfl.core.session.WipeController
 import app.tfl.core.testing.crypto.FAST_KDF
@@ -27,13 +31,18 @@ import app.tfl.core.testing.crypto.FakeHardwareKeys
 import app.tfl.core.testing.crypto.JvmSodium
 import app.tfl.core.testing.database.PlainDatabaseFactory
 import kotlinx.coroutines.Dispatchers
+import java.io.File
 
-/** The real session stack over JVM libsodium, a fake Keystore and plain (unencrypted) Room files. */
-class SessionFixture(val context: Context) {
+/**
+ * The real session stack over JVM libsodium, a fake Keystore and plain (unencrypted) Room files.
+ * Two simulated phones in one test each take a [phone] name, so their lock states are kept apart
+ * (database files already have random names), and can share one [clock].
+ */
+class SessionFixture(val context: Context, phone: String? = null, val clock: FakeDeviceClock = FakeDeviceClock()) {
     val sodium = JvmSodium.api
     val keys = FakeHardwareKeys()
-    val clock = FakeDeviceClock()
-    val vault = PinVault(sodium, SealedBox(sodium), Argon2idHasher(sodium), LockStateStore(context.noBackupFilesDir, keys), keys, clock)
+    private val lockStateDir = phone?.let { File(context.noBackupFilesDir, it).apply { mkdirs() } } ?: context.noBackupFilesDir
+    val vault = PinVault(sodium, SealedBox(sodium), Argon2idHasher(sodium), LockStateStore(lockStateDir, keys), keys, clock)
     val factory = PlainDatabaseFactory(context)
     val database = DatabaseHolder(factory)
     val settings = SettingsRepository(database)
@@ -49,16 +58,21 @@ class SessionFixture(val context: Context) {
     val wipe = WipeController(context, vault, database, disguise) { restarts++ }
     val session = AppSession(vault, database, settings, creator, { FAST_KDF }, sodium, wipe, tools, Dispatchers.Unconfined)
     val lockSettings = LockSettings(session, vault, settings, identities, creator, disguise, wipe, sodium, Dispatchers.Unconfined)
+    val contacts = ContactRepository(database)
+    val pairingCodes = PairingCodes(sodium, fingerprints)
+    val safetyNumbers = SafetyNumbers(sodium)
+    val pairing = PairingIdentity(session, vault, derivation, pairingCodes, identities, clock, sodium, Dispatchers.Unconfined)
 
     fun draft(
         seed: ByteArray,
         restored: Boolean = false,
         duressPin: String? = null,
         duressMode: DuressMode = DuressMode.NONE,
+        displayName: String = "Valkyrie-7",
     ) = OnboardingDraft(
         seed = seed,
         restored = restored,
-        displayName = "Valkyrie-7",
+        displayName = displayName,
         pin = PIN.encodeToByteArray(),
         duressPin = duressPin?.encodeToByteArray(),
         duressMode = duressMode,

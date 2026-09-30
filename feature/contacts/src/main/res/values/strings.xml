@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Camera -->
+    <string name="camera_rationale_title">Camera needed to scan</string>
+    <string name="camera_rationale_body">The camera is used only to read your friend\'s code. Frames stay in memory on this phone and are never saved or sent.</string>
+    <string name="camera_rationale_allow">Allow camera</string>
+    <string name="camera_blocked_title">Camera access is off</string>
+    <string name="camera_blocked_body">TFL can\'t scan codes without the camera. Turn on Camera for TFL in Settings. Your own code works either way.</string>
+    <string name="camera_blocked_settings">Open settings</string>
+    <string name="camera_unavailable">No camera is available on this phone. Your friend can still scan your code.</string>
+
+    <!-- Trust -->
+    <string name="trust_verified">Verified</string>
+    <string name="verified_by_pairing">in person</string>
+    <string name="verified_by_safety_code">by safety-number code</string>
+    <string name="verified_by_safety_manual">by reading safety numbers</string>
+    <string name="key_source_scan">scanned in person</string>
+    <string name="key_source_simulated">simulated (debug)</string>
+
+    <!-- Add friend -->
+    <string name="add_friend_title">Add friend</string>
+    <string name="add_friend_tab_my_code">My QR</string>
+    <string name="add_friend_tab_scan">Scan</string>
+    <string name="add_friend_intro">Add friends in person only. Each of you scans the other\'s code. It holds only public keys, nothing secret.</string>
+    <string name="add_friend_window_closed">More than 5 minutes passed, so that pairing expired. Start again: one of you shows a code, the other scans it.</string>
+    <string name="add_friend_scan_theirs_title">Ready to scan theirs?</string>
+    <string name="add_friend_scan_theirs_subtitle">Switch to the camera</string>
+    <string name="add_friend_code_footnote">Your code changes every minute and is accepted for 5 minutes, so a photo of it soon stops working.</string>
+    <string name="add_friend_answer_verified_title">%1$s is verified in person</string>
+    <string name="add_friend_answer_verified_body">One more: let %1$s scan your code, so their phone verifies you too.</string>
+    <string name="add_friend_answer_added_title">%1$s added, not verified yet</string>
+    <string name="add_friend_answer_added_body">Now let %1$s scan your code. Then scan the code their phone shows next, and you\'re both verified.</string>
+    <string name="add_friend_scan_their_answer">Scan their code</string>
+    <string name="add_friend_scan_their_answer_hint">Scan the code %1$s\'s phone shows now.</string>
+    <string name="add_friend_stop_here">Stop here (not verified)</string>
+    <string name="add_friend_done">Done</string>
+    <string name="add_friend_key_type">ED25519</string>
+    <string name="add_friend_code_description">Your pairing code. Let your friend scan it.</string>
+    <string name="add_friend_code_making">Making your code…</string>
+    <plurals name="add_friend_new_code_in">
+        <item quantity="one">New code in %d second</item>
+        <item quantity="other">New code in %d seconds</item>
+    </plurals>
+    <string name="add_friend_my_fingerprint">Your key fingerprint</string>
+    <string name="add_friend_refused_title">Code not added</string>
+    <string name="add_friend_scan_hint">Point the camera at your friend\'s code. It\'s read on this phone; nothing is saved or sent.</string>
+    <string name="add_friend_namesake_title">Same person as %1$s?</string>
+    <string name="add_friend_namesake_body">You already have %1$s, with a different key. Their key changes if they reinstalled TFL or switched phones, but this could also be someone else using the same name. Choose \"Same person\" only if it\'s really them, in front of you.</string>
+    <string name="add_friend_namesake_same">Same person, new key</string>
+    <string name="add_friend_namesake_other">Someone else</string>
+    <string name="add_friend_namesake_cancel">Cancel</string>
+
+    <!-- Why a scanned code was refused -->
+    <string name="pairing_problem_not_tfl">That isn\'t a TFL pairing code.</string>
+    <string name="pairing_problem_unreadable">That code is damaged or incomplete. Try again, a little closer.</string>
+    <string name="pairing_problem_version">That code was made by a different version of TFL. Update both phones to the same version.</string>
+    <string name="pairing_problem_signature">That code\'s signature doesn\'t match its contents: it was changed after it was made. Don\'t add this person.</string>
+    <plurals name="pairing_problem_expired">
+        <item quantity="one">This code was made %d minute ago and has expired (codes last 5 minutes). Ask your friend for their current code.</item>
+        <item quantity="other">This code was made %d minutes ago and has expired (codes last 5 minutes). Ask your friend for their current code.</item>
+    </plurals>
+    <plurals name="pairing_problem_future">
+        <item quantity="one">Your friend\'s clock is %d minute ahead of yours. Set both phones to automatic time, then try again.</item>
+        <item quantity="other">Your friend\'s clock is %d minutes ahead of yours. Set both phones to automatic time, then try again.</item>
+    </plurals>
+    <string name="pairing_problem_name">That code\'s name contains invisible or control characters, which can disguise a name. TFL won\'t add it.</string>
+    <string name="pairing_problem_own_code">That\'s your own code. Scan your friend\'s.</string>
+
+    <!-- Friend added -->
+    <string name="friend_added_close">Close</string>
+    <string name="friend_added_verified_title">Verified in person</string>
+    <string name="friend_added_unverified_title">Friend added</string>
+    <string name="friend_added_verified_body">You scanned each other\'s codes, so this phone holds %1$s\'s real keys.</string>
+    <string name="friend_added_unverified_body">Not verified yet: only one of you has scanned. Let %1$s scan your code too, or compare safety numbers from their profile.</string>
+    <string name="friend_added_fingerprint">Their key fingerprint</string>
+    <string name="friend_added_method">Pairing</string>
+    <string name="friend_added_method_both">QR codes, both ways</string>
+    <string name="friend_added_method_one">QR code, one way</string>
+    <string name="friend_added_stored">Their public keys are kept only on this phone, in its encrypted database.</string>
+    <string name="friend_added_view_profile">View profile</string>
+    <string name="friend_added_done">Done</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Friend</string>
+    <string name="profile_their_name">Their name: %1$s</string>
+    <string name="profile_key_changed_title">Key changed</string>
+    <string name="profile_key_changed_body">%1$s\'s key changed on %2$s. Sending to them is paused until you verify the new key.</string>
+    <string name="profile_review_key_change">Review key change</string>
+    <string name="profile_blocked_body">You blocked %1$s.</string>
+    <string name="profile_safety_number">Safety number</string>
+    <string name="profile_verified_line">Verified %1$s on %2$s</string>
+    <string name="profile_unverified_line">Not verified yet. Compare safety numbers, or pair again in person.</string>
+    <string name="profile_compare">Compare safety numbers</string>
+    <string name="profile_keys">Keys</string>
+    <string name="profile_identity_key">Identity key</string>
+    <string name="profile_identity_key_value">Ed25519</string>
+    <string name="profile_kex_key">Key agreement</string>
+    <string name="profile_kex_key_value">X25519</string>
+    <string name="profile_first_seen">First added</string>
+    <string name="profile_key_since">Current key since</string>
+    <string name="profile_key_since_value">%1$s, %2$s</string>
+    <string name="profile_fingerprint">Identity key fingerprint</string>
+    <string name="profile_previous_keys">Previous keys</string>
+    <string name="profile_previous_key_used">Used %1$s to %2$s</string>
+    <string name="profile_nickname">Nickname</string>
+    <string name="profile_nickname_none">None: shown by their own name</string>
+    <string name="profile_nickname_title">Nickname</string>
+    <string name="profile_nickname_body">Your own name for them, shown only on this phone. Leave it empty to show their name, %1$s.</string>
+    <string name="profile_nickname_error">Use 1 to 32 characters, without line breaks or invisible characters</string>
+    <string name="profile_nickname_save">Save</string>
+    <string name="profile_cancel">Cancel</string>
+    <string name="profile_block">Block %1$s</string>
+    <string name="profile_block_subtitle">Nothing is sent to a blocked friend</string>
+    <string name="profile_unblock">Unblock %1$s</string>
+    <string name="profile_unblock_subtitle">Allow messages again</string>
+    <string name="profile_delete">Delete friend</string>
+    <string name="profile_delete_subtitle">Wipes their keys and key history from this phone</string>
+    <string name="profile_delete_title">Delete %1$s?</string>
+    <string name="profile_delete_body">Their keys and key history are wiped from this phone. To talk again, you\'d pair in person.</string>
+    <string name="profile_delete_confirm">Delete</string>
+
+    <!-- Key change warning -->
+    <string name="key_change_title">Key changed</string>
+    <string name="key_change_tag">KEY CHANGED</string>
+    <string name="key_change_heading">%1$s\'s key has changed</string>
+    <string name="key_change_body">The identity key TFL has for %1$s is different from the one it had before. They may have reinstalled TFL or switched phones, or someone may be pretending to be them.</string>
+    <string name="key_change_paused">Sending to %1$s is paused until you verify the new key.</string>
+    <string name="key_change_resolved">You verified %1$s\'s new key.</string>
+    <string name="key_change_keys">Keys</string>
+    <string name="key_change_previous">Previous key</string>
+    <string name="key_change_previous_detail">Used %1$s to %2$s</string>
+    <string name="key_change_new">New key, not verified</string>
+    <string name="key_change_current">Current key</string>
+    <string name="key_change_new_detail">Since %1$s, %2$s</string>
+    <string name="key_change_steps_title">What to do</string>
+    <string name="key_change_step_1">Ask %1$s, in person or on a channel you trust, whether they reinstalled TFL or changed phones.</string>
+    <string name="key_change_step_2">Compare safety numbers with them, or pair again in person.</string>
+    <string name="key_change_step_3">Don\'t share anything sensitive until the new key is verified.</string>
+    <string name="key_change_verify_again">Verify again</string>
+    <string name="key_change_block">Block %1$s</string>
+    <string name="key_change_not_now">Not now</string>
+    <string name="key_change_done">Done</string>
+
+    <!-- Safety numbers -->
+    <string name="safety_title">Safety number</string>
+    <string name="safety_intro">Compare this with the safety number on %1$s\'s phone. They\'re the same only if each phone has the other\'s real key.</string>
+    <string name="safety_tab_show">Show code</string>
+    <string name="safety_tab_scan">Scan theirs</string>
+    <string name="safety_code_description">Your safety-number code with this friend</string>
+    <string name="safety_show_hint">On %1$s\'s phone: open your profile, tap Compare safety numbers, then Scan theirs.</string>
+    <string name="safety_scan_hint">Scan the code on %1$s\'s phone, shown from their profile of you.</string>
+    <string name="safety_match_title">Safety numbers match</string>
+    <string name="safety_match_body">%1$s is verified. Let their phone scan your code too.</string>
+    <string name="safety_mismatch_title">These numbers don\'t match</string>
+    <string name="safety_mismatch_body">One of you has a different key for the other. Don\'t trust this contact until you\'ve paired again in person.</string>
+    <string name="safety_not_a_code">That isn\'t a safety-number code. On %1$s\'s phone, open your profile and tap Compare safety numbers.</string>
+    <string name="safety_mark_verified">Mark as verified</string>
+    <string name="safety_confirm_title">Mark as verified?</string>
+    <string name="safety_confirm_body">Only if every group matches. Read the 12 groups aloud with %1$s, in person or on a call you trust, and mark as verified only if all of them are the same on both phones.</string>
+    <string name="safety_confirm">All 12 groups match</string>
+    <string name="safety_confirm_cancel">Cancel</string>
+    <string name="safety_pair_again">Pair again in person instead</string>
+    <string name="safety_pair_again_subtitle">Scan each other\'s codes, as when you first added them</string>
+
+    <!-- Friends -->
+    <string name="friends_title">Friends</string>
+    <plurals name="friends_count">
+        <item quantity="one">%d friend</item>
+        <item quantity="other">%d friends</item>
+    </plurals>
+    <string name="friends_add">Add friend</string>
+    <string name="friends_empty_title">No friends yet</string>
+    <string name="friends_empty_body">Friends are added in person: you scan each other\'s QR codes.</string>
+    <string name="friends_blocked">BLOCKED</string>
+    <string name="friends_previews">Previews</string>
+    <string name="friends_preview_subtitle">Sample data, not available yet</string>
+
+    <!-- Previews (sample data only) -->
+    <string name="preview_tag">PREVIEW</string>
+    <string name="preview_banner_title">Preview</string>
+    <string name="preview_banner_body">This screen shows sample data so you can see what\'s coming. Nothing here works yet, and nothing is sent.</string>
+    <string name="preview_approvals">Approvals</string>
+    <string name="preview_approvals_count" tools:ignore="PluralsCandidate">%1$d of %2$d</string>
+    <string name="preview_you">You</string>
+    <string name="preview_approved">Approved</string>
+    <string name="preview_waiting">Waiting</string>
+    <plurals name="preview_minutes_ago">
+        <item quantity="one">%d minute ago</item>
+        <item quantity="other">%d minutes ago</item>
+    </plurals>
+    <string name="group_join_title">Group join approval</string>
+    <string name="group_join_explainer_title">Everyone approves new members</string>
+    <string name="group_join_explainer">When someone is invited to a group, every member\'s phone must approve before they\'re let in.</string>
+    <string name="group_join_wants_to_join">Wants to join %1$s</string>
+    <string name="group_join_new_tag">NEW</string>
+    <string name="group_join_fingerprint">Their key fingerprint</string>
+    <string name="group_join_invited_by">Invited by</string>
+    <string name="group_join_received">Received</string>
+    <string name="group_join_approve">Approve</string>
+    <string name="group_join_reject">Reject</string>
+    <string name="remote_wipe_title">Remote wipe request</string>
+    <string name="remote_wipe_explainer_title">For a lost or stolen phone</string>
+    <string name="remote_wipe_explainer">Asks a friend\'s lost phone to erase TFL\'s keys and data the next time it connects. It needs approval from several of their trusted friends.</string>
+    <string name="remote_wipe_device">%1$s\'s phone</string>
+    <plurals name="remote_wipe_last_seen">
+        <item quantity="one">Last seen %d hour ago</item>
+        <item quantity="other">Last seen %d hours ago</item>
+    </plurals>
+    <string name="remote_wipe_lost_tag">REPORTED LOST</string>
+    <string name="remote_wipe_fingerprint">Their key fingerprint</string>
+    <string name="remote_wipe_send">Send wipe request</string>
+    <string name="remote_wipe_cancel">Cancel request</string>
+</resources>

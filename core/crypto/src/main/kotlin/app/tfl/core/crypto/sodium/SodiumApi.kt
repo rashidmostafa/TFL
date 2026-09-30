@@ -64,6 +64,23 @@ class SodiumApi(private val native: Sodium) {
         return publicKey to secretKey
     }
 
+    /** Ed25519 detached signature (64 bytes) over [message] with a 64-byte secret key. */
+    fun signDetached(message: ByteArray, secretKey: ByteArray): ByteArray {
+        require(secretKey.size == ED25519_SECRET_BYTES) { "Ed25519 secret key must be 64 bytes" }
+        val signature = ByteArray(ED25519_SIGNATURE_BYTES)
+        check(native.crypto_sign_detached(signature, null, message, message.size.toLong(), secretKey) == 0) { "Ed25519 signing failed" }
+        return signature
+    }
+
+    /**
+     * Whether [signature] is a valid Ed25519 signature of [message] by [publicKey]. Wrong sizes and
+     * keys libsodium rejects (such as small-order points) simply fail.
+     */
+    fun verifyDetached(signature: ByteArray, message: ByteArray, publicKey: ByteArray): Boolean {
+        if (signature.size != ED25519_SIGNATURE_BYTES || publicKey.size != ED25519_PUBLIC_BYTES) return false
+        return native.crypto_sign_verify_detached(signature, message, message.size.toLong(), publicKey) == 0
+    }
+
     /** X25519 public key for a 32-byte secret scalar (libsodium clamps it). */
     fun x25519PublicKey(secretKey: ByteArray): ByteArray {
         require(secretKey.size == KEY_BYTES) { "X25519 secret key must be 32 bytes" }
@@ -119,6 +136,7 @@ class SodiumApi(private val native: Sodium) {
         const val SHA256_BYTES = 32
         const val ED25519_PUBLIC_BYTES = 32
         const val ED25519_SECRET_BYTES = 64
+        const val ED25519_SIGNATURE_BYTES = 64
         const val AEAD_NONCE_BYTES = 24
         const val AEAD_TAG_BYTES = 16
         const val ARGON2_SALT_BYTES = 16

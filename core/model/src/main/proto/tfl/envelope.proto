@@ -1,0 +1,76 @@
+// What every message, receipt, reaction, edit and delete travels in (see docs/SECURITY_DESIGN.md).
+// Field numbers are permanent: add fields, never renumber or reuse them.
+syntax = "proto3";
+
+package tfl.envelope.v1;
+
+option java_package = "app.tfl.core.model.proto";
+option java_multiple_files = true;
+
+// What transports carry. Everything except `payload` is readable by any phone that carries it, so
+// it holds nothing about the sender or the message: the kind, text and sender are all sealed.
+message Envelope {
+  uint32 version = 1;             // 1
+  bytes msg_id = 2;               // 16 random bytes, for duplicate checks on every transport
+  int64 created_at_millis = 3;    // the sender's clock
+  uint32 ttl_seconds = 4;         // relays drop it after this (Phase 6)
+  uint32 hop_count = 5;           // 0 until the mesh relays (Phase 6)
+  EnvelopeType type = 6;
+  bytes recipient_hint = 7;       // 2 bytes, so a phone can skip what isn't for it
+  bytes payload = 8;              // crypto_box_seal(padded SignedInner) to the recipient's X25519 key
+}
+
+enum EnvelopeType {
+  ENVELOPE_TYPE_UNSPECIFIED = 0;
+  ENVELOPE_TYPE_SEALED = 1;
+}
+
+message SignedInner {
+  bytes inner = 1;                // a serialized Inner, signed exactly as sent (never re-encoded)
+  bytes signature = 2;            // Ed25519 over "TFL-envelope-v1" ‖ 0x00 ‖ inner
+}
+
+message Inner {
+  uint32 version = 1;
+  bytes sender_key_id = 2;        // BLAKE2b-128 of the sender's Ed25519 key
+  bytes recipient_key_id = 3;     // …and of the recipient's: re-sealing it to someone else shows
+  bytes msg_id = 4;               // must equal the envelope's
+  int64 created_at_millis = 5;    // must equal the envelope's
+  oneof body {
+    TextBody text = 10;
+    ReceiptBody receipt = 11;
+    ReactionBody reaction = 12;
+    EditBody edit = 13;
+    DeleteBody delete = 14;
+    TimerBody timer = 15;
+  }
+}
+
+message TextBody {
+  string text = 1;
+  bytes reply_to = 2;             // msg_id of the message it answers, or empty
+  uint32 expires_after_seconds = 3; // disappearing timer, 0 = keep
+}
+
+message ReceiptBody {
+  repeated bytes msg_ids = 1;     // messages that reached the recipient's phone
+}
+
+message ReactionBody {
+  bytes target = 1;
+  string emoji = 2;               // empty removes the sender's reaction
+}
+
+message EditBody {
+  bytes target = 1;               // only the author's own text, within 15 minutes
+  string text = 2;
+  uint32 edit_number = 3;         // later edits win
+}
+
+message DeleteBody {
+  bytes target = 1;               // only the author's own message
+}
+
+message TimerBody {
+  uint32 expires_after_seconds = 1; // the conversation's disappearing timer, 0 = off
+}

@@ -5,6 +5,9 @@ import android.content.Context
 import android.content.pm.PackageManager
 import app.tfl.core.crypto.lock.PinVault
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,6 +27,11 @@ class CalculatorDisguise @Inject constructor(
 
     fun isEnabled(): Boolean =
         packageManager.getComponentEnabledSetting(calculatorEntry) == PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+
+    private val switched = MutableStateFlow(isEnabled())
+
+    /** Whether the disguise is on, as it's switched: what's already showing (notifications) follows it. */
+    val enabled: StateFlow<Boolean> = switched.asStateFlow()
 
     fun enable(code: ByteArray) {
         vault.setDisguiseCode(code)
@@ -51,6 +59,7 @@ class CalculatorDisguise @Inject constructor(
     private fun setLauncherEntries(calculator: Int, default: Int) {
         packageManager.setComponentEnabledSetting(calculatorEntry, calculator, PackageManager.DONT_KILL_APP)
         packageManager.setComponentEnabledSetting(defaultEntry, default, PackageManager.DONT_KILL_APP)
+        switched.value = isEnabled()
     }
 
     companion object {

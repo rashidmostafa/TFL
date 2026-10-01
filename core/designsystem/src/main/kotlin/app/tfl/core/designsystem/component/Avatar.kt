@@ -93,3 +93,11 @@ fun TflAvatar(
         }
     }
 }
+
+/** Up to two letters or digits for an avatar: the first of each of the first two words ("Kaelen (Valkyrie)" → "KV"). */
+fun initialsOf(name: String): String = name
+    .split(Regex("[^\\p{L}\\p{N}]+"))
+    .filter { it.isNotEmpty() }
+    .take(2)
+    .joinToString("") { word -> String(Character.toChars(word.codePointAt(0))).uppercase() }
+    .ifEmpty { "?" }

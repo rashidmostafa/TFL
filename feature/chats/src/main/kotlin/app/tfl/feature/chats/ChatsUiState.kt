@@ -2,63 +2,72 @@ package app.tfl.feature.chats
 
 import androidx.compose.runtime.Immutable
 import app.tfl.core.model.DeliveryStatus
-import app.tfl.core.model.Transport
+import app.tfl.core.model.contact.Contact
 
-enum class ConversationKind { DIRECT, GROUP, BROADCAST }
-
-/** How far you can trust a conversation's keys. */
+/** How far you can trust a friend's keys. */
 enum class ContactTrust { VERIFIED, UNVERIFIED, KEY_CHANGED }
 
-enum class ChatFilter { ALL, DIRECT, GROUPS, BROADCASTS }
+val Contact.trust: ContactTrust
+    get() = when {
+        keyChanged -> ContactTrust.KEY_CHANGED
+        isVerified -> ContactTrust.VERIFIED
+        else -> ContactTrust.UNVERIFIED
+    }
 
-/** One row of the chats list. */
+/** Nearby as the chats list shows it. */
+sealed interface NearbyState {
+    data object Off : NearbyState
+
+    /** Switched on, but a permission ([permitted] false) or a switch (Bluetooth, Location) is missing. */
+    data class NeedsSetup(val permitted: Boolean) : NearbyState
+
+    data class On(val friendsNearby: Int) : NearbyState
+}
+
+/** The last line of a conversation, as its row shows it. */
+sealed interface ThreadPreview {
+    data class Text(val text: String, val mine: Boolean) : ThreadPreview
+    data class Deleted(val mine: Boolean) : ThreadPreview
+    data class Timer(val seconds: Int, val mine: Boolean) : ThreadPreview
+    data object Empty : ThreadPreview
+}
+
+/** One conversation in the chats list. */
 @Immutable
-data class ConversationItem(
-    val id: String,
-    val kind: ConversationKind,
-    val title: String,
-    val initials: String,
-    val preview: String,
-    val time: String,
-    val transport: Transport,
-    val transportDetail: String? = null,
-    /** Group member who wrote [preview], shown before it. */
-    val previewAuthor: String? = null,
-    /** Initials of two group members, drawn as a stacked avatar. */
-    val memberInitials: List<String> = emptyList(),
-    /** Shown under a broadcast channel's name. */
-    val subtitle: String? = null,
-    val unreadCount: Int = 0,
-    val trust: ContactTrust = ContactTrust.VERIFIED,
-    /** Delivery state of your last message, when it was yours. */
-    val lastStatus: DeliveryStatus? = null,
-    /** Short routing note on the right of the footer, e.g. "Via 1 relay". */
-    val routeNote: String? = null,
+data class ThreadItem(
+    val contactId: Long,
+    val name: String,
+    val trust: ContactTrust,
+    val blocked: Boolean,
+    val preview: ThreadPreview,
+    val atMillis: Long?,
+    val unread: Int,
+    /** Delivery of your last message, when the last message is yours. */
+    val lastStatus: DeliveryStatus?,
+    val nearbyNow: Boolean,
 )
+
+/** A friend to start a chat with. */
+@Immutable
+data class FriendItem(val contactId: Long, val name: String, val trust: ContactTrust, val blocked: Boolean)
 
 @Immutable
 data class ChatsUiState(
-    val peerCount: Int,
-    val torConnected: Boolean,
-    val filter: ChatFilter,
-    val counts: Map<ChatFilter, Int>,
-    val broadcasts: List<ConversationItem>,
-    val threads: List<ConversationItem>,
+    val nearby: NearbyState,
+    val threads: List<ThreadItem>,
+    val friends: List<FriendItem>,
     val hasQuery: Boolean,
+    val time: TimeContext,
 ) {
-    val isEmpty: Boolean get() = broadcasts.isEmpty() && threads.isEmpty()
+    val hasFriends: Boolean get() = friends.isNotEmpty()
 }
 
-internal fun ChatFilter.matches(kind: ConversationKind): Boolean = when (this) {
-    ChatFilter.ALL -> true
-    ChatFilter.DIRECT -> kind == ConversationKind.DIRECT
-    ChatFilter.GROUPS -> kind == ConversationKind.GROUP
-    ChatFilter.BROADCASTS -> kind == ConversationKind.BROADCAST
-}
-
-/** Conversations matching [filter] whose title or preview contains [query] (case-insensitive). */
-internal fun List<ConversationItem>.filterBy(filter: ChatFilter, query: String): List<ConversationItem> {
+/** Conversations whose friend's name or last message contains [query], ignoring case. */
+internal fun List<ThreadItem>.matching(query: String): List<ThreadItem> {
     val needle = query.trim()
-    return filter { filter.matches(it.kind) }
-        .filter { needle.isEmpty() || it.title.contains(needle, ignoreCase = true) || it.preview.contains(needle, ignoreCase = true) }
+    if (needle.isEmpty()) return this
+    return filter { thread ->
+        thread.name.contains(needle, ignoreCase = true) ||
+            (thread.preview as? ThreadPreview.Text)?.text?.contains(needle, ignoreCase = true) == true
+    }
 }

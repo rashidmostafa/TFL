@@ -3,12 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!--
-        No INTERNET, Bluetooth or location permission. The merged manifest holds only AndroidX's
-        app-private receiver permission, androidx.biometric's USE_BIOMETRIC / USE_FINGERPRINT (normal
-        permissions, granted at install) and CAMERA, asked for only when you open Scan, to read
-        friends' QR codes. ManifestHardeningTest enforces this list.
+        No INTERNET, ever. ManifestHardeningTest pins the exact merged list:
+        - AndroidX's app-private receiver permission; androidx.biometric's USE_BIOMETRIC /
+          USE_FINGERPRINT; WorkManager's WAKE_LOCK, RECEIVE_BOOT_COMPLETED (to reschedule its jobs)
+          and ACCESS_NETWORK_STATE (reads connectivity, no network access): normal, granted at install.
+        - CAMERA, asked for only when you open Scan, to read friends' QR codes.
+        - Nearby Connections (below), asked for only when you turn Nearby on.
     -->
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--
+        Nearby Connections: Bluetooth and Wi-Fi to reach friends' phones. The version ranges follow
+        Google's Nearby requirements (it refuses to start without all of them). Location is needed
+        only up to Android 12, and approximate must be asked for together with precise.
+    -->
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" android:maxSdkVersion="31" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" android:maxSdkVersion="31" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:maxSdkVersion="31" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:maxSdkVersion="31" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:minSdkVersion="31"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" android:minSdkVersion="31" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" android:minSdkVersion="31" />
+    <uses-permission
+        android:name="android.permission.NEARBY_WIFI_DEVICES"
+        android:minSdkVersion="32"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+    <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" android:minSdkVersion="37" />
+
+    <!-- The service that keeps TFL reachable in the background, and message notifications. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <!-- Phones without a camera can still install TFL: friends scan their code instead. -->
     <uses-feature
@@ -64,6 +96,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
+
+        <!-- Exposure Notifications, merged in by play-services-nearby: TFL doesn't use them. -->
+        <service
+            android:name="com.google.android.gms.nearby.exposurenotification.WakeUpService"
+            tools:ignore="MissingClass"
+            tools:node="remove" />
+
+        <!-- WorkManager's diagnostics dump: not needed. -->
+        <receiver android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" tools:node="remove" />
+
+        <!-- WorkManager starts with TflApplication's configuration (its workers use Hilt), not by itself. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data android:name="androidx.work.WorkManagerInitializer" tools:node="remove" />
+        </provider>
     </application>
 
 </manifest>

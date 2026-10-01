@@ -4,13 +4,15 @@ Invite-only, end-to-end encrypted, offline-first Android messenger for a small g
 See [CLAUDE.md](CLAUDE.md) for the architecture and security rules, and
 [design/SCREEN_INDEX.md](design/SCREEN_INDEX.md) for the design reference.
 
-**Status: Phase 2 (contacts and trust).** Onboarding creates or restores a real identity
+**Status: Phase 3 (offline messaging over Nearby).** Onboarding creates or restores a real identity
 (Ed25519/X25519 keys from a 24-word recovery phrase), everything local is stored in an encrypted
 database, and the app is protected by a PIN lock with fingerprint unlock, a duress PIN, brute-force
 delays, an optional wipe after failed attempts, and a calculator disguise. Friends are added in
 person by scanning each other's QR codes, verified by three scans or by comparing safety numbers,
-and a changed key is flagged until it's verified again. There is still no networking: no INTERNET
-permission, no transport, and the chat, map, vault and tools tabs run on fake data.
+and a changed key is flagged until it's verified again. Friends in range chat 1:1 over Google's
+Nearby Connections (Bluetooth and Wi-Fi, no internet): sealed and signed envelopes, delivery
+receipts, replies, reactions, edits, deletes, disappearing and scheduled messages, and delivery while
+TFL is locked. There is still no INTERNET permission; the map, vault and tools tabs run on fake data.
 
 ## Setup
 
@@ -62,10 +64,10 @@ app afterwards, so do manual testing after it.
       ├─ :feature:contacts ───┤   (friends, pairing codes, safety numbers; CameraX + ZXing)
       └─ :feature:onboarding ─┘
             │
-            └─ :core:session ─┬─ :core:crypto    (libsodium, Keystore, PIN vault, pairing codes — all crypto lives here)
-               (lock gate)    └─ :core:database  (Room + SQLCipher)
+            └─ :core:transport ── :core:session ─┬─ :core:crypto    (libsodium, Keystore, PIN vault, pairing codes,
+               (Nearby, links,     (lock gate,  │                    envelopes, link handshake — all crypto lives here)
+                outbox, messenger)  keyring)    └─ :core:database  (Room + SQLCipher)
 
-Empty until its phase:   :core:transport
 Tests only:              :core:testing (JVM libsodium, fake Keystore, plain Room files, SessionFixture)
 ```
 
@@ -81,7 +83,7 @@ in `build-logic/` as convention plugins (`tfl.android.feature`, `tfl.hilt`, …)
   `core/designsystem/material-symbols.txt` and run `python3 tools/fonts/build_fonts.py`, which
   regenerates the font files and `MaterialSymbols.kt`. The script pins every source file by commit and SHA-256.
 
-## Security model (Phases 1–2)
+## Security model (Phases 1–3)
 
 The full design, with what each key protects and the unlock and wipe steps, is in
 [docs/SECURITY_DESIGN.md](docs/SECURITY_DESIGN.md).
@@ -108,8 +110,19 @@ lockstate.bin (all of the wrapped keys above) ──► encrypted with a Keystor
   5 minutes; your screen shows a new one every minute. A friend is "verified in person" when both
   phones scanned each other within 5 minutes (three scans), or after comparing **safety numbers**
   (60 digits from both identity keys, identical on both phones).
-- **A changed key** moves the old one to the friend's key history and marks them unverified: sending
-  to them stays paused (from Phase 3) until the new key is verified.
+- **A changed key** moves the old one to the friend's key history and marks them unverified: nothing
+  goes to (or comes from) them until the new key is verified.
+- **Messages** are sealed to the friend's X25519 key and signed with yours (libsodium sealed boxes and
+  Ed25519), padded to fixed sizes, and refused if seen before or dated outside 30 days back / 10
+  minutes ahead. **No forward secrecy yet.**
+- **Nearby only moves bytes.** After Nearby connects, a private handshake proves both phones are
+  friends without telling anyone else who you are; strangers, blocked friends and unverified new
+  keys are dropped silently. The link is then encrypted again with keys only the two can derive.
+  Anyone nearby can tell a TFL phone is around; see the security design for what else they can and
+  can't learn.
+- **While locked** (with "Stay reachable in the background" on), messages still arrive: they're kept
+  sealed, in a Keystore-encrypted file, until you unlock. The keys needed for that stay in memory
+  only, and are wiped when you stop the service, TFL is wiped, or the decoy opens.
 
 ## Testing pairing on phones
 
@@ -137,6 +150,18 @@ Without aiming the camera at all, each Scan tab in debug builds has a field that
 With two phones, each shows **My QR** and scans the other's, three scans in all, as the screens ask.
 **Settings → Developer → Add fake friends** fills the list with one friend in every state, and each
 friend's profile has **Simulate key change**.
+
+## Testing messaging on phones
+
+**One phone** (debug build): pair with **Test friend** as above, then turn on **Settings → Developer →
+Simulated nearby friend**. Test friend then runs inside the app on an in-memory radio, with the real
+handshake, envelopes and receipts, and echoes what you send. In the same place: **Transport log**
+(links, handshakes, frame sizes, retries; never content or keys), **Radio faults** (lose the next
+frames, or hold each one back, to watch retries), and **Add fake conversations** (a chat in every
+state). Nearby itself still needs its permissions: the chats list offers **Set up Nearby**.
+
+**Two phones:** follow [docs/phase3-two-phone-tests.md](docs/phase3-two-phone-tests.md), step by step
+(written for a Galaxy M51 on Android 12 and a Galaxy M20 on Android 10).
 
 ## Dependencies
 

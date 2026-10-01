@@ -11,6 +11,9 @@ enum class HardwareKeyAlias(val alias: String) {
 
     /** Wraps the unlock key for fingerprint unlock. Every use needs a strong biometric. */
     BIOMETRIC("tfl.bio"),
+
+    /** Encrypts the locked inbox: what the transport receives while TFL is locked. No user authentication. */
+    INBOX("tfl.inbox"),
 }
 
 /** The biometric key was invalidated, typically because a new fingerprint was enrolled. */

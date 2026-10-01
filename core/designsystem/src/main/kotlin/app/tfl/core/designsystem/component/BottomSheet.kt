@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
@@ -22,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import app.tfl.core.designsystem.R
 import app.tfl.core.designsystem.icon.MaterialSymbols
@@ -116,4 +119,25 @@ fun SheetHeader(
             )
         }
     }
+}
+
+/**
+ * What a sheet shows below its [SheetHeader], padded and spaced. It scrolls when the phone is too
+ * short to show it all, so the buttons at its end can always be reached. Call it in the sheet's own
+ * column, right after the header, so it gets the height that's left.
+ */
+@Composable
+fun ColumnScope.SheetBody(
+    modifier: Modifier = Modifier,
+    spacing: Dp = 12.dp,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(
+        modifier = modifier
+            .weight(1f, fill = false)
+            .verticalScroll(rememberScrollState())
+            .padding(start = 16.dp, end = 16.dp, bottom = 24.dp),
+        verticalArrangement = Arrangement.spacedBy(spacing),
+        content = content,
+    )
 }

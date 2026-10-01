@@ -138,9 +138,9 @@
 
     <!-- Network -->
     <string name="onboarding_network_title">How TFL connects</string>
-    <string name="onboarding_network_body">Choose how TFL reaches friends beyond Bluetooth range. These settings take effect in a later update; nothing connects yet.</string>
-    <string name="onboarding_network_mesh_title">Nearby mesh</string>
-    <string name="onboarding_network_mesh_body">Messages hop between friends\' phones over Bluetooth and Wi-Fi Direct, even in airplane mode.</string>
+    <string name="onboarding_network_body">Choose how TFL reaches friends. Nearby works from the start; Tor, for friends out of range, is set up now and arrives in a later update.</string>
+    <string name="onboarding_network_mesh_title">Nearby</string>
+    <string name="onboarding_network_mesh_body">Message friends in range over Bluetooth and Wi-Fi Direct, with no internet at all.</string>
     <string name="onboarding_network_tor_title">Tor onion routing</string>
     <string name="onboarding_network_tor_body">Reach friends over the internet through Tor, which hides who is talking to whom.</string>
     <string name="onboarding_network_bridge_label">Connection to Tor</string>
@@ -150,7 +150,7 @@
     <string name="onboarding_network_bridge_obfs4_body">Disguises Tor traffic on networks that block it</string>
     <string name="onboarding_network_bridge_snowflake">Snowflake bridge</string>
     <string name="onboarding_network_bridge_snowflake_body">Routes through temporary volunteer proxies</string>
-    <string name="onboarding_network_later">Takes effect in a later update</string>
+    <string name="onboarding_network_later">Tor takes effect in a later update</string>
 
     <!-- Disguise -->
     <string name="disguise_title">Disguise TFL as a calculator</string>

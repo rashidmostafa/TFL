@@ -1,40 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Chats list -->
     <string name="chats_title">Chats</string>
-    <plurals name="chats_status_peers">
-        <item quantity="one">%d peer active</item>
-        <item quantity="other">%d peers active</item>
+    <plurals name="chats_status_friends_nearby">
+        <item quantity="one">%d friend nearby</item>
+        <item quantity="other">%d friends nearby</item>
     </plurals>
-    <string name="chats_status_tor_on">Tor on</string>
-    <string name="chats_status_tor_off">Tor off</string>
-    <string name="chats_status_line">%1$s · %2$s</string>
+    <string name="chats_status_nearby_off">Nearby off</string>
+    <string name="chats_status_nearby_setup">Nearby needs setting up</string>
     <string name="chats_scan">SCAN</string>
-    <string name="chats_search_placeholder">Search peers, channels, messages…</string>
-
-    <string name="chats_filter_all">All</string>
-    <string name="chats_filter_direct">Direct</string>
-    <string name="chats_filter_groups">Groups</string>
-    <string name="chats_filter_broadcasts">Broadcasts</string>
-
-    <string name="chats_section_pinned">Pinned &amp; broadcasts</string>
-    <string name="chats_section_pinned_trailing">PRIORITY</string>
-    <string name="chats_section_threads">Active threads</string>
-    <string name="chats_section_threads_trailing">E2EE</string>
-    <string name="chats_encrypted">E2EE</string>
-
+    <string name="chats_search_placeholder">Search friends and messages…</string>
+    <string name="chats_section_threads">Conversations</string>
+    <string name="chats_section_threads_trailing">End-to-end encrypted</string>
+    <string name="chats_setup_title">Nearby can\'t look for friends yet</string>
+    <string name="chats_setup_body">It\'s on, but it needs your OK to use Bluetooth (and Location, on some phones) first.</string>
+    <string name="chats_setup_body_switch">It\'s on, but it needs Bluetooth switched on (and Location, on some phones).</string>
+    <string name="chats_setup_action">Set up Nearby</string>
     <string name="chats_alert">ALERT</string>
+    <string name="chats_blocked">Blocked</string>
     <string name="chats_resolve_key">Resolve key</string>
     <string name="chats_new_chat">New chat</string>
+    <string name="chats_scan_friend">Add a friend</string>
     <string name="chats_trust_verified">Verified</string>
     <string name="chats_trust_unverified">Not verified</string>
     <string name="chats_trust_key_changed">Key changed</string>
-    <plurals name="chats_unread">
-        <item quantity="one">%d unread message</item>
-        <item quantity="other">%d unread messages</item>
-    </plurals>
-
+    <string name="chats_in_range">in range</string>
+    <string name="chats_out_of_range">out of range</string>
+    <string name="chats_waiting">waiting</string>
+    <string name="chats_preview_mine">You: %1$s</string>
+    <string name="chats_preview_timer">Disappearing messages: %1$s</string>
+    <string name="chats_preview_timer_off">Disappearing messages off</string>
+    <string name="chats_preview_empty">No messages yet</string>
+    <string name="chats_message_deleted">Message deleted</string>
     <string name="chats_empty_search_title">No matches</string>
     <string name="chats_empty_search_message">Nothing in your chats matches that search.</string>
-    <string name="chats_empty_filter_title">Nothing here yet</string>
-    <string name="chats_empty_filter_message">Conversations of this kind will show up here.</string>
+    <string name="chats_empty_no_friends_title">No friends yet</string>
+    <string name="chats_empty_no_friends_message">Friends are added in person: meet up and scan each other\'s codes. Then you can message them.</string>
+    <string name="chats_empty_title">No conversations yet</string>
+    <string name="chats_empty_message">Start one with a friend. Messages go straight to their phone when you\'re near each other.</string>
+
+    <!-- Times -->
+    <string name="chats_day_today">Today</string>
+    <string name="chats_day_yesterday">Yesterday</string>
+    <string name="chats_time_now">Just now</string>
+    <string name="chats_time_minutes">%1$dm ago</string>
+    <string name="chats_time_hours">%1$dh ago</string>
+    <string name="chats_scheduled_today">Today, %1$s</string>
+    <string name="chats_scheduled_tomorrow">Tomorrow, %1$s</string>
+    <string name="chats_scheduled_date">%1$s, %2$s</string>
+    <string name="chats_timer_off">Off</string>
+    <plurals name="chats_timer_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+    <plurals name="chats_timer_hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <plurals name="chats_timer_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <plurals name="chats_timer_weeks">
+        <item quantity="one">%d week</item>
+        <item quantity="other">%d weeks</item>
+    </plurals>
+
+    <!-- Conversation -->
+    <string name="chat_open_profile">Open profile</string>
+    <string name="chat_nearby_now">Nearby now</string>
+    <string name="chat_not_in_range">Not in range</string>
+    <string name="chat_will_queue">Waits until you meet</string>
+    <string name="chat_encrypted">End-to-end encrypted</string>
+    <string name="chat_trust_verified">Verified</string>
+    <string name="chat_trust_unverified">Not verified</string>
+    <string name="chat_trust_key_changed">Key changed</string>
+    <string name="chat_start">Messages with %1$s are sealed on this phone so that only theirs can open them.</string>
+    <string name="chat_you">You</string>
+    <string name="chat_quote_missing">Original message isn\'t here</string>
+    <string name="chat_edited">edited</string>
+    <string name="chat_disappears">Disappears</string>
+    <string name="chat_message_options">Message options</string>
+    <string name="chat_placeholder">Message</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_save_edit">Save edit</string>
+    <string name="chat_schedule">Schedule</string>
+    <string name="chat_cancel">Cancel</string>
+    <string name="chat_editing">Editing message</string>
+    <string name="chat_replying_to">Replying to %1$s</string>
+    <string name="chat_blocked_notice">You blocked %1$s. Nothing goes to or comes from them until you unblock them.</string>
+    <string name="chat_unblock">Unblock</string>
+    <string name="chat_key_changed_notice">%1$s\'s key changed. Verify it before sending anything.</string>
+    <string name="chat_verify">Verify</string>
+    <string name="chat_gone_notice">This friend was deleted from this phone.</string>
+    <plurals name="chat_scheduled_count">
+        <item quantity="one">Scheduled messages: %d</item>
+        <item quantity="other">Scheduled messages: %d</item>
+    </plurals>
+    <string name="chat_copied">Copied</string>
+    <string name="chat_scheduled_done">Scheduled</string>
+    <string name="chat_refused_blocked">You blocked %1$s</string>
+    <string name="chat_refused_key_changed">%1$s\'s key changed: verify it first</string>
+    <string name="chat_refused_not_found">That message is gone</string>
+    <string name="chat_refused_invalid">That can\'t be sent</string>
+    <string name="chat_refused_not_allowed">That\'s no longer possible</string>
+    <string name="chat_refused_locked">TFL locked: nothing was sent</string>
+
+    <!-- Timer lines -->
+    <string name="chat_timer_set_by_you">You set disappearing messages to %1$s</string>
+    <string name="chat_timer_set_by_them">%1$s set disappearing messages to %2$s</string>
+    <string name="chat_timer_off_by_you">You turned off disappearing messages</string>
+    <string name="chat_timer_off_by_them">%1$s turned off disappearing messages</string>
+
+    <!-- Message menu -->
+    <string name="chat_reply">Reply</string>
+    <string name="chat_edit">Edit</string>
+    <plurals name="chat_edit_minutes_left">
+        <item quantity="one">%d minute left</item>
+        <item quantity="other">%d minutes left</item>
+    </plurals>
+    <string name="chat_copy">Copy text</string>
+    <string name="chat_info">Info</string>
+    <string name="chat_delete_for_me">Delete for me</string>
+    <string name="chat_delete_for_everyone">Delete for everyone</string>
+    <string name="chat_delete_for_everyone_explained">It\'s erased here now, and %1$s\'s phone erases it when it gets the request. If their phone never connects again, it keeps its copy.</string>
+    <string name="chat_reaction_add">React with %1$s</string>
+    <string name="chat_reaction_remove">Remove %1$s</string>
+
+    <!-- Message info -->
+    <string name="chat_info_title">Message info</string>
+    <string name="chat_info_written">Written</string>
+    <string name="chat_info_written_their_clock">Written (%1$s\'s clock)</string>
+    <string name="chat_info_scheduled">Scheduled for</string>
+    <string name="chat_info_sent">Sent</string>
+    <string name="chat_info_delivered">Delivered</string>
+    <string name="chat_info_received">Received</string>
+    <string name="chat_info_edited">Edited</string>
+    <string name="chat_info_disappears">Disappears</string>
+    <string name="chat_info_transport">Travelled by</string>
+    <string name="chat_info_id">Message ID</string>
+    <string name="chat_info_not_yet">Not yet</string>
+    <string name="chat_info_failed">Gave up after 30 days</string>
+    <string name="chat_info_protection_title">How it\'s protected</string>
+    <string name="chat_info_protection_outgoing">Sealed to %1$s\'s X25519 key and signed with your Ed25519 key, so only their phone can open it and it can\'t be changed on the way. No forward secrecy yet.</string>
+    <string name="chat_info_protection_incoming">Sealed to your X25519 key and signed with %1$s\'s Ed25519 key, checked when it arrived. No forward secrecy yet.</string>
+
+    <!-- Disappearing messages -->
+    <string name="chat_disappearing">Disappearing messages</string>
+    <string name="chat_disappearing_explained">New messages in this chat disappear from both phones after the time you choose: on yours, counted from sending; on %1$s\'s, from when it arrives. They\'re erased from the encrypted database, not just hidden. Anyone can still copy or photograph a message before then.</string>
+    <string name="chat_timer_off_body">Messages stay until someone deletes them.</string>
+    <string name="chat_timer_minutes_body">For a quick word that shouldn\'t linger.</string>
+    <string name="chat_timer_hour_body">Long enough to read and reply.</string>
+    <string name="chat_timer_day_body">Gone by tomorrow.</string>
+    <string name="chat_timer_week_body">Kept for a week, then erased.</string>
+    <string name="chat_timer_set">Set timer to %1$s</string>
+    <string name="chat_timer_turn_off">Turn off</string>
+
+    <!-- Scheduling -->
+    <string name="chat_schedule_pick_day">Send on</string>
+    <string name="chat_schedule_pick_time">At</string>
+    <string name="chat_schedule_next">Next</string>
+    <string name="chat_schedule_back">Back</string>
+    <string name="chat_schedule_confirm">Schedule</string>
+    <string name="chat_schedule_past">Pick a time in the future</string>
+    <string name="scheduled_title">Scheduled messages</string>
+    <string name="scheduled_about_title">Sealed now, sent at their time</string>
+    <string name="scheduled_about">Each one is sealed for %1$s when you schedule it and goes at its time, once they\'re nearby. With \"Stay reachable in the background\" on, that works while TFL is locked; after the phone restarts, it waits until you unlock.</string>
+    <string name="scheduled_empty_title">Nothing scheduled</string>
+    <string name="scheduled_empty_message">Write a message, then schedule it with the clock button, or add one here.</string>
+    <string name="scheduled_new">Schedule a message</string>
+    <string name="scheduled_change">Change</string>
+    <string name="scheduled_send_now">Send now</string>
+    <string name="scheduled_delete">Delete</string>
+    <string name="scheduled_pick_time">Pick a day and time</string>
+    <string name="scheduled_save">Save</string>
+    <string name="scheduled_refused_gone">It already went</string>
 </resources>

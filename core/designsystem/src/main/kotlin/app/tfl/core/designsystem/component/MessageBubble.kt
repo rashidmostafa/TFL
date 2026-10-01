@@ -95,6 +95,7 @@ fun DeliveryStatusIcon(status: DeliveryStatus, modifier: Modifier = Modifier) {
         DeliveryStatus.SENT -> Triple(MaterialSymbols.Check, colors.textMuted, R.string.delivery_sent)
         DeliveryStatus.DELIVERED -> Triple(MaterialSymbols.DoneAll, colors.textMuted, R.string.delivery_delivered)
         DeliveryStatus.READ -> Triple(MaterialSymbols.DoneAll, colors.primary, R.string.delivery_read)
+        DeliveryStatus.FAILED -> Triple(MaterialSymbols.Error, colors.danger, R.string.delivery_failed)
     }
     TflIcon(symbol, contentDescription = stringResource(label), modifier = modifier, size = 16.dp, tint = tint)
 }

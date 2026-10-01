@@ -1,0 +1,35 @@
+// What the transport keeps while TFL is locked, until the next unlock (see LockedInboxStore and
+// docs/SECURITY_DESIGN.md, "While TFL is locked"). Never plaintext: envelopes stay sealed.
+// Field numbers are permanent.
+syntax = "proto3";
+
+package tfl.inbox.v1;
+
+option java_package = "app.tfl.core.model.proto";
+option java_multiple_files = true;
+
+message InboxRecord {
+  // The key id of the identity it belongs to: after the duress PIN opens the decoy, the real
+  // profile's records wait for the real profile's next unlock.
+  bytes owner_key_id = 1;
+
+  oneof event {
+    // An envelope a friend sent, accepted and acknowledged, still sealed.
+    ReceivedEnvelope received = 2;
+    // One of this phone's queued envelopes left for its friend.
+    SentEnvelope sent = 3;
+  }
+}
+
+message ReceivedEnvelope {
+  bytes envelope = 1;
+  int64 received_at_millis = 2;
+  // A Transport name (NEARBY).
+  string via = 3;
+}
+
+message SentEnvelope {
+  bytes msg_id = 1;
+  int64 sent_at_millis = 2;
+  string via = 3;
+}

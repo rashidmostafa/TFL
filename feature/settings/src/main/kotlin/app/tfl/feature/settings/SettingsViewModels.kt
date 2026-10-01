@@ -19,6 +19,8 @@ import app.tfl.core.session.LockSettingsState
 import app.tfl.core.session.PinEntry
 import app.tfl.core.session.biometric.BiometricAuth
 import app.tfl.core.session.biometric.BiometricOutcome
+import app.tfl.core.transport.NearbyReadiness
+import app.tfl.core.transport.TransportStatus
 import app.tfl.feature.settings.fake.FakeSettingsData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -368,16 +370,30 @@ class SecuritySettingsViewModel @Inject constructor(
 class BiometricEnrolment(val cipher: Cipher?)
 
 @HiltViewModel
-class NetworkSettingsViewModel @Inject constructor(private val settings: SettingsRepository) : ViewModel() {
+class NetworkSettingsViewModel @Inject constructor(
+    private val settings: SettingsRepository,
+    transport: TransportStatus,
+    readiness: NearbyReadiness,
+) : ViewModel() {
 
     private val showBridges = MutableStateFlow(false)
+
+    private val nearby = combine(settings.observe(SettingKeys.NEARBY_ENABLED), readiness.ready, transport.reachable) { on, ready, reachable ->
+        val card = when {
+            !on -> NearbyCardState.Off
+            !ready -> NearbyCardState.NeedsSetup
+            else -> NearbyCardState.Running(reachable.size)
+        }
+        card to ready
+    }
 
     val uiState: StateFlow<NetworkSettingsUiState> = combine(
         combine(NetworkToggle.entries.map { toggle -> settings.observe(toggle.key).map { toggle to it } }) { it.toMap() },
         settings.observe(SettingKeys.BRIDGE_MODE),
+        nearby,
         showBridges,
-    ) { toggles, bridgeMode, bridges ->
-        NetworkSettingsUiState(toggles, bridgeMode, FakeSettingsData.networkPreview, bridges)
+    ) { toggles, bridgeMode, (card, ready), bridges ->
+        NetworkSettingsUiState(toggles, bridgeMode, FakeSettingsData.networkPreview, card, ready, bridges)
     }.stateIn(
         viewModelScope,
         SharingStarted.WhileSubscribed(5_000),
@@ -415,6 +431,7 @@ private val NetworkToggle.key: SettingKey<Boolean>
     get() = when (this) {
         NetworkToggle.TOR -> SettingKeys.TOR_ENABLED
         NetworkToggle.NEARBY -> SettingKeys.NEARBY_ENABLED
+        NetworkToggle.STAY_REACHABLE -> SettingKeys.STAY_REACHABLE
         NetworkToggle.RELAY -> SettingKeys.RELAY_ENABLED
         NetworkToggle.BATTERY_SAVER -> SettingKeys.BATTERY_SAVER
         NetworkToggle.PAUSE_RELAY_ON_LOW_BATTERY -> SettingKeys.PAUSE_RELAY_ON_LOW_BATTERY

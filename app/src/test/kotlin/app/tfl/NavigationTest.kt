@@ -43,7 +43,9 @@ class NavigationTest {
     @Test
     fun startsOnChats() {
         tab("Chats").assertIsSelected()
-        composeRule.onNodeWithText("Emergency bulletins").assertExists()
+        // A new identity has no friends yet; Nearby hasn't been allowed on this (test) phone.
+        composeRule.onNodeWithText("No friends yet").assertExists()
+        composeRule.onNodeWithText("Nearby needs setting up").assertExists()
     }
 
     @Test
@@ -57,7 +59,7 @@ class NavigationTest {
         tab("Settings").performClick()
         composeRule.onNodeWithText("Valkyrie-7").assertExists()
         tab("Chats").performClick()
-        composeRule.onNodeWithText("Emergency bulletins").assertExists()
+        composeRule.onNodeWithText("No friends yet").assertExists()
     }
 
     @Test
@@ -80,8 +82,18 @@ class NavigationTest {
 
     @Test
     fun unbuiltAction_explainsItself() {
-        composeRule.onNodeWithText("Emergency bulletins").performClick()
+        tab("Settings").performClick()
+        composeRule.onNodeWithText("Privacy").performClick()
         composeRule.onNodeWithText("Not available yet").assertExists()
+    }
+
+    @Test
+    fun nearbySetup_opensFromTheChatsList() {
+        composeRule.onNodeWithText("Set up Nearby").performClick()
+        composeRule.onNodeWithText("Allow", substring = false).assertExists()
+        tab("Chats").assertDoesNotExist()
+        composeRule.onNodeWithContentDescription("Back").performClick()
+        tab("Chats").assertIsSelected()
     }
 
     @Test
@@ -96,10 +108,17 @@ class NavigationTest {
     }
 
     @Test
-    fun newChat_opensFriends_andAddFriendShowsMyCode() {
-        composeRule.onNodeWithContentDescription("New chat").performClick()
-        composeRule.onNodeWithText("No friends yet").assertExists()
+    fun noFriendsYet_addAFriendOpensTheScanner() {
+        // No friends, so no New chat button: the way in is adding one.
+        composeRule.onNodeWithContentDescription("New chat").assertDoesNotExist()
+        composeRule.onNodeWithText("Add a friend").performClick()
+        composeRule.onNodeWithText("Camera needed to scan").assertExists()
+    }
 
+    @Test
+    fun friendsList_addFriendShowsMyCode() {
+        tab("Settings").performClick()
+        composeRule.onNodeWithText("Account & identity").performClick()
         composeRule.onNodeWithText("Add friend").performClick()
         composeRule.waitUntil(5_000) {
             composeRule.onAllNodesWithContentDescription("Your pairing code. Let your friend scan it.").fetchSemanticsNodes().isNotEmpty()

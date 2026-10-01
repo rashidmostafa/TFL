@@ -19,6 +19,7 @@ import app.tfl.core.designsystem.theme.TflTheme
 import app.tfl.core.session.AppSession
 import app.tfl.core.session.CalculatorDisguise
 import app.tfl.core.session.GateState
+import app.tfl.core.transport.android.AndroidNearbyReadiness
 import app.tfl.debug.DebugTools
 import app.tfl.ui.TflGate
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +38,9 @@ class MainActivity : FragmentActivity() {
 
     @Inject
     lateinit var disguise: CalculatorDisguise
+
+    @Inject
+    lateinit var nearbyReadiness: AndroidNearbyReadiness
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splash = installSplashScreen()
@@ -65,6 +69,8 @@ class MainActivity : FragmentActivity() {
         super.onResume()
         // With the disguise on, TFL's own task stays out of recent apps: the calculator is the way in.
         setExcludedFromRecents(disguise.isEnabled())
+        // Permissions may have changed in system settings meanwhile.
+        nearbyReadiness.refresh()
     }
 
     private fun setExcludedFromRecents(excluded: Boolean) {

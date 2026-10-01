@@ -52,6 +52,7 @@ class SettingsScreenTest {
                     onShowIdentity = { opened += "identity" },
                     onOpenSecurity = { opened += "security" },
                     onOpenNetwork = { opened += "network" },
+                    onOpenNotifications = { opened += "notifications" },
                     onOpenFriends = { opened += "friends" },
                     onNotYetAvailable = { opened += "placeholder" },
                     developerSection = null,
@@ -73,9 +74,10 @@ class SettingsScreenTest {
         composeRule.onNodeWithText("Account & identity").performClick()
         composeRule.onNodeWithText("Security").performClick()
         composeRule.onNodeWithText("Network & transports").performClick()
+        composeRule.onNodeWithText("Notifications").performClick()
         composeRule.onNodeWithText("Privacy").performClick()
         composeRule.onNodeWithText("Emergency duress / panic wipe").performClick()
-        assertEquals(listOf("identity", "friends", "security", "network", "placeholder", "security"), opened)
+        assertEquals(listOf("identity", "friends", "security", "network", "notifications", "placeholder", "security"), opened)
     }
 
     @Test
@@ -241,6 +243,8 @@ class NetworkSettingsScreenTest {
         toggles = NetworkToggle.entries.associateWith { it != NetworkToggle.BATTERY_SAVER },
         bridgeMode = BridgeMode.SNOWFLAKE,
         preview = FakeSettingsData.networkPreview,
+        nearby = NearbyCardState.Running(friendsNearby = 2),
+        nearbyReady = true,
     )
 
     @Test
@@ -249,6 +253,25 @@ class NetworkSettingsScreenTest {
             TflTestSurface { NetworkSettingsContent(state, onBack = {}, onToggle = { _, _ -> }, onShowBridges = {}) }
         }
         composeRule.captureScreenshot("network_settings")
+    }
+
+    @Test
+    fun screenshot_nearbyNeedsSetup() {
+        val setUp = mutableListOf<String>()
+        composeRule.setContent {
+            TflTestSurface {
+                NetworkSettingsContent(
+                    state.copy(nearby = NearbyCardState.NeedsSetup, nearbyReady = false),
+                    onBack = {},
+                    onToggle = { _, _ -> },
+                    onShowBridges = {},
+                    onSetUpNearby = { setUp += "setup" },
+                )
+            }
+        }
+        composeRule.captureScreenshot("network_settings_nearby_setup")
+        composeRule.onNodeWithText("Set up Nearby").performClick()
+        assertEquals(listOf("setup"), setUp)
     }
 
     @Test
@@ -264,9 +287,11 @@ class NetworkSettingsScreenTest {
                 )
             }
         }
+        composeRule.onNodeWithText("Stay reachable in the background").performClick()
         composeRule.onNodeWithText("Relay for friends").performClick()
         composeRule.onNodeWithText("Connection to Tor").performClick()
         composeRule.onNodeWithText("Snowflake bridge").assertExists()
-        assertEquals(listOf("RELAY:false", "bridges"), taps)
+        composeRule.onNodeWithText("Linked with 2 friends nearby.").assertExists()
+        assertEquals(listOf("STAY_REACHABLE:false", "RELAY:false", "bridges"), taps)
     }
 }

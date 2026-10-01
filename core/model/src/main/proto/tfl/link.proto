@@ -1,0 +1,56 @@
+// The link between two phones once Nearby connects: a private handshake, then an encrypted stream
+// (see docs/SECURITY_DESIGN.md, "Linking with a friend"). Field numbers are permanent.
+syntax = "proto3";
+
+package tfl.link.v1;
+
+option java_package = "app.tfl.core.model.proto";
+option java_multiple_files = true;
+
+// Every Nearby payload is one LinkFrame.
+message LinkFrame {
+  oneof frame {
+    Hello hello = 1;
+    Knock knock = 2;
+    Answer answer = 3;
+    Sealed sealed = 4;
+  }
+}
+
+message Hello {
+  uint32 version = 1;             // 1
+  bytes nonce = 2;                // 32 random bytes
+  bytes ephemeral_key = 3;        // a fresh X25519 public key for this connection only
+}
+
+// From the phone that asked to connect: one tag per friend it may talk to, padded with random
+// values to a fixed count and sorted, so it reveals neither who it is nor how many friends it has.
+message Knock {
+  repeated bytes tags = 1;
+}
+
+// From the other phone, only if one tag was from a friend of its own.
+message Answer {
+  bytes tag = 1;
+}
+
+// Everything after the handshake, encrypted with libsodium secretstream.
+message Sealed {
+  bytes header = 1;               // the stream header, in each direction's first frame only
+  bytes ciphertext = 2;           // an encrypted LinkMessage
+}
+
+message LinkMessage {
+  oneof body {
+    Auth auth = 1;
+    bytes envelope = 2;           // a serialized Envelope
+    Bye bye = 3;
+  }
+}
+
+// Ed25519 over "TFL-link-auth-v1" ‖ 0x00 ‖ role ‖ transcript: proves the identity key.
+message Auth {
+  bytes signature = 1;
+}
+
+message Bye {}

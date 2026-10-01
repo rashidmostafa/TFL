@@ -20,10 +20,12 @@ class WipeController @Inject constructor(
     private val vault: PinVault,
     private val database: DatabaseHolder,
     private val disguise: CalculatorDisguise,
+    private val keyring: TransportKeyring,
     private val restarter: ProcessRestarter,
 ) {
 
     fun wipeEverything() {
+        keyring.release()
         database.close()
         runCatching { vault.destroy() }.onFailure { TflLog.w(TAG, it) { "Destroying keys failed" } }
         runCatching { disguise.resetLauncher() }

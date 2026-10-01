@@ -37,6 +37,12 @@ object SettingKeys {
     val NEARBY_ENABLED = booleanKey("network.nearby", true)
     val RELAY_ENABLED = booleanKey("network.relay", true)
     val BATTERY_SAVER = booleanKey("network.battery_saver", false)
+
+    /** "Stay reachable in the background": Nearby keeps running, with its keys, while TFL is locked. */
+    val STAY_REACHABLE = booleanKey("network.stay_reachable", true)
+
+    /** New-message notifications name the friend; off, they say only "New message". */
+    val NOTIFY_SHOW_SENDER = booleanKey("notifications.show_sender", false)
     val PAUSE_RELAY_ON_LOW_BATTERY = booleanKey("network.pause_relay_low_battery", true)
     val BRIDGE_MODE = enumKey("network.bridge_mode", BridgeMode.DIRECT)
 

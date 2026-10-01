@@ -65,11 +65,13 @@ internal class ProfileActions(
     val onEditNickname: () -> Unit,
     val onSetBlocked: (Boolean) -> Unit,
     val onDelete: () -> Unit,
+    val onMessage: () -> Unit = {},
 )
 
 @Composable
 internal fun ContactProfileScreen(
     onBack: () -> Unit,
+    onMessage: (contactId: Long) -> Unit,
     onCompare: (contactId: Long) -> Unit,
     onReviewKeyChange: (contactId: Long) -> Unit,
     modifier: Modifier = Modifier,
@@ -91,6 +93,7 @@ internal fun ContactProfileScreen(
             onEditNickname = { editingNickname = true },
             onSetBlocked = viewModel::setBlocked,
             onDelete = { confirmingDelete = true },
+            onMessage = { friend?.let { onMessage(it.id) } },
         ),
         modifier = modifier,
         debugTools = { id -> ContactsDebugTools.ProfileTools(id, onKeyChanged = { onReviewKeyChange(id) }) },
@@ -144,6 +147,12 @@ internal fun ContactProfileContent(
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             Header(friend)
+            PrimaryButton(
+                stringResource(R.string.profile_message),
+                onClick = actions.onMessage,
+                icon = MaterialSymbols.Forum,
+                modifier = Modifier.fillMaxWidth(),
+            )
             if (friend.trust == Trust.KEY_CHANGED) {
                 Callout(
                     text = stringResource(R.string.profile_key_changed_body, friend.name, formatDate(friend.keyChangedAtMillis ?: 0)),

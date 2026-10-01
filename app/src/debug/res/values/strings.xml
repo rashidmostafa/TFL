@@ -19,4 +19,22 @@
     <string name="debug_catalog_screen_title" translatable="false">Design system</string>
     <string name="debug_catalog_sheet_demo" translatable="false">Open the bottom sheet demo</string>
     <string name="debug_catalog_sheet_body" translatable="false" formatted="false">A TflModalBottomSheet: 24dp top corners, drag handle, 60% scrim.</string>
+    <string name="debug_transport_log_title" translatable="false">Transport log</string>
+    <string name="debug_transport_log_subtitle" translatable="false">Links, handshakes, frame sizes, retries. Never content or keys</string>
+    <string name="debug_transport_log_clear" translatable="false">Clear</string>
+    <string name="debug_transport_log_empty" translatable="false">Nothing yet. Turn Nearby on, or the simulated friend.</string>
+    <string name="debug_simulated_friend_title" translatable="false">Simulated nearby friend</string>
+    <string name="debug_simulated_friend_subtitle" translatable="false">Test friend on an in-memory radio: pair with its QR first. Echoes your messages</string>
+    <string name="debug_faults_title" translatable="false">Radio faults</string>
+    <string name="debug_faults_subtitle" translatable="false">Lose next: %1$d · hold each: %2$d s</string>
+    <string name="debug_faults_drop" translatable="false">Lose the next frames (reported sent, never arrive)</string>
+    <plurals name="debug_faults_frames" translatable="false">
+        <item quantity="one">%d frame</item>
+        <item quantity="other">%d frames</item>
+    </plurals>
+    <string name="debug_faults_delay" translatable="false">Hold back every frame</string>
+    <string name="debug_faults_seconds" translatable="false">%1$d s</string>
+    <string name="debug_fake_threads_title" translatable="false">Add fake conversations</string>
+    <string name="debug_fake_threads_subtitle" translatable="false">Three fake friends, messages in every state. Nothing is sent</string>
+    <string name="debug_fake_threads_done" translatable="false">Added: see Chats</string>
 </resources>

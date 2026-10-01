@@ -2,6 +2,7 @@ package app.tfl.core.session
 
 import app.tfl.core.common.log.TflLog
 import app.tfl.core.crypto.CryptoException
+import app.tfl.core.crypto.identity.IdentityKeyDerivation
 import app.tfl.core.crypto.keystore.BiometricKeyInvalidatedException
 import app.tfl.core.crypto.lock.DuressSetup
 import app.tfl.core.crypto.lock.OpenedProfile
@@ -83,7 +84,8 @@ data class LockScreenInfo(
 
 /**
  * TFL's lock gate. Holds the unlocked profile's unlock key in memory while unlocked and wipes it on
- * [lock]. The database is open exactly while unlocked.
+ * [lock]. The database is open exactly while unlocked. Each unlock also hands the profile's
+ * transport keys to [TransportKeyring], which decides how long they outlive the unlock.
  */
 @Singleton
 class AppSession @Inject constructor(
@@ -95,6 +97,8 @@ class AppSession @Inject constructor(
     private val sodium: SodiumApi,
     private val wipeController: WipeController,
     private val identityTools: IdentityTools,
+    private val derivation: IdentityKeyDerivation,
+    private val keyring: TransportKeyring,
     @param:WorkDispatcher private val work: CoroutineDispatcher,
 ) {
     private val gate = MutableStateFlow<GateState>(GateState.Starting)
@@ -225,6 +229,7 @@ class AppSession @Inject constructor(
                     ),
                 )
                 database.open(real.databaseName, real.databaseKey)
+                derivation.derive(draft.seed).use { keyring.hold(it.forTransport()) }
                 unlockKey = newUnlockKey
                 autoLock = draft.autoLock
                 gate.value = GateState.Unlocked(Profile.REAL, step)
@@ -252,6 +257,14 @@ class AppSession @Inject constructor(
         }
     }
 
+    /** Hands the transport the unlocked profile's keys again, after it stopped and wiped them. */
+    suspend fun refreshTransportKeys() = mutex.withLock {
+        withContext(work) {
+            val key = unlockKey ?: return@withContext
+            handOverTransportKeys(profile ?: return@withContext, key)
+        }
+    }
+
     suspend fun advanceOnboarding(next: OnboardingStep) = mutex.withLock {
         val current = gate.value as? GateState.Unlocked ?: return@withLock
         settings.set(SettingKeys.ONBOARDING_STEP, next)
@@ -272,10 +285,14 @@ class AppSession @Inject constructor(
     /** Whether onboarding restored this identity from a phrase (it then has no phrase step). */
     suspend fun wasRestored(): Boolean = settings.get(SettingKeys.ONBOARDING_RESTORED)
 
-    /** Closes the database and wipes the unlock key. Waits for an unlock in progress to finish first. */
+    /**
+     * Closes the database and wipes the unlock key, and the transport keys unless the background
+     * service keeps them. Waits for an unlock in progress to finish first.
+     */
     suspend fun lock() = mutex.withLock {
         if (!isUnlocked) return@withLock
         closeSession()
+        keyring.locked()
         gate.value = GateState.Locked
     }
 
@@ -300,9 +317,25 @@ class AppSession @Inject constructor(
             sodium.wipe(opened.databaseKey)
         }
         unlockKey = opened.unlockKey
+        handOverTransportKeys(opened.profile, opened.unlockKey)
         autoLock = settings.get(SettingKeys.AUTO_LOCK)
         gate.value = GateState.Unlocked(opened.profile, settings.get(SettingKeys.ONBOARDING_STEP))
         return UnlockOutcome.Unlocked
+    }
+
+    /** Derives [profile]'s keys from its seed for the transport; the seed is wiped straight after. */
+    private fun handOverTransportKeys(profile: Profile, key: ByteArray) {
+        try {
+            val seed = vault.openSeed(profile, key)
+            try {
+                derivation.derive(seed).use { keyring.hold(it.forTransport()) }
+            } finally {
+                sodium.wipe(seed)
+            }
+        } catch (e: CryptoException) {
+            // Messages then wait in the outbox; the rest of TFL works.
+            TflLog.w(TAG, e) { "Transport keys unavailable" }
+        }
     }
 
     @Synchronized

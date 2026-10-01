@@ -49,6 +49,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data object DesignCatalogRoute
 
+@Serializable
+internal data object TransportLogRoute
+
 /** What the developer tools need from the app graph. */
 @EntryPoint
 @InstallIn(SingletonComponent::class)
@@ -75,11 +78,13 @@ internal object DebugTools {
             allowScreenshots = allowScreenshotsState.value,
             onAllowScreenshotsChange = { allowScreenshotsState.value = it },
             contactsTools = { ContactsDebugTools.DeveloperRows(navController) },
+            transportTools = { TransportDebugRows(onOpenLog = { navController.navigate(TransportLogRoute) }) },
         )
     }
 
     fun NavGraphBuilder.debugDestinations(onBack: () -> Unit) {
         composable<DesignCatalogRoute> { DesignCatalogScreen(onBack = onBack) }
+        composable<TransportLogRoute> { TransportLogScreen(onBack = onBack) }
     }
 }
 
@@ -89,6 +94,7 @@ private fun DeveloperSection(
     allowScreenshots: Boolean,
     onAllowScreenshotsChange: (Boolean) -> Unit,
     contactsTools: @Composable () -> Unit,
+    transportTools: @Composable () -> Unit,
 ) {
     Column(Modifier.padding(top = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         SectionHeader(
@@ -114,6 +120,8 @@ private fun DeveloperSection(
             )
             TflDivider()
             contactsTools()
+            TflDivider()
+            transportTools()
             TflDivider()
             SecurityTools()
         }

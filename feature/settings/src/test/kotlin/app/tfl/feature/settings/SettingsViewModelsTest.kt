@@ -17,6 +17,9 @@ import app.tfl.core.testing.crypto.FAST_KDF
 import app.tfl.core.testing.session.SessionFixture
 import app.tfl.core.testing.session.SessionFixture.Companion.DURESS_PIN
 import app.tfl.core.testing.session.SessionFixture.Companion.PIN
+import app.tfl.core.transport.NearbyReadiness
+import app.tfl.core.transport.TransportStatus
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -261,10 +264,42 @@ class SettingsViewModelsTest {
         assertNull(viewModel.state.message)
     }
 
+    private class FakeTransportStatus : TransportStatus {
+        override val reachable = MutableStateFlow<Set<Long>>(emptySet())
+        override val running = MutableStateFlow(false)
+    }
+
+    private class FakeReadiness : NearbyReadiness {
+        override val permitted = MutableStateFlow(true)
+        override val ready = MutableStateFlow(true)
+    }
+
+    @Test
+    fun `Nearby shows off, needing setup, or the friends it's linked with`() = runTest {
+        unlocked()
+        val transport = FakeTransportStatus()
+        val readiness = FakeReadiness()
+        val viewModel = NetworkSettingsViewModel(fixture.settings, transport, readiness)
+
+        fixture.settings.set(SettingKeys.NEARBY_ENABLED, false)
+        assertEquals(NearbyCardState.Off, viewModel.uiState.first { it.nearby == NearbyCardState.Off }.nearby)
+        fixture.settings.set(SettingKeys.NEARBY_ENABLED, true)
+        readiness.ready.value = false
+        val needsSetup = viewModel.uiState.first { it.nearby == NearbyCardState.NeedsSetup }
+        assertFalse(needsSetup.nearbyReady)
+        readiness.ready.value = true
+        transport.reachable.value = setOf(4L, 9L)
+        assertTrue(viewModel.uiState.first { it.nearby == NearbyCardState.Running(2) }.nearbyReady)
+
+        viewModel.onToggle(NetworkToggle.STAY_REACHABLE, false)
+        assertFalse(viewModel.uiState.first { !it.isOn(NetworkToggle.STAY_REACHABLE) }.isOn(NetworkToggle.STAY_REACHABLE))
+        assertFalse(fixture.settings.get(SettingKeys.STAY_REACHABLE))
+    }
+
     @Test
     fun `network choices are saved`() = runTest {
         unlocked()
-        val viewModel = NetworkSettingsViewModel(fixture.settings)
+        val viewModel = NetworkSettingsViewModel(fixture.settings, FakeTransportStatus(), FakeReadiness())
         viewModel.onToggle(NetworkToggle.RELAY, false)
         viewModel.onToggle(NetworkToggle.BATTERY_SAVER, true)
         viewModel.showBridges(true)

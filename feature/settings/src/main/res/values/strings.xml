@@ -23,7 +23,7 @@
     <string name="settings_vault_title">Encrypted vault</string>
     <string name="settings_vault_subtitle">Photos, files, notes and passwords</string>
     <string name="settings_notifications_title">Notifications</string>
-    <string name="settings_notifications_subtitle">Quiet by default; SOS alerts always ring</string>
+    <string name="settings_notifications_subtitle">New-message alerts, never their content</string>
     <string name="settings_about_title">About</string>
     <string name="settings_about_subtitle">TFL %s · open-source components only</string>
     <string name="settings_panic_title">Emergency duress / panic wipe</string>
@@ -166,16 +166,21 @@
 
     <!-- Network -->
     <string name="network_title">Network &amp; transports</string>
-    <string name="network_preview_body">Your choices here are saved and take effect when transports arrive in a later update. The mesh figures are sample data.</string>
-    <string name="network_mesh_status">SAMPLE DATA</string>
-    <string name="network_mesh_title">Offline mesh</string>
-    <plurals name="network_peers_nearby">
-        <item quantity="one">%d peer nearby</item>
-        <item quantity="other">%d peers nearby</item>
+    <string name="network_preview_body">Tor and relaying for friends arrive in later updates: their switches are saved but do nothing yet. The relay quota is sample data.</string>
+    <string name="network_section_nearby">Nearby</string>
+    <string name="network_nearby_status_off">OFF</string>
+    <string name="network_nearby_status_setup">NEEDS SETTING UP</string>
+    <string name="network_nearby_status_running">RUNNING</string>
+    <string name="network_nearby_off_body">Nearby is off. Messages wait in the outbox until it\'s on and your friend is in range.</string>
+    <string name="network_nearby_setup_body">Nearby is on, but it can\'t look for friends until you allow Bluetooth (and Location, on some phones).</string>
+    <string name="network_no_friends_nearby">Looking for friends: none in range right now.</string>
+    <plurals name="network_friends_nearby">
+        <item quantity="one">Linked with %d friend nearby.</item>
+        <item quantity="other">Linked with %d friends nearby.</item>
     </plurals>
-    <string name="network_tx">TX %s</string>
-    <string name="network_rtt">RTT %s</string>
-    <string name="network_rx">RX %s</string>
+    <string name="network_nearby_set_up">Set up Nearby</string>
+    <string name="network_stay_reachable_title">Stay reachable in the background</string>
+    <string name="network_stay_reachable_subtitle">Keep Nearby running while TFL is locked, with a quiet notification. Off: only while TFL is open.</string>
     <string name="network_section_tor">Anonymous transport (Tor)</string>
     <string name="network_tor_title">Tor onion service</string>
     <string name="network_tor_subtitle">Reach friends over the internet through your own onion service</string>
@@ -188,9 +193,9 @@
     <string name="network_bridge_snowflake_body">Routes through temporary volunteer proxies</string>
     <string name="network_tor_only_title">Tor-only networking</string>
     <string name="network_tor_only_subtitle">TFL never touches the internet except through Tor</string>
-    <string name="network_section_mesh">Local mesh</string>
+    <string name="network_section_mesh">Relaying</string>
     <string name="network_nearby_title">Nearby (Bluetooth &amp; Wi-Fi Direct)</string>
-    <string name="network_nearby_subtitle">Talk to phones in range with no internet at all</string>
+    <string name="network_nearby_subtitle">Message friends in range, with no internet at all</string>
     <string name="network_relay_title">Relay for friends</string>
     <string name="network_relay_subtitle">Carry other people\'s encrypted messages, which you can\'t read</string>
     <string name="network_relay_quota">Daily relay quota</string>
@@ -198,7 +203,40 @@
     <string name="network_relay_resets">Resets in %s</string>
     <string name="network_section_battery">Battery</string>
     <string name="network_battery_saver_title">Battery saver</string>
-    <string name="network_battery_saver_subtitle">Look for nearby phones every 60 s instead of continuously</string>
+    <string name="network_battery_saver_subtitle" formatted="false">Search for friends every 10 min, not every 1–5. Automatic in power saver and below 15%.</string>
     <string name="network_low_battery_title">Pause relaying on low battery</string>
     <string name="network_low_battery_subtitle" formatted="false">Below 15%, stop carrying other people\'s messages</string>
+
+    <!-- Nearby setup -->
+    <string name="nearby_setup_title">Set up Nearby</string>
+    <string name="nearby_setup_intro">Nearby finds your friends\' phones over Bluetooth and Wi-Fi, without the internet. Android needs your OK first.</string>
+    <string name="nearby_setup_devices_title">Allow Nearby devices</string>
+    <string name="nearby_setup_devices_body">Android calls this \"Nearby devices\". TFL uses it only to find and connect to friends\' phones, and marks it \"never for location\": it can\'t tell where you are from it.</string>
+    <string name="nearby_setup_devices_and_location_body">On Android 12, Android asks for \"Nearby devices\" and for your precise location. TFL uses them only to find friends\' phones; it never reads where you are.</string>
+    <string name="nearby_setup_location_permission_title">Allow Location</string>
+    <string name="nearby_setup_location_permission_body">On this version of Android, apps can only find Bluetooth devices with the Location permission. TFL uses it only to find friends\' phones and never reads where you are.</string>
+    <string name="nearby_setup_allow">Allow</string>
+    <string name="nearby_setup_refused">Not allowed. Nearby can\'t find friends until you allow it.</string>
+    <string name="nearby_setup_blocked">Android won\'t ask again. Allow it for TFL in system settings.</string>
+    <string name="nearby_setup_open_settings">Open settings</string>
+    <string name="nearby_setup_bluetooth_title">Turn on Bluetooth</string>
+    <string name="nearby_setup_bluetooth_body">Nearby finds friends over Bluetooth, even when a connection then moves to Wi-Fi.</string>
+    <string name="nearby_setup_bluetooth_action">Bluetooth settings</string>
+    <string name="nearby_setup_location_title">Turn on Location</string>
+    <string name="nearby_setup_location_body">Android 11 and older only find Bluetooth devices while Location is switched on. TFL doesn\'t read your location.</string>
+    <string name="nearby_setup_location_action">Location settings</string>
+    <string name="nearby_setup_step_done">All set</string>
+    <string name="nearby_setup_ready_title">Nearby is ready</string>
+    <string name="nearby_setup_ready">TFL looks for friends in short bursts to save battery, and connects when they\'re in range.</string>
+    <string name="nearby_setup_done">Done</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notifications</string>
+    <string name="notifications_about_title">Never what a message says</string>
+    <string name="notifications_about">A new message shows as \"New message\". The lock screen never shows more, whatever you choose here.</string>
+    <string name="notifications_show_sender_title">Show sender name</string>
+    <string name="notifications_show_sender_subtitle">Name the friend in the notification while the phone is unlocked</string>
+    <string name="notifications_off_title">Notifications are off for TFL</string>
+    <string name="notifications_off_body">You won\'t hear about new messages until you allow TFL\'s notifications.</string>
+    <string name="notifications_open_system">Notification settings</string>
 </resources>

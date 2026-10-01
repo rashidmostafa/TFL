@@ -1,11 +1,13 @@
-# TFL security design (Phases 1–2)
+# TFL security design (Phases 1–3)
 
 How TFL protects its keys and data on the phone, what survives reinstalling the app or losing the
-phone, and how friends are added and verified. It describes what the code does as of Phase 2;
-update it whenever a phase changes the key hierarchy or how keys are trusted.
+phone, how friends are added and verified, and how messages travel between nearby phones. It
+describes what the code does as of Phase 3; update it whenever a phase changes the key hierarchy,
+how keys are trusted, or what leaves the phone.
 
 All cryptography lives in `:core:crypto` and uses libsodium (through Lazysodium) and the Android
-Keystore only. There is no networking yet.
+Keystore only. Phase 3 adds the only networking so far: Google's Nearby Connections, phone to
+phone, with no internet permission.
 
 ## Key hierarchy
 
@@ -42,6 +44,7 @@ Keystore only. There is no networking yet.
 | `tfl.state` (Keystore) | the whole lock-state file | TFL's files copied off the phone are useless: PIN guessing only works on this phone's hardware |
 | PIN root → verifier and PIN key | UK | the files plus the hardware key are not enough; the PIN is also needed |
 | `tfl.bio` (Keystore) | UK, for fingerprint unlock | fast unlock; any change to enrolled fingerprints destroys it |
+| `tfl.inbox` (Keystore) | the locked inbox (Phase 3) | what arrives while TFL is locked is already sealed to the identity key; this hides even how much arrived, and a wipe destroys it |
 | UK (unlock key) | database key, master seed | one key for both PIN and fingerprint to unwrap, so changing the PIN only re-wraps UK |
 | Database key | the SQLCipher database | random, never derived from the PIN |
 | Master seed | every identity private key | the same phrase gives the same identity, which is what makes restoring work |
@@ -222,6 +225,218 @@ code   = "TFL-SN1:" + base64(protobuf { version 1, digest })
 - **Every code shown is read back first,** at three sizes. ZXing can't read about 1 in 40 codes this
   dense as drawn, so a failing code is redrawn with another QR mask (same data, different pattern).
 
+## Messaging over Nearby (Phase 3)
+
+### Nearby Connections and Google Play services
+
+- **Nearby Connections is part of Google Play services** (`play-services-nearby` 19.5.1), so TFL's
+  offline messaging needs Play services on the phone. Nearby picks the radios: Bluetooth, Bluetooth
+  Low Energy, and Wi-Fi (Wi-Fi Direct or a temporary hotspot).
+- **TFL trusts nothing Nearby says or does about security.** It ignores Nearby's authentication
+  tokens and endpoint info, and doesn't rely on its encryption. Nearby only moves opaque bytes; TFL's
+  own handshake decides who is on the other end, and TFL's own encryption protects everything that
+  crosses (both below).
+- **Strategy P2P_CLUSTER, service id `app.tfl.link.v1`.** The service id is constant, so a phone
+  scanning nearby can tell a TFL phone is around (and nothing more; see the next section).
+- **The advertised name is 8 random characters,** from libsodium's random generator, replaced every
+  15 minutes. It's never the display name or anything derived from a key.
+- **Wi-Fi upgrades that would take the phone off its own Wi-Fi network are turned off:** TFL's
+  frames are small enough for Bluetooth.
+- **Still no INTERNET permission.** Nearby works radio to radio.
+
+### What someone nearby with a Bluetooth scanner can learn
+
+They can learn:
+- **that a phone near them runs TFL,** from the constant service id in Nearby's advertisements;
+- **a random name for it that changes every 15 minutes.** Within those 15 minutes they can tell
+  it's the same phone; across a change, only radio fingerprinting might link the two;
+- **while TFL is reachable, the phone's Bluetooth name is Nearby's advertisement:** random-looking
+  letters that carry that random name (seen as `Ik4yMFNF…` on the Galaxy M51), shown in place of
+  the phone's usual name to anyone listing Bluetooth devices. Nearby puts the usual name back when
+  TFL stops, even when TFL is killed (checked on the Galaxy M20);
+- **roughly how close it is, and when it comes and goes** (signal strength, presence);
+- **that two TFL phones connected, when, and how much data moved.** Message sizes are padded to
+  fixed steps, so the length of a text doesn't show.
+
+They can't learn:
+- **your name, your keys, or who your friends are.** None of it is broadcast. When two TFL phones
+  connect, each proves it holds a secret that only you and one particular friend share; to anyone
+  else, that proof is random-looking bytes that change every connection. A stranger, even one
+  running a modified TFL, is disconnected without learning more than "a TFL phone that doesn't know
+  me". A friend you blocked, or whose changed key you haven't verified, is treated exactly like a
+  stranger.
+- **what you say.** Each message is sealed to its recipient's key and signed by its sender, and the
+  link between the two phones is encrypted again with keys only those two friends can derive.
+- **who you talk to,** unless they watch both phones and match up the timing.
+- **how to pose as a friend or replay messages.** Every message is signed and carries a unique id;
+  one seen before, or dated too far off, is refused.
+
+Also true: **Google Play services runs the radios,** so in principle Google's code sees the same
+metadata as a scanner (which phones connect, when, how much). It never sees content.
+
+### Linking with a friend
+
+After Nearby connects two phones, they run TFL's handshake (`:core:crypto`, `link/LinkHandshake`).
+The phone that asked to connect is the *initiator*.
+
+```
+pair_key(me, friend) = BLAKE2b-256("TFL-pair-key-v1\0" ‖ c2s ‖ s2c)
+    where (c2s, s2c) come from crypto_kx on the two identity X25519 keys (the lower public key is the client)
+    Only these two friends can compute it.
+
+1. Both        Hello { version 1, nonce (32 random bytes), fresh X25519 public key }
+               T1 = BLAKE2b-256("TFL-link-v1\0" ‖ initiator's hello ‖ responder's hello)
+2. Initiator   Knock { 64 tags of 16 bytes, sorted }
+               one tag per friend it may talk to: BLAKE2b-128(key = pair_key, "TFL-link-knock-v1\0" ‖ T1)
+               the rest random, so the number of friends doesn't show
+               T2 = BLAKE2b-256(T1 ‖ knock)
+3. Responder   recomputes a tag for each of its own friends; if none matches, it disconnects, having
+               sent nothing but its hello
+               Answer { BLAKE2b-128(key = pair_key, "TFL-link-answer-v1\0" ‖ T2) }
+   Initiator   finds which friend answered; if none, it gives up after 10 s, having sent only its
+               hello and knock
+               T3 = BLAKE2b-256(T2 ‖ answer)
+4. Both        crypto_kx on the fresh keys (the initiator is the client), then one key per direction:
+               BLAKE2b-256(key = pair_key, "TFL-link-key-v1\0" ‖ 1 or 2 ‖ T3 ‖ that direction's crypto_kx key)
+               Every later frame goes through libsodium secretstream (XChaCha20-Poly1305).
+5. Both        Auth { Ed25519 signature over "TFL-link-auth-v1\0" ‖ role (1 initiator, 2 responder) ‖ T3 },
+               sent encrypted and checked against the friend's stored identity key
+```
+
+- **The responder reveals nothing first:** it answers only after the initiator has shown it shares
+  a pair secret with one of the responder's friends. The initiator's tags change every connection.
+- **Proving the identity key too:** knowing the pair secret (the X25519 key) isn't enough; step 5
+  needs the friend's Ed25519 identity key.
+- **The stream refuses a changed, dropped, replayed or reordered frame;** the link is then dropped
+  and the phones connect again. Recorded handshakes are useless: both fresh nonces are in T1.
+- **Who's left out:** blocked friends and friends with an unverified changed key aren't in the list
+  a phone knocks or answers with, so they get the stranger's treatment.
+- **Limits:** 64 friends per knock, 10 seconds per step, 8 connections at once. A name that failed a
+  handshake isn't asked again until it changes (up to 15 minutes); a connection someone else asks
+  for always gets a handshake, which tells a stranger nothing.
+
+### The envelope
+
+Every message, receipt, reaction, edit, delete and timer change is an envelope, sealed on the
+sender's phone (`:core:crypto`, `envelope/EnvelopeCodec`):
+
+```
+Envelope (protobuf)   version 1 · msg_id (16 random bytes) · created_at · ttl (30 days)
+                      hop_count (0; relaying arrives in Phase 6) · type SEALED
+                      recipient_hint (2 bytes of BLAKE2b-128("TFL-recipient-hint-v1\0" ‖ their Ed25519 key))
+                      payload = crypto_box_seal( sodium_pad(SignedInner, bucket), their X25519 key )
+SignedInner           inner · signature = Ed25519(sender, "TFL-envelope-v1\0" ‖ inner)
+Inner                 version · sender key id · recipient key id (BLAKE2b-128("TFL-key-id-v1\0" ‖ Ed25519 key))
+                      msg_id · created_at (both equal to the envelope's)
+                      text {text, reply_to, disappearing timer} | receipt {msg_ids} | reaction {target, emoji}
+                      | edit {target, text, edit number} | delete {target} | timer {seconds}
+Size buckets          256 B · 1 KB · 4 KB · 16 KB · 64 KB (a text is at most 4,000 characters: 16 KB)
+```
+
+- **Opening, in order;** any failure drops it without an answer: structure and version, the hint,
+  unsealing with this phone's X25519 key, the padding, the recipient key id, the sender (a friend
+  this phone may talk to), the signature, the signed id and time against the envelope's, the clock
+  window, and the content's limits. Then the duplicate check (below).
+- **The recipient is inside the signature,** so a friend's signed message sealed again to someone
+  else is refused.
+- **ttl, hop count and hint are outside the signature,** for relays in Phase 6; changing them
+  changes nothing a recipient reads.
+- **No forward secrecy yet.** Envelopes are sealed to long-term keys: someone who records them and
+  later gets the recipient's identity secret key could open them. Message info says "No forward
+  secrecy yet"; the envelope is versioned so a Double Ratchet can replace this.
+
+### Duplicates, replays and clocks
+
+- **Accepted only if written between 30 days ago and 10 minutes ahead** of this phone's clock.
+- **Every accepted id is remembered for 30 days** (table `seen_messages`, loaded into memory while
+  the transport runs). A duplicate is acknowledged again, so the sender stops sending it, but never
+  applied twice. Receipts aren't remembered: applying one twice changes nothing.
+- **The order of a conversation is this phone's:** when a message was written here, or when it
+  arrived. A friend's clock running fast or slow can't reorder it; their signed time shows in
+  message info.
+
+### Delivery
+
+- **Sealed when sent, queued in the `outbox` table** (sealed: this phone can't read it back), with
+  the key id it was sealed to.
+- **Queued → Sent → Delivered:** *sent* when Nearby reports the frame left, *delivered* when the
+  friend's receipt arrives. Receipts are sealed and signed like messages, end to end, and only count
+  for messages sent to that friend. There are no read receipts.
+- **Retries:** a friend who links gets everything waiting at once; otherwise a message is sent again
+  after at least 60 seconds without a receipt, backing off from 10 seconds, doubling, to 30 minutes.
+  After 30 days it's given up and shows "Not delivered".
+- **A friend's key change** holds their queue. Once the new key is verified, queued texts and timer
+  changes are sealed again to it (a new install never saw the originals, so queued reactions, edits
+  and deletes are dropped).
+- **Scheduled messages are sealed when scheduled,** for their time, and wait in the outbox. WorkManager
+  wakes the outbox then; its own database (not encrypted by TFL) records only when the next one is due.
+
+### Replies, reactions, edits, deletes and disappearing messages
+
+- **Only the author can edit** (within 15 minutes, by the author's clock) **or delete for everyone;**
+  the receiving phone checks the author and the conversation, and a later edit number wins.
+- **Delete for everyone is best effort:** a phone that never connects again keeps its copy.
+- **Disappearing messages** carry their timer inside the signed text, so both phones enforce it:
+  on the sender's, from sending; on the recipient's, from arrival. When it runs out the row is
+  deleted from the encrypted database (`secure_delete` overwrites it), not hidden. A message whose
+  time ran out while TFL was locked is never stored.
+- **Copying a message** marks the clipboard entry sensitive (Android 13+ hides it from the preview).
+
+### While TFL is locked
+
+- **At unlock, the session hands the transport the identity's signing and key-agreement keys**
+  (never the seed or the backup key). They're held in memory only (`TransportKeyring`).
+- **With "Stay reachable in the background" on,** they stay through the lock, and so does a
+  foreground service (type connectedDevice) with a silent notification: "TFL is running", or the
+  calculator's name and icon while disguised, with a **Stop** action.
+- **The keys are wiped** when TFL locks with that setting off; when Stop is tapped while locked;
+  when TFL is wiped (including by the duress PIN); and when another profile unlocks: after the
+  duress PIN opens the decoy, only the decoy's keys are held. A reboot clears memory: nothing runs
+  until the next unlock.
+- **While locked,** the transport works from the friends and queue it had at the last unlock. What
+  arrives is checked in memory (plaintext never leaves memory), acknowledged, and kept **still
+  sealed** in `inbox.bin`, each record encrypted again with the Keystore key `tfl.inbox`. At the next
+  unlock it's filed into the database and erased. Records carry their identity's key id, so the
+  real profile's wait for the real profile.
+- **New-message notifications** say "New message", or the friend's name if "Show sender name" is
+  on; never the content. A secure lock screen shows "New message" at most. An alert that names the
+  friend is marked secret, so Android leaves it off a secure lock screen altogether: marked private
+  with a public version, it would be shown in full on phones set to show all notification content
+  there, and an app can't change that through its notification channels (Android resets the
+  channel's lock-screen setting an app asks for). The running notification is secret too. A phone
+  with no secure screen lock has no lock-screen privacy at all: Android shows notifications to
+  whoever holds it. While disguised they're the calculator's. Android still shows the app's
+  installed name (TFL) in every notification's header; no app can change that.
+
+### Permissions (asked when Nearby is set up, after saying why)
+
+| Android | Asked for | |
+|---|---|---|
+| 8–9 (API 26–28) | approximate location, and Location switched on | |
+| 10–11 (API 29–30) | precise location, and Location switched on | Galaxy M20 |
+| 12 (API 31) | Bluetooth scan (marked "never for location"), advertise, connect; precise location | Galaxy M51 |
+| 12L (API 32) | Bluetooth scan, advertise, connect | |
+| 13–16 (API 33–36) | the Bluetooth three, Nearby Wi-Fi devices ("never for location"), notifications | |
+| 17 (API 37) | also local network | |
+
+A refusal says what won't work; once Android stops asking, TFL points to system settings. Installed
+without asking: Bluetooth and Wi-Fi state, the foreground service, and WorkManager's own (wake lock,
+boot completed to reschedule its job, network state, which reads connectivity and isn't internet).
+Everything else the libraries merge in is removed, and a test lists the exact set.
+
+### Storage (schema 3)
+
+New tables `conversations`, `messages`, `reactions`, `outbox` and `seen_messages` in each profile's
+SQLCipher database, added by an automatic, tested migration from version 2. Message text exists in
+plaintext only inside the encrypted database and on screen. The decoy's chats are its own.
+
+### Debug builds only
+
+A transport log (events only: links, handshakes, frame sizes, retries; never content or keys),
+radio faults (lose the next frames, hold every frame back), fake conversations, and a simulated
+nearby friend: the Test friend on an in-memory radio, running the real handshake, envelopes and
+receipts. Release builds contain none of them, which release tests check.
+
 ## Known limits
 
 - **The 6-digit PIN is strong only because of the hardware key.** Someone able to run code inside a
@@ -233,6 +448,16 @@ code   = "TFL-SN1:" + base64(protobuf { version 1, digest })
 - **Not yet:** key revocation or rotation, forward secrecy (the message envelope is versioned so a
   Double Ratchet can be added), and enforcement of the saved "lock when face down" and panic-trigger
   settings.
+- **Nearby's metadata is visible to Google Play services** (which phones connect, when, how much)
+  and, over the air, to anyone scanning nearby (see "What someone nearby with a Bluetooth scanner
+  can learn"). Never the content.
+- **While locked with "Stay reachable" on, the transport keys are in memory.** Malware with root on
+  the phone could use them. Stopping the service (or turning the setting off) removes them.
+- **An author can backdate an edit:** the 15-minute edit window is judged by the author's own
+  (signed) clock, as it has to be for messages that arrive late.
+- **Out-of-order arrival isn't handled yet:** an edit, reaction or delete for a message that hasn't
+  arrived is dropped. Direct links deliver in order; relays (Phase 6) will need to hold them.
+- **WorkManager's database** records when the next scheduled message is due (nothing about it).
 - **A live relay could fake "in person".** Someone relaying codes live between two people who aren't
   together (for example over two video calls) could make both phones say "verified in person". The
   keys exchanged would still be each other's real keys, so the relay learns nothing; only "in
@@ -241,5 +466,6 @@ code   = "TFL-SN1:" + base64(protobuf { version 1, digest })
 - **Lookalike names aren't blocked.** Invisible and direction-changing characters are refused, but
   letters from other scripts that look alike (a Cyrillic "а" for a Latin "a") are allowed. The key
   fingerprint and safety number identify a friend, not the name.
-- **Debug builds only:** fake friends, key-change simulation and a test friend's QR code, for testing
-  with one phone. Release builds contain none of them, which a release test checks.
+- **Debug builds only:** fake friends, key-change simulation, a test friend's QR code, fake
+  conversations, radio faults, the transport log and the simulated nearby friend, for testing with
+  one phone. Release builds contain none of them, which release tests check.

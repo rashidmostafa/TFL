@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Status bar icon: the shield of the TFL logo, white on transparent. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path
+        android:pathData="M50,14L76,24V47C76,64 65,79.5 50,84C35,79.5 24,64 24,47V24L50,14Z"
+        android:strokeWidth="7"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M40,46A10,10 0,1 0,60,46A10,10 0,1 0,40,46Z" />
+</vector>

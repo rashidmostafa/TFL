@@ -3,6 +3,7 @@ package app.tfl.testing
 import android.content.Context
 import app.tfl.core.crypto.di.CryptoBindings
 import app.tfl.core.crypto.di.CryptoModule
+import app.tfl.core.crypto.inbox.LockedInboxStore
 import app.tfl.core.crypto.keystore.HardwareKeys
 import app.tfl.core.crypto.lock.Argon2idHasher
 import app.tfl.core.crypto.lock.DeviceClock
@@ -50,6 +51,11 @@ object FakeCryptoModule {
     @Singleton
     fun lockStateStore(@ApplicationContext context: Context, keys: HardwareKeys): LockStateStore =
         LockStateStore(context.noBackupFilesDir, keys)
+
+    @Provides
+    @Singleton
+    fun lockedInboxStore(@ApplicationContext context: Context, keys: HardwareKeys): LockedInboxStore =
+        LockedInboxStore(context.noBackupFilesDir, keys)
 
     @Provides
     fun passwordHasher(sodium: SodiumApi): PasswordHasher = Argon2idHasher(sodium)

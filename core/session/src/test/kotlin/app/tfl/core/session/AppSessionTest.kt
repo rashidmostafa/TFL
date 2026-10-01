@@ -167,6 +167,7 @@ class AppSessionTest {
         context.getSharedPreferences("prefs", 0).edit().putString("k", "v").commit()
         context.getExternalFilesDir(null)?.let { File(it, "export.bin").writeText("x") }
         assertTrue(fixture.disguise.isEnabled())
+        assertTrue("what's showing can follow the switch", fixture.disguise.enabled.value)
 
         session.wipe()
 
@@ -176,6 +177,7 @@ class AppSessionTest {
         assertTrue(fixture.keys.aliases.isEmpty())
         assertFalse(fixture.vault.isSetUp())
         assertFalse(fixture.disguise.isEnabled())
+        assertFalse(fixture.disguise.enabled.value)
         assertEquals(1, fixture.restarts)
     }
 }

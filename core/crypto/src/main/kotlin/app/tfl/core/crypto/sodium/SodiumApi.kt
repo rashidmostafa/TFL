@@ -1,7 +1,12 @@
 package app.tfl.core.crypto.sodium
 
+import app.tfl.core.crypto.CryptoException
 import com.goterl.lazysodium.Sodium
+import com.goterl.lazysodium.interfaces.SecretStream
+import com.sun.jna.Memory
 import com.sun.jna.NativeLong
+import com.sun.jna.ptr.IntByReference
+import java.io.Closeable
 
 /**
  * The libsodium operations TFL uses, over Lazysodium's raw JNA bindings.
@@ -116,6 +121,152 @@ class SodiumApi(private val native: Sodium) {
         return out
     }
 
+    /** `crypto_box_seal`: encrypts [message] to an X25519 public key, anonymously; 48 bytes longer. */
+    fun boxSeal(message: ByteArray, recipientPublicKey: ByteArray): ByteArray {
+        require(recipientPublicKey.size == KEY_BYTES) { "X25519 public key must be 32 bytes" }
+        val out = ByteArray(message.size + BOX_SEAL_BYTES)
+        check(native.crypto_box_seal(out, message, message.size.toLong(), recipientPublicKey) == 0) { "Sealing failed" }
+        return out
+    }
+
+    /** Opens a sealed box, or null when it isn't for this keypair or was changed. */
+    fun boxSealOpen(ciphertext: ByteArray, publicKey: ByteArray, secretKey: ByteArray): ByteArray? {
+        if (ciphertext.size < BOX_SEAL_BYTES || publicKey.size != KEY_BYTES || secretKey.size != KEY_BYTES) return null
+        val out = ByteArray(ciphertext.size - BOX_SEAL_BYTES)
+        if (native.crypto_box_seal_open(out, ciphertext, ciphertext.size.toLong(), publicKey, secretKey) != 0) {
+            wipe(out)
+            return null
+        }
+        return out
+    }
+
+    /** `sodium_pad` (ISO/IEC 7816-4): [data] padded to the next multiple of [blockSize], always growing. */
+    fun pad(data: ByteArray, blockSize: Int): ByteArray {
+        require(blockSize > 0) { "Invalid block size" }
+        val capacity = (data.size / blockSize + 1) * blockSize
+        val buffer = Memory(capacity.toLong())
+        val paddedLength = sizeOut()
+        try {
+            buffer.write(0, data, 0, data.size)
+            check(native.sodium_pad(paddedLength, buffer, data.size, blockSize, capacity) == 0) { "Padding failed" }
+            return buffer.getByteArray(0, paddedLength.pointer.getLong(0).toInt())
+        } finally {
+            buffer.clear()
+        }
+    }
+
+    /** `sodium_unpad`, or null when [padded] isn't correctly padded to [blockSize]. */
+    fun unpad(padded: ByteArray, blockSize: Int): ByteArray? {
+        if (blockSize <= 0 || padded.isEmpty() || padded.size % blockSize != 0) return null
+        val buffer = Memory(padded.size.toLong())
+        val unpaddedLength = sizeOut()
+        try {
+            buffer.write(0, padded, 0, padded.size)
+            if (native.sodium_unpad(unpaddedLength, buffer, padded.size, blockSize) != 0) return null
+            return buffer.getByteArray(0, unpaddedLength.pointer.getLong(0).toInt())
+        } finally {
+            buffer.clear()
+        }
+    }
+
+    /**
+     * An out-parameter for a C `size_t`. Lazysodium declares these as [IntByReference], which holds
+     * only 4 bytes while libsodium writes 8 on 64-bit phones, so it's pointed at 8 bytes instead.
+     */
+    private fun sizeOut() = IntByReference().apply { pointer = Memory(Long.SIZE_BYTES.toLong()).apply { clear() } }
+
+    /** A fresh X25519 keypair for `crypto_kx`: (public key, secret key). The caller wipes the secret. */
+    fun kxKeyPair(): Pair<ByteArray, ByteArray> {
+        val publicKey = ByteArray(KEY_BYTES)
+        val secretKey = ByteArray(KEY_BYTES)
+        check(native.crypto_kx_keypair(publicKey, secretKey) == 0) { "Key generation failed" }
+        return publicKey to secretKey
+    }
+
+    /**
+     * `crypto_kx` session keys for this side, as (receive key, transmit key). One side is the client
+     * and the other the server; the client's transmit key is the server's receive key.
+     */
+    fun kxSessionKeys(client: Boolean, myPublicKey: ByteArray, mySecretKey: ByteArray, theirPublicKey: ByteArray): Pair<ByteArray, ByteArray> {
+        require(myPublicKey.size == KEY_BYTES && mySecretKey.size == KEY_BYTES && theirPublicKey.size == KEY_BYTES) { "X25519 keys must be 32 bytes" }
+        val rx = ByteArray(KEY_BYTES)
+        val tx = ByteArray(KEY_BYTES)
+        val result = if (client) {
+            native.crypto_kx_client_session_keys(rx, tx, myPublicKey, mySecretKey, theirPublicKey)
+        } else {
+            native.crypto_kx_server_session_keys(rx, tx, myPublicKey, mySecretKey, theirPublicKey)
+        }
+        if (result != 0) {
+            wipe(rx, tx)
+            throw CryptoException("Key exchange failed") // their key is invalid (a low-order point)
+        }
+        return rx to tx
+    }
+
+    /** The sending half of libsodium's secretstream (XChaCha20-Poly1305): messages in order. */
+    fun streamPush(key: ByteArray): StreamPush {
+        require(key.size == KEY_BYTES) { "Stream key must be 32 bytes" }
+        return StreamPush(key)
+    }
+
+    /** The receiving half, or null when [header] is malformed. */
+    fun streamPull(key: ByteArray, header: ByteArray): StreamPull? {
+        require(key.size == KEY_BYTES) { "Stream key must be 32 bytes" }
+        if (header.size != STREAM_HEADER_BYTES) return null
+        val state = SecretStream.State()
+        if (native.crypto_secretstream_xchacha20poly1305_init_pull(state, header, key) != 0) {
+            state.wipe()
+            return null
+        }
+        return StreamPull(state)
+    }
+
+    inner class StreamPush internal constructor(key: ByteArray) : Closeable {
+        private val state = SecretStream.State()
+
+        /** Sent once, before the first message. */
+        val header = ByteArray(STREAM_HEADER_BYTES)
+
+        init {
+            check(native.crypto_secretstream_xchacha20poly1305_init_push(state, header, key) == 0) { "Stream setup failed" }
+        }
+
+        fun push(message: ByteArray): ByteArray {
+            val out = ByteArray(message.size + STREAM_A_BYTES)
+            val result = native.crypto_secretstream_xchacha20poly1305_push(
+                state, out, LongArray(1), message, message.size.toLong(), null, 0, SecretStream.TAG_MESSAGE,
+            )
+            check(result == 0) { "Stream encryption failed" }
+            return out
+        }
+
+        override fun close() = state.wipe()
+    }
+
+    inner class StreamPull internal constructor(private val state: SecretStream.State) : Closeable {
+        /** The next message, or null when it was changed, replayed or reordered. */
+        fun pull(ciphertext: ByteArray): ByteArray? {
+            if (ciphertext.size < STREAM_A_BYTES) return null
+            val out = ByteArray(ciphertext.size - STREAM_A_BYTES)
+            val result = native.crypto_secretstream_xchacha20poly1305_pull(
+                state, out, LongArray(1), ByteArray(1), ciphertext, ciphertext.size.toLong(), null, 0,
+            )
+            if (result != 0) {
+                wipe(out)
+                return null
+            }
+            return out
+        }
+
+        override fun close() = state.wipe()
+    }
+
+    private fun SecretStream.State.wipe() {
+        k?.let(::wipe)
+        nonce?.let(::wipe)
+        pointer.clear(size().toLong())
+    }
+
     /** Argon2id (v1.3). Returns null when libsodium can't run it, typically because memory ran out. */
     fun argon2id(outputLength: Int, password: ByteArray, salt: ByteArray, opsLimit: Long, memLimitBytes: Long): ByteArray? {
         require(salt.size == ARGON2_SALT_BYTES) { "Argon2id salt must be 16 bytes" }
@@ -140,6 +291,9 @@ class SodiumApi(private val native: Sodium) {
         const val AEAD_NONCE_BYTES = 24
         const val AEAD_TAG_BYTES = 16
         const val ARGON2_SALT_BYTES = 16
+        const val BOX_SEAL_BYTES = 48
+        const val STREAM_HEADER_BYTES = 24
+        const val STREAM_A_BYTES = 17
         private const val GENERIC_HASH_MIN = 16
         private const val GENERIC_HASH_MAX = 64
         private const val KDF_MIN = 16

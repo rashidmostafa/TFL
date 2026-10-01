@@ -72,6 +72,7 @@ dependencies {
     implementation(projects.feature.contacts)
     implementation(projects.feature.onboarding)
     implementation(projects.core.session)
+    implementation(projects.core.transport)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)

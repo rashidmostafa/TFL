@@ -6,7 +6,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import app.tfl.feature.settings.SettingsScreen
+import app.tfl.feature.settings.nearby.NearbySetupScreen
 import app.tfl.feature.settings.network.NetworkSettingsScreen
+import app.tfl.feature.settings.notifications.NotificationSettingsScreen
 import app.tfl.feature.settings.security.SecuritySettingsScreen
 import kotlinx.serialization.Serializable
 
@@ -23,9 +25,20 @@ data object SecuritySettingsRoute
 @Serializable
 data object NetworkSettingsRoute
 
+@Serializable
+data object NotificationSettingsRoute
+
+/** Also opened from the chats list, when Nearby is on but can't run yet. */
+@Serializable
+data object NearbySetupRoute
+
 fun NavController.navigateToSecuritySettings() = navigate(SecuritySettingsRoute)
 
 fun NavController.navigateToNetworkSettings() = navigate(NetworkSettingsRoute)
+
+fun NavController.navigateToNotificationSettings() = navigate(NotificationSettingsRoute)
+
+fun NavController.navigateToNearbySetup() = navigate(NearbySetupRoute) { launchSingleTop = true }
 
 /**
  * @param onOpenFriends "Account & identity": the friends list.
@@ -36,6 +49,8 @@ fun NavGraphBuilder.settingsGraph(
     appVersion: String,
     onOpenSecurity: () -> Unit,
     onOpenNetwork: () -> Unit,
+    onOpenNotifications: () -> Unit,
+    onSetUpNearby: () -> Unit,
     onOpenFriends: () -> Unit,
     onShowPairingCode: () -> Unit,
     onBack: () -> Unit,
@@ -48,6 +63,7 @@ fun NavGraphBuilder.settingsGraph(
                 appVersion = appVersion,
                 onOpenSecurity = onOpenSecurity,
                 onOpenNetwork = onOpenNetwork,
+                onOpenNotifications = onOpenNotifications,
                 onOpenFriends = onOpenFriends,
                 onShowPairingCode = onShowPairingCode,
                 onNotYetAvailable = onNotYetAvailable,
@@ -58,7 +74,14 @@ fun NavGraphBuilder.settingsGraph(
             SecuritySettingsScreen(onBack = onBack, onNotYetAvailable = onNotYetAvailable)
         }
         composable<NetworkSettingsRoute> {
-            NetworkSettingsScreen(onBack = onBack)
+            NetworkSettingsScreen(onBack = onBack, onSetUpNearby = onSetUpNearby)
         }
+        composable<NotificationSettingsRoute> {
+            NotificationSettingsScreen(onBack = onBack)
+        }
+    }
+    // Outside the tab's graph: the chats list opens it too.
+    composable<NearbySetupRoute> {
+        NearbySetupScreen(onBack = onBack)
     }
 }

@@ -55,14 +55,6 @@ internal fun keySourceLabel(source: KeySource): String = stringResource(
     },
 )
 
-/** Up to two letters or digits: the first of each of the first two words ("Valkyrie-7" → "V7"). */
-internal fun initialsOf(name: String): String = name
-    .split(Regex("[^\\p{L}\\p{N}]+"))
-    .filter { it.isNotEmpty() }
-    .take(2)
-    .joinToString("") { word -> String(Character.toChars(word.codePointAt(0))).uppercase() }
-    .ifEmpty { "?" }
-
 internal fun formatDate(millis: Long): String = DateFormat.getDateInstance(DateFormat.MEDIUM).format(Date(millis))
 
 internal fun formatDateTime(millis: Long): String =

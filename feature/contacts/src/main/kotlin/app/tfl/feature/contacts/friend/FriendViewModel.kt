@@ -6,12 +6,12 @@ import androidx.lifecycle.viewModelScope
 import app.tfl.core.crypto.pairing.SafetyNumbers
 import app.tfl.core.database.repository.ContactRepository
 import app.tfl.core.database.repository.IdentityRepository
+import app.tfl.core.designsystem.component.initialsOf
 import app.tfl.core.model.contact.Contact
 import app.tfl.core.model.contact.KeySource
 import app.tfl.core.model.contact.PreviousKey
 import app.tfl.core.model.contact.VerificationMethod
 import app.tfl.feature.contacts.components.Trust
-import app.tfl.feature.contacts.components.initialsOf
 import app.tfl.feature.contacts.components.unlessLocked
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

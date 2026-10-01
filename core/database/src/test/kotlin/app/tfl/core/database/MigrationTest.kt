@@ -8,7 +8,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/** Phones updating from Phase 1 open their existing database at the new version, data intact. */
+/** Phones updating from an earlier phase open their existing database at the new version, data intact. */
 @RunWith(AndroidJUnit4::class)
 class MigrationTest {
 
@@ -34,6 +34,37 @@ class MigrationTest {
             assertEquals(1, count("SELECT COUNT(*) FROM settings WHERE value = 'SECONDS_30'"))
             assertEquals(0, count("SELECT COUNT(*) FROM contacts"))
             assertEquals(0, count("SELECT COUNT(*) FROM contact_keys"))
+        }
+    }
+
+    @Test
+    fun `version 2 gains the chat tables and keeps its friends`() {
+        helper.createDatabase(NAME, 2).use { database ->
+            database.execSQL(
+                "INSERT INTO contacts (id, displayName, signPublicKey, kexPublicKey, fingerprint, keySource, keySinceMillis, " +
+                    "verification, firstSeenAtMillis, lastPairedAtMillis, blocked) " +
+                    "VALUES (4, 'Bob', x'01', x'02', 'B0B', 'IN_PERSON_SCAN', 5, 'VERIFIED', 5, 5, 0)",
+            )
+        }
+
+        helper.runMigrationsAndValidate(NAME, 3, true).use { database ->
+            fun count(sql: String) = database.query(sql).use { cursor ->
+                cursor.moveToFirst()
+                cursor.getInt(0)
+            }
+            assertEquals(1, count("SELECT COUNT(*) FROM contacts WHERE displayName = 'Bob'"))
+            for (table in listOf("conversations", "messages", "reactions", "outbox", "seen_messages")) {
+                assertEquals(table, 0, count("SELECT COUNT(*) FROM $table"))
+            }
+            // Bob's first conversation and message fit the new tables.
+            database.execSQL(
+                "INSERT INTO conversations (id, contactId, expiresAfterSeconds, timerChangedAtMillis, lastReadAtMillis, updatedAtMillis) VALUES (1, 4, 0, 0, 0, 9)",
+            )
+            database.execSQL(
+                "INSERT INTO messages (msgId, conversationId, outgoing, kind, text, createdAtMillis, sortAtMillis, editNumber, deleted, expiresAfterSeconds) " +
+                    "VALUES (x'00112233445566778899AABBCCDDEEFF', 1, 1, 'TEXT', 'hi Bob', 9, 9, 0, 0, 0)",
+            )
+            assertEquals(1, count("SELECT COUNT(*) FROM messages WHERE conversationId = 1"))
         }
     }
 

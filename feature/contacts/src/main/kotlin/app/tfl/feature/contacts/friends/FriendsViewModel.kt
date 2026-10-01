@@ -3,8 +3,8 @@ package app.tfl.feature.contacts.friends
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.tfl.core.database.repository.ContactRepository
+import app.tfl.core.designsystem.component.initialsOf
 import app.tfl.feature.contacts.components.Trust
-import app.tfl.feature.contacts.components.initialsOf
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

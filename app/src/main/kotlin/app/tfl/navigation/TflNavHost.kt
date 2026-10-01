@@ -5,13 +5,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import app.tfl.debug.DebugTools
+import app.tfl.feature.chats.navigation.ChatsLinks
 import app.tfl.feature.chats.navigation.ChatsRoute
-import app.tfl.feature.chats.navigation.chatsScreen
+import app.tfl.feature.chats.navigation.chatsGraph
+import app.tfl.feature.chats.navigation.navigateToConversation
 import app.tfl.feature.contacts.navigation.contactsGraph
 import app.tfl.feature.contacts.navigation.navigateToAddFriend
+import app.tfl.feature.contacts.navigation.navigateToContactProfile
 import app.tfl.feature.contacts.navigation.navigateToFriends
+import app.tfl.feature.contacts.navigation.navigateToKeyChange
+import app.tfl.feature.contacts.navigation.navigateToSafetyNumber
 import app.tfl.feature.map.navigation.mapScreen
+import app.tfl.feature.settings.navigation.navigateToNearbySetup
 import app.tfl.feature.settings.navigation.navigateToNetworkSettings
+import app.tfl.feature.settings.navigation.navigateToNotificationSettings
 import app.tfl.feature.settings.navigation.navigateToSecuritySettings
 import app.tfl.feature.settings.navigation.settingsGraph
 import app.tfl.feature.tools.navigation.toolsScreen
@@ -31,11 +38,16 @@ fun TflNavHost(
     val developerSection = remember(navController) { DebugTools.settingsSection(navController) }
 
     NavHost(navController = navController, startDestination = ChatsRoute, modifier = modifier) {
-        chatsScreen(
-            onOpenProfile = openProfile,
-            onScan = { navController.navigateToAddFriend(scan = true) },
-            onNewChat = navController::navigateToFriends,
-            onNotYetAvailable = onNotYetAvailable,
+        chatsGraph(
+            navController,
+            ChatsLinks(
+                onOpenProfile = openProfile,
+                onScan = { navController.navigateToAddFriend(scan = true) },
+                onOpenFriend = navController::navigateToContactProfile,
+                onVerifyFriend = navController::navigateToSafetyNumber,
+                onReviewKeyChange = navController::navigateToKeyChange,
+                onSetUpNearby = navController::navigateToNearbySetup,
+            ),
         )
         mapScreen(onOpenProfile = openProfile, onNotYetAvailable = onNotYetAvailable)
         vaultScreen(onOpenProfile = openProfile, onNotYetAvailable = onNotYetAvailable)
@@ -44,13 +56,15 @@ fun TflNavHost(
             appVersion = appVersion,
             onOpenSecurity = navController::navigateToSecuritySettings,
             onOpenNetwork = navController::navigateToNetworkSettings,
+            onOpenNotifications = navController::navigateToNotificationSettings,
+            onSetUpNearby = navController::navigateToNearbySetup,
             onOpenFriends = navController::navigateToFriends,
             onShowPairingCode = { navController.navigateToAddFriend() },
             onBack = { navController.popBackStack() },
             onNotYetAvailable = onNotYetAvailable,
             developerSection = developerSection,
         )
-        contactsGraph(navController)
+        contactsGraph(navController, onMessage = navController::navigateToConversation)
         with(DebugTools) { debugDestinations(onBack = { navController.popBackStack() }) }
     }
 }

@@ -57,16 +57,16 @@ class LockedGateTest : GateTestBase(AppStateRule.State.LOCKED) {
     @Test
     fun opensOnTheLockScreen_andThePinOpensTheApp() {
         composeRule.onNodeWithText("Enter your PIN").assertExists()
-        composeRule.onNodeWithText("Emergency bulletins").assertDoesNotExist()
+        composeRule.onNodeWithText("No friends yet").assertDoesNotExist()
         typePin(AppStateRule.PIN)
-        waitForText("Emergency bulletins")
+        waitForText("No friends yet")
     }
 
     @Test
     fun aWrongPinKeepsItLocked() {
         typePin("000000")
         waitForText("Wrong PIN")
-        composeRule.onNodeWithText("Emergency bulletins").assertDoesNotExist()
+        composeRule.onNodeWithText("No friends yet").assertDoesNotExist()
     }
 }
 

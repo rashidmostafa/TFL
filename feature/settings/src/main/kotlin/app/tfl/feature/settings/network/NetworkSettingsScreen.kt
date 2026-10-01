@@ -26,6 +26,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.tfl.core.designsystem.component.Callout
 import app.tfl.core.designsystem.component.CalloutTone
 import app.tfl.core.designsystem.component.ListRow
+import app.tfl.core.designsystem.component.PillButton
 import app.tfl.core.designsystem.component.SectionHeader
 import app.tfl.core.designsystem.component.StatusPill
 import app.tfl.core.designsystem.component.Tag
@@ -41,6 +42,7 @@ import app.tfl.core.designsystem.component.RadioRow
 import app.tfl.core.designsystem.component.SheetHeader
 import app.tfl.core.designsystem.component.TflModalBottomSheet
 import app.tfl.core.model.network.BridgeMode
+import app.tfl.feature.settings.NearbyCardState
 import app.tfl.feature.settings.NetworkPreview
 import app.tfl.feature.settings.NetworkSettingsUiState
 import app.tfl.feature.settings.NetworkSettingsViewModel
@@ -51,11 +53,23 @@ import app.tfl.feature.settings.security.GroupCard
 @Composable
 internal fun NetworkSettingsScreen(
     onBack: () -> Unit,
+    onSetUpNearby: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: NetworkSettingsViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    NetworkSettingsContent(uiState, onBack, viewModel::onToggle, onShowBridges = { viewModel.showBridges(true) }, modifier = modifier)
+    NetworkSettingsContent(
+        uiState,
+        onBack,
+        onToggle = { toggle, on ->
+            viewModel.onToggle(toggle, on)
+            // Switched on without what Nearby needs: straight to setting it up.
+            if (toggle == NetworkToggle.NEARBY && on && !uiState.nearbyReady) onSetUpNearby()
+        },
+        onShowBridges = { viewModel.showBridges(true) },
+        onSetUpNearby = onSetUpNearby,
+        modifier = modifier,
+    )
     if (uiState.showBridges) {
         BridgeSheet(uiState.bridgeMode, onSelect = viewModel::onBridgeSelect, onDismiss = { viewModel.showBridges(false) })
     }
@@ -68,6 +82,7 @@ internal fun NetworkSettingsContent(
     onToggle: (NetworkToggle, Boolean) -> Unit,
     onShowBridges: () -> Unit,
     modifier: Modifier = Modifier,
+    onSetUpNearby: () -> Unit = {},
 ) {
     val colors = TflTheme.colors
     Column(
@@ -86,13 +101,34 @@ internal fun NetworkSettingsContent(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+            SectionHeader(
+                stringResource(R.string.network_section_nearby),
+                icon = MaterialSymbols.Sensors,
+                iconTint = colors.primary,
+            )
+            NearbyStatusCard(uiState.nearby, onSetUpNearby)
+            GroupCard {
+                ToggleRow(
+                    title = stringResource(R.string.network_nearby_title),
+                    subtitle = stringResource(R.string.network_nearby_subtitle),
+                    checked = uiState.isOn(NetworkToggle.NEARBY),
+                    onCheckedChange = { onToggle(NetworkToggle.NEARBY, it) },
+                )
+                TflDivider()
+                ToggleRow(
+                    title = stringResource(R.string.network_stay_reachable_title),
+                    subtitle = stringResource(R.string.network_stay_reachable_subtitle),
+                    checked = uiState.isOn(NetworkToggle.STAY_REACHABLE),
+                    onCheckedChange = { onToggle(NetworkToggle.STAY_REACHABLE, it) },
+                )
+            }
+
             Callout(
                 text = stringResource(R.string.network_preview_body),
                 title = stringResource(R.string.settings_preview_title),
                 tone = CalloutTone.Warning,
+                modifier = Modifier.padding(top = 12.dp),
             )
-            MeshStatusCard(uiState.preview)
-
             SectionHeader(
                 stringResource(R.string.network_section_tor),
                 modifier = Modifier.padding(top = 12.dp),
@@ -130,13 +166,6 @@ internal fun NetworkSettingsContent(
             )
             GroupCard {
                 ToggleRow(
-                    title = stringResource(R.string.network_nearby_title),
-                    subtitle = stringResource(R.string.network_nearby_subtitle),
-                    checked = uiState.isOn(NetworkToggle.NEARBY),
-                    onCheckedChange = { onToggle(NetworkToggle.NEARBY, it) },
-                )
-                TflDivider()
-                ToggleRow(
                     title = stringResource(R.string.network_relay_title),
                     subtitle = stringResource(R.string.network_relay_subtitle),
                     checked = uiState.isOn(NetworkToggle.RELAY),
@@ -170,40 +199,41 @@ internal fun NetworkSettingsContent(
     }
 }
 
-/** Sample figures only, labelled as such, until the transports exist. */
+/** Whether Nearby is running and how many friends it's linked with; what's missing if it can't run. */
 @Composable
-private fun MeshStatusCard(uiState: NetworkPreview) {
+private fun NearbyStatusCard(state: NearbyCardState, onSetUp: () -> Unit) {
     val colors = TflTheme.colors
-    TflCard(modifier = Modifier.padding(top = 4.dp), borderColor = colors.primary.copy(alpha = 0.25f), verticalSpacing = 10.dp) {
-        StatusPill(stringResource(R.string.network_mesh_status), color = colors.warning)
-        Text(stringResource(R.string.network_mesh_title), style = TflTheme.typography.headlineSm, color = colors.textPrimary)
-        Text(
-            text = pluralStringResource(R.plurals.network_peers_nearby, uiState.peersNearby, uiState.peersNearby),
-            style = TflTheme.typography.codeSm,
-            color = colors.primary,
+    val tint = when (state) {
+        NearbyCardState.Off -> colors.textMuted
+        NearbyCardState.NeedsSetup -> colors.warning
+        is NearbyCardState.Running -> colors.primary
+    }
+    TflCard(modifier = Modifier.fillMaxWidth(), borderColor = tint.copy(alpha = 0.3f), verticalSpacing = 10.dp) {
+        StatusPill(
+            stringResource(
+                when (state) {
+                    NearbyCardState.Off -> R.string.network_nearby_status_off
+                    NearbyCardState.NeedsSetup -> R.string.network_nearby_status_setup
+                    is NearbyCardState.Running -> R.string.network_nearby_status_running
+                },
+            ),
+            color = tint,
         )
-        // Recent link activity; decorative, the figures below carry the information.
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(32.dp)
-                .clearAndSetSemantics {},
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-            verticalAlignment = Alignment.Bottom,
-        ) {
-            uiState.linkActivity.forEach { level ->
-                Box(
-                    Modifier
-                        .weight(1f)
-                        .fillMaxHeight(level.coerceIn(0.1f, 1f))
-                        .background(if (level > 0.6f) colors.primary else colors.mesh.copy(alpha = 0.5f), TflTheme.shapes.pill),
-                )
-            }
-        }
-        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-            Text(stringResource(R.string.network_tx, uiState.txRate), style = TflTheme.typography.codeSm, color = colors.textMuted)
-            Text(stringResource(R.string.network_rtt, uiState.roundTrip), style = TflTheme.typography.codeSm, color = colors.primary)
-            Text(stringResource(R.string.network_rx, uiState.rxRate), style = TflTheme.typography.codeSm, color = colors.textMuted)
+        Text(
+            text = when (state) {
+                NearbyCardState.Off -> stringResource(R.string.network_nearby_off_body)
+                NearbyCardState.NeedsSetup -> stringResource(R.string.network_nearby_setup_body)
+                is NearbyCardState.Running -> if (state.friendsNearby == 0) {
+                    stringResource(R.string.network_no_friends_nearby)
+                } else {
+                    pluralStringResource(R.plurals.network_friends_nearby, state.friendsNearby, state.friendsNearby)
+                }
+            },
+            style = TflTheme.typography.bodyMd,
+            color = colors.textPrimary,
+        )
+        if (state == NearbyCardState.NeedsSetup) {
+            PillButton(stringResource(R.string.network_nearby_set_up), onClick = onSetUp, icon = MaterialSymbols.Sensors, contentColor = colors.warning)
         }
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notification channels are listed in system settings: neutral names. -->
+    <string name="transport_channel_background">Background</string>
+    <string name="transport_channel_alerts">Alerts</string>
+    <string name="transport_running">TFL is running</string>
+    <string name="transport_stop">Stop</string>
+    <string name="transport_new_message">New message</string>
+    <!-- While the calculator disguise is on, notifications carry the calculator's name. -->
+    <string name="transport_disguised_title" translatable="false">Calculator</string>
+</resources>

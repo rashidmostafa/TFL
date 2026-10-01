@@ -24,6 +24,7 @@ import app.tfl.core.session.LockSettings
 import app.tfl.core.session.OnboardingDraft
 import app.tfl.core.session.PairingIdentity
 import app.tfl.core.session.ProfileCreator
+import app.tfl.core.session.TransportKeyring
 import app.tfl.core.session.WipeController
 import app.tfl.core.testing.crypto.FAST_KDF
 import app.tfl.core.testing.crypto.FakeDeviceClock
@@ -55,8 +56,9 @@ class SessionFixture(val context: Context, phone: String? = null, val clock: Fak
     val disguise = CalculatorDisguise(context, vault)
     var restarts = 0
         private set
-    val wipe = WipeController(context, vault, database, disguise) { restarts++ }
-    val session = AppSession(vault, database, settings, creator, { FAST_KDF }, sodium, wipe, tools, Dispatchers.Unconfined)
+    val keyring = TransportKeyring()
+    val wipe = WipeController(context, vault, database, disguise, keyring) { restarts++ }
+    val session = AppSession(vault, database, settings, creator, { FAST_KDF }, sodium, wipe, tools, derivation, keyring, Dispatchers.Unconfined)
     val lockSettings = LockSettings(session, vault, settings, identities, creator, disguise, wipe, sodium, Dispatchers.Unconfined)
     val contacts = ContactRepository(database)
     val pairingCodes = PairingCodes(sodium, fingerprints)

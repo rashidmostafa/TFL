@@ -50,6 +50,7 @@ internal fun SettingsScreen(
     appVersion: String,
     onOpenSecurity: () -> Unit,
     onOpenNetwork: () -> Unit,
+    onOpenNotifications: () -> Unit,
     onOpenFriends: () -> Unit,
     onShowPairingCode: () -> Unit,
     onNotYetAvailable: () -> Unit,
@@ -65,6 +66,7 @@ internal fun SettingsScreen(
         onShowIdentity = { showIdentity = true },
         onOpenSecurity = onOpenSecurity,
         onOpenNetwork = onOpenNetwork,
+        onOpenNotifications = onOpenNotifications,
         onOpenFriends = onOpenFriends,
         onNotYetAvailable = onNotYetAvailable,
         developerSection = developerSection,
@@ -89,6 +91,7 @@ internal fun SettingsContent(
     onShowIdentity: () -> Unit,
     onOpenSecurity: () -> Unit,
     onOpenNetwork: () -> Unit,
+    onOpenNotifications: () -> Unit,
     onOpenFriends: () -> Unit,
     onNotYetAvailable: () -> Unit,
     developerSection: (@Composable () -> Unit)?,
@@ -179,7 +182,7 @@ internal fun SettingsContent(
                 title = stringResource(R.string.settings_notifications_title),
                 subtitle = stringResource(R.string.settings_notifications_subtitle),
                 icon = MaterialSymbols.NotificationsActive,
-                onClick = onNotYetAvailable,
+                onClick = onOpenNotifications,
             )
             ListRow(
                 title = stringResource(R.string.settings_about_title),

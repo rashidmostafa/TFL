@@ -65,15 +65,23 @@ interface SettingsDao {
  * Version history (schemas exported to core/database/schemas):
  * 1. identity and settings (Phase 1)
  * 2. contacts and their key history (Phase 2)
+ * 3. conversations, messages, reactions, the outbox and seen message ids (Phase 3)
  */
 @Database(
-    entities = [IdentityEntity::class, SettingEntity::class, ContactEntity::class, ContactKeyEntity::class],
-    version = 2,
+    entities = [
+        IdentityEntity::class, SettingEntity::class, ContactEntity::class, ContactKeyEntity::class,
+        ConversationEntity::class, MessageEntity::class, ReactionEntity::class, OutboxEntity::class, SeenMessageEntity::class,
+    ],
+    version = 3,
     exportSchema = true,
-    autoMigrations = [AutoMigration(from = 1, to = 2)],
+    autoMigrations = [AutoMigration(from = 1, to = 2), AutoMigration(from = 2, to = 3)],
 )
 abstract class TflDatabase : RoomDatabase() {
     abstract fun identityDao(): IdentityDao
     abstract fun settingsDao(): SettingsDao
     abstract fun contactDao(): ContactDao
+    abstract fun conversationDao(): ConversationDao
+    abstract fun messageDao(): MessageDao
+    abstract fun outboxDao(): OutboxDao
+    abstract fun seenMessageDao(): SeenMessageDao
 }

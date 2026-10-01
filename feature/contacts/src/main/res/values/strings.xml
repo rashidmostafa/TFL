@@ -82,6 +82,7 @@
 
     <!-- Profile -->
     <string name="profile_title">Friend</string>
+    <string name="profile_message">Message</string>
     <string name="profile_their_name">Their name: %1$s</string>
     <string name="profile_key_changed_title">Key changed</string>
     <string name="profile_key_changed_body">%1$s\'s key changed on %2$s. Sending to them is paused until you verify the new key.</string>
@@ -110,7 +111,7 @@
     <string name="profile_nickname_save">Save</string>
     <string name="profile_cancel">Cancel</string>
     <string name="profile_block">Block %1$s</string>
-    <string name="profile_block_subtitle">Nothing is sent to a blocked friend</string>
+    <string name="profile_block_subtitle">Nothing goes to or comes from a blocked friend</string>
     <string name="profile_unblock">Unblock %1$s</string>
     <string name="profile_unblock_subtitle">Allow messages again</string>
     <string name="profile_delete">Delete friend</string>

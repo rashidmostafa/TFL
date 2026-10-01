@@ -1,5 +1,6 @@
 package app.tfl.feature.contacts.debug
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -230,8 +231,13 @@ object ContactsDebugTools {
         return ContactKeys(sign, tools.sodium().randomBytes(KEY_BYTES), tools.fingerprints().of(sign))
     }
 
+    @Synchronized
     private fun testFriendSeed(tools: ContactsDebugEntryPoint): ByteArray =
         testFriendSeed ?: tools.sodium().randomBytes(KEY_BYTES).also { testFriendSeed = it }
+
+    /** The test friend's seed, for the simulated nearby friend: the same friend as this run's QR code. */
+    fun testFriendSeed(context: Context): ByteArray =
+        testFriendSeed(EntryPointAccessors.fromApplication(context, ContactsDebugEntryPoint::class.java)).copyOf()
 
     /** A valid pairing code from the test friend; it answers this phone's latest code when [answerMine]. */
     internal fun testFriendCode(tools: ContactsDebugEntryPoint, answerMine: Boolean): TestCode {

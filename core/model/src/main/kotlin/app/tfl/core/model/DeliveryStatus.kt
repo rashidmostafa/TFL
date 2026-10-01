@@ -11,6 +11,9 @@ enum class DeliveryStatus {
     /** The recipient's device acknowledged it. */
     DELIVERED,
 
-    /** The recipient opened it. */
+    /** The recipient opened it. TFL sends no read receipts, so only design previews use this. */
     READ,
+
+    /** Not delivered within 30 days: the outbox gave up. */
+    FAILED,
 }

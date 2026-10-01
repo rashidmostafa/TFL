@@ -21,6 +21,25 @@ class IdentityKeys internal constructor(
     val backupKey: ByteArray,
 ) : AutoCloseable {
     override fun close() = sodium.wipe(signSecretKey, kexSecretKey, backupKey)
+
+    /** Copies of the keys the transport needs; they outlive this object and are wiped separately. */
+    fun forTransport(): TransportKeys =
+        TransportKeys(sodium, signPublicKey.copyOf(), signSecretKey.copyOf(), kexPublicKey.copyOf(), kexSecretKey.copyOf())
+}
+
+/**
+ * The identity keys the transport keeps while it runs, including while TFL is locked (see
+ * docs/SECURITY_DESIGN.md, "While TFL is locked"): signing and key agreement only, never the seed
+ * or the backup key. They live in memory only; [close] wipes them.
+ */
+class TransportKeys internal constructor(
+    private val sodium: SodiumApi,
+    val signPublicKey: ByteArray,
+    val signSecretKey: ByteArray,
+    val kexPublicKey: ByteArray,
+    val kexSecretKey: ByteArray,
+) : AutoCloseable {
+    override fun close() = sodium.wipe(signSecretKey, kexSecretKey)
 }
 
 class IdentityKeyDerivation @Inject constructor(private val sodium: SodiumApi) {

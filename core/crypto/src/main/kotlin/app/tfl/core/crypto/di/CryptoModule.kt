@@ -1,6 +1,7 @@
 package app.tfl.core.crypto.di
 
 import android.content.Context
+import app.tfl.core.crypto.inbox.LockedInboxStore
 import app.tfl.core.crypto.keystore.AndroidHardwareKeys
 import app.tfl.core.crypto.keystore.HardwareKeys
 import app.tfl.core.crypto.lock.AndroidDeviceClock
@@ -39,6 +40,11 @@ object CryptoModule {
     @Singleton
     fun lockStateStore(@ApplicationContext context: Context, keys: HardwareKeys): LockStateStore =
         LockStateStore(context.noBackupFilesDir, keys)
+
+    @Provides
+    @Singleton
+    fun lockedInboxStore(@ApplicationContext context: Context, keys: HardwareKeys): LockedInboxStore =
+        LockedInboxStore(context.noBackupFilesDir, keys)
 }
 
 @Module

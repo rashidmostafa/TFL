@@ -30,11 +30,11 @@ import app.tfl.core.designsystem.component.TflBackButton
 import app.tfl.core.designsystem.component.TflCard
 import app.tfl.core.designsystem.component.TflProgressBar
 import app.tfl.core.designsystem.component.TflTopBar
+import app.tfl.core.designsystem.component.initialsOf
 import app.tfl.core.designsystem.icon.MaterialSymbols
 import app.tfl.core.designsystem.icon.TflIcon
 import app.tfl.core.designsystem.theme.TflTheme
 import app.tfl.feature.contacts.R
-import app.tfl.feature.contacts.components.initialsOf
 import app.tfl.feature.contacts.fake.FakeContactsData
 import app.tfl.feature.contacts.fake.GroupJoinPreview
 import app.tfl.feature.contacts.fake.PreviewApproval

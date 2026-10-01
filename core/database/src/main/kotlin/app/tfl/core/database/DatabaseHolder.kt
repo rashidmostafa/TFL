@@ -1,5 +1,6 @@
 package app.tfl.core.database
 
+import androidx.room.withTransaction
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -43,4 +44,7 @@ class DatabaseHolder @Inject constructor(private val factory: DatabaseFactory) {
     fun delete(name: String) = factory.delete(name)
 
     fun require(): TflDatabase = current.value ?: throw DatabaseLockedException()
+
+    /** Runs [block] as one transaction: all of its writes happen, or none. */
+    suspend fun <R> transaction(block: suspend () -> R): R = require().withTransaction(block)
 }

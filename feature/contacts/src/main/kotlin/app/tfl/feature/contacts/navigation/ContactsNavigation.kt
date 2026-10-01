@@ -45,8 +45,18 @@ fun NavController.navigateToFriends() = navigate(FriendsRoute) { launchSingleTop
 
 fun NavController.navigateToAddFriend(scan: Boolean = false) = navigate(AddFriendRoute(scan)) { launchSingleTop = true }
 
-/** Friends, pairing in person, profiles, safety numbers and key changes. */
-fun NavGraphBuilder.contactsGraph(navController: NavController) {
+fun NavController.navigateToContactProfile(contactId: Long) = navigate(ContactProfileRoute(contactId)) { launchSingleTop = true }
+
+fun NavController.navigateToSafetyNumber(contactId: Long) = navigate(SafetyNumberRoute(contactId)) { launchSingleTop = true }
+
+fun NavController.navigateToKeyChange(contactId: Long) = navigate(KeyChangeRoute(contactId)) { launchSingleTop = true }
+
+/**
+ * Friends, pairing in person, profiles, safety numbers and key changes.
+ *
+ * @param onMessage opens the conversation with a friend (chats are another feature).
+ */
+fun NavGraphBuilder.contactsGraph(navController: NavController, onMessage: (contactId: Long) -> Unit) {
     val back: () -> Unit = { navController.popBackStack() }
 
     /** Leaves a screen for the friend's profile: back to it if it's underneath, else replacing this screen. */
@@ -85,6 +95,7 @@ fun NavGraphBuilder.contactsGraph(navController: NavController) {
     composable<ContactProfileRoute> {
         ContactProfileScreen(
             onBack = back,
+            onMessage = onMessage,
             onCompare = { id -> navController.navigate(SafetyNumberRoute(id)) },
             onReviewKeyChange = { id -> navController.navigate(KeyChangeRoute(id)) },
         )

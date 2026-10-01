@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import app.tfl.core.designsystem.component.initialsOf
 import app.tfl.core.model.contact.KeySource
 import app.tfl.core.testing.MainDispatcherRule
 import app.tfl.core.testing.session.SessionFixture
 import app.tfl.feature.contacts.TestKeys
 import app.tfl.feature.contacts.components.Trust
-import app.tfl.feature.contacts.components.initialsOf
 import app.tfl.feature.contacts.friends.FriendsViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first

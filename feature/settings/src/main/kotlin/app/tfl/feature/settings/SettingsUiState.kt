@@ -101,28 +101,35 @@ data class SecuritySettingsUiState(
         }
 }
 
-enum class NetworkToggle { TOR, NEARBY, RELAY, BATTERY_SAVER, PAUSE_RELAY_ON_LOW_BATTERY }
+enum class NetworkToggle { TOR, NEARBY, STAY_REACHABLE, RELAY, BATTERY_SAVER, PAUSE_RELAY_ON_LOW_BATTERY }
 
-/** Sample figures for the mesh card until transports exist (Phases 3 and 4). */
+/** Sample figures for the relay quota until relaying exists (Phase 6). */
 @Immutable
 data class NetworkPreview(
-    val peersNearby: Int,
-    val txRate: String,
-    val rxRate: String,
-    val roundTrip: String,
-    /** Recent link activity, 0..1 per bar. */
-    val linkActivity: List<Float>,
     val relayUsedMb: Int,
     val relayQuotaMb: Int,
     val relayResetsIn: String,
 )
 
-/** Saved choices. They take effect when the transports arrive. */
+/** Nearby as the Network screen shows it. */
+sealed interface NearbyCardState {
+    data object Off : NearbyCardState
+
+    /** On, but a permission or a switch is missing. */
+    data object NeedsSetup : NearbyCardState
+
+    data class Running(val friendsNearby: Int) : NearbyCardState
+}
+
+/** Nearby, the background service and battery saver are live; Tor and relaying are saved for later phases. */
 @Immutable
 data class NetworkSettingsUiState(
     val toggles: Map<NetworkToggle, Boolean>,
     val bridgeMode: BridgeMode,
     val preview: NetworkPreview,
+    val nearby: NearbyCardState = NearbyCardState.Off,
+    /** Nearby's permissions and switches are all in place, whether or not it's on. */
+    val nearbyReady: Boolean = false,
     val showBridges: Boolean = false,
 ) {
     fun isOn(toggle: NetworkToggle): Boolean = toggles[toggle] == true
